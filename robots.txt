@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rbc-realestate.vercel.app/sitemap.xml
