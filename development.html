@@ -217,6 +217,10 @@ a:hover > .mapimg{transform:translateY(-3px);box-shadow:0 30px 65px -22px rgba(2
 
 /* ── multi-page nav ── */
 nav .links a.on{color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px;}
+nav .links a.sec{font-weight:500;text-transform:none;letter-spacing:.04em;font-size:.82rem;color:var(--ink-soft);}
+nav .links .sep{width:1px;height:18px;background:var(--line);display:inline-block;}
+@media(max-width:860px){nav .links .sep{display:none;}}
+.mnav a.msec{font-family:'Figtree',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);border-bottom:none;padding:8px 0;}
 nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-radius:3px;color:var(--navy);width:40px;height:36px;font-size:1.2rem;cursor:pointer;}
 @media(max-width:860px){nav .burger{display:inline-flex;align-items:center;justify-content:center;}}
 .mnav{position:fixed;inset:0;z-index:120;background:var(--navy-deep);color:#fff;display:none;flex-direction:column;padding:26px 22px;}
@@ -315,7 +319,9 @@ nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-r
   <div class="in">
     <a href="index.html"><img src="img/rbc-logo.png" alt="RBC — Roberto Balderas Carrillo, Architect · Builder · Developer · Real Estate"></a>
     <div class="links">
-      <a href="real-estate.html">Real Estate</a><a href="architecture.html">Architecture &amp; Design</a><a href="construction.html">Construction</a><a href="development.html" class="on">Development</a><a href="roberto-balderas-carrillo.html">Roberto</a>
+      <a href="index.html">Home</a><a href="real-estate.html">Real Estate</a><a href="architecture.html">Architecture &amp; Design</a><a href="construction.html">Construction</a><a href="development.html" class="on">Development</a>
+      <span class="sep"></span>
+      <a class="sec" href="roberto-balderas-carrillo.html">Roberto</a><a class="sec" href="contact.html">Contact</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
@@ -323,7 +329,7 @@ nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-r
 </nav>
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
-  <a href="real-estate.html"><small>01</small>Real Estate</a><a href="architecture.html"><small>02</small>Architecture &amp; Design</a><a href="construction.html"><small>03</small>Construction</a><a href="development.html"><small>04</small>Development</a><a href="roberto-balderas-carrillo.html"><small>05</small>Roberto</a>
+  <a href="index.html"><small>00</small>Home</a><a href="real-estate.html"><small>01</small>Real Estate</a><a href="architecture.html"><small>02</small>Architecture &amp; Design</a><a href="construction.html"><small>03</small>Construction</a><a href="development.html"><small>04</small>Development</a><a class="msec" href="roberto-balderas-carrillo.html">Roberto</a><a class="msec" href="contact.html">Contact</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
 </div>
 
@@ -414,7 +420,7 @@ nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-r
   <div class="in">
     <div class="row">
       <div>© 2026 RBC · Roberto Balderas Carrillo, Arquitecto · Celaya · Querétaro · San Miguel de Allende, México</div>
-      <div><a href="real-estate.html">Real Estate</a> · <a href="architecture.html">Architecture</a> · <a href="construction.html">Construction</a> · <a href="development.html">Development</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms</a></div>
+      <div><a href="index.html">Home</a> · <a href="real-estate.html">Real Estate</a> · <a href="architecture.html">Architecture</a> · <a href="construction.html">Construction</a> · <a href="development.html">Development</a> · <a href="roberto-balderas-carrillo.html">Roberto</a> · <a href="contact.html">Contact</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms</a></div>
     </div>
     <div class="fine">Prices in MXN; USD figures are approximate references based on prevailing exchange rates. Renders and images are illustrative; specifications, availability and delivery times subject to change without notice. This site does not constitute a binding offer.</div>
   </div>

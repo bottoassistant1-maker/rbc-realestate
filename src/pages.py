@@ -107,7 +107,7 @@ def home(wa, SITE):
 
 <section id="services">
   <div class="wrap">
-    <div class="eyebrow rv">What we do — in this order</div>
+    <div class="eyebrow rv">RBC · Four practices, one architect</div>
     <h2 class="rv d1">Four ways to work with the architect directly.</h2>
     <p class="lead rv d2" style="max-width:700px;">Whether you're buying a finished home, commissioning a design, building on your lot or following a development in progress — you'll be talking to the same person from the first call to the keys.</p>
     <div class="pillars">
@@ -583,9 +583,50 @@ def roberto(wa, SITE):
             "Roberto Balderas Carrillo is an architect, builder, developer and real estate advisor in the Bajío region of Mexico. 30 years, 2,600+ homes, one point of contact — from design to keys.",
             body, "img/valley-golden-hour.jpg", ld, "0.6")
 
+# ───────────────────────────── CONTACT ─────────────────────────────
+def contact(wa, SITE):
+    body = phero("img/sunset-terrace-luxury-villa-mexico.jpg", "Contact",
+        "Let's talk.",
+        "Buying, designing, building or investing — one message and you're talking to the architect. English and Spanish spoken.",
+        '<a href="index.html">Home</a> › Contact') + f"""
+<section id="ways">
+  <div class="wrap split" style="align-items:start;">
+    <div class="rv">
+      <div class="eyebrow">Direct line</div>
+      <h2>Roberto Balderas Carrillo</h2>
+      <p class="lead">Architect · Builder · Developer · Real Estate Advisor<br>Celaya · Querétaro · San Miguel de Allende, México</p>
+      <div style="margin-top:20px;display:grid;gap:10px;max-width:420px;">
+        <a class="btn red" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
+        <a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram @arqrobertobalderas</a>
+        <a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas — construction firm</a>
+        <a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Peñas Arriba — development site</a>
+      </div>
+      <ul class="checks" style="margin-top:26px;">
+        <li>Private showings in San Miguel de Allende, by appointment</li>
+        <li>Video calls for buyers abroad — US and Canadian time zones welcome</li>
+        <li>Replies personally, usually the same day</li>
+      </ul>
+    </div>
+    <div class="rv d1">
+      {form("Send a message", "Tell me what you have in mind — it goes straight to my WhatsApp.",
+        [("row",[("text","Name","Your name","Jane Smith"),("select","Interest","I'm interested in",["Buying a home","Designing a home","Building / a construction quote","A development / investment","Something else"])]),
+         ("row",[("select","City","City",["San Miguel de Allende","Querétaro","Celaya","Other"]),("text","Contact","Best way to reach you","Phone or email")]),
+         ("area","Message","Message","")],
+        "Hi Roberto, I'm writing from your website:", "Send to Roberto on WhatsApp")}
+    </div>
+  </div>
+</section>
+"""
+    ld = [{"@context":"https://schema.org","@type":"ContactPage","url":f"{SITE}/contact.html","name":"Contact Roberto Balderas Carrillo"},
+          {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Contact","item":f"{SITE}/contact.html"}]}]
+    return ("contact",
+            "Contact — Roberto Balderas Carrillo, Architect &amp; Real Estate | San Miguel de Allende",
+            "Contact architect, builder and real estate advisor Roberto Balderas Carrillo. WhatsApp +52 461 101 2474. Private showings in San Miguel de Allende, design and construction quotes in Querétaro and Celaya.",
+            body, "img/sunset-terrace-luxury-villa-mexico.jpg", ld, "0.5")
+
 def build(page, wa, ORG, SITE):
     urls = []
-    for fn in (home, real_estate, casa_horizonte, architecture, construction, development, roberto):
+    for fn in (home, real_estate, casa_horizonte, architecture, construction, development, roberto, contact):
         slug, title, desc, body, og, ld, pr = fn(wa, SITE)
         if ld == "org":
             ld = [ORG]

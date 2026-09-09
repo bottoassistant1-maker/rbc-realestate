@@ -13,16 +13,24 @@ def wa(msg):
     return f"{WA}?text={quote(msg)}"
 
 NAV_ITEMS = [
+    ("index.html", "Home"),
     ("real-estate.html", "Real Estate"),
     ("architecture.html", "Architecture &amp; Design"),
     ("construction.html", "Construction"),
     ("development.html", "Development"),
+]
+SEC_ITEMS = [
     ("roberto-balderas-carrillo.html", "Roberto"),
+    ("contact.html", "Contact"),
 ]
 
 EXTRA_CSS = """
 /* ── multi-page nav ── */
 nav .links a.on{color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px;}
+nav .links a.sec{font-weight:500;text-transform:none;letter-spacing:.04em;font-size:.82rem;color:var(--ink-soft);}
+nav .links .sep{width:1px;height:18px;background:var(--line);display:inline-block;}
+@media(max-width:860px){nav .links .sep{display:none;}}
+.mnav a.msec{font-family:'Figtree',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);border-bottom:none;padding:8px 0;}
 nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-radius:3px;color:var(--navy);width:40px;height:36px;font-size:1.2rem;cursor:pointer;}
 @media(max-width:860px){nav .burger{display:inline-flex;align-items:center;justify-content:center;}}
 .mnav{position:fixed;inset:0;z-index:120;background:var(--navy-deep);color:#fff;display:none;flex-direction:column;padding:26px 22px;}
@@ -120,15 +128,18 @@ def nav(active):
     links = "".join(
         f'<a href="{h}"{ON if h == active else ""}>{t}</a>' for h, t in NAV_ITEMS
     )
+    sec = "".join(f'<a class="sec" href="{h}"{ON if h == active else ""}>{t}</a>' for h, t in SEC_ITEMS)
     m = "".join(
-        f'<a href="{h}"><small>0{i+1}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
-    )
+        f'<a href="{h}"><small>0{i}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
+    ) + "".join(f'<a class="msec" href="{h}">{t}</a>' for h, t in SEC_ITEMS)
     return f"""
 <nav>
   <div class="in">
     <a href="index.html"><img src="img/rbc-logo.png" alt="RBC — Roberto Balderas Carrillo, Architect · Builder · Developer · Real Estate"></a>
     <div class="links">
       {links}
+      <span class="sep"></span>
+      {sec}
       <a class="cta" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
@@ -146,7 +157,7 @@ FOOTER = f"""
   <div class="in">
     <div class="row">
       <div>© 2026 RBC · Roberto Balderas Carrillo, Arquitecto · Celaya · Querétaro · San Miguel de Allende, México</div>
-      <div><a href="real-estate.html">Real Estate</a> · <a href="architecture.html">Architecture</a> · <a href="construction.html">Construction</a> · <a href="development.html">Development</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms</a></div>
+      <div><a href="index.html">Home</a> · <a href="real-estate.html">Real Estate</a> · <a href="architecture.html">Architecture</a> · <a href="construction.html">Construction</a> · <a href="development.html">Development</a> · <a href="roberto-balderas-carrillo.html">Roberto</a> · <a href="contact.html">Contact</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms</a></div>
     </div>
     <div class="fine">Prices in MXN; USD figures are approximate references based on prevailing exchange rates. Renders and images are illustrative; specifications, availability and delivery times subject to change without notice. This site does not constitute a binding offer.</div>
   </div>
