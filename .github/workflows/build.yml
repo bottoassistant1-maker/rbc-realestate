@@ -1,0 +1,24 @@
+name: Build site
+on:
+  push:
+    branches: [main]
+    paths: ['src/**', '.github/workflows/build.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: build-site
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build pages
+        run: python3 src/build.py
+      - name: Commit generated site
+        run: |
+          git config user.name "bottoassistant1-maker"
+          git config user.email "botto.assistant1@gmail.com"
+          git add -A
+          git diff --cached --quiet && echo "nothing to commit" || (git commit -m "build: regenerate site from src" && git push)
