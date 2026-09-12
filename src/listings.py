@@ -32,9 +32,9 @@ add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizo
     highlights=["622 m² (6,693 sq ft) built on an 827 m² (8,905 sq ft) lot","5 bedrooms: three on the entry level (one convertible to staff), two below · 5½ baths","Pool and pergola terrace facing the Parroquia","Wine cellar in the excavated rock · elevator-ready","Under construction — finishes chosen by the buyer"],
     program=[("Upper level — entry","Entry court and two-car garage · living-dining with open kitchen · primary suite with two walk-ins and two baths · study with bath · two bedrooms · linen room · covered terrace · sun deck with pool"),("Lower level","Two large en-suite bedrooms · family room · wine cellar in the excavated rock · elevator shaft · private garden facing the center")],
     location="Lot M4-L7, upper tier of Peñas Arriba, San Miguel de Allende — about 7 minutes (1.8 mi) from the Jardín Principal. BJX airport ~1 h 15, QRO ~1 h.",
-    img="img/casa-horizonte-sunset-facade.jpg",
-    gallery=["img/casa-horizonte-infinity-pool.jpg","img/casa-horizonte-terrace-sunset.jpg","img/casa-horizonte-garden-facade-day.jpg","img/san-miguel-de-allende-parroquia-view.jpg"],
-    plans=["img/floor-plan-upper-level-casa-horizonte.jpg","img/floor-plan-lower-level-casa-horizonte.jpg","img/architecture-section-hillside-home.jpg"])
+    img="img/ig-DceaktFmAgJ-1.jpg",
+    gallery=["img/ig-DceaktFmAgJ-3.jpg","img/ig-DceaktFmAgJ-5.jpg","img/ig-DceaktFmAgJ-2.jpg","img/ig-DceZkcqmPiU-2.jpg","img/ig-DceaktFmAgJ-6.jpg","img/ig-DceaktFmAgJ-4.jpg","img/ig-DceZkcqmPiU-4.jpg","img/casa-horizonte-garden-facade-day.jpg"],
+    plans=["img/ig-DceZkcqmPiU-5.jpg","img/ig-DceZkcqmPiU-6.jpg","img/architecture-section-hillside-home.jpg"])
 
 add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
     auth="Represented by RBC",
@@ -172,7 +172,7 @@ add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", 
     highlights=["15–20 minutes from the center of San Miguel de Allende, in open countryside","Sliding glass doors throughout, opening completely to the landscape","Italian hardwood floors and ceilings · Spanish kitchen","Built by RBC","Photography by Alejandro Torre"],
     program=[("The house","Full presentation with plans and areas available on request")],
     location="On the road to Jalpa, 15–20 minutes from the center of San Miguel de Allende, in open countryside.",
-    img="img/luxury-home-san-miguel-de-allende-terrace.jpg", gallery=["img/sunset-terrace-luxury-villa-mexico.jpg","img/villa-garden-day.jpg","img/hero-terrace-sunset.jpg"])
+    img="img/ig-DJ-iHIEx2Xi-1.jpg", gallery=["img/ig-DJ-iHIEx2Xi-4.jpg","img/ig-DJ-iHIEx2Xi-2.jpg","img/ig-DJ-iHIEx2Xi-3.jpg","img/ig-DJ-iHIEx2Xi-5.jpg","img/ig-DJ-iHIEx2Xi-6.jpg"])
 
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="Club de Golf El Campanario · Querétaro",
@@ -190,7 +190,7 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
     highlights=["Last lot of its private street — open mountain views","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Three en-suite bedrooms upstairs + family TV room + reading lobby","Ground-floor en-suite room for gym, bedroom or study","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed and built by RBC"],
     program=[("Ground level","Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · en-suite room (gym / study / bedroom) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage"),("Upper level","Three bedrooms with baths · family TV room · lobby for reading or linen")],
     location="Club de Golf El Campanario, Querétaro — the last lot of its private street, with open mountain views.",
-    img="img/villa-garden-day.jpg", gallery=["img/infinity-pool-city.jpg","img/gated-entrance-luxury-home.jpg","img/stone-villa-garden-pool-mexico.jpg"])
+    img="img/ig-C_3mXTMxFYj-1.jpg", gallery=["img/ig-C_3mXTMxFYj-2.jpg","img/ig-C_3mXTMxFYj-3.jpg"])
 
 # ───────── CELAYA ─────────
 add(slug="magno", page=False, city="celaya", kind="sale", name="Magno Home & Towers", where="Celaya · Guanajuato",

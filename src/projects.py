@@ -6,39 +6,39 @@ IG = "https://www.instagram.com/arqrobertobalderas/p/"
 
 # category: res (residential) · hosp (hospitality & commercial) · param (parametric / art) · build (built by us)
 PROJECTS = [
-  dict(slug="casa-ether", scale="art", name="Casa Ether", place="Jalpa road · 15 min from San Miguel de Allende", year="2025", cat="res", built=True, sale="casa-ether.html", img="img/luxury-home-san-miguel-de-allende-terrace.jpg", ig="DJ-iHIEx2Xi",
+  dict(slug="casa-ether", scale="art", name="Casa Ether", place="Jalpa road · 15 min from San Miguel de Allende", year="2025", cat="res", built=True, sale="casa-ether.html", img="img/ig-DJ-iHIEx2Xi-1.jpg", photos=['img/ig-DJ-iHIEx2Xi-1.jpg', 'img/ig-DJ-iHIEx2Xi-4.jpg', 'img/ig-DJ-iHIEx2Xi-2.jpg', 'img/ig-DJ-iHIEx2Xi-3.jpg', 'img/ig-DJ-iHIEx2Xi-5.jpg', 'img/ig-DJ-iHIEx2Xi-6.jpg'], ig="DJ-iHIEx2Xi",
        txt="A contemporary country house, built by RBC from a prior scheme that was re-read and recomposed. Sliding glass walls open fully to the landscape; Italian hardwood on floors and ceilings; a Spanish kitchen. For sale."),
-  dict(slug="casa-jalpa", scale="art", name="Casa de Campo, Jalpa", place="Jalpa · Guanajuato", year="2022", cat="res", built=False, img="img/hero-villa-sunset.jpg", ig="CmIlRhHNyUi",
+  dict(slug="casa-jalpa", scale="art", name="Casa de Campo, Jalpa", place="Jalpa · Guanajuato", year="2022", cat="res", built=False, img="img/ig-CmIlRhHNyUi-4.jpg", photos=['img/ig-CmIlRhHNyUi-4.jpg', 'img/ig-CmIlRhHNyUi-1.jpg', 'img/ig-CmIlRhHNyUi-2.jpg', 'img/ig-CmIlRhHNyUi-3.jpg', 'img/ig-CmIlRhHNyUi-5.jpg', 'img/ig-CmIlRhHNyUi-6.jpg'], ig="CmIlRhHNyUi",
        txt="Country house on open land: long horizontal volumes, deep covered terraces and a plan that opens entirely to the landscape."),
-  dict(slug="casa-horizonte", scale="art", name="Casa Horizonte", place="Peñas Arriba · San Miguel de Allende", year="2026", cat="res", built=True, sale="casa-horizonte.html", img="img/casa-horizonte-sunset-facade.jpg", ig="DceaktFmAgJ",
+  dict(slug="casa-horizonte", scale="art", name="Casa Horizonte", place="Peñas Arriba · San Miguel de Allende", year="2026", cat="res", built=True, sale="casa-horizonte.html", img="img/ig-DceaktFmAgJ-1.jpg", photos=['img/ig-DceaktFmAgJ-1.jpg', 'img/ig-DceaktFmAgJ-2.jpg', 'img/ig-DceaktFmAgJ-3.jpg', 'img/ig-DceaktFmAgJ-5.jpg', 'img/ig-DceaktFmAgJ-6.jpg', 'img/ig-DceaktFmAgJ-4.jpg'], ig="DceaktFmAgJ",
        txt="Shaped by its topography: the house follows the slope, unfolding across levels and opening both floors toward San Miguel. Entered from the top; rock from the excavation left exposed inside. Under construction; for sale."),
-  dict(slug="pabellon-arte", scale="art", name="Private art pavilion", place="San Miguel de Allende", year="2026", cat="hosp", built=False, img="img/architecture-section-hillside-home.jpg", ig="DZqIB1jmGm_",
+  dict(slug="pabellon-arte", scale="art", name="Private art pavilion", place="San Miguel de Allende", year="2026", cat="hosp", built=False, img="img/ig-DZqIB1jmGm_-3.jpg", photos=['img/ig-DZqIB1jmGm_-3.jpg', 'img/ig-DZqIB1jmGm_-1.jpg', 'img/ig-DZqIB1jmGm_-2.jpg', 'img/ig-DZqIB1jmGm_-4.jpg'], ig="DZqIB1jmGm_",
        txt="Gallery, studio and private refuge in one sequence: a contemplation courtyard leads to rooms for permanent and temporary exhibitions, sculpture, painting and performance. Water, natural light and honest materials."),
-  dict(slug="casa-travertino", scale="art", name="Casa Travertino", place="Club de Golf El Campanario · Querétaro", year="2025", cat="res", built=True, sale="casa-travertino.html", img="img/villa-garden-day.jpg", ig="C_3mXTMxFYj",
+  dict(slug="casa-travertino", scale="art", name="Casa Travertino", place="Club de Golf El Campanario · Querétaro", year="2025", cat="res", built=True, sale="casa-travertino.html", img="img/ig-C_3mXTMxFYj-1.jpg", photos=['img/ig-C_3mXTMxFYj-1.jpg', 'img/ig-C_3mXTMxFYj-2.jpg', 'img/ig-C_3mXTMxFYj-3.jpg'], ig="C_3mXTMxFYj",
        txt="Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool and sun deck, three en-suite bedrooms. Designed and built by RBC; for sale."),
-  dict(slug="hotel-casa-x", scale="art", name="Hotel Casa X", place="San Miguel de Allende", year="2026", cat="hosp", built=False, img="img/valley-golden-hour.jpg", ig="DZvx80iGPzt",
+  dict(slug="hotel-casa-x", scale="art", name="Hotel Casa X", place="San Miguel de Allende", year="2026", cat="hosp", built=False, img="img/ig-DZvx80iGPzt-2.jpg", photos=['img/ig-DZvx80iGPzt-2.jpg', 'img/ig-DZvx80iGPzt-3.jpg', 'img/ig-DZvx80iGPzt-4.jpg', 'img/ig-DZvx80iGPzt-5.jpg', 'img/ig-DZvx80iGPzt-6.jpg', 'img/ig-DZvx80iGPzt-1.jpg'], ig="DZvx80iGPzt",
        txt="A hotel immersed in the landscape, transforming an existing ranch through a sensitive master plan: stone-walled cabins set into the hill, an integrated pool, an open-air deck for events, greenhouse and productive gardens."),
-  dict(slug="bar-bachus", scale="art", name="Bar Bachus", place="Historic center · San Miguel de Allende", year="2024", cat="hosp", built=True, img="img/luxury-home-san-miguel-interior-living.jpg", ig="C8NS-m5RKyS",
+  dict(slug="bar-bachus", scale="art", name="Bar Bachus", place="Historic center · San Miguel de Allende", year="2024", cat="hosp", built=True, img="img/ig-C8NS-m5RKyS-1.jpg", photos=['img/ig-C8NS-m5RKyS-1.jpg', 'img/ig-C8NS-m5RKyS-2.jpg', 'img/ig-C8NS-m5RKyS-3.jpg', 'img/ig-C8NS-m5RKyS-4.jpg'], ig="C8NS-m5RKyS",
        txt="Fluid, parametric curves unify every area of the bar into one enveloping volume, absorbing the uneven levels of an old house in the center without breaking the flow."),
-  dict(slug="casa-cuadrante", scale="art", name="Casa Cuadrante — restaurant & residence", place="Historic center · San Miguel de Allende", year="2023", cat="hosp", built=True, img="img/san-miguel-street-vertical.jpg", ig="CmIgeQvtivo",
+  dict(slug="casa-cuadrante", scale="art", name="Casa Cuadrante — restaurant & residence", place="Historic center · San Miguel de Allende", year="2023", cat="hosp", built=True, img="img/ig-CmIgeQvtivo-1.jpg", photos=['img/ig-CmIgeQvtivo-1.jpg'], ig="CmIgeQvtivo",
        txt="Restoration, construction, adaptation and interior design of a historic house: the restaurant on the ground floor, and above it Casa Musa and the Panoramic Suite, both available for mid-term stays."),
-  dict(slug="amecsa", scale="macro", name="Amecsa dealership", place="Monterrey · Nuevo León", year="2023", cat="hosp", built=False, img="img/community-gate.jpg", ig="CqYldy-JhDi",
+  dict(slug="amecsa", scale="macro", name="Amecsa dealership", place="Monterrey · Nuevo León", year="2023", cat="hosp", built=False, img="img/ig-CqYldy-JhDi-1.jpg", photos=['img/ig-CqYldy-JhDi-1.jpg', 'img/ig-CqYldy-JhDi-2.jpg', 'img/ig-CqYldy-JhDi-3.jpg', 'img/ig-CqYldy-JhDi-4.jpg'], ig="CqYldy-JhDi",
        txt="Showroom and service facility for a heavy-machinery distributor."),
-  dict(slug="condesa", scale="macro", name="Condesa apartment façade", place="Condesa · Mexico City", year="2024", cat="res", built=False, img="img/view-historic-center.jpg", ig="C36BNy-r7sX",
+  dict(slug="condesa", scale="macro", name="Condesa apartment façade", place="Condesa · Mexico City", year="2024", cat="res", built=False, img="img/ig-C36BNy-r7sX-1.jpg", photos=['img/ig-C36BNy-r7sX-1.jpg'], ig="C36BNy-r7sX",
        txt="Remodelling proposal and new façade for an apartment building in Condesa."),
-  dict(slug="daily-veggies", scale="macro", name="Daily Veggies offices", place="Querétaro", year="2022", cat="hosp", built=False, img="img/community-gym.jpg", ig="CmIiJOeNybF",
+  dict(slug="daily-veggies", scale="macro", name="Daily Veggies offices", place="Querétaro", year="2022", cat="hosp", built=False, img="img/ig-CmIiJOeNybF-1.jpg", photos=['img/ig-CmIiJOeNybF-1.jpg', 'img/ig-CmIiJOeNybF-2.jpg', 'img/ig-CmIiJOeNybF-3.jpg', 'img/ig-CmIiJOeNybF-4.jpg'], ig="CmIiJOeNybF",
        txt="Office interiors: timber, planting and daylight."),
-  dict(slug="casa-de-campo-sma", scale="art", name="Casa de Campo, San Miguel", place="San Miguel de Allende", year="2022", cat="res", built=False, img="img/sunset-terrace-luxury-villa-mexico.jpg", ig="CmIhSSWNLll",
+  dict(slug="casa-de-campo-sma", scale="art", name="Casa de Campo, San Miguel", place="San Miguel de Allende", year="2022", cat="res", built=False, img="img/ig-CmIhSSWNLll-1.jpg", photos=['img/ig-CmIhSSWNLll-1.jpg', 'img/ig-CmIhSSWNLll-2.jpg', 'img/ig-CmIhSSWNLll-3.jpg', 'img/ig-CmIhSSWNLll-4.jpg'], ig="CmIhSSWNLll",
        txt="Country residence outside town — stone, timber and glass under one continuous roof plane."),
-  dict(slug="restaurantes-sma", scale="macro", name="Restaurants in San Miguel", place="San Miguel de Allende", year="2022–24", cat="hosp", built=False, img="img/infinity-pool-city.jpg", ig="CmIhqtPNJ_A",
+  dict(slug="restaurantes-sma", scale="macro", name="Restaurants in San Miguel", place="San Miguel de Allende", year="2022–24", cat="hosp", built=False, img="img/ig-CmIhqtPNJ_A-1.jpg", photos=['img/ig-CmIhqtPNJ_A-1.jpg', 'img/ig-CmIhqtPNJ_A-3.jpg', 'img/ig-CmIhqtPNJ_A-2.jpg'], ig="CmIhqtPNJ_A",
        txt="Projects for San Mezcal rooftop, San Burger and Terraza Quiote — terraces, bars and dining rooms over the historic center."),
-  dict(slug="plaza-qro", scale="macro", name="Commercial & residential plaza", place="Querétaro", year="2021", cat="hosp", built=False, img="img/stone-walls-community.jpg", ig="CTkeLydL5WN",
+  dict(slug="plaza-qro", scale="macro", name="Commercial & residential plaza", place="Querétaro", year="2021", cat="hosp", built=False, img="img/ig-CTkeLydL5WN-1.jpg", photos=['img/ig-CTkeLydL5WN-1.jpg'], ig="CTkeLydL5WN",
        txt="Preliminary project for a commercial plaza with a residential tower."),
-  dict(slug="tuluminati", scale="macro", name="Tuluminati stores", place="San Miguel de Allende · Los Cabos", year="2022", cat="hosp", built=True, img="img/projects-stonework.jpg", ig="CYrS_x8LAfL",
+  dict(slug="tuluminati", scale="macro", name="Tuluminati stores", place="San Miguel de Allende · Los Cabos", year="2022", cat="hosp", built=True, img="img/ig-CYrS_x8LAfL-1.jpg", photos=['img/ig-CYrS_x8LAfL-1.jpg'], ig="CYrS_x8LAfL",
        txt="Retail design: Plaza Atrio in San Miguel and Plaza Puerto Paraíso in Los Cabos — parametric timber ribs, natural stone and warm light."),
-  dict(slug="wellness-merida", scale="art", name="Wellness complex", place="Mérida · Yucatán", year="2022", cat="hosp", built=False, img="img/community-club-pool.jpg", ig="CYN5_X2MvbD",
+  dict(slug="wellness-merida", scale="art", name="Wellness complex", place="Mérida · Yucatán", year="2022", cat="hosp", built=False, img="img/ig-CYN5_X2MvbD-1.jpg", photos=['img/ig-CYN5_X2MvbD-1.jpg'], ig="CYN5_X2MvbD",
        txt="Preliminary project for a wellness complex — bar, yoga and treatment spaces in the Yucatán landscape."),
-  dict(slug="depa-jc", scale="art", name="Apartment JC", place="Historic center · San Miguel de Allende", year="2024", cat="res", built=True, img="img/luxury-home-san-miguel-interior-living.jpg", ig="C54_iAdg4zh",
+  dict(slug="depa-jc", scale="art", name="Apartment JC", place="Historic center · San Miguel de Allende", year="2024", cat="res", built=True, img="img/ig-C54_iAdg4zh-1.jpg", photos=['img/ig-C54_iAdg4zh-1.jpg', 'img/ig-C54_iAdg4zh-2.jpg', 'img/ig-C54_iAdg4zh-3.jpg', 'img/ig-C54_iAdg4zh-4.jpg', 'img/ig-C54_iAdg4zh-5.jpg', 'img/ig-C54_iAdg4zh-6.jpg'], ig="C54_iAdg4zh",
        txt="Renovation of an apartment in the historic center with a panoramic roof terrace."),
   dict(slug="casa-cien", scale="art", name="Casa Cien suites", place="San Miguel de Allende", year="2021", cat="hosp", built=False, img="img/gated-entrance-luxury-home.jpg", ig="",
        txt="Guest suites in a house in San Miguel de Allende."),
@@ -50,7 +50,7 @@ PROJECTS = [
        txt="Preliminary project for the architect's own house."),
   dict(slug="casa-velia", scale="art", name="Casa Velia", place="Historic center · San Miguel de Allende", year="2025", cat="res", built=False, img="img/san-miguel-street-vertical.jpg", ig="",
        txt="A house in the historic center of San Miguel de Allende — restoration and new architecture within the walls of the old town."),
-  dict(slug="binary-pavilion", scale="art", name="Binary Code Pavilion & parametric studies", place="Competition · research", year="2021–22", cat="param", built=False, img="img/projects-custom-build.jpg", ig="CYN4kfeMIFT",
+  dict(slug="binary-pavilion", scale="art", name="Binary Code Pavilion & parametric studies", place="Competition · research", year="2021–22", cat="param", built=False, img="img/ig-CYN4kfeMIFT-1.jpg", photos=['img/ig-CYN4kfeMIFT-1.jpg'], ig="CYN4kfeMIFT",
        txt="With Ana Laura González: a pavilion whose façade preserves a message in binary code. Plus computational studies in Grasshopper/Rhino and the 'NFT Eggs' parametric collection."),
 ]
 
@@ -136,7 +136,7 @@ def cards(cat=None, built=None, limit=None):
         out.append(f"""
       <a class="proj rv {size}" data-types="{' '.join(types(p))}" href="{href}"{ext}>
         <img src="{p['img']}" alt="{p['name']} — {p['place']}" loading="lazy">
-        <span class="tag{' sale' if p.get('sale') else ''}">{'For sale' if p.get('sale') else 'Provisional image'}</span>
+        {('<span class="tag sale">For sale</span>' if p.get('sale') else ('' if p.get('photos') else '<span class="tag">Provisional image</span>'))}
         <div class="pbd">
           <div class="pmeta"><span class="cd">{code(i,p)}</span><span>{p['place']}</span><span>{p['year']}</span></div>
           <h3>{p['name']}</h3>
@@ -154,7 +154,7 @@ def index_section(title="Work.", eyebrow="Selected work", filters=True, cat=None
     fl = ""
     if filters:
         fl = """<div class="pfilters"><button class="on" data-cat="all">All</button><button data-cat="architecture">Architecture</button><button data-cat="construction">Construction</button><button data-cat="interiors">Interiors</button><button data-cat="research">Research</button></div>"""
-    n = '<div class="provnote rv">Provisional gallery: images are placeholders while project photography is curated. Descriptions and links are real.</div>' if note else ""
+    n = '<div class="provnote rv">Photography from @arqrobertobalderas; a few projects still carry provisional images. Descriptions and links are real.</div>' if note else ""
     return f"""
 <section id="projects">
   <div class="wrap">
@@ -177,7 +177,7 @@ def selected(slugs):
         ext = '' if p.get('sale') or not p['ig'] else ' target="_blank" rel="noopener"'
         out.append(f"""
       <a class="sw rv{' sw-lead' if i == 0 else ''}" href="{href}"{ext}>
-        <figure><img src="{p['img']}" alt="{p['name']} — {p['place']}" loading="{'eager' if i == 0 else 'lazy'}"><span class="prov">Provisional image</span></figure>
+        <figure><img src="{p['img']}" alt="{p['name']} — {p['place']}" loading="{'eager' if i == 0 else 'lazy'}">{'' if p.get('photos') else '<span class="prov">Provisional image</span>'}</figure>
         <div class="sw-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b><span>{p['place']} · {p['year']}</span></div>
       </a>""")
     return '<div class="swgrid">' + "".join(out) + "</div>"
