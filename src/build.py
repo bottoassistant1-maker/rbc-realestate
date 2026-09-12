@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Build RBC site: shared nav/footer + per-page content -> ../site/*.html
 Change SITE_URL once to move the whole site to a new domain."""
-import os, re, json, datetime, importlib
+import os, re, json, datetime, importlib, sys
+import design
+import projects
+import fichas
 
 SITE_URL = os.environ.get("SITE_URL", "https://rbc-realestate.vercel.app")
 OUT = os.path.join(os.path.dirname(__file__), "..")
@@ -13,16 +16,12 @@ def wa(msg):
     return f"{WA}?text={quote(msg)}"
 
 NAV_ITEMS = [
-    ("index.html", "Home"),
-    ("real-estate.html", "Real Estate"),
-    ("architecture.html", "Architecture &amp; Design"),
-    ("construction.html", "Construction"),
-    ("development.html", "Development"),
-]
-SEC_ITEMS = [
-    ("roberto-balderas-carrillo.html", "Roberto"),
+    ("work.html", "Work"),
+    ("properties.html", "Properties"),
+    ("about.html", "About"),
     ("contact.html", "Contact"),
 ]
+SEC_ITEMS = []
 
 EXTRA_CSS = """
 /* ── multi-page nav ── */
@@ -130,16 +129,15 @@ def nav(active):
     )
     sec = "".join(f'<a class="sec" href="{h}"{ON if h == active else ""}>{t}</a>' for h, t in SEC_ITEMS)
     m = "".join(
-        f'<a href="{h}"><small>0{i}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
+        f'<a href="{h}"><small>0{i+1}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
     ) + "".join(f'<a class="msec" href="{h}">{t}</a>' for h, t in SEC_ITEMS)
     return f"""
 <nav>
   <div class="in">
-    <a href="index.html"><img src="img/rbc-logo.png" alt="RBC — Roberto Balderas Carrillo, Architect · Builder · Developer · Real Estate"></a>
+    <a class="brand" href="index.html"><img src="img/rbc-logo.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto · San Miguel de Allende</span></span></a>
     <div class="links">
       {links}
-      <span class="sep"></span>
-      {sec}
+      <a class="lang" href="#" title="Versión en español — próximamente"><b>EN</b> / ES</a>
       <a class="cta" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
@@ -147,7 +145,10 @@ def nav(active):
 </nav>
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
+  <a href="index.html"><small>00</small>Home</a>
   {m}
+  <a class="msec" href="work.html#developments">Developments</a>
+  <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a>
 </div>
 """
@@ -155,14 +156,20 @@ def nav(active):
 FOOTER = f"""
 <footer>
   <div class="in">
-    <div class="row">
-      <div>© 2026 RBC · Roberto Balderas Carrillo, Arquitecto · Celaya · Querétaro · San Miguel de Allende, México</div>
-      <div><a href="index.html">Home</a> · <a href="real-estate.html">Real Estate</a> · <a href="architecture.html">Architecture</a> · <a href="construction.html">Construction</a> · <a href="development.html">Development</a> · <a href="roberto-balderas-carrillo.html">Roberto</a> · <a href="contact.html">Contact</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a> · <a href="privacy.html">Privacy Notice</a> · <a href="terms.html">Terms</a></div>
+    <div class="cols">
+      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties. San Miguel de Allende · Bajío · México. In close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p></div>
+      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="work.html#developments">Developments</a><a href="properties.html">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
+      <div><small>Direct</small><a href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
-    <div class="fine">Prices in MXN; USD figures are approximate references based on prevailing exchange rates. Renders and images are illustrative; specifications, availability and delivery times subject to change without notice. This site does not constitute a binding offer.</div>
+    <div class="row">
+      <div>© 2026 RBC · Roberto Balderas Carrillo, Arquitecto</div>
+      <div class="code">Offices · San Miguel de Allende / Celaya</div>
+    </div>
+    <div class="fine">Prices in MXN; USD figures are approximate references. Images may be renders or provisional; specifications, availability and delivery subject to change. This site does not constitute a binding offer.</div>
   </div>
 </footer>
-<a class="wa-float" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">💬 WhatsApp</a>
+<a class="wa-float" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp</a>
 <div class="lb" id="lb"><button class="x" aria-label="Close">×</button><img id="lbimg" src="" alt=""></div>
 """
 
@@ -229,7 +236,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 <link rel="alternate" hreflang="en" href="{url}">
 <link rel="alternate" hreflang="x-default" href="{url}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="RBC · Roberto Balderas Carrillo">
+<meta property="og:site_name" content="RBC · Roberto Balderas Carrillo, Arquitecto">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{og}">
@@ -240,14 +247,18 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {extra_head}
 {ld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>{css}{EXTRA_CSS}</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Figtree:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{fichas.CSS}</style>
 </head>
 <body>
 {nav(active)}
 {body}
 {FOOTER}
+{fichas.MODAL_HTML}
 {JS}
+{design.JS}
+{projects.JS}
+{fichas.JS}
 </body>
 </html>
 """
@@ -255,19 +266,20 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
         f.write(html)
     return url
 
-ORG = {"@context":"https://schema.org","@type":["RealEstateAgent","GeneralContractor","Organization"],
-  "name":"RBC · Roberto Balderas Carrillo","url":SITE_URL + "/",
+ORG = {"@context":"https://schema.org","@type":["ProfessionalService","Organization"],
+  "name":"RBC · Roberto Balderas Carrillo, Arquitecto","url":SITE_URL + "/",
   "logo":SITE_URL + "/img/rbc-logo.png",
-  "description":"Architect, builder, developer and real estate advisor. Luxury homes for sale in San Miguel de Allende, Querétaro and Celaya, direct from the architect-developer. Custom home design, construction and buyer representation.",
+  "description":"Architecture practice of Roberto Balderas Carrillo in San Miguel de Allende: architectural design, interiors, construction and a selection of properties presented with an architect's perspective. In collaboration with Espacios y Formas.",
   "telephone":"+524611012474",
+  "knowsAbout":["Architecture","Residential architecture","Interior design","Construction","Real estate"],
   "sameAs":["https://www.instagram.com/arqrobertobalderas","https://www.espaciosyformas.com.mx/","https://penasarriba.vercel.app/"],
-  "areaServed":[{"@type":"City","name":"San Miguel de Allende"},{"@type":"City","name":"Querétaro"},{"@type":"City","name":"Celaya"}],
+  "areaServed":[{"@type":"City","name":"San Miguel de Allende"},{"@type":"AdministrativeArea","name":"Bajío"},{"@type":"Country","name":"Mexico"}],
   "founder":{"@type":"Person","name":"Roberto Balderas Carrillo","jobTitle":"Architect"},
   "address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}}
 
 if __name__ == "__main__":
-    import pages
-    urls = pages.build(page, wa, ORG, SITE_URL)
+    import pages_v12
+    urls = pages_v12.build(page, wa, ORG, SITE_URL)
     # sitemap + robots
     sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u, pr in urls:
@@ -284,3 +296,6 @@ if __name__ == "__main__":
             s=re.sub(r"https://rbc-realestate\.(vercel\.app|netlify\.app)/?", SITE_URL + "/", s)
             open(p,"w",encoding="utf-8").write(s)
     print("built", len(urls), "pages ->", SITE_URL)
+    if "--pdf" in sys.argv:
+        import listings
+        fichas.build_pdfs(listings.L, OUT, OUT, SITE_URL)

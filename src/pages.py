@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Page contents for the RBC site. Each function returns (slug, title, desc, body, og_image, jsonld, priority)."""
 import re, os
+import projects
+import listings
+import fichas
 
 HERE = os.path.dirname(__file__)
 PA = "https://penasarriba.vercel.app/PE%C3%91AS%20ARRIBA/fotos"
@@ -125,7 +128,7 @@ def home(wa, SITE):
       </a>
       <a class="pillar rv d3" href="development.html">
         <img src="img/community-club-pool.jpg" alt="Peñas Arriba residential development, San Miguel de Allende">
-        <div class="t"><div class="num">04</div><h3>Development</h3><p>Residential communities we plan, build and manage — starting with Peñas Arriba, the highest gated hillside in San Miguel.</p><span class="go">Developments in progress →</span></div>
+        <div class="t"><div class="num">04</div><h3>Development</h3><p>Residential communities we plan, build and manage — starting with Peñas Arriba, the highest gated hillside in San Miguel.</p><span class="go">See what's in progress →</span></div>
       </a>
     </div>
   </div>
@@ -156,6 +159,15 @@ def home(wa, SITE):
   </div>
 </section>
 
+<section id="teaser">
+  <div class="wrap">
+    <div class="eyebrow rv">Now available · direct from the architect</div>
+    <h2 class="rv d1">A few of the homes.</h2>
+    """ + fichas.grid([l for l in listings.L if l['slug'] in ('casa-horizonte','casa-travertino','casa-mirador')], wa) + f"""
+    <div style="text-align:center;margin-top:26px;" class="rv"><a class="btn ghost" href="real-estate.html">See the full catalog →</a></div>
+  </div>
+</section>
+
 <section id="why">
   <div class="wrap">
     <div class="eyebrow rv">Why direct from the architect</div>
@@ -180,7 +192,7 @@ def home(wa, SITE):
     <div class="rv">
       <div class="eyebrow">Roberto Balderas Carrillo</div>
       <h2>Architect. Builder. Developer. Your direct counterpart.</h2>
-      <p class="lead">I'm an architect and developer working across <strong>Celaya, Querétaro and San Miguel de Allende</strong>. For 30 years my studio has designed, built and delivered more than 2,600 homes — residential communities like <strong>Peñas Arriba</strong>, the <strong>Magno</strong> residential projects, and custom homes across the Bajío region. When you work with RBC you deal with the person who designs and builds: transparent pricing, honest timelines, and finishes selected together.</p>
+      <p class="lead">I'm an architect, builder and developer working across <strong>Celaya, Querétaro and San Miguel de Allende</strong>. RBC is my studio within <strong>Espacios y Formas</strong>, the group that in 30 years has designed, built and delivered more than 2,600 homes — communities like <strong>Peñas Arriba</strong>, the <strong>Magno</strong> towers in Celaya, and custom homes across the Bajío. Working with me means the best of both worlds: the experience, engineering and guarantees of a large firm, with one architect's attention to every detail — from a small renovation to a whole building.</p>
       <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn ghost" href="roberto-balderas-carrillo.html">About Roberto →</a>
         <a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Our construction firm — Espacios y Formas</a>
@@ -200,7 +212,7 @@ def home(wa, SITE):
 </section>
 """ + contact_band(wa, "Let's talk", "Buying, designing, building or investing — start with a message.",
         "Tell me what you have in mind and I'll reply personally. English and Spanish spoken.",
-        "Hi Roberto, I found your website. I'm interested in: ", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I found your website. I'm interested in: ", "WhatsApp +52 461 101 2474") + fichas.modal_data([l for l in listings.L if l['slug'] in ('casa-horizonte','casa-travertino','casa-mirador')], wa)
     return ("index",
             "Luxury Homes for Sale in San Miguel de Allende &amp; Querétaro — Direct from the Architect | RBC Roberto Balderas Carrillo",
             "Architect, builder, developer and real estate advisor in San Miguel de Allende, Querétaro and Celaya. Luxury homes for sale direct from the architect-developer, custom home design and construction quotes, and buyer representation for foreigners. WhatsApp +52 461 101 2474.",
@@ -217,42 +229,31 @@ def real_estate(wa, SITE):
     <div class="eyebrow rv">The catalog · by city</div>
     <h2 class="rv d1">Choose your city.</h2>
     <div class="cities rv d2">
-      <a class="on" href="#san-miguel">San Miguel de Allende</a><a href="#queretaro">Querétaro</a><a href="#celaya">Celaya</a>
+      <a class="on" href="#san-miguel">San Miguel de Allende</a><a href="#countryside">Countryside near San Miguel</a><a href="#queretaro">Querétaro</a><a href="#celaya">Celaya</a><a href="#rentals">Rentals</a>
     </div>
 
-    <div class="cityhead" id="san-miguel"><h3>San Miguel de Allende</h3><span class="cnt">4 homes · Peñas Arriba, gated hillside community</span></div>
-    <p class="lead rv" style="max-width:700px;margin-top:12px;">All inside Peñas Arriba — the highest gated community in town, with protected views of the Parroquia, 7 minutes from the historic center. Direct title for foreign buyers (no bank trust needed inland).</p>
-    <div class="lgrid">
-      <div class="lcard feat rv">
-        <div class="im"><span class="st">Flagship · Under construction · Finishes by you</span><img src="img/casa-horizonte-sunset-facade.jpg" alt="Casa Horizonte, luxury estate for sale in San Miguel de Allende"></div>
-        <div class="bd">
-          <h3 style="font-size:1.8rem;">Casa Horizonte · M4-L7</h3>
-          <div class="sub2">6,693 sq ft hillside estate with infinity pool and front-row Parroquia views</div>
-          <div class="pr" style="font-size:1.7rem;">US $1.9M <small>· MX $32.5M · ≈ US $284 / built sq ft</small></div>
-          <div class="sp"><span><b>6,693</b> sq ft · 622 m²</span><span><b>8,905</b> sq ft lot</span><span><b>5</b> bd</span><span><b>5½</b> ba</span><span><b>∞</b> pool</span><span><b>2</b> cars</span></div>
-          <p style="font-size:.92rem;color:var(--ink-soft);margin-bottom:14px;">You arrive at the upper level — living, kitchen, terrace and pool — and the home steps down the hillside so every principal room faces the historic center. Wine cellar carved into the site's rock, elevator-ready.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;"><a class="btn red" href="casa-horizonte.html" style="margin-top:0;">See the full listing</a><a class="btn ghost" href="{wa('Hi Roberto, I would like to schedule a private showing of Casa Horizonte.')}" style="margin-top:0;">Private showing</a></div>
-        </div>
-      </div>
-      {listing_card("img/listing-casa-zafiro-san-miguel.jpg","Casa Zafiro luxury home for sale in San Miguel de Allende","Shell built · ~6-month delivery","Casa Zafiro · M1-L14","The community's flagship design, on its largest garden lot (4,500 sq ft)","US $818K","MX $13.9M",[("3,700","sq ft"),("4+s","bd"),("5½","ba"),("2","cars")],wa("Hi Roberto, I'm interested in Casa Zafiro M1-L14."),"Ask about this home")}
-      {listing_card("img/listing-duplex-upper-unit.jpg","Duplex upper residence for sale in San Miguel de Allende","Built · ~6-month delivery","Duplex Upper Residence · M1-L12","Single-level living with the full view — no garden to maintain","US $389K","MX $6.6M",[("≈2,207","sq ft"),("3","bd"),("3½","ba"),("2","cars")],wa("Hi Roberto, I'm interested in the Duplex upper residence M1-L12."),"Ask about this home","d1")}
-      {listing_card("img/listing-duplex-garden-unit.jpg","Duplex garden residence for sale in San Miguel de Allende","Built · ~6-month delivery","Duplex Garden Residence · M5-L9","Ground-floor living with a real private garden, steps from the club","US $437K","MX $7.433M",[("≈2,024","sq ft"),("3","bd"),("3½","ba"),("2","cars")],wa("Hi Roberto, I'm interested in the Duplex garden residence M5-L9."),"Ask about this home","d2")}
-    </div>
-    <div class="cap rv" style="margin-top:14px;">USD figures approximate, at prevailing exchange rates · Every listing includes finish selection with the architect's studio · Lots from 2,150 to 12,900 sq ft also available in Peñas Arriba — <a href="development.html">see the development</a></div>
+    <div class="cityhead" id="san-miguel"><h3>San Miguel de Allende</h3><span class="cnt">{len(listings.by('sma','sale'))} homes for sale · Peñas Arriba &amp; historic center</span></div>
+    <p class="lead rv" style="max-width:720px;margin-top:12px;">Inside Peñas Arriba — the highest gated community in town, with protected Parroquia views, 7 minutes from the historic center — we design, build and sell the homes ourselves: finished residences, shell-built homes ready for your finishes, and lots from 2,150 to 12,900 sq ft. Plus a furnished townhouse in the very center. Direct title for foreign buyers.</p>
+    """ + fichas.grid(listings.by('sma','sale'), wa) + f"""
+    <div class="cap rv" style="margin-top:14px;">USD figures approximate at prevailing exchange rates · Every Peñas Arriba listing includes finish selection with the architect's studio · <a href="development.html#penas-arriba">Lots and the full community →</a></div>
 
-    <div class="cityhead" id="queretaro"><h3>Querétaro</h3><span class="cnt">New listings being prepared</span></div>
+    <div class="cityhead" id="countryside"><h3>Countryside near San Miguel</h3><span class="cnt">Jalpa road · 15 minutes from town</span></div>
+    """ + fichas.grid(listings.by('jalpa','sale'), wa) + f"""
+
+    <div class="cityhead" id="queretaro"><h3>Querétaro</h3><span class="cnt">Club de Golf El Campanario</span></div>
+    """ + fichas.grid(listings.by('qro','sale'), wa) + f"""
+
+    <div class="cityhead" id="celaya"><h3>Celaya</h3><span class="cnt">Magno Home &amp; Towers · built by our group</span></div>
+    """ + fichas.grid(listings.by('celaya','sale'), wa) + f"""
     <div class="soon rv" style="margin-top:18px;">
-      <h4>Querétaro homes are being photographed and priced now.</h4>
-      <p>We design and build in Querétaro's best residential zones. Ask for the current inventory and off-market opportunities.</p>
-      <a class="btn" style="margin-top:16px;" href="{wa('Hi Roberto, I would like to know your current homes for sale in Querétaro.')}">Ask about Querétaro inventory</a>
+      <h4>Apartments with immediate delivery, homes and lots in Magno.</h4>
+      <p>Ask for the current inventory and floor plans — units are released as they complete.</p>
+      <a class="btn" style="margin-top:16px;" href="{wa('Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya.')}">Ask for Magno inventory</a>
     </div>
 
-    <div class="cityhead" id="celaya"><h3>Celaya</h3><span class="cnt">New listings being prepared</span></div>
-    <div class="soon rv" style="margin-top:18px;">
-      <h4>Celaya — where our studio started, 30 years ago.</h4>
-      <p>Residential communities and custom homes throughout Celaya. Ask for the current inventory.</p>
-      <a class="btn" style="margin-top:16px;" href="{wa('Hi Roberto, I would like to know your current homes for sale in Celaya.')}">Ask about Celaya inventory</a>
-    </div>
+    <div class="cityhead" id="rentals"><h3>Rentals · San Miguel de Allende</h3><span class="cnt">Mid-term stays · furnished · services included</span></div>
+    <p class="lead rv" style="max-width:720px;margin-top:12px;">Two furnished spaces inside Casa Cuadrante — the restored house above the celebrated restaurant of the same name, in the heart of the historic center — with the Parroquia right in front of you.</p>
+    """ + fichas.grid(listings.by('sma','rent'), wa) + f"""
   </div>
 </section>
 
@@ -280,13 +281,9 @@ def real_estate(wa, SITE):
 </section>
 """ + contact_band(wa, "Private showings", "See it at sunset. That's when it wins you over.",
         "Private, by appointment — the homes, the community and the view in about an hour. English spoken.",
-        "Hi Roberto, I would like to schedule a private showing in San Miguel de Allende.", "WhatsApp +52 461 101 2474")
-    ld = [{"@context":"https://schema.org","@type":"ItemList","name":"Luxury homes for sale by RBC — San Miguel de Allende",
-      "itemListElement":[
-       {"@type":"ListItem","position":1,"name":"Casa Horizonte — 622 m² estate, infinity pool, MX $32.5M","url":f"{SITE}/casa-horizonte.html"},
-       {"@type":"ListItem","position":2,"name":"Casa Zafiro M1-L14 — 343.7 m², shell built, MX $13.9M","url":f"{SITE}/real-estate.html#san-miguel"},
-       {"@type":"ListItem","position":3,"name":"Duplex upper residence M1-L12 — ≈205 m², built, MX $6.6M","url":f"{SITE}/real-estate.html#san-miguel"},
-       {"@type":"ListItem","position":4,"name":"Duplex garden residence M5-L9 — ≈188 m², built, MX $7.433M","url":f"{SITE}/real-estate.html#san-miguel"}]},
+        "Hi Roberto, I would like to schedule a private showing in San Miguel de Allende.", "WhatsApp +52 461 101 2474") + fichas.modal_data(listings.L, wa)
+    ld = [{"@context":"https://schema.org","@type":"ItemList","name":"Luxury homes for sale and rent by RBC — San Miguel de Allende, Querétaro, Celaya",
+      "itemListElement":[{"@type":"ListItem","position":i+1,"name":f"{l['name']} — {l['where']}","url":f"{SITE}/{l['slug']}.html" if l.get('page') else f"{SITE}/real-estate.html"} for i,l in enumerate(listings.L)]},
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Real Estate","item":f"{SITE}/real-estate.html"}]}]
     return ("real-estate",
             "Luxury Homes for Sale — San Miguel de Allende, Querétaro &amp; Celaya | RBC Real Estate",
@@ -328,7 +325,7 @@ def casa_horizonte(wa, SITE):
 def architecture(wa, SITE):
     body = phero("img/architecture-section-hillside-home.jpg", "02 · Architecture &amp; Design",
         "Houses designed with the hill, not against it.",
-        "Residential architecture for the Bajío: San Miguel de Allende, Querétaro and Celaya. Tell us about your lot and your life — we design the house around both, and we can build it too.",
+        "RBC is the studio of Roberto Balderas Carrillo within Espacios y Formas — more than 30 years of architecture and construction in the Bajío. From a small renovation or restoration to a residential tower, with the attention of a single architect.",
         '<a href="index.html">Home</a> › Architecture &amp; Design') + f"""
 <section id="approach">
   <div class="wrap split">
@@ -336,11 +333,13 @@ def architecture(wa, SITE):
       <div class="eyebrow">How we design</div>
       <h2>Site first. Light second. Then the plan.</h2>
       <p class="lead">Thirty years of building in this region taught us what lasts here: stone from the site itself, deep terraces facing the view, cross-ventilation instead of machinery, and plans that follow the slope so every principal room gets the light and the vista. Casa Horizonte — entered from the top, stepping down the hillside — is the clearest example.</p>
+      <p class="lead" style="margin-top:14px;">RBC works inside <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas</a>, the group that has designed and built more than 2,600 homes — and Magno Towers in Celaya — so a house designed here comes with the engineering, permits, crews and guarantees of a large firm, and the personal attention of one architect from the first sketch to the keys.</p>
       <ul class="checks">
-        <li>Architectural design, interiors and landscape as one project</li>
-        <li>Structural and MEP engineering coordinated in-house</li>
+        <li>Architectural design, executive project and engineering</li>
+        <li>Interior design, furniture design and landscaping as one project</li>
         <li>Permits and municipal procedures handled for you</li>
-        <li>Construction by our own firm, or drawings ready for yours</li>
+        <li>Construction and real-estate advisory by the same team — or drawings ready for yours</li>
+        <li>Renovations and restorations of historic houses; apartment buildings; commercial spaces</li>
       </ul>
     </div>
     <div class="rv d1">
@@ -350,21 +349,7 @@ def architecture(wa, SITE):
   </div>
 </section>
 
-<section class="band" id="projects">
-  <div class="wrap">
-    <div class="eyebrow rv">Selected projects</div>
-    <h2 class="rv d1">A few of the houses.</h2>
-    <p class="lead rv d2" style="max-width:680px;">More projects are being added. For the full portfolio, ask on WhatsApp or follow <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a>.</p>
-    <div class="pgrid">
-      <a class="pj lbx rv" href="{HZ_HERO}"><img src="{HZ_HERO}" alt="Casa Horizonte at sunset — hillside residence, San Miguel de Allende"><div class="pc"><span>San Miguel de Allende · 2026</span><b>Casa Horizonte</b></div></a>
-      <a class="pj lbx rv d1" href="img/listing-casa-zafiro-san-miguel.jpg"><img src="img/listing-casa-zafiro-san-miguel.jpg" alt="Casa Zafiro — residence in Peñas Arriba"><div class="pc"><span>San Miguel de Allende</span><b>Casa Zafiro</b></div></a>
-      <a class="pj lbx rv d2" href="img/luxury-home-san-miguel-interior-living.jpg"><img src="img/luxury-home-san-miguel-interior-living.jpg" alt="Living room with beamed ceiling and panoramic view"><div class="pc"><span>Interiors</span><b>Living open to the town</b></div></a>
-      <a class="pj lbx rv" href="img/stone-villa-garden-pool-mexico.jpg"><img src="img/stone-villa-garden-pool-mexico.jpg" alt="Stone villa with garden and pool"><div class="pc"><span>San Miguel de Allende</span><b>Garden facade in site stone</b></div></a>
-      <a class="pj lbx rv d1" href="img/wine-cellar-natural-stone.jpg"><img src="img/wine-cellar-natural-stone.jpg" alt="Wine cellar carved in natural stone"><div class="pc"><span>Detail</span><b>Cellar in the excavated rock</b></div></a>
-      <a class="pj lbx rv d2" href="img/listing-duplex-upper-unit.jpg"><img src="img/listing-duplex-upper-unit.jpg" alt="Duplex residences in Peñas Arriba"><div class="pc"><span>San Miguel de Allende</span><b>Duplex residences</b></div></a>
-    </div>
-  </div>
-</section>
+""" + projects.index_section() + f"""
 
 <section id="design-form">
   <div class="wrap split">
@@ -400,38 +385,45 @@ def architecture(wa, SITE):
 # ───────────────────────────── CONSTRUCTION ─────────────────────────────
 def construction(wa, SITE):
     body = phero("img/projects-custom-build.jpg", "03 · Construction · Espacios y Formas",
-        "Our own crews. Our own stone. A budget you can read.",
-        "Turnkey residential construction in San Miguel de Allende, Querétaro and Celaya — for houses we design or plans you bring. Over 2,600 homes delivered in 30 years.",
+        "From a small renovation to a complete tower — built the same way.",
+        "Turnkey construction in San Miguel de Allende, Querétaro and Celaya, backed by the 30-year infrastructure of Espacios y Formas and led with the architect's personal attention. Houses we design or plans you bring; renovations, restorations, apartment buildings, commercial spaces.",
         '<a href="index.html">Home</a> › Construction') + f"""
 <section id="how">
   <div class="wrap">
     <div class="eyebrow rv">How we build</div>
     <h2 class="rv d1">Transparent budgets. Schedules we keep. Stone from the site.</h2>
     <div class="steps">
-      <div class="step rv"><div class="k">01</div><h4>Itemized quote</h4><p>Every quote is broken down by concept and quantity, so you can compare it line by line — no lump sums, no surprises.</p></div>
+      <div class="step rv"><div class="k">01</div><h4>Itemized quote, no surprises</h4><p>Every quote is broken down by concept and quantity, so you can compare it line by line. Processes proven over hundreds of deliveries guarantee the house arrives on time and as promised.</p></div>
       <div class="step rv d1"><div class="k">02</div><h4>Own crews &amp; supervision</h4><p>Masons, stone cutters, carpenters and installers who have worked with us for years, supervised daily by our architects.</p></div>
       <div class="step rv d2"><div class="k">03</div><h4>Weekly reporting</h4><p>Photos, progress and spend every week — especially useful if you live abroad while your house is built.</p></div>
     </div>
   </div>
 </section>
 
+""" + f"""
 <section class="band" id="work">
   <div class="wrap">
-    <div class="eyebrow rv">Built by us</div>
-    <h2 class="rv d1">Recent work.</h2>
+    <div class="eyebrow rv">What we build · the large scale</div>
+    <h2 class="rv d1">From a single room to a whole tower.</h2>
+    <p class="lead rv d2" style="max-width:720px;">Through Espacios y Formas, our group has been building in the Bajío for more than 30 years — residential towers, gated communities, custom homes, dealerships and commercial centers. These are the builds we're proudest of.</p>
     <div class="pgrid">
-      <a class="pj lbx rv" href="img/projects-homes-delivered.jpg"><img src="img/projects-homes-delivered.jpg" alt="Homes delivered in Peñas Arriba"><div class="pc"><span>San Miguel de Allende</span><b>Homes delivered · Peñas Arriba</b></div></a>
-      <a class="pj lbx rv d1" href="img/projects-custom-build.jpg"><img src="img/projects-custom-build.jpg" alt="Custom home under construction"><div class="pc"><span>In progress</span><b>Custom build</b></div></a>
-      <a class="pj lbx rv d2" href="img/projects-stonework.jpg"><img src="img/projects-stonework.jpg" alt="Signature stonework"><div class="pc"><span>Craft</span><b>Signature stonework</b></div></a>
-      <a class="pj lbx rv" href="img/stone-walls-community.jpg"><img src="img/stone-walls-community.jpg" alt="Stone terracing and walls"><div class="pc"><span>Site works</span><b>Terracing in site stone</b></div></a>
-      <a class="pj lbx rv d1" href="img/community-club-pool.jpg"><img src="img/community-club-pool.jpg" alt="Clubhouse and pool built by Espacios y Formas"><div class="pc"><span>Amenities</span><b>Clubhouse &amp; pool</b></div></a>
-      <a class="pj lbx rv d2" href="img/gated-entrance-luxury-home.jpg"><img src="img/gated-entrance-luxury-home.jpg" alt="Entrance court and garage"><div class="pc"><span>Detail</span><b>Entrance court</b></div></a>
+      <a class="pj rv" href="development.html#magno"><img src="img/community-club-pool.jpg" alt="Magno Towers, Celaya"><div class="pc"><span>Celaya · residential towers</span><b>Magno Towers &amp; Magno Residencial</b></div></a>
+      <a class="pj rv d1" href="development.html#penas-arriba"><img src="img/stone-walls-community.jpg" alt="Peñas Arriba, San Miguel de Allende"><div class="pc"><span>San Miguel de Allende · gated community</span><b>Peñas Arriba</b></div></a>
+      <a class="pj rv d2" href="casa-ether.html"><img src="img/luxury-home-san-miguel-de-allende-terrace.jpg" alt="Casa Ether"><div class="pc"><span>Jalpa · country home</span><b>Casa Ether</b></div></a>
+      <a class="pj rv" href="casa-travertino.html"><img src="img/villa-garden-day.jpg" alt="Casa Travertino"><div class="pc"><span>Querétaro · El Campanario</span><b>Casa Travertino</b></div></a>
+      <a class="pj rv d1" href="casa-horizonte.html"><img src="img/casa-horizonte-sunset-facade.jpg" alt="Casa Horizonte"><div class="pc"><span>San Miguel de Allende · in progress</span><b>Casa Horizonte</b></div></a>
+      <a class="pj rv d2" href="{wa('Hi Roberto, I would like to know more about Casa Elo.')}"><img src="img/projects-custom-build.jpg" alt="Casa Elo"><div class="pc"><span>Custom home · in progress</span><b>Casa Elo</b></div></a>
+      <a class="pj rv" href="{wa('Hi Roberto, I would like to know more about your golf-club residence in San Miguel.')}"><img src="img/gated-entrance-luxury-home.jpg" alt="Golf-club residence"><div class="pc"><span>San Miguel de Allende · golf club · private</span><b>Golf-club residence</b></div></a>
+      <a class="pj rv d1" href="{wa('Hi Roberto, I would like to know more about the JC apartment renovation.')}"><img src="img/luxury-home-san-miguel-interior-living.jpg" alt="Apartment JC"><div class="pc"><span>Historic center · renovation</span><b>Apartment JC</b></div></a>
+      <a class="pj rv d2" href="development.html#escondida"><img src="img/community-trails.jpg" alt="La Escondida"><div class="pc"><span>San Miguel de Allende · communities</span><b>La Escondida &amp; La Nueva Escondida</b></div></a>
     </div>
+    <div class="provnote rv">Provisional images — construction photography is being curated.</div>
     <div style="text-align:center;margin-top:26px;" class="rv">
-      <a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Our construction firm — Espacios y Formas →</a>
+      <a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas — 30+ years, the full scale →</a>
     </div>
   </div>
 </section>
+""" + f"""
 
 <section id="quote">
   <div class="wrap split">
@@ -470,35 +462,74 @@ def construction(wa, SITE):
 def development(wa, SITE):
     body = phero("img/parroquia-view-from-community.jpg", "04 · Development · In progress",
         "Communities we plan, build and finish ourselves.",
-        "A single studio designs, builds and sells — so our developments complete faster and appreciate sooner. Current project: Peñas Arriba, the highest gated hillside in San Miguel de Allende.",
+        "Our group designs, builds and sells — so developments complete faster and appreciate sooner. Peñas Arriba in San Miguel, Magno Home & Towers in Celaya, and La Escondida coming next.",
         '<a href="index.html">Home</a> › Development') + f"""
-<section id="penas-arriba">
-  <div class="wrap split">
-    <div class="rv">
-      <div class="eyebrow">Peñas Arriba · San Miguel de Allende</div>
-      <h2>The highest point in town, with protected views of the Parroquia from every lot.</h2>
-      <p class="lead">39 lots on 6 blocks, from 2,150 to 12,900 sq ft (200–1,197 m²). Streets, stone terracing and amenity buildings are built; homes are delivered and lived in. 7 minutes (1.8 mi) from the Jardín Principal.</p>
-      <ul class="checks">
-        <li>Pool with stone deck, gym, panoramic restaurant, trails with native planting</li>
-        <li>Staffed gate, 24/7 security and around-the-clock shuttle to the centro</li>
-        <li>Homes from US $389K · Lots and early-stage homes on request</li>
-        <li>Payment plan: 30% down · 60% in monthly installments · 10% on delivery</li>
-      </ul>
-      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn" href="real-estate.html#san-miguel">Homes for sale here</a>
-        <a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Official development site →</a>
-      </div>
-    </div>
-    <div class="rv d1">
-      <a class="lbx" href="img/penas-arriba-map-casa-horizonte.jpg"><img class="mapimg" src="img/penas-arriba-map-casa-horizonte.jpg" alt="Peñas Arriba master plan, San Miguel de Allende"></a>
-      <div class="cap">Master plan — tap to enlarge</div>
+<section id="brands">
+  <div class="wrap">
+    <div class="eyebrow rv">Developments · by brand</div>
+    <h2 class="rv d1">Whole communities, designed, built and sold by us.</h2>
+    <div class="devs">
+      <article class="dev rv" id="penas-arriba">
+        <div class="dev-car car h520" data-auto="4200">
+          <div class="trk">
+            <div class="sl"><img src="img/parroquia-view-from-community.jpg" alt="Peñas Arriba — view of the Parroquia"><div class="scap">Protected views of the Parroquia from every lot</div></div>
+            <div class="sl"><img src="img/community-club-pool.jpg" alt="Clubhouse and pool"><div class="scap">Clubhouse &amp; pool terrace — built</div></div>
+            <div class="sl"><img src="img/stone-walls-community.jpg" alt="Stone terracing"><div class="scap">Terracing in site stone</div></div>
+            <div class="sl"><img src="img/casa-horizonte-sunset-facade.jpg" alt="Casa Horizonte"><div class="scap">Homes designed and built by the same studio</div></div>
+            <div class="sl"><img src="img/penas-arriba-map-casa-horizonte.jpg" alt="Master plan of Peñas Arriba"><div class="scap">Master plan — 39 lots on 6 blocks</div></div>
+          </div>
+          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
+          <div class="dots"></div>
+        </div>
+        <div class="dev-bd">
+          <div class="dev-meta"><span>San Miguel de Allende · Guanajuato</span><span>Selling now</span></div>
+          <h3>Peñas Arriba</h3>
+          <p>The highest gated community in San Miguel de Allende, with protected views of the Parroquia from every lot and the historic center 7 minutes away. 39 lots on 6 blocks (2,150–12,900 sq ft); streets, stone terracing and amenity buildings built — pool with stone deck, gym, panoramic restaurant, trails, staffed gate and 24/7 shuttle. We design, build and sell the homes: finished residences, shell-built homes with finishes by you, and lots. Homes from US $389K; payment plan 30 / 60 / 10.</p>
+          <div class="dev-cta"><a class="btn red" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Go to the sales site →</a><a class="btn ghost" href="real-estate.html#san-miguel">Homes for sale here</a><a class="btn ghost" href="{wa('Hi Roberto, I would like to visit Peñas Arriba and see the available lots and homes.')}">Visit</a></div>
+        </div>
+      </article>
+
+      <article class="dev rv d1" id="magno">
+        <div class="dev-car car h520" data-auto="4600">
+          <div class="trk">
+            <div class="sl"><img src="img/community-club-pool.jpg" alt="Magno Home & Towers"><div class="scap">Provisional image — towers, homes and lots in one community</div></div>
+            <div class="sl"><img src="img/community-gym.jpg" alt="Amenities"><div class="scap">Spa, pool, gym, clubhouse, business center</div></div>
+            <div class="sl"><img src="img/gated-entrance-luxury-home.jpg" alt="Homes"><div class="scap">Single-family homes and lots</div></div>
+          </div>
+          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
+          <div class="dots"></div>
+        </div>
+        <div class="dev-bd">
+          <div class="dev-meta"><span>Celaya · Guanajuato</span><span>Immediate delivery</span></div>
+          <h3>Magno Home &amp; Towers</h3>
+          <p>Celaya's most complete residential development, built by our group: residential towers, single-family homes and lots inside one gated community with spa, pool, gym, clubhouse, business center, bar, multipurpose hall, gardens and underground parking. Apartments available for immediate delivery; lots from MX $2.0M, apartments from MX $4.3M, homes from MX $5.5M.</p>
+          <div class="dev-cta"><a class="btn red" href="https://magnoresidencial.com/" target="_blank" rel="noopener">Go to the sales site →</a><a class="btn ghost" href="{wa('Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya.')}">Ask for inventory</a></div>
+        </div>
+      </article>
+
+      <article class="dev rv" id="escondida">
+        <div class="dev-car car h520" data-auto="5000">
+          <div class="trk">
+            <div class="sl"><img src="img/community-trails.jpg" alt="La Escondida"><div class="scap">Provisional image</div></div>
+            <div class="sl"><img src="img/valley-golden-hour.jpg" alt="Landscape"><div class="scap">Provisional image</div></div>
+          </div>
+          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
+          <div class="dots"></div>
+        </div>
+        <div class="dev-bd">
+          <div class="dev-meta"><span>San Miguel de Allende</span><span>Coming next</span></div>
+          <h3>La Escondida &amp; La Nueva Escondida</h3>
+          <p>Two residential communities in San Miguel de Allende now in development by our group. Early-stage opportunities are shared privately before launch.</p>
+          <div class="dev-cta"><a class="btn" href="{wa('Hi Roberto, please keep me informed about La Escondida and La Nueva Escondida in San Miguel.')}">Keep me informed</a></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="band" id="amenities">
   <div class="wrap">
-    <div class="eyebrow rv">Built, not promised</div>
+    <div class="eyebrow rv">Peñas Arriba · built, not promised</div>
     <h2 class="rv d1">The community today.</h2>
     <div class="car multi h430 rv" data-auto="4300">
       <div class="trk">
@@ -526,8 +557,8 @@ def development(wa, SITE):
       <div class="step rv d2"><div class="k">03</div><h4>Managed after delivery</h4><p>The same team that built it runs it: gate, amenities, maintenance, shuttle.</p></div>
     </div>
     <div class="soon rv" style="margin-top:34px;">
-      <h4>New developments in Querétaro and Celaya are in planning.</h4>
-      <p>Early-stage opportunities are shared privately before launch. Ask to be on the list.</p>
+      <h4>Lots, early-stage homes and pre-launch opportunities.</h4>
+      <p>Peñas Arriba lots, Magno units and the Escondida communities — ask to be on the list.</p>
       <a class="btn" style="margin-top:16px;" href="{wa('Hi Roberto, please keep me informed about your upcoming developments.')}">Keep me informed</a>
     </div>
   </div>
@@ -562,9 +593,9 @@ def roberto(wa, SITE):
     <div class="rv d1">
       <div class="eyebrow">A short introduction</div>
       <h2>I design houses, I build them, and I sell them myself.</h2>
-      <p class="lead">I'm an architect from Celaya, Guanajuato. My studio and construction firm, <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas</a>, has designed, built and delivered more than 2,600 homes across the Bajío over three decades — residential communities, the Magno projects, and custom homes in Celaya, Querétaro and San Miguel de Allende.</p>
-      <div class="quote">"The person who designed it should be the person who sells it to you. That's the whole idea behind RBC."</div>
-      <p class="lead">Today most of my time goes to <a href="development.html">Peñas Arriba</a>, our hillside community above San Miguel, and to clients who want a house designed for their lot — or help finding and evaluating the right property. If you write, I answer personally.</p>
+      <p class="lead">I'm an architect from Celaya, Guanajuato. RBC is my personal studio inside <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas</a>, the family group that has designed, built and delivered more than 2,600 homes across the Bajío over three decades — residential communities, the Magno towers in Celaya, and custom homes in Celaya, Querétaro and San Miguel de Allende. Some of the projects here are mine alone; others I led through the group; all carry its infrastructure and guarantees.</p>
+      <div class="quote">"The best of both worlds: the experience and backing of a large firm, with the craft, care and attention of one architect who answers personally."</div>
+      <p class="lead">We do everything: architectural and executive project, engineering, construction, real-estate development, sales and advisory, interior and furniture design, landscaping, maintenance — from small renovations and restorations to luxury homes, country houses, modern apartment buildings, dealerships and commercial centers, as well as mid-income housing. What doesn't change is how: responsibly, with processes that guarantee delivery on time and as promised, without surprises. Today most of my time goes to <a href="development.html">Peñas Arriba</a> above San Miguel, and to clients who want a house designed for their lot — or help finding and evaluating the right property. If you write, I answer personally.</p>
       <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn red" href="{wa('Hi Roberto, I read your introduction and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
         <a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a>
@@ -631,6 +662,10 @@ def build(page, wa, ORG, SITE):
         if ld == "org":
             ld = [ORG]
         u = page(slug, title, desc, body, og, ld, active=(slug + ".html"))
+        urls.append((u, pr))
+    for l in listings.pages():
+        slug, title, desc, body, og, ld, pr = listings.property_page(l, wa, SITE)
+        u = page(slug, title, desc, body, og, ld, active="real-estate.html")
         urls.append((u, pr))
     urls.append((f"{SITE}/privacy.html", "0.2"))
     urls.append((f"{SITE}/terms.html", "0.2"))
