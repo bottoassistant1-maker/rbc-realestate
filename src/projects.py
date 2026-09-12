@@ -111,7 +111,7 @@ CSS = r"""
 JS = r"""
 <script>
 document.querySelectorAll('.pfilters').forEach(f=>{
-  const grid=f.parentElement.querySelector('.projs');
+  const grid=f.parentElement.querySelector('.projs'); if(!grid) return;
   f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
     f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
     const c=b.dataset.cat; grid.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));

@@ -4,6 +4,7 @@ Change SITE_URL once to move the whole site to a new domain."""
 import os, re, json, datetime, importlib, sys
 import design
 import projects
+import projects_v13
 import fichas
 
 SITE_URL = os.environ.get("SITE_URL", "https://rbc-realestate.vercel.app")
@@ -147,7 +148,7 @@ def nav(active):
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
   {m}
-  <a class="msec" href="work.html#developments">Developments</a>
+  <a class="msec" href="properties.html#developments">Developments</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a>
 </div>
@@ -157,8 +158,8 @@ FOOTER = f"""
 <footer>
   <div class="in">
     <div class="cols">
-      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties. San Miguel de Allende · Bajío · México. In close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p></div>
-      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="work.html#developments">Developments</a><a href="properties.html">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
+      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="properties.html">Properties</a><a href="properties.html#developments">Developments</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
       <div><small>Direct</small><a href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
@@ -248,7 +249,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {ld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Figtree:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{fichas.CSS}</style>
+<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}</style>
 </head>
 <body>
 {nav(active)}
@@ -258,6 +259,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {JS}
 {design.JS}
 {projects.JS}
+{projects_v13.JS}
 {fichas.JS}
 </body>
 </html>

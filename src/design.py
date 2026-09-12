@@ -272,6 +272,33 @@ footer .row{border-top:none;padding-top:18px;}
 .about .portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 .about h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin-bottom:14px;}
 .about .lead+.lead{margin-top:12px;}
+/* ── three doors (v13) ── */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+@media(max-width:860px){.doors{grid-template-columns:1fr;}}
+.door{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--navy-deep);text-decoration:none;color:#fff;}
+@media(max-width:860px){.door{aspect-ratio:16/9;}}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);opacity:.92;}
+.door:hover img{transform:scale(1.03);}
+.door::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,30,69,0) 45%,rgba(22,30,69,.82) 100%);}
+.door-t{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;}
+.door-t small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--gold);margin-bottom:6px;}
+.door-t b{display:block;font-family:'Fraunces',serif;font-weight:300;font-size:2.2rem;line-height:1;letter-spacing:-.01em;}
+.door-t span{display:block;margin-top:8px;font-size:.88rem;color:rgba(255,255,255,.85);}
+/* ── development brand cards (v13) ── */
+.dev2 .dev-row{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;}
+@media(max-width:700px){.dev2 .dev-row{grid-template-columns:1fr;}}
+.dev2 .dev-brand img{max-width:170px;max-height:80px;object-fit:contain;display:block;}
+.dev2 .dev-brand b{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;color:var(--navy);line-height:1.1;display:block;}
+.dev2 .dev-meta{margin-bottom:8px;}
+.dev2 p{font-size:.94rem;}
+.dev2 .dev-car.h520{height:420px;overflow:hidden;}
+.dev2 .dev-car .trk{height:100%;padding-bottom:0;}
+.dev2 .dev-car .sl{height:100%;}
+.dev2 .dev-car .dots{position:absolute;bottom:12px;left:0;right:0;margin:0;}
+@media(max-width:700px){.dev2 .dev-car.h520{height:260px;}}
+.dev2 .car .sl img{width:100%;height:100%;object-fit:cover;}
+/* intents: shorter */
+.intent b{font-size:1.15rem;}
 """
 
 CURTAIN_HTML = ""
