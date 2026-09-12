@@ -580,6 +580,33 @@ footer .row{border-top:none;padding-top:18px;}
 .about .portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 .about h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin-bottom:14px;}
 .about .lead+.lead{margin-top:12px;}
+/* ── three doors (v13) ── */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+@media(max-width:860px){.doors{grid-template-columns:1fr;}}
+.door{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--navy-deep);text-decoration:none;color:#fff;}
+@media(max-width:860px){.door{aspect-ratio:16/9;}}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);opacity:.92;}
+.door:hover img{transform:scale(1.03);}
+.door::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,30,69,0) 45%,rgba(22,30,69,.82) 100%);}
+.door-t{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;}
+.door-t small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--gold);margin-bottom:6px;}
+.door-t b{display:block;font-family:'Fraunces',serif;font-weight:300;font-size:2.2rem;line-height:1;letter-spacing:-.01em;}
+.door-t span{display:block;margin-top:8px;font-size:.88rem;color:rgba(255,255,255,.85);}
+/* ── development brand cards (v13) ── */
+.dev2 .dev-row{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;}
+@media(max-width:700px){.dev2 .dev-row{grid-template-columns:1fr;}}
+.dev2 .dev-brand img{max-width:170px;max-height:80px;object-fit:contain;display:block;}
+.dev2 .dev-brand b{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;color:var(--navy);line-height:1.1;display:block;}
+.dev2 .dev-meta{margin-bottom:8px;}
+.dev2 p{font-size:.94rem;}
+.dev2 .dev-car.h520{height:420px;overflow:hidden;}
+.dev2 .dev-car .trk{height:100%;padding-bottom:0;}
+.dev2 .dev-car .sl{height:100%;}
+.dev2 .dev-car .dots{position:absolute;bottom:12px;left:0;right:0;margin:0;}
+@media(max-width:700px){.dev2 .dev-car.h520{height:260px;}}
+.dev2 .car .sl img{width:100%;height:100%;object-fit:cover;}
+/* intents: shorter */
+.intent b{font-size:1.15rem;}
 
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
@@ -606,6 +633,27 @@ footer .row{border-top:none;padding-top:18px;}
 .proj .tag{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(22,30,69,.75);padding:5px 9px;}
 .proj .tag.sale{background:var(--red);}
 .provnote{margin-top:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:12px;}
+
+/* ── reels (v13) ── */
+.reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
+@media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.reels{grid-template-columns:1fr;grid-auto-rows:260px;}}
+.reel{display:flex;flex-direction:column;min-height:0;}
+.reel.big{grid-column:span 2;grid-row:span 2;} .reel.tall{grid-row:span 2;} .reel.wide{grid-column:span 2;}
+@media(max-width:600px){.reel.big,.reel.wide{grid-column:span 1;}.reel.big,.reel.tall{grid-row:span 1;}}
+.reel.hide{display:none;}
+.reel .reel-sl{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--paper-2);}
+.reel .fs-trk{display:flex;height:100%;transition:transform .6s var(--ease);}
+.reel .fs-trk img{width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block;}
+.reel .fs-arr{opacity:0;transition:opacity .25s;}
+.reel:hover .fs-arr{opacity:1;}
+.reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
+.reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
+.reel-cap b{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.reel.big .reel-cap b{font-size:1.4rem;}
+.reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
+.reel-cap a:hover{color:var(--red);}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -693,7 +741,7 @@ body.fbig-open{overflow:hidden;}
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
   <a href="work.html"><small>01</small>Work</a><a href="properties.html"><small>02</small>Properties</a><a href="about.html"><small>03</small>About</a><a href="contact.html"><small>04</small>Contact</a>
-  <a class="msec" href="work.html#developments">Developments</a>
+  <a class="msec" href="properties.html#developments">Developments</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
 </div>
@@ -742,49 +790,27 @@ body.fbig-open{overflow:hidden;}
   </div>
 </section>
 
-<section class="band" id="practice">
-  <div class="wrap practice">
-    <div class="rv">
-      <div class="shead rv"><div class="eyebrow"><b>02</b>The practice</div><i></i></div>
-      <h2>Architecture first. The rest follows from it.</h2>
-    </div>
-    <div class="rv d1">
-      <p class="lead">RBC is the practice of Roberto Balderas Carrillo, architect. It designs houses, interiors, landscape and buildings, and it carries them through construction. There is no signature style: each project is resolved from its site, its client, its budget and its brief — contemporary, contextual, traditional or colonial as the case requires.</p>
-      <div class="caps">
-        <div><small>Architecture</small><span>Architectural design from first concept to executive and construction documentation.</span></div>
-        <div><small>Interiors</small><span>Interior architecture, furniture and fittings, for new work and existing buildings.</span></div>
-        <div><small>Landscape</small><span>Gardens, terraces and outdoor rooms designed with the house, not after it.</span></div>
-        <div><small>Construction</small><span>Personal direction of the build; larger works executed with Espacios y Formas.</span></div>
-        <div><small>Development</small><span>Planning and coordination of residential developments, with Espacios y Formas.</span></div>
-        <div><small>Coordination</small><span>Engineering, specialists and permits coordinated under one architectural criterion.</span></div>
-      </div>
-      <div class="scale"><span>Small interventions</span><span>Houses</span><span>Commercial</span><span>Towers</span><span>Developments</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="construction">
-  <div class="wrap eyf">
-    <figure class="rv"><img src="img/projects-custom-build.jpg" alt="Construction — provisional image" loading="lazy"></figure>
-    <div class="rv d1">
-      <div class="shead rv"><div class="eyebrow"><b>03</b>Construction · Espacios y Formas</div><i></i></div>
-      <h2>Architectural attention, with the capacity to build.</h2>
-      <p class="lead">Roberto directs his projects personally, from the drawings to the site. Smaller works he manages himself; significant construction is supported and executed through Espacios y Formas — the Balderas family's architecture, construction and development firm, with more than three decades of building in the Bajío.</p>
-      <div class="facts">
-        <div><small>RBC</small><span>Authorship, architectural judgment, personal attention.</span></div>
-        <div><small>Espacios y Formas</small><span>Infrastructure, experience, technical and construction capacity. Principal office in Celaya; presence in San Miguel de Allende; work throughout the Bajío and elsewhere in Mexico.</span></div>
-      </div>
-      <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;"><a class="btn ghost" href="work.html#construction">Construction work</a><a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx ↗</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="band" id="properties">
+<section class="band" id="areas">
   <div class="wrap">
-    <div class="shead rv"><div class="eyebrow"><b>04</b>Selected properties</div><i></i></div>
+    <div class="shead rv"><div class="eyebrow"><b>02</b>RBC</div><i></i></div>
+    <div class="split rv d1" style="align-items:start;">
+      <h2>Each project develops its own architectural language.</h2>
+      <p class="lead">RBC is the practice of Roberto Balderas Carrillo, architect. Houses, interiors and buildings, from the first drawing to the finished site — in collaboration with Espacios y Formas, the Balderas family's architecture and construction firm, for work at larger scale.</p>
+    </div>
+    <div class="doors">
+      <a class="door rv" href="work.html"><img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Architecture" loading="lazy"><div class="door-t"><small>01</small><b>Architecture</b><span>Houses, interiors, landscape, buildings.</span></div></a>
+      <a class="door rv d1" href="properties.html"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Properties" loading="lazy"><div class="door-t"><small>02</small><b>Properties</b><span>A short selection, read by an architect.</span></div></a>
+      <a class="door rv d2" href="work.html#construction"><img src="img/ig-C8NS-m5RKyS-1.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="properties">
+  <div class="wrap">
+    <div class="shead rv"><div class="eyebrow"><b>03</b>Selected properties</div><i></i></div>
     <div class="split rv d1" style="align-items:start;">
       <h2>A few properties, known well.</h2>
-      <p class="lead">Not a catalog. A short selection of houses Roberto designed, built or knows well enough to represent — each read as an architect reads a building: structure, plan, site, materials, condition, potential. Every sheet carries his notes.</p>
+      <p class="lead">Houses Roberto designed, built or knows well enough to represent. Each sheet carries plans, an architectural reading and his notes.</p>
     </div>
     <div class="fgrid">
       <article class="fs rv " data-slug="casa-horizonte" tabindex="0" role="button" aria-label="Open Casa Horizonte">
@@ -833,27 +859,14 @@ body.fbig-open{overflow:hidden;}
   </div>
 </section>
 
-<section id="about-teaser">
-  <div class="wrap split" style="align-items:start;">
-    <div class="rv">
-      <div class="shead rv"><div class="eyebrow"><b>05</b>Roberto</div><i></i></div>
-      <h2>An architect based in San Miguel de Allende.</h2>
-    </div>
-    <div class="rv d1">
-      <p class="lead">Roberto Balderas Carrillo is an architect from Celaya, Guanajuato, based in San Miguel de Allende. RBC is his personal practice. RBC works in close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p>
-      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;"><a class="btn ghost" href="about.html">About</a><a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a></div>
-    </div>
-  </div>
-</section>
-
 <section class="band" id="entry">
   <div class="wrap">
-    <div class="shead rv"><div class="eyebrow"><b>06</b>Contact</div><i></i></div>
+    <div class="shead rv"><div class="eyebrow"><b>04</b>Contact</div><i></i></div>
     <div class="intents">
-      <a class="intent" href="contact.html#project"><small>Start a project</small><b>Design and build a house, a renovation or a building.</b><span>A lot, a sketch or an idea — in San Miguel, the Bajío or elsewhere in Mexico.</span></a>
-      <a class="intent" href="contact.html#buy"><small>Buy</small><b>Buy a property with an architect's reading of it.</b><span>The selected properties, or one you found elsewhere.</span></a>
-      <a class="intent" href="contact.html#sell"><small>Sell</small><b>Have Roberto look at a property you want to sell.</b><span>He represents a short list, after a visit.</span></a>
-      <a class="intent" href="contact.html#general"><small>General</small><b>Developers, brands, press, collaborations.</b><span>Anything that doesn't fit above.</span></a>
+      <a class="intent" href="contact.html#project"><small>Start a project</small><b>A house, a renovation, a building.</b></a>
+      <a class="intent" href="contact.html#buy"><small>Buy</small><b>A selected property, or one you found.</b></a>
+      <a class="intent" href="contact.html#sell"><small>Sell</small><b>Have Roberto look at it first.</b></a>
+      <a class="intent" href="contact.html#general"><small>General</small><b>Developers, brands, press.</b></a>
     </div>
   </div>
 </section>
@@ -862,8 +875,8 @@ body.fbig-open{overflow:hidden;}
 <footer>
   <div class="in">
     <div class="cols">
-      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties. San Miguel de Allende · Bajío · México. In close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p></div>
-      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="work.html#developments">Developments</a><a href="properties.html">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
+      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="properties.html">Properties</a><a href="properties.html#developments">Developments</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
       <div><small>Direct</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
@@ -942,10 +955,32 @@ document.querySelectorAll('form[data-wa]').forEach(f=>f.addEventListener('submit
 
 <script>
 document.querySelectorAll('.pfilters').forEach(f=>{
-  const grid=f.parentElement.querySelector('.projs');
+  const grid=f.parentElement.querySelector('.projs'); if(!grid) return;
   f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
     f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
     const c=b.dataset.cat; grid.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
+  }));
+});
+</script>
+
+
+<script>
+// reels: auto-advancing sliders; a manual arrow stops the auto-advance
+document.querySelectorAll('.reel-sl').forEach(root=>{
+  const trk=root.querySelector('.fs-trk'), n=parseInt(root.dataset.n||1); if(n<2) return;
+  const dots=[...root.querySelectorAll('.fs-dots i')]; let i=0, t=null;
+  const go=k=>{i=(k+n)%n; trk.style.transform='translateX(-'+(i*100)+'%)'; dots.forEach((d,j)=>d.classList.toggle('on',j===i));};
+  const start=()=>{if(!t)t=setInterval(()=>go(i+1),3600+Math.random()*900);}; const stop=()=>{clearInterval(t);t=null;};
+  root.querySelector('.fs-arr.l').addEventListener('click',e=>{e.stopPropagation();stop();go(i-1);});
+  root.querySelector('.fs-arr.r').addEventListener('click',e=>{e.stopPropagation();stop();go(i+1);});
+  dots.forEach((d,j)=>d.addEventListener('click',e=>{e.stopPropagation();stop();go(j);}));
+  go(0); new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else stop();}),{threshold:.2}).observe(root);
+});
+document.querySelectorAll('.pfilters').forEach(f=>{
+  const grid=f.parentElement.querySelector('.reels'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
   }));
 });
 </script>

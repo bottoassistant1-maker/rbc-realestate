@@ -581,6 +581,33 @@ footer .row{border-top:none;padding-top:18px;}
 .about .portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 .about h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin-bottom:14px;}
 .about .lead+.lead{margin-top:12px;}
+/* ── three doors (v13) ── */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+@media(max-width:860px){.doors{grid-template-columns:1fr;}}
+.door{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--navy-deep);text-decoration:none;color:#fff;}
+@media(max-width:860px){.door{aspect-ratio:16/9;}}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);opacity:.92;}
+.door:hover img{transform:scale(1.03);}
+.door::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,30,69,0) 45%,rgba(22,30,69,.82) 100%);}
+.door-t{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;}
+.door-t small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--gold);margin-bottom:6px;}
+.door-t b{display:block;font-family:'Fraunces',serif;font-weight:300;font-size:2.2rem;line-height:1;letter-spacing:-.01em;}
+.door-t span{display:block;margin-top:8px;font-size:.88rem;color:rgba(255,255,255,.85);}
+/* ── development brand cards (v13) ── */
+.dev2 .dev-row{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;}
+@media(max-width:700px){.dev2 .dev-row{grid-template-columns:1fr;}}
+.dev2 .dev-brand img{max-width:170px;max-height:80px;object-fit:contain;display:block;}
+.dev2 .dev-brand b{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;color:var(--navy);line-height:1.1;display:block;}
+.dev2 .dev-meta{margin-bottom:8px;}
+.dev2 p{font-size:.94rem;}
+.dev2 .dev-car.h520{height:420px;overflow:hidden;}
+.dev2 .dev-car .trk{height:100%;padding-bottom:0;}
+.dev2 .dev-car .sl{height:100%;}
+.dev2 .dev-car .dots{position:absolute;bottom:12px;left:0;right:0;margin:0;}
+@media(max-width:700px){.dev2 .dev-car.h520{height:260px;}}
+.dev2 .car .sl img{width:100%;height:100%;object-fit:cover;}
+/* intents: shorter */
+.intent b{font-size:1.15rem;}
 
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
@@ -607,6 +634,27 @@ footer .row{border-top:none;padding-top:18px;}
 .proj .tag{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(22,30,69,.75);padding:5px 9px;}
 .proj .tag.sale{background:var(--red);}
 .provnote{margin-top:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:12px;}
+
+/* ── reels (v13) ── */
+.reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
+@media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.reels{grid-template-columns:1fr;grid-auto-rows:260px;}}
+.reel{display:flex;flex-direction:column;min-height:0;}
+.reel.big{grid-column:span 2;grid-row:span 2;} .reel.tall{grid-row:span 2;} .reel.wide{grid-column:span 2;}
+@media(max-width:600px){.reel.big,.reel.wide{grid-column:span 1;}.reel.big,.reel.tall{grid-row:span 1;}}
+.reel.hide{display:none;}
+.reel .reel-sl{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--paper-2);}
+.reel .fs-trk{display:flex;height:100%;transition:transform .6s var(--ease);}
+.reel .fs-trk img{width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block;}
+.reel .fs-arr{opacity:0;transition:opacity .25s;}
+.reel:hover .fs-arr{opacity:1;}
+.reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
+.reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
+.reel-cap b{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.reel.big .reel-cap b{font-size:1.4rem;}
+.reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
+.reel-cap a:hover{color:var(--red);}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -694,7 +742,7 @@ body.fbig-open{overflow:hidden;}
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
   <a href="work.html"><small>01</small>Work</a><a href="properties.html"><small>02</small>Properties</a><a href="about.html"><small>03</small>About</a><a href="contact.html"><small>04</small>Contact</a>
-  <a class="msec" href="work.html#developments">Developments</a>
+  <a class="msec" href="properties.html#developments">Developments</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
 </div>
@@ -706,16 +754,16 @@ body.fbig-open{overflow:hidden;}
     <div class="crumbs"><a href="index.html">Home</a> › Contact</div>
     <div class="tag">RBC / Contact</div>
     <h1>Tell me what you have in mind.</h1>
-    <p class="sub">WhatsApp is fastest; the forms below send straight to it. English and Spanish.</p>
+    <p class="sub">WhatsApp is fastest. English and Spanish.</p>
   </div>
 </header>
 <section id="doors">
   <div class="wrap">
     <div class="intents rv">
-      <a class="intent" href="#project"><small>01</small><b>Start a project</b><span>Design and/or build a house, a renovation, a building.</span></a>
-      <a class="intent" href="#buy"><small>02</small><b>Buy a property</b><span>The selected properties, or one you found elsewhere.</span></a>
-      <a class="intent" href="#sell"><small>03</small><b>Sell a property</b><span>Have Roberto look at it and, if it fits, represent it.</span></a>
-      <a class="intent" href="#general"><small>04</small><b>General inquiry</b><span>Developers, brands, press, collaborations.</span></a>
+      <a class="intent" href="#project"><small>01</small><b>Start a project</b></a>
+      <a class="intent" href="#buy"><small>02</small><b>Buy a property</b></a>
+      <a class="intent" href="#sell"><small>03</small><b>Sell a property</b></a>
+      <a class="intent" href="#general"><small>04</small><b>General inquiry</b></a>
     </div>
     <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;" class="rv">
       <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%20would%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
@@ -726,11 +774,11 @@ body.fbig-open{overflow:hidden;}
 
 <section class="band" id="project">
   <div class="wrap split" style="align-items:start;">
-    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>01</b>Start a project</div><i></i></div><h2>Design and build.</h2><p class="lead">A lot, a sketch or an idea. Land owners can ask for a first reading of what their site allows.</p></div>
+    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>01</b>Start a project</div><i></i></div><h2>Design and build.</h2><p class="lead">A lot, a sketch or an idea.</p></div>
     <div class="rv d1">
     <div class="form rv">
       <h3 class="serif" style="font-size:1.5rem;margin-bottom:6px;">Project</h3>
-      <p style="font-size:.92rem;color:var(--ink-soft);">Three questions and a text box.</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);"></p>
       <form data-wa="Hi Roberto, I'd like to start a project:">
         <div class="row"><div><label>Your name</label><input name="Name" type="text" placeholder="Jane Smith"></div><div><label>Where</label><select name="Location"><option>San Miguel de Allende</option><option>Querétaro</option><option>Celaya</option><option>Elsewhere in the Bajío</option><option>Elsewhere in Mexico</option><option>I don't have a lot yet</option></select></div></div><div class="row"><div><label>What you need</label><select name="Scope"><option>Design + construction</option><option>Design only</option><option>Construction from my plans</option><option>Renovation / restoration</option><option>A reading of my lot</option><option>A building / development</option></select></div><div><label>Budget (USD)</label><select name="Budget"><option>Under $300K</option><option>$300K – $600K</option><option>$600K – $1.2M</option><option>Over $1.2M</option><option>Not sure yet</option></select></div></div><div><label>Tell me about it</label><textarea name="Details" placeholder=""></textarea></div>
         <button class="btn red" type="submit">Send to Roberto</button>
@@ -743,13 +791,13 @@ body.fbig-open{overflow:hidden;}
 
 <section id="buy">
   <div class="wrap split" style="align-items:start;">
-    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>02</b>Buy a property</div><i></i></div><h2>With an architect's reading.</h2><p class="lead">The selected properties on this site, or a listing you found elsewhere that you would like Roberto to look at before you commit.</p></div>
+    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>02</b>Buy a property</div><i></i></div><h2>With an architect's reading.</h2><p class="lead">A selected property, or one you found elsewhere.</p></div>
     <div class="rv d1">
     <div class="form rv">
       <h3 class="serif" style="font-size:1.5rem;margin-bottom:6px;">Buying</h3>
-      <p style="font-size:.92rem;color:var(--ink-soft);">What are you looking for?</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);"></p>
       <form data-wa="Hi Roberto, I'm looking to buy:">
-        <div class="row"><div><label>Your name</label><input name="Name" type="text" placeholder="Jane Smith"></div><div><label>City</label><select name="City"><option>San Miguel de Allende</option><option>Querétaro</option><option>Celaya</option><option>Not sure yet</option></select></div></div><div class="row"><div><label>Budget (USD)</label><select name="Budget"><option>Under $400K</option><option>$400K – $800K</option><option>$800K – $1.5M</option><option>$1.5M – $3M</option><option>Over $3M</option></select></div><div><label>When</label><select name="When"><option>As soon as possible</option><option>3–6 months</option><option>6–12 months</option><option>Exploring</option></select></div></div><div><label>What matters most, or a link to a property you'd like looked at</label><textarea name="Details" placeholder=""></textarea></div>
+        <div class="row"><div><label>Your name</label><input name="Name" type="text" placeholder="Jane Smith"></div><div><label>City</label><select name="City"><option>San Miguel de Allende</option><option>Querétaro</option><option>Celaya</option><option>Not sure yet</option></select></div></div><div class="row"><div><label>Budget (USD)</label><select name="Budget"><option>Under $400K</option><option>$400K – $800K</option><option>$800K – $1.5M</option><option>$1.5M – $3M</option><option>Over $3M</option></select></div><div><label>When</label><select name="When"><option>As soon as possible</option><option>3–6 months</option><option>6–12 months</option><option>Exploring</option></select></div></div><div><label>What matters most, or a link to a property</label><textarea name="Details" placeholder=""></textarea></div>
         <button class="btn red" type="submit">Send to Roberto</button>
         <div class="note">Sends your answers to Roberto on WhatsApp (+52 461 101 2474). Nothing is stored on this website.</div>
       </form>
@@ -759,11 +807,11 @@ body.fbig-open{overflow:hidden;}
 
 <section class="band" id="sell">
   <div class="wrap split" style="align-items:start;">
-    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>03</b>Sell a property</div><i></i></div><h2>Have it looked at first.</h2><p class="lead">RBC represents a short list. Send the basics and Roberto will say whether it fits.</p></div>
+    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>03</b>Sell a property</div><i></i></div><h2>Have it looked at first.</h2><p class="lead">A short list, after a visit.</p></div>
     <div class="rv d1">
     <div class="form rv">
       <h3 class="serif" style="font-size:1.5rem;margin-bottom:6px;">Selling</h3>
-      <p style="font-size:.92rem;color:var(--ink-soft);">A visit comes before any decision.</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);"></p>
       <form data-wa="Hi Roberto, I have a property I'd like you to look at:">
         <div class="row"><div><label>Your name</label><input name="Name" type="text" placeholder="Jane Smith"></div><div><label>Where</label><select name="Location"><option>San Miguel de Allende</option><option>Querétaro</option><option>Celaya</option><option>Elsewhere in the Bajío</option></select></div></div><div class="row"><div><label>Type</label><select name="Type"><option>House</option><option>Apartment</option><option>Lot</option><option>Commercial</option><option>Other</option></select></div><div><label>Goal</label><select name="Goal"><option>Sell</option><option>Rent</option><option>An opinion first</option></select></div></div><div><label>Describe the property</label><textarea name="Details" placeholder=""></textarea></div>
         <button class="btn red" type="submit">Send to Roberto</button>
@@ -775,12 +823,12 @@ body.fbig-open{overflow:hidden;}
 
 <section id="general">
   <div class="wrap split" style="align-items:start;">
-    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>04</b>General inquiry</div><i></i></div><h2>Anything else.</h2><p class="lead">Developers, brands, press, collaborations, or a question that doesn't fit above.</p>
-      <div class="facts"><div><small>WhatsApp</small><span>+52 461 101 2474</span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya (Espacios y Formas)</span></div></div></div>
+    <div class="rv"><div class="shead rv"><div class="eyebrow"><b>04</b>General inquiry</div><i></i></div><h2>Anything else.</h2>
+      <div class="facts"><div><small>WhatsApp</small><span>+52 461 101 2474</span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div></div></div>
     <div class="rv d1">
     <div class="form rv">
       <h3 class="serif" style="font-size:1.5rem;margin-bottom:6px;">Message</h3>
-      <p style="font-size:.92rem;color:var(--ink-soft);">Straight to WhatsApp.</p>
+      <p style="font-size:.92rem;color:var(--ink-soft);"></p>
       <form data-wa="Hi Roberto, I'm writing from your website:">
         <div class="row"><div><label>Your name</label><input name="Name" type="text" placeholder="Jane Smith"></div><div><label>Best way to reach you</label><input name="Contact" type="text" placeholder="Phone or email"></div></div><div><label>Message</label><textarea name="Message" placeholder=""></textarea></div>
         <button class="btn red" type="submit">Send to Roberto</button>
@@ -794,8 +842,8 @@ body.fbig-open{overflow:hidden;}
 <footer>
   <div class="in">
     <div class="cols">
-      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties. San Miguel de Allende · Bajío · México. In close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p></div>
-      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="work.html#developments">Developments</a><a href="properties.html">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
+      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="properties.html">Properties</a><a href="properties.html#developments">Developments</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
       <div><small>Direct</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
@@ -874,10 +922,32 @@ document.querySelectorAll('form[data-wa]').forEach(f=>f.addEventListener('submit
 
 <script>
 document.querySelectorAll('.pfilters').forEach(f=>{
-  const grid=f.parentElement.querySelector('.projs');
+  const grid=f.parentElement.querySelector('.projs'); if(!grid) return;
   f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
     f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
     const c=b.dataset.cat; grid.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
+  }));
+});
+</script>
+
+
+<script>
+// reels: auto-advancing sliders; a manual arrow stops the auto-advance
+document.querySelectorAll('.reel-sl').forEach(root=>{
+  const trk=root.querySelector('.fs-trk'), n=parseInt(root.dataset.n||1); if(n<2) return;
+  const dots=[...root.querySelectorAll('.fs-dots i')]; let i=0, t=null;
+  const go=k=>{i=(k+n)%n; trk.style.transform='translateX(-'+(i*100)+'%)'; dots.forEach((d,j)=>d.classList.toggle('on',j===i));};
+  const start=()=>{if(!t)t=setInterval(()=>go(i+1),3600+Math.random()*900);}; const stop=()=>{clearInterval(t);t=null;};
+  root.querySelector('.fs-arr.l').addEventListener('click',e=>{e.stopPropagation();stop();go(i-1);});
+  root.querySelector('.fs-arr.r').addEventListener('click',e=>{e.stopPropagation();stop();go(i+1);});
+  dots.forEach((d,j)=>d.addEventListener('click',e=>{e.stopPropagation();stop();go(j);}));
+  go(0); new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else stop();}),{threshold:.2}).observe(root);
+});
+document.querySelectorAll('.pfilters').forEach(f=>{
+  const grid=f.parentElement.querySelector('.reels'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
   }));
 });
 </script>

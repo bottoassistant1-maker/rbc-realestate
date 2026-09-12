@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Architecture, Interiors and Construction by Roberto Balderas Carrillo | RBC</title>
-<meta name="description" content="Architecture, interior and construction projects by architect Roberto Balderas Carrillo in San Miguel de Allende, Querétaro, Celaya and beyond: houses, hotels, bars, stores, offices and residential developments with Espacios y Formas.">
+<meta name="description" content="Architecture, interior and construction projects by architect Roberto Balderas Carrillo in San Miguel de Allende, Querétaro, Celaya and beyond: houses, hotels, bars, stores, offices and residential developments.">
 <link rel="canonical" href="https://rbc-realestate.vercel.app/work.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" type="image/png" href="img/favicon.png">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RBC · Roberto Balderas Carrillo, Arquitecto">
 <meta property="og:title" content="Work — Architecture, Interiors and Construction by Roberto Balderas Carrillo | RBC">
-<meta property="og:description" content="Architecture, interior and construction projects by architect Roberto Balderas Carrillo in San Miguel de Allende, Querétaro, Celaya and beyond: houses, hotels, bars, stores, offices and residential developments with Espacios y Formas.">
+<meta property="og:description" content="Architecture, interior and construction projects by architect Roberto Balderas Carrillo in San Miguel de Allende, Querétaro, Celaya and beyond: houses, hotels, bars, stores, offices and residential developments.">
 <meta property="og:image" content="https://rbc-realestate.vercel.app/img/hero-terrace-sunset.jpg">
 <meta property="og:url" content="https://rbc-realestate.vercel.app/work.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -581,6 +581,33 @@ footer .row{border-top:none;padding-top:18px;}
 .about .portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 .about h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin-bottom:14px;}
 .about .lead+.lead{margin-top:12px;}
+/* ── three doors (v13) ── */
+.doors{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;}
+@media(max-width:860px){.doors{grid-template-columns:1fr;}}
+.door{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--navy-deep);text-decoration:none;color:#fff;}
+@media(max-width:860px){.door{aspect-ratio:16/9;}}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);opacity:.92;}
+.door:hover img{transform:scale(1.03);}
+.door::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,30,69,0) 45%,rgba(22,30,69,.82) 100%);}
+.door-t{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:2;}
+.door-t small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--gold);margin-bottom:6px;}
+.door-t b{display:block;font-family:'Fraunces',serif;font-weight:300;font-size:2.2rem;line-height:1;letter-spacing:-.01em;}
+.door-t span{display:block;margin-top:8px;font-size:.88rem;color:rgba(255,255,255,.85);}
+/* ── development brand cards (v13) ── */
+.dev2 .dev-row{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start;}
+@media(max-width:700px){.dev2 .dev-row{grid-template-columns:1fr;}}
+.dev2 .dev-brand img{max-width:170px;max-height:80px;object-fit:contain;display:block;}
+.dev2 .dev-brand b{font-family:'Fraunces',serif;font-weight:300;font-size:1.6rem;color:var(--navy);line-height:1.1;display:block;}
+.dev2 .dev-meta{margin-bottom:8px;}
+.dev2 p{font-size:.94rem;}
+.dev2 .dev-car.h520{height:420px;overflow:hidden;}
+.dev2 .dev-car .trk{height:100%;padding-bottom:0;}
+.dev2 .dev-car .sl{height:100%;}
+.dev2 .dev-car .dots{position:absolute;bottom:12px;left:0;right:0;margin:0;}
+@media(max-width:700px){.dev2 .dev-car.h520{height:260px;}}
+.dev2 .car .sl img{width:100%;height:100%;object-fit:cover;}
+/* intents: shorter */
+.intent b{font-size:1.15rem;}
 
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
@@ -607,6 +634,27 @@ footer .row{border-top:none;padding-top:18px;}
 .proj .tag{position:absolute;top:12px;left:12px;z-index:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:rgba(22,30,69,.75);padding:5px 9px;}
 .proj .tag.sale{background:var(--red);}
 .provnote{margin-top:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:12px;}
+
+/* ── reels (v13) ── */
+.reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
+@media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.reels{grid-template-columns:1fr;grid-auto-rows:260px;}}
+.reel{display:flex;flex-direction:column;min-height:0;}
+.reel.big{grid-column:span 2;grid-row:span 2;} .reel.tall{grid-row:span 2;} .reel.wide{grid-column:span 2;}
+@media(max-width:600px){.reel.big,.reel.wide{grid-column:span 1;}.reel.big,.reel.tall{grid-row:span 1;}}
+.reel.hide{display:none;}
+.reel .reel-sl{flex:1;min-height:0;position:relative;overflow:hidden;background:var(--paper-2);}
+.reel .fs-trk{display:flex;height:100%;transition:transform .6s var(--ease);}
+.reel .fs-trk img{width:100%;height:100%;flex:0 0 100%;object-fit:cover;display:block;}
+.reel .fs-arr{opacity:0;transition:opacity .25s;}
+.reel:hover .fs-arr{opacity:1;}
+.reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
+.reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
+.reel-cap b{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.reel.big .reel-cap b{font-size:1.4rem;}
+.reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
+.reel-cap a:hover{color:var(--red);}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -694,7 +742,7 @@ body.fbig-open{overflow:hidden;}
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
   <a href="work.html"><small>01</small>Work</a><a href="properties.html"><small>02</small>Properties</a><a href="about.html"><small>03</small>About</a><a href="contact.html"><small>04</small>Contact</a>
-  <a class="msec" href="work.html#developments">Developments</a>
+  <a class="msec" href="properties.html#developments">Developments</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
 </div>
@@ -706,294 +754,146 @@ body.fbig-open{overflow:hidden;}
     <div class="crumbs"><a href="index.html">Home</a> › Work</div>
     <div class="tag">RBC / Work</div>
     <h1>Work.</h1>
-    <p class="sub">Architecture, interiors and construction — houses, hotels, bars, stores, offices and residential developments, mostly in San Miguel de Allende and the Bajío.</p>
+    <p class="sub">Houses, hotels, bars, stores, offices and residential developments — San Miguel de Allende, the Bajío and beyond.</p>
   </div>
 </header>
-<section id="projects">
+<section id="architecture">
   <div class="wrap">
-    <div class="shead rv"><div class="eyebrow"><b>01</b>Architecture · 2021 – 2026</div><i></i></div>
-    <h2 class="rv d1">Architecture.</h2>
-    <div class="split rv" style="align-items:start;margin-top:8px;">
-      <p class="lead">There is no house style. A project here may be contemporary, contextual, traditional or colonial, depending on the site, the client, the budget and the brief. The range runs from small interventions and individual houses to larger residences, commercial work, residential towers and development-scale projects.</p>
-      <p class="lead">What repeats is the way decisions are made: how the plan meets the site, where the light comes from, which material belongs, what will still be right in twenty years. The common denominator is architectural judgment, not a look.</p>
-    </div>
-    <div class="pfilters"><button class="on" data-cat="all">All</button><button data-cat="architecture">Architecture</button><button data-cat="construction">Construction</button><button data-cat="interiors">Interiors</button><button data-cat="research">Research</button></div>
-    <div class="projs">
-      <a class="proj rv big" data-types="architecture construction" href="casa-ether.html">
-        <img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy">
-        <span class="tag sale">For sale</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-001</span><span>Jalpa road · 15 min from San Miguel de Allende</span><span>2025</span></div>
-          <h3>Casa Ether</h3>
-          <p>A contemporary country house, built by RBC from a prior scheme that was re-read and recomposed. Sliding glass walls open fully to the landscape; Italian hardwood on floors and ceilings; a Spanish kitchen. For sale.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CmIlRhHNyUi/" target="_blank" rel="noopener">
-        <img src="img/ig-CmIlRhHNyUi-4.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-002</span><span>Jalpa · Guanajuato</span><span>2022</span></div>
-          <h3>Casa de Campo, Jalpa</h3>
-          <p>Country house on open land: long horizontal volumes, deep covered terraces and a plan that opens entirely to the landscape.</p>
-        </div>
-      </a>
-      <a class="proj rv tall" data-types="architecture construction" href="casa-horizonte.html">
-        <img src="img/ig-DceaktFmAgJ-1.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy">
-        <span class="tag sale">For sale</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-003</span><span>Peñas Arriba · San Miguel de Allende</span><span>2026</span></div>
-          <h3>Casa Horizonte</h3>
-          <p>Shaped by its topography: the house follows the slope, unfolding across levels and opening both floors toward San Miguel. Entered from the top; rock from the excavation left exposed inside. Under construction; for sale.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/DZqIB1jmGm_/" target="_blank" rel="noopener">
-        <img src="img/ig-DZqIB1jmGm_-3.jpg" alt="Private art pavilion — San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-004</span><span>San Miguel de Allende</span><span>2026</span></div>
-          <h3>Private art pavilion</h3>
-          <p>Gallery, studio and private refuge in one sequence: a contemplation courtyard leads to rooms for permanent and temporary exhibitions, sculpture, painting and performance. Water, natural light and honest materials.</p>
-        </div>
-      </a>
-      <a class="proj rv wide" data-types="architecture construction" href="casa-travertino.html">
-        <img src="img/ig-C_3mXTMxFYj-1.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy">
-        <span class="tag sale">For sale</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-005</span><span>Club de Golf El Campanario · Querétaro</span><span>2025</span></div>
-          <h3>Casa Travertino</h3>
-          <p>Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool and sun deck, three en-suite bedrooms. Designed and built by RBC; for sale.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/DZvx80iGPzt/" target="_blank" rel="noopener">
-        <img src="img/ig-DZvx80iGPzt-2.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-006</span><span>San Miguel de Allende</span><span>2026</span></div>
-          <h3>Hotel Casa X</h3>
-          <p>A hotel immersed in the landscape, transforming an existing ranch through a sensitive master plan: stone-walled cabins set into the hill, an integrated pool, an open-air deck for events, greenhouse and productive gardens.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture construction interiors" href="https://www.instagram.com/arqrobertobalderas/p/C8NS-m5RKyS/" target="_blank" rel="noopener">
-        <img src="img/ig-C8NS-m5RKyS-1.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-007</span><span>Historic center · San Miguel de Allende</span><span>2024</span></div>
-          <h3>Bar Bachus</h3>
-          <p>Fluid, parametric curves unify every area of the bar into one enveloping volume, absorbing the uneven levels of an old house in the center without breaking the flow.</p>
-        </div>
-      </a>
-      <a class="proj rv tall" data-types="architecture construction interiors" href="https://www.instagram.com/arqrobertobalderas/p/CmIgeQvtivo/" target="_blank" rel="noopener">
-        <img src="img/ig-CmIgeQvtivo-1.jpg" alt="Casa Cuadrante — restaurant & residence — Historic center · San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-008</span><span>Historic center · San Miguel de Allende</span><span>2023</span></div>
-          <h3>Casa Cuadrante — restaurant & residence</h3>
-          <p>Restoration, construction, adaptation and interior design of a historic house: the restaurant on the ground floor, and above it Casa Musa and the Panoramic Suite, both available for mid-term stays.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CqYldy-JhDi/" target="_blank" rel="noopener">
-        <img src="img/ig-CqYldy-JhDi-1.jpg" alt="Amecsa dealership — Monterrey · Nuevo León" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-009</span><span>Monterrey · Nuevo León</span><span>2023</span></div>
-          <h3>Amecsa dealership</h3>
-          <p>Showroom and service facility for a heavy-machinery distributor.</p>
-        </div>
-      </a>
-      <a class="proj rv wide" data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/C36BNy-r7sX/" target="_blank" rel="noopener">
-        <img src="img/ig-C36BNy-r7sX-1.jpg" alt="Condesa apartment façade — Condesa · Mexico City" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-010</span><span>Condesa · Mexico City</span><span>2024</span></div>
-          <h3>Condesa apartment façade</h3>
-          <p>Remodelling proposal and new façade for an apartment building in Condesa.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture interiors" href="https://www.instagram.com/arqrobertobalderas/p/CmIiJOeNybF/" target="_blank" rel="noopener">
-        <img src="img/ig-CmIiJOeNybF-1.jpg" alt="Daily Veggies offices — Querétaro" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-011</span><span>Querétaro</span><span>2022</span></div>
-          <h3>Daily Veggies offices</h3>
-          <p>Office interiors: timber, planting and daylight.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CmIhSSWNLll/" target="_blank" rel="noopener">
-        <img src="img/ig-CmIhSSWNLll-1.jpg" alt="Casa de Campo, San Miguel — San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-012</span><span>San Miguel de Allende</span><span>2022</span></div>
-          <h3>Casa de Campo, San Miguel</h3>
-          <p>Country residence outside town — stone, timber and glass under one continuous roof plane.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CmIhqtPNJ_A/" target="_blank" rel="noopener">
-        <img src="img/ig-CmIhqtPNJ_A-1.jpg" alt="Restaurants in San Miguel — San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-013</span><span>San Miguel de Allende</span><span>2022–24</span></div>
-          <h3>Restaurants in San Miguel</h3>
-          <p>Projects for San Mezcal rooftop, San Burger and Terraza Quiote — terraces, bars and dining rooms over the historic center.</p>
-        </div>
-      </a>
-      <a class="proj rv big" data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CTkeLydL5WN/" target="_blank" rel="noopener">
-        <img src="img/ig-CTkeLydL5WN-1.jpg" alt="Commercial & residential plaza — Querétaro" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-014</span><span>Querétaro</span><span>2021</span></div>
-          <h3>Commercial & residential plaza</h3>
-          <p>Preliminary project for a commercial plaza with a residential tower.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture construction interiors" href="https://www.instagram.com/arqrobertobalderas/p/CYrS_x8LAfL/" target="_blank" rel="noopener">
-        <img src="img/ig-CYrS_x8LAfL-1.jpg" alt="Tuluminati stores — San Miguel de Allende · Los Cabos" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-015</span><span>San Miguel de Allende · Los Cabos</span><span>2022</span></div>
-          <h3>Tuluminati stores</h3>
-          <p>Retail design: Plaza Atrio in San Miguel and Plaza Puerto Paraíso in Los Cabos — parametric timber ribs, natural stone and warm light.</p>
-        </div>
-      </a>
-      <a class="proj rv tall" data-types="architecture" href="https://www.instagram.com/arqrobertobalderas/p/CYN5_X2MvbD/" target="_blank" rel="noopener">
-        <img src="img/ig-CYN5_X2MvbD-1.jpg" alt="Wellness complex — Mérida · Yucatán" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-016</span><span>Mérida · Yucatán</span><span>2022</span></div>
-          <h3>Wellness complex</h3>
-          <p>Preliminary project for a wellness complex — bar, yoga and treatment spaces in the Yucatán landscape.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture construction interiors" href="https://www.instagram.com/arqrobertobalderas/p/C54_iAdg4zh/" target="_blank" rel="noopener">
-        <img src="img/ig-C54_iAdg4zh-1.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/AC-017</span><span>Historic center · San Miguel de Allende</span><span>2024</span></div>
-          <h3>Apartment JC</h3>
-          <p>Renovation of an apartment in the historic center with a panoramic roof terrace.</p>
-        </div>
-      </a>
-      <a class="proj rv wide" data-types="architecture" href="#">
-        <img src="img/gated-entrance-luxury-home.jpg" alt="Casa Cien suites — San Miguel de Allende" loading="lazy">
-        <span class="tag">Provisional image</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-018</span><span>San Miguel de Allende</span><span>2021</span></div>
-          <h3>Casa Cien suites</h3>
-          <p>Guest suites in a house in San Miguel de Allende.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture interiors" href="#">
-        <img src="img/wine-cellar-natural-stone.jpg" alt="Origen store — San Miguel de Allende" loading="lazy">
-        <span class="tag">Provisional image</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-019</span><span>San Miguel de Allende</span><span>2023</span></div>
-          <h3>Origen store</h3>
-          <p>Retail design for Origen in San Miguel de Allende.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="#">
-        <img src="img/community-trails.jpg" alt="Saiko — San Miguel de Allende" loading="lazy">
-        <span class="tag">Provisional image</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-020</span><span>San Miguel de Allende</span><span>2024</span></div>
-          <h3>Saiko</h3>
-          <p>Preliminary project for Saiko in San Miguel de Allende.</p>
-        </div>
-      </a>
-      <a class="proj rv tall" data-types="architecture" href="#">
-        <img src="img/stone-villa-garden-pool-mexico.jpg" alt="Casa Artista — San Miguel de Allende" loading="lazy">
-        <span class="tag">Provisional image</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-021</span><span>San Miguel de Allende</span><span>2026</span></div>
-          <h3>Casa Artista</h3>
-          <p>Preliminary project for the architect's own house.</p>
-        </div>
-      </a>
-      <a class="proj rv " data-types="architecture" href="#">
-        <img src="img/san-miguel-street-vertical.jpg" alt="Casa Velia — Historic center · San Miguel de Allende" loading="lazy">
-        <span class="tag">Provisional image</span>
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-022</span><span>Historic center · San Miguel de Allende</span><span>2025</span></div>
-          <h3>Casa Velia</h3>
-          <p>A house in the historic center of San Miguel de Allende — restoration and new architecture within the walls of the old town.</p>
-        </div>
-      </a>
-      <a class="proj rv wide" data-types="architecture research" href="https://www.instagram.com/arqrobertobalderas/p/CYN4kfeMIFT/" target="_blank" rel="noopener">
-        <img src="img/ig-CYN4kfeMIFT-1.jpg" alt="Binary Code Pavilion & parametric studies — Competition · research" loading="lazy">
-        
-        <div class="pbd">
-          <div class="pmeta"><span class="cd">RBC/A-023</span><span>Competition · research</span><span>2021–22</span></div>
-          <h3>Binary Code Pavilion & parametric studies</h3>
-          <p>With Ana Laura González: a pavilion whose façade preserves a message in binary code. Plus computational studies in Grasshopper/Rhino and the 'NFT Eggs' parametric collection.</p>
-        </div>
-      </a></div>
-    <div class="provnote rv">Photography from @arqrobertobalderas; a few projects still carry provisional images. Descriptions and links are real.</div>
+    <div class="shead rv"><div class="eyebrow"><b>01</b>Architecture</div><i></i></div>
+    <h2 class="rv d1">Each project develops its own architectural language.</h2>
+    <div class="pfilters"><button class="on" data-cat="all">All</button><button data-cat="architecture">Architecture</button><button data-cat="interiors">Interiors</button><button data-cat="research">Research</button></div>
+    <div class="reels">
+      <article class="reel rv big" data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-4.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-2.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-3.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-5.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-6.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-001</span><b>Casa Ether</b><a href="casa-ether.html">Sheet →</a><span>Jalpa road · 15 min from San Miguel de Allende · 2025</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-CmIlRhHNyUi-4.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"><img src="img/ig-CmIlRhHNyUi-1.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"><img src="img/ig-CmIlRhHNyUi-2.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"><img src="img/ig-CmIlRhHNyUi-3.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"><img src="img/ig-CmIlRhHNyUi-5.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"><img src="img/ig-CmIlRhHNyUi-6.jpg" alt="Casa de Campo, Jalpa — Jalpa · Guanajuato" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-002</span><b>Casa de Campo, Jalpa</b><span>Jalpa · Guanajuato · 2022</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-2.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-6.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-4.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-003</span><b>Casa Horizonte</b><a href="casa-horizonte.html">Sheet →</a><span>Peñas Arriba · San Miguel de Allende · 2026</span></div>
+      </article>
+      <article class="reel rv tall" data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-DZqIB1jmGm_-3.jpg" alt="Private art pavilion — San Miguel de Allende" loading="lazy"><img src="img/ig-DZqIB1jmGm_-1.jpg" alt="Private art pavilion — San Miguel de Allende" loading="lazy"><img src="img/ig-DZqIB1jmGm_-2.jpg" alt="Private art pavilion — San Miguel de Allende" loading="lazy"><img src="img/ig-DZqIB1jmGm_-4.jpg" alt="Private art pavilion — San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-004</span><b>Private art pavilion</b><span>San Miguel de Allende · 2026</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="3"><div class="fs-trk"><img src="img/ig-C_3mXTMxFYj-1.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"><img src="img/ig-C_3mXTMxFYj-2.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"><img src="img/ig-C_3mXTMxFYj-3.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-005</span><b>Casa Travertino</b><a href="casa-travertino.html">Sheet →</a><span>Club de Golf El Campanario · Querétaro · 2025</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-DZvx80iGPzt-2.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"><img src="img/ig-DZvx80iGPzt-3.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"><img src="img/ig-DZvx80iGPzt-4.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"><img src="img/ig-DZvx80iGPzt-5.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"><img src="img/ig-DZvx80iGPzt-6.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"><img src="img/ig-DZvx80iGPzt-1.jpg" alt="Hotel Casa X — San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-006</span><b>Hotel Casa X</b><span>San Miguel de Allende · 2026</span></div>
+      </article>
+      <article class="reel rv wide" data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-C8NS-m5RKyS-1.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-2.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-3.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-4.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-007</span><b>Bar Bachus</b><span>Historic center · San Miguel de Allende · 2024</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CmIgeQvtivo-1.jpg" alt="Casa Cuadrante — restaurant & residence — Historic center · San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-008</span><b>Casa Cuadrante — restaurant & residence</b><span>Historic center · San Miguel de Allende · 2023</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-CqYldy-JhDi-1.jpg" alt="Amecsa dealership — Monterrey · Nuevo León" loading="lazy"><img src="img/ig-CqYldy-JhDi-2.jpg" alt="Amecsa dealership — Monterrey · Nuevo León" loading="lazy"><img src="img/ig-CqYldy-JhDi-3.jpg" alt="Amecsa dealership — Monterrey · Nuevo León" loading="lazy"><img src="img/ig-CqYldy-JhDi-4.jpg" alt="Amecsa dealership — Monterrey · Nuevo León" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-009</span><b>Amecsa dealership</b><span>Monterrey · Nuevo León · 2023</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-C36BNy-r7sX-1.jpg" alt="Condesa apartment façade — Condesa · Mexico City" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-010</span><b>Condesa apartment façade</b><span>Condesa · Mexico City · 2024</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture interiors">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-CmIiJOeNybF-1.jpg" alt="Daily Veggies offices — Querétaro" loading="lazy"><img src="img/ig-CmIiJOeNybF-2.jpg" alt="Daily Veggies offices — Querétaro" loading="lazy"><img src="img/ig-CmIiJOeNybF-3.jpg" alt="Daily Veggies offices — Querétaro" loading="lazy"><img src="img/ig-CmIiJOeNybF-4.jpg" alt="Daily Veggies offices — Querétaro" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-011</span><b>Daily Veggies offices</b><span>Querétaro · 2022</span></div>
+      </article>
+      <article class="reel rv big" data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-CmIhSSWNLll-1.jpg" alt="Casa de Campo, San Miguel — San Miguel de Allende" loading="lazy"><img src="img/ig-CmIhSSWNLll-2.jpg" alt="Casa de Campo, San Miguel — San Miguel de Allende" loading="lazy"><img src="img/ig-CmIhSSWNLll-3.jpg" alt="Casa de Campo, San Miguel — San Miguel de Allende" loading="lazy"><img src="img/ig-CmIhSSWNLll-4.jpg" alt="Casa de Campo, San Miguel — San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-012</span><b>Casa de Campo, San Miguel</b><span>San Miguel de Allende · 2022</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="3"><div class="fs-trk"><img src="img/ig-CmIhqtPNJ_A-1.jpg" alt="Restaurants in San Miguel — San Miguel de Allende" loading="lazy"><img src="img/ig-CmIhqtPNJ_A-3.jpg" alt="Restaurants in San Miguel — San Miguel de Allende" loading="lazy"><img src="img/ig-CmIhqtPNJ_A-2.jpg" alt="Restaurants in San Miguel — San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-013</span><b>Restaurants in San Miguel</b><span>San Miguel de Allende · 2022–24</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CTkeLydL5WN-1.jpg" alt="Commercial & residential plaza — Querétaro" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-014</span><b>Commercial & residential plaza</b><span>Querétaro · 2021</span></div>
+      </article>
+      <article class="reel rv tall" data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CYrS_x8LAfL-1.jpg" alt="Tuluminati stores — San Miguel de Allende · Los Cabos" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-015</span><b>Tuluminati stores</b><span>San Miguel de Allende · Los Cabos · 2022</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CYN5_X2MvbD-1.jpg" alt="Wellness complex — Mérida · Yucatán" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-016</span><b>Wellness complex</b><span>Mérida · Yucatán · 2022</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-C54_iAdg4zh-1.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-2.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-3.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-4.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-5.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-6.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-017</span><b>Apartment JC</b><span>Historic center · San Miguel de Allende · 2024</span></div>
+      </article>
+      <article class="reel rv wide" data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/gated-entrance-luxury-home.jpg" alt="Casa Cien suites — San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-018</span><b>Casa Cien suites</b><span>San Miguel de Allende · 2021</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture interiors">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/wine-cellar-natural-stone.jpg" alt="Origen store — San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-019</span><b>Origen store</b><span>San Miguel de Allende · 2023</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/community-trails.jpg" alt="Saiko — San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-020</span><b>Saiko</b><span>San Miguel de Allende · 2024</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/stone-villa-garden-pool-mexico.jpg" alt="Casa Artista — San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-021</span><b>Casa Artista</b><span>San Miguel de Allende · 2026</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/san-miguel-street-vertical.jpg" alt="Casa Velia — Historic center · San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-022</span><b>Casa Velia</b><span>Historic center · San Miguel de Allende · 2025</span></div>
+      </article>
+      <article class="reel rv big" data-types="architecture research">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CYN4kfeMIFT-1.jpg" alt="Binary Code Pavilion & parametric studies — Competition · research" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/A-023</span><b>Binary Code Pavilion & parametric studies</b><span>Competition · research · 2021–22</span></div>
+      </article></div>
   </div>
 </section>
 <section class="band" id="construction">
   <div class="wrap">
     <div class="shead rv"><div class="eyebrow"><b>02</b>Construction</div><i></i></div>
-    <div class="split rv d1" style="align-items:start;">
-      <h2>Drawn and built with the same criterion.</h2>
-      <div>
-        <p class="lead">Construction at RBC means the architect stays on the project through the site. Roberto manages smaller works personally; significant construction is supported and executed through Espacios y Formas, whose experience in the Bajío runs from single houses to residential towers, serial housing, urbanization and commercial buildings.</p>
-        <p class="lead" style="margin-top:12px;">A selection of built and current work:</p>
-      </div>
-    </div>
-    <div class="ctab rv d2"><a href="work.html#penas-arriba"><span class="cd">RBC/C-001</span><b>Peñas Arriba</b><span>San Miguel de Allende · urbanization, amenities and houses</span><em>RBC with Espacios y Formas</em></a><a href="work.html#magno"><span class="cd">RBC/C-002</span><b>Magno Towers</b><span>Celaya · residential towers</span><em>Espacios y Formas</em></a><a href="casa-horizonte.html"><span class="cd">RBC/C-003</span><b>Casa Horizonte</b><span>Peñas Arriba, San Miguel de Allende · residence</span><em>Under construction</em></a><a href="casa-travertino.html"><span class="cd">RBC/C-004</span><b>Casa Travertino</b><span>El Campanario, Querétaro · residence</span><em>Built</em></a><a href="casa-ether.html"><span class="cd">RBC/C-005</span><b>Casa Ether</b><span>Road to Jalpa, San Miguel de Allende · country house</span><em>Built</em></a><div class="r"><span class="cd">RBC/C-006</span><b>Casa Cuadrante</b><span>Historic center, San Miguel de Allende · restoration, restaurant and residence</span><em>Built</em></div><div class="r"><span class="cd">RBC/C-007</span><b>Apartment JC</b><span>Historic center, San Miguel de Allende · renovation</span><em>Built</em></div><div class="r"><span class="cd">RBC/C-008</span><b>Golf-club residence</b><span>San Miguel de Allende · private</span><em>Built · details on request</em></div><div class="r"><span class="cd">RBC/C-009</span><b>Casa Elo</b><span>Details pending</span><em>Built</em></div><div class="r"><span class="cd">RBC/C-010</span><b>La Escondida · La Nueva Escondida</b><span>San Miguel de Allende · residential developments</span><em>In development</em></div></div>
-    <div class="cap rv" style="margin-top:14px;">Photographs of the construction process are being gathered; entries marked pending will be completed with Roberto.</div>
-  </div>
-</section>
-
-<section id="developments">
-  <div class="wrap">
-    <div class="shead rv"><div class="eyebrow"><b>03</b>Developments</div><i></i></div>
-    <div class="split rv d1" style="align-items:start;">
-      <h2>Communities, with authorship stated.</h2>
-      <p class="lead">Development-scale work is where the collaboration with Espacios y Formas is most visible. Each project below says who planned it, who builds it and where to buy.</p>
-    </div>
-    <div class="devs">
-      <article class="dev rv" id="penas-arriba">
-        <div class="dev-car car h520" data-auto="4200">
-          <div class="trk"><div class="sl"><img src="img/parroquia-view-from-community.jpg" alt="Peñas Arriba"><div class="scap">View of the Parroquia from the community</div></div><div class="sl"><img src="img/community-club-pool.jpg" alt="Peñas Arriba"><div class="scap">Clubhouse and pool</div></div><div class="sl"><img src="img/stone-walls-community.jpg" alt="Peñas Arriba"><div class="scap">Terracing in site stone</div></div><div class="sl"><img src="img/casa-horizonte-sunset-facade.jpg" alt="Peñas Arriba"><div class="scap">Casa Horizonte</div></div><div class="sl"><img src="img/penas-arriba-map-casa-horizonte.jpg" alt="Peñas Arriba"><div class="scap">Master plan</div></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
-        </div>
-        <div class="dev-bd">
-          <div class="dev-meta"><span>San Miguel de Allende · Guanajuato</span><span>RBC with Espacios y Formas</span></div>
-          <h3>Peñas Arriba</h3>
-          <p>A gated residential community on the hillside above San Miguel de Allende, with views of the Parroquia and the historic center a few minutes away. Streets, stone terracing and the amenity buildings are built; houses are designed and built inside the community, with lots and shell-built homes also available. Master plan, availability and prices on the community's own site.</p>
-          <div class="dev-cta"><a class="btn red" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site →</a><a class="btn ghost" href="properties.html">Houses on this site</a></div>
-        </div>
+    <h2 class="rv d1">Drawn and built by the same hand.</h2>
+    <p class="lead rv d2" style="max-width:600px;">Roberto directs the site personally. Larger works are built with Espacios y Formas.</p>
+    <div class="reels">
+      <article class="reel rv " data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-2.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-6.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"><img src="img/ig-DceaktFmAgJ-4.jpg" alt="Casa Horizonte — Peñas Arriba · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-003</span><b>Casa Horizonte</b><a href="casa-horizonte.html">Sheet →</a><span>Peñas Arriba · San Miguel de Allende · 2026</span></div>
       </article>
-      <article class="dev rv" id="magno">
-        <div class="dev-car car h520" data-auto="4600">
-          <div class="trk"><div class="sl"><img src="img/community-club-pool.jpg" alt="Magno Home &amp; Towers"><div class="scap">Provisional image</div></div><div class="sl"><img src="img/community-gym.jpg" alt="Magno Home &amp; Towers"><div class="scap">Provisional image</div></div><div class="sl"><img src="img/gated-entrance-luxury-home.jpg" alt="Magno Home &amp; Towers"><div class="scap">Provisional image</div></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
-        </div>
-        <div class="dev-bd">
-          <div class="dev-meta"><span>Celaya · Guanajuato</span><span>Espacios y Formas</span></div>
-          <h3>Magno Home &amp; Towers</h3>
-          <p>Residential towers, single-family homes and lots inside one gated community in Celaya, with spa, pool, gym, clubhouse, business center, gardens and underground parking. Developed and built by Espacios y Formas; apartments available for immediate delivery. Lots from MX $2.0M, apartments from MX $4.3M, homes from MX $5.5M.</p>
-          <div class="dev-cta"><a class="btn red" href="https://magnoresidencial.com/" target="_blank" rel="noopener">Sales site →</a><a class="btn ghost" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20would%20like%20the%20current%20inventory%20of%20apartments%2C%20homes%20and%20lots%20in%20Magno%2C%20Celaya.">Ask for inventory</a></div>
-        </div>
+      <article class="reel rv " data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-4.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-2.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-3.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-5.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"><img src="img/ig-DJ-iHIEx2Xi-6.jpg" alt="Casa Ether — Jalpa road · 15 min from San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-001</span><b>Casa Ether</b><a href="casa-ether.html">Sheet →</a><span>Jalpa road · 15 min from San Miguel de Allende · 2025</span></div>
       </article>
-      <article class="dev rv" id="escondida">
-        <div class="dev-car car h520" data-auto="5000">
-          <div class="trk"><div class="sl"><img src="img/community-trails.jpg" alt="La Escondida &amp; La Nueva Escondida"><div class="scap">Provisional image</div></div><div class="sl"><img src="img/valley-golden-hour.jpg" alt="La Escondida &amp; La Nueva Escondida"><div class="scap">Provisional image</div></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
-        </div>
-        <div class="dev-bd">
-          <div class="dev-meta"><span>San Miguel de Allende</span><span>In development</span></div>
-          <h3>La Escondida &amp; La Nueva Escondida</h3>
-          <p>Two residential developments in San Miguel de Allende, currently in development. Details will be published when available.</p>
-          <div class="dev-cta"><a class="btn" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Escondida%20and%20La%20Nueva%20Escondida%20in%20San%20Miguel.">Keep me informed</a></div>
-        </div>
+      <article class="reel rv " data-types="architecture construction">
+        <div class="fs-slider reel-sl" data-n="3"><div class="fs-trk"><img src="img/ig-C_3mXTMxFYj-1.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"><img src="img/ig-C_3mXTMxFYj-2.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"><img src="img/ig-C_3mXTMxFYj-3.jpg" alt="Casa Travertino — Club de Golf El Campanario · Querétaro" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i></div><span class="fs-st">For sale</span></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-005</span><b>Casa Travertino</b><a href="casa-travertino.html">Sheet →</a><span>Club de Golf El Campanario · Querétaro · 2025</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="4"><div class="fs-trk"><img src="img/ig-C8NS-m5RKyS-1.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-2.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-3.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C8NS-m5RKyS-4.jpg" alt="Bar Bachus — Historic center · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-007</span><b>Bar Bachus</b><span>Historic center · San Miguel de Allende · 2024</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CmIgeQvtivo-1.jpg" alt="Casa Cuadrante — restaurant & residence — Historic center · San Miguel de Allende" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-008</span><b>Casa Cuadrante — restaurant & residence</b><span>Historic center · San Miguel de Allende · 2023</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="6"><div class="fs-trk"><img src="img/ig-C54_iAdg4zh-1.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-2.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-3.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-4.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-5.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"><img src="img/ig-C54_iAdg4zh-6.jpg" alt="Apartment JC — Historic center · San Miguel de Allende" loading="lazy"></div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-017</span><b>Apartment JC</b><span>Historic center · San Miguel de Allende · 2024</span></div>
+      </article>
+      <article class="reel rv " data-types="architecture construction interiors">
+        <div class="fs-slider reel-sl" data-n="1"><div class="fs-trk"><img src="img/ig-CYrS_x8LAfL-1.jpg" alt="Tuluminati stores — San Miguel de Allende · Los Cabos" loading="lazy"></div><div class="fs-dots"></div></div>
+        <div class="reel-cap"><span class="cd">RBC/AC-015</span><b>Tuluminati stores</b><span>San Miguel de Allende · Los Cabos · 2022</span></div>
       </article></div>
+    <div class="cap rv" style="margin-top:14px;">Peñas Arriba · Magno Towers · Casa Elo · La Escondida — construction photography to follow.</div>
   </div>
 </section>
-
 <section class="contact" id="contact">
   <div class="wrap">
     <div class="eyebrow rv" style="color:var(--gold);">Start a project</div>
@@ -1009,8 +909,8 @@ body.fbig-open{overflow:hidden;}
 <footer>
   <div class="in">
     <div class="cols">
-      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties. San Miguel de Allende · Bajío · México. In close collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm with more than three decades of experience.</p></div>
-      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="work.html#developments">Developments</a><a href="properties.html">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
+      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="properties.html">Properties</a><a href="properties.html#developments">Developments</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
       <div><small>Direct</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
@@ -1089,10 +989,32 @@ document.querySelectorAll('form[data-wa]').forEach(f=>f.addEventListener('submit
 
 <script>
 document.querySelectorAll('.pfilters').forEach(f=>{
-  const grid=f.parentElement.querySelector('.projs');
+  const grid=f.parentElement.querySelector('.projs'); if(!grid) return;
   f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
     f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
     const c=b.dataset.cat; grid.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
+  }));
+});
+</script>
+
+
+<script>
+// reels: auto-advancing sliders; a manual arrow stops the auto-advance
+document.querySelectorAll('.reel-sl').forEach(root=>{
+  const trk=root.querySelector('.fs-trk'), n=parseInt(root.dataset.n||1); if(n<2) return;
+  const dots=[...root.querySelectorAll('.fs-dots i')]; let i=0, t=null;
+  const go=k=>{i=(k+n)%n; trk.style.transform='translateX(-'+(i*100)+'%)'; dots.forEach((d,j)=>d.classList.toggle('on',j===i));};
+  const start=()=>{if(!t)t=setInterval(()=>go(i+1),3600+Math.random()*900);}; const stop=()=>{clearInterval(t);t=null;};
+  root.querySelector('.fs-arr.l').addEventListener('click',e=>{e.stopPropagation();stop();go(i-1);});
+  root.querySelector('.fs-arr.r').addEventListener('click',e=>{e.stopPropagation();stop();go(i+1);});
+  dots.forEach((d,j)=>d.addEventListener('click',e=>{e.stopPropagation();stop();go(j);}));
+  go(0); new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else stop();}),{threshold:.2}).observe(root);
+});
+document.querySelectorAll('.pfilters').forEach(f=>{
+  const grid=f.parentElement.querySelector('.reels'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
   }));
 });
 </script>
