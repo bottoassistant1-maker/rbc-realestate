@@ -80,9 +80,9 @@ CARDS = [
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
        imgs=["img/ig-DceaktFmAgJ-1.jpg","img/ig-DceaktFmAgJ-3.jpg","img/penas-arriba-map-casa-horizonte.jpg","img/ph-penas-obra-b-06.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
-       imgs=["img/community-trails.jpg"], sheet="", web="", ig="", fb=""),
+       imgs=[], sheet="", web="", ig="", fb=""),
   dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="In development · details to follow",
-       imgs=["img/valley-golden-hour.jpg"], sheet="", web="", ig="", fb=""),
+       imgs=[], sheet="", web="", ig="", fb=""),
 ]
 
 def dev_md(c, wa):
@@ -96,7 +96,10 @@ def dev_md(c, wa):
     if not links: links = f'<a href="{wa("Hi Roberto, please keep me informed about " + c["name"] + " in San Miguel de Allende.")}">Keep me informed</a>'
     multi = len(c["imgs"]) > 1
     arrows = '<button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>' if multi else ""
-    car = f'<div class="car dm-car" data-auto="4800"><div class="trk">{sl}</div>{arrows}<div class="dots"></div></div>' if multi else f'<div class="dm-car one"><img src="{c["imgs"][0]}" alt="{c["name"]}" loading="lazy"></div>'
+    if not c["imgs"]:
+        car = '<div class="dm-car pend"><span>Renders and master plan pending</span></div>'
+    else:
+        car = f'<div class="car dm-car" data-auto="4800"><div class="trk">{sl}</div>{arrows}<div class="dots"></div></div>' if multi else f'<div class="dm-car one"><img src="{c["imgs"][0]}" alt="{c["name"]}" loading="lazy"></div>'
     return f"""
       <article class="dm rv" id="{c['id']}">
         {car}
@@ -113,6 +116,7 @@ CSS += r"""
 .dms{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px;margin-top:8px;}
 @media(max-width:800px){.dms{grid-template-columns:1fr;}}
 .dm .dm-car{height:300px;overflow:hidden;background:var(--paper-2);}
+.dm .dm-car.pend{display:flex;align-items:flex-end;padding:16px;border:1px solid var(--line);} .dm .dm-car.pend span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
 .dm .dm-car.one img{width:100%;height:100%;object-fit:cover;display:block;}
 .dm .car .trk{height:100%;padding-bottom:0;gap:0;} .dm .car .sl{height:100%;border-radius:0;} .dm .car .sl img{width:100%;height:100%;object-fit:cover;}
 .dm .car .dots{position:absolute;bottom:10px;left:0;right:0;margin:0;}

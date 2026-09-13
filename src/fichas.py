@@ -20,7 +20,7 @@ def small_card(l, wa, i=0, md=False):
         </div>
         <div class="fs-bd">
           <div class="fs-where">{l['where']}</div>
-          <h3>{l['name']}</h3>
+          <h3>{l['name']}{'<img class="fs-brand" src="img/penas-arriba-logo.png" alt="Peñas Arriba" title="Peñas Arriba">' if 'Peñas Arriba' in l['where'] else ''}</h3>
           <div class="fs-pr">{price_line(l)}</div>
           <div class="fs-sp">{sp}</div>
           <span class="fs-open">Open sheet →</span>
@@ -58,6 +58,9 @@ MODAL_HTML = """
 """
 
 CSS = r"""
+.fs h3{display:flex;align-items:center;gap:10px;}
+.fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
+
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
 @media(max-width:1000px){.fgrid{grid-template-columns:1fr 1fr;}}

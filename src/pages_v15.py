@@ -37,8 +37,8 @@ def home(wa, SITE):
   <div class="wrap">
     <div class="doors doors3">
       <a class="door rv" href="architecture.html"><img src="img/ph-bar-bachus-06.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
-      <a class="door rv d1" href="real-estate.html"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
-      <a class="door rv d2" href="construction.html"><img src="img/ph-penas-obra-b-06.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+      <a class="door rv d1" href="real-estate.html"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
+      <a class="door rv d2" href="construction.html"><img src="img/ph-penas-obra-a-03.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
     </div>
   </div>
 </section>
@@ -68,7 +68,7 @@ def architecture(wa, SITE):
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
 def real_estate(wa, SITE):
-    sale = [l for l in listings.L if l["kind"] == "sale" and l["slug"] != "magno" and "Peñas Arriba" not in l["where"]]
+    sale = [l for l in listings.L if l["kind"] == "sale" and l["slug"] != "magno"]
     rent = [l for l in listings.L if l["kind"] == "rent"]
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
@@ -83,7 +83,7 @@ def real_estate(wa, SITE):
         ["img/community-trails.jpg","img/valley-golden-hour.jpg"],
         f'<a class="btn" href="{wa("Hi Roberto, please keep me informed about La Escondida and La Nueva Escondida in San Miguel.")}">Keep me informed</a>', 5000)
 
-    body = P.phero("img/ig-DceaktFmAgJ-3.jpg", "RBC / Real Estate", "Real Estate.",
+    body = P.phero("img/ig-DceaktFmAgJ-2.jpg", "RBC / Real Estate", "Real Estate.",
         "A short selection of houses, and the developments behind them.", '<a href="index.html">Home</a> › Real Estate') + f"""
 <section id="sale">
   <div class="wrap">
@@ -96,7 +96,6 @@ def real_estate(wa, SITE):
 <section class="band" id="developments">
   <div class="wrap">
     {shead("02","Developments")}
-    <p class="lead rv d1" style="max-width:640px;margin:-6px 0 22px;">Peñas Arriba houses are on the Peñas Arriba sheet. Ask for the current inventory of any development.</p>
     {__import__('devpages').dev_cards(wa)}
   </div>
 </section>

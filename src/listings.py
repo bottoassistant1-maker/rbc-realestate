@@ -39,7 +39,7 @@ add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizo
 add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
     auth="Represented by RBC",
     status="Finished · furnished", price_mxn=None, price_note="Price on request",
-    specs=[("4","levels"),("3","bedrooms"),("3½","baths"),("1","car"),("Rooftop","jacuzzi")],
+    specs=[("4","levels"),("2","bedrooms"),("2½","baths"),("1","car"),("Rooftop","jacuzzi")],
     blurb="A four-level house in the historic center around a courtyard with a motorised sliding glass dome; rooftop with jacuzzi and outdoor kitchen facing the Parroquia. Delivered furnished.",
     intro="Casa Mirador is organised around a central courtyard covered by a motorised sliding glass dome: open, the patio is an outdoor room; closed, the house keeps its light in any weather. Four levels rise around it, ending in a rooftop with jacuzzi, outdoor kitchen and bar facing the Parroquia. Two fountains, a master bath that opens onto its own garden, and finishes in a style of its own. Delivered furnished and decorated.",
     arch="Vertical house on four levels around a central courtyard; the rooftop works as a fourth façade, oriented to the Parroquia.",
@@ -51,7 +51,7 @@ add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador"
     highlights=["Views of the historic center and the Parroquia from the rooftop and upper levels","Central courtyard with automatic sliding glass dome","Two full bedrooms with en-suite baths, air conditioning and blackout curtains","Master suite with a private garden inside the bathroom","Rooftop with jacuzzi, outdoor kitchen, bar and lounge","TV room, guest half-bath, garage, two fountains","Delivered furnished and decorated"],
     program=[("Ground level","Garage, entry, central courtyard with the glass dome, two fountains"),("Living levels","Living, dining, kitchen, TV room and guest half-bath around the courtyard"),("Bedroom level","Two en-suite bedrooms with A/C; master suite with garden bath"),("Rooftop","Jacuzzi, outdoor kitchen, bar and terrace facing the Parroquia")],
     location="Historic center of San Miguel de Allende, walking distance from the Jardín Principal.",
-    img="img/san-miguel-street-vertical.jpg", gallery=["img/view-historic-center.jpg","img/san-miguel-de-allende-parroquia-view.jpg","img/luxury-home-san-miguel-interior-living.jpg"])
+    img="img/view-historic-center.jpg", gallery=["img/san-miguel-de-allende-parroquia-view.jpg"])  # photos of the house pending
 
 add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro · M1-L14", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
