@@ -70,3 +70,62 @@ CSS = r"""
 .dev-hero .in .dev-logo.white{filter:none;}
 .pp-bar .btn.ghost{margin-left:8px;}
 """
+
+# ── medium development cards for the Real Estate page (v17) ──
+CARDS = [
+  dict(id="magno-homes", logo="img/magno-logo-white.png", dark=True, name="Magno Homes", place="Celaya · Guanajuato", status="Single-family homes and lots",
+       imgs=["img/magno-4.jpg","img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
+  dict(id="magno-towers", logo="img/magno-logo-white.png", dark=True, name="Magno Towers", place="Celaya · Guanajuato", status="Apartments · immediate delivery",
+       imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
+  dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
+       imgs=["img/ig-DceaktFmAgJ-1.jpg","img/ig-DceaktFmAgJ-3.jpg","img/penas-arriba-map-casa-horizonte.jpg","img/ph-penas-obra-b-06.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
+  dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
+       imgs=["img/community-trails.jpg"], sheet="", web="", ig="", fb=""),
+  dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="In development · details to follow",
+       imgs=["img/valley-golden-hour.jpg"], sheet="", web="", ig="", fb=""),
+]
+
+def dev_md(c, wa):
+    sl = "".join(f'<div class="sl"><img src="{i}" alt="{c["name"]}" loading="lazy"></div>' for i in c["imgs"])
+    brand = f'<img src="{c["logo"]}" alt="{c["name"]}" class="{"white" if c["dark"] else ""}">' if c["logo"] else f'<b>{c["name"]}</b>'
+    links = ""
+    if c["sheet"]: links += f'<a href="{c["sheet"]}">Sheet →</a>'
+    if c["web"]: links += f'<a href="{c["web"]}" target="_blank" rel="noopener">Website</a>'
+    if c["ig"]: links += f'<a href="{c["ig"]}" target="_blank" rel="noopener">Instagram</a>'
+    if c["fb"]: links += f'<a href="{c["fb"]}" target="_blank" rel="noopener">Facebook</a>'
+    if not links: links = f'<a href="{wa("Hi Roberto, please keep me informed about " + c["name"] + " in San Miguel de Allende.")}">Keep me informed</a>'
+    multi = len(c["imgs"]) > 1
+    arrows = '<button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>' if multi else ""
+    car = f'<div class="car dm-car" data-auto="4800"><div class="trk">{sl}</div>{arrows}<div class="dots"></div></div>' if multi else f'<div class="dm-car one"><img src="{c["imgs"][0]}" alt="{c["name"]}" loading="lazy"></div>'
+    return f"""
+      <article class="dm rv" id="{c['id']}">
+        {car}
+        <div class="dm-bd">
+          <div class="dm-brand{' dark' if c['dark'] else ''}">{brand}</div>
+          <div class="dm-tx"><b>{c['name']}</b><span>{c['place']} · {c['status']}</span><div class="dm-links">{links}</div></div>
+        </div>
+      </article>"""
+
+def dev_cards(wa):
+    return '<div class="dms">' + "".join(dev_md(c, wa) for c in CARDS) + '</div>'
+
+CSS += r"""
+.dms{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px;margin-top:8px;}
+@media(max-width:800px){.dms{grid-template-columns:1fr;}}
+.dm .dm-car{height:300px;overflow:hidden;background:var(--paper-2);}
+.dm .dm-car.one img{width:100%;height:100%;object-fit:cover;display:block;}
+.dm .car .trk{height:100%;padding-bottom:0;gap:0;} .dm .car .sl{height:100%;border-radius:0;} .dm .car .sl img{width:100%;height:100%;object-fit:cover;}
+.dm .car .dots{position:absolute;bottom:10px;left:0;right:0;margin:0;}
+.dm .car .arr{opacity:0;transition:opacity .25s;} .dm:hover .car .arr{opacity:1;}
+@media(max-width:800px){.dm .dm-car{height:230px;}}
+.dm-bd{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;padding:14px 0 0;}
+.dm-brand{height:56px;display:flex;align-items:center;justify-content:center;padding:6px 10px;background:#fff;border:1px solid var(--line);}
+.dm-brand.dark{background:none;border:none;padding:0;justify-content:flex-start;}
+.dm-brand img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+.dm-brand b{font-family:var(--sans);font-weight:500;font-size:.8rem;letter-spacing:.02em;color:var(--navy);text-align:center;line-height:1.15;}
+.dm-tx b{display:block;font-family:var(--sans);font-weight:500;font-size:1.15rem;letter-spacing:-.01em;color:#161616;}
+.dm-tx>span{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px;}
+.dm-links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;}
+.dm-links a{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--c-re);padding-bottom:1px;}
+.dm-links a:hover{color:var(--c-arch);border-color:var(--c-arch);}
+"""

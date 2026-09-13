@@ -68,7 +68,7 @@ def architecture(wa, SITE):
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
 def real_estate(wa, SITE):
-    sale = [l for l in listings.L if l["kind"] == "sale" and l["slug"] != "magno"]
+    sale = [l for l in listings.L if l["kind"] == "sale" and l["slug"] != "magno" and "Peñas Arriba" not in l["where"]]
     rent = [l for l in listings.L if l["kind"] == "rent"]
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
@@ -87,7 +87,7 @@ def real_estate(wa, SITE):
         "A short selection of houses, and the developments behind them.", '<a href="index.html">Home</a> › Real Estate') + f"""
 <section id="sale">
   <div class="wrap">
-    {shead("01","Houses for sale")}
+    {shead("01","Houses")}
     """ + fichas.grid(sale, wa) + f"""
     <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Open a sheet for plans, program, an architect's reading and the PDF</div>
   </div>
@@ -96,7 +96,8 @@ def real_estate(wa, SITE):
 <section class="band" id="developments">
   <div class="wrap">
     {shead("02","Developments")}
-    <div class="devs">{devs}</div>
+    <p class="lead rv d1" style="max-width:640px;margin:-6px 0 22px;">Peñas Arriba houses are on the Peñas Arriba sheet. Ask for the current inventory of any development.</p>
+    {__import__('devpages').dev_cards(wa)}
   </div>
 </section>
 
