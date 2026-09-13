@@ -819,6 +819,25 @@ body.fbig-open{overflow:hidden;}
 .dev-hero .sub{max-width:620px;}
 .dev-hero .in .dev-logo.white{filter:none;}
 .pp-bar .btn.ghost{margin-left:8px;}
+
+.dms{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px;margin-top:8px;}
+@media(max-width:800px){.dms{grid-template-columns:1fr;}}
+.dm .dm-car{height:300px;overflow:hidden;background:var(--paper-2);}
+.dm .dm-car.one img{width:100%;height:100%;object-fit:cover;display:block;}
+.dm .car .trk{height:100%;padding-bottom:0;gap:0;} .dm .car .sl{height:100%;border-radius:0;} .dm .car .sl img{width:100%;height:100%;object-fit:cover;}
+.dm .car .dots{position:absolute;bottom:10px;left:0;right:0;margin:0;}
+.dm .car .arr{opacity:0;transition:opacity .25s;} .dm:hover .car .arr{opacity:1;}
+@media(max-width:800px){.dm .dm-car{height:230px;}}
+.dm-bd{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;padding:14px 0 0;}
+.dm-brand{height:56px;display:flex;align-items:center;justify-content:center;padding:6px 10px;background:#fff;border:1px solid var(--line);}
+.dm-brand.dark{background:none;border:none;padding:0;justify-content:flex-start;}
+.dm-brand img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+.dm-brand b{font-family:var(--sans);font-weight:500;font-size:.8rem;letter-spacing:.02em;color:var(--navy);text-align:center;line-height:1.15;}
+.dm-tx b{display:block;font-family:var(--sans);font-weight:500;font-size:1.15rem;letter-spacing:-.01em;color:#161616;}
+.dm-tx>span{display:block;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px;}
+.dm-links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;}
+.dm-links a{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--c-re);padding-bottom:1px;}
+.dm-links a:hover{color:var(--c-arch);border-color:var(--c-arch);}
 </style>
 </head>
 <body class="pg-re">
@@ -855,23 +874,9 @@ body.fbig-open{overflow:hidden;}
 </header>
 <section id="sale">
   <div class="wrap">
-    <div class="shead rv"><div class="eyebrow"><b>01</b>Houses for sale</div><i></i></div>
+    <div class="shead rv"><div class="eyebrow"><b>01</b>Houses</div><i></i></div>
     <div class="fgrid">
-      <article class="fs rv " data-slug="casa-horizonte" tabindex="0" role="button" aria-label="Open Casa Horizonte">
-        <div class="fs-slider" data-n="9"><div class="fs-trk"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceaktFmAgJ-2.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceZkcqmPiU-2.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceaktFmAgJ-6.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceaktFmAgJ-4.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/ig-DceZkcqmPiU-4.jpg" alt="Casa Horizonte" loading="lazy"><img src="img/casa-horizonte-garden-facade-day.jpg" alt="Casa Horizonte" loading="lazy"></div>
-          <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
-          <div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <span class="fs-st">Under construction · finishes open</span>
-        </div>
-        <div class="fs-bd">
-          <div class="fs-where">Peñas Arriba · San Miguel de Allende</div>
-          <h3>Casa Horizonte</h3>
-          <div class="fs-pr">US $1.91M <small>· MX $32.5M</small></div>
-          <div class="fs-sp"><span><b>622</b> m² built · 6,693 sq ft</span><span><b>827</b> m² lot · 8,905 sq ft</span><span><b>5</b> bedrooms</span><span><b>5½</b> baths</span></div>
-          <span class="fs-open">Open sheet →</span>
-        </div>
-      </article>
-      <article class="fs rv d1" data-slug="casa-mirador" tabindex="0" role="button" aria-label="Open Casa Mirador">
+      <article class="fs rv " data-slug="casa-mirador" tabindex="0" role="button" aria-label="Open Casa Mirador">
         <div class="fs-slider" data-n="4"><div class="fs-trk"><img src="img/san-miguel-street-vertical.jpg" alt="Casa Mirador" loading="lazy"><img src="img/view-historic-center.jpg" alt="Casa Mirador" loading="lazy"><img src="img/san-miguel-de-allende-parroquia-view.jpg" alt="Casa Mirador" loading="lazy"><img src="img/luxury-home-san-miguel-interior-living.jpg" alt="Casa Mirador" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i><i></i></div>
@@ -885,63 +890,7 @@ body.fbig-open{overflow:hidden;}
           <span class="fs-open">Open sheet →</span>
         </div>
       </article>
-      <article class="fs rv d2" data-slug="casa-zafiro" tabindex="0" role="button" aria-label="Open Casa Zafiro · M1-L14">
-        <div class="fs-slider" data-n="3"><div class="fs-trk"><img src="img/listing-casa-zafiro-san-miguel.jpg" alt="Casa Zafiro · M1-L14" loading="lazy"><img src="img/community-club-pool.jpg" alt="Casa Zafiro · M1-L14" loading="lazy"><img src="img/parroquia-view-from-community.jpg" alt="Casa Zafiro · M1-L14" loading="lazy"></div>
-          <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
-          <div class="fs-dots"><i></i><i></i><i></i></div>
-          <span class="fs-st">Shell built · ~6 months to delivery</span>
-        </div>
-        <div class="fs-bd">
-          <div class="fs-where">Peñas Arriba · San Miguel de Allende</div>
-          <h3>Casa Zafiro · M1-L14</h3>
-          <div class="fs-pr">US $818K <small>· MX $13.9M</small></div>
-          <div class="fs-sp"><span><b>344</b> m² built · 3,700 sq ft</span><span><b>418</b> m² lot · 4,500 sq ft</span><span><b>4+s</b> bedrooms</span><span><b>5½</b> baths</span></div>
-          <span class="fs-open">Open sheet →</span>
-        </div>
-      </article>
-      <article class="fs rv " data-slug="casa-cima" tabindex="0" role="button" aria-label="Open Casa Cima · M6-L1">
-        <div class="fs-slider" data-n="4"><div class="fs-trk"><img src="img/luxury-villa-sunset-san-miguel.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/stone-walls-community.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/parroquia-view-from-community.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/villa-garden-day.jpg" alt="Casa Cima · M6-L1" loading="lazy"></div>
-          <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
-          <div class="fs-dots"><i></i><i></i><i></i><i></i></div>
-          <span class="fs-st">Shell built · finishes open</span>
-        </div>
-        <div class="fs-bd">
-          <div class="fs-where">Peñas Arriba · San Miguel de Allende</div>
-          <h3>Casa Cima · M6-L1</h3>
-          <div class="fs-pr"><span style='font-size:1rem'>Price on request</span></div>
-          <div class="fs-sp"><span><b>592</b> m² built · 6,373 sq ft</span><span><b>764</b> m² lot · 8,219 sq ft</span><span><b>4+s</b> bedrooms</span><span><b>6+2</b> baths</span></div>
-          <span class="fs-open">Open sheet →</span>
-        </div>
-      </article>
-      <article class="fs rv d1" data-slug="duplex-upper" tabindex="0" role="button" aria-label="Open Duplex · Upper residence · M1-L12">
-        <div class="fs-slider" data-n="2"><div class="fs-trk"><img src="img/listing-duplex-upper-unit.jpg" alt="Duplex · Upper residence · M1-L12" loading="lazy"><img src="img/view-historic-center.jpg" alt="Duplex · Upper residence · M1-L12" loading="lazy"></div>
-          <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
-          <div class="fs-dots"><i></i><i></i></div>
-          <span class="fs-st">Built · ~6 months to delivery</span>
-        </div>
-        <div class="fs-bd">
-          <div class="fs-where">Peñas Arriba · San Miguel de Allende</div>
-          <h3>Duplex · Upper residence · M1-L12</h3>
-          <div class="fs-pr">US $388K <small>· MX $6.6M</small></div>
-          <div class="fs-sp"><span><b>≈205</b> m² · 2,207 sq ft</span><span><b>3</b> bedrooms</span><span><b>3½</b> baths</span><span><b>2</b> cars</span></div>
-          <span class="fs-open">Open sheet →</span>
-        </div>
-      </article>
-      <article class="fs rv d2" data-slug="duplex-garden" tabindex="0" role="button" aria-label="Open Duplex · Garden residence · M5-L9">
-        <div class="fs-slider" data-n="2"><div class="fs-trk"><img src="img/listing-duplex-garden-unit.jpg" alt="Duplex · Garden residence · M5-L9" loading="lazy"><img src="img/community-pool-stone.jpg" alt="Duplex · Garden residence · M5-L9" loading="lazy"></div>
-          <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
-          <div class="fs-dots"><i></i><i></i></div>
-          <span class="fs-st">Built · ~6 months to delivery</span>
-        </div>
-        <div class="fs-bd">
-          <div class="fs-where">Peñas Arriba · San Miguel de Allende</div>
-          <h3>Duplex · Garden residence · M5-L9</h3>
-          <div class="fs-pr">US $437K <small>· MX $7.433M</small></div>
-          <div class="fs-sp"><span><b>≈188</b> m² · 2,024 sq ft</span><span><b>3</b> bedrooms</span><span><b>3½</b> baths</span><span><b>2</b> cars</span></div>
-          <span class="fs-open">Open sheet →</span>
-        </div>
-      </article>
-      <article class="fs rv " data-slug="casa-ether" tabindex="0" role="button" aria-label="Open Casa Ether">
+      <article class="fs rv d1" data-slug="casa-ether" tabindex="0" role="button" aria-label="Open Casa Ether">
         <div class="fs-slider" data-n="16"><div class="fs-trk"><img src="img/ph-casa-ether-00.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-01.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-02.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-03.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-04.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-05.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-06.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-07.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-08.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-09.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-10.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-11.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-12.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-13.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-14.jpg" alt="Casa Ether" loading="lazy"><img src="img/ph-casa-ether-15.jpg" alt="Casa Ether" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -955,7 +904,7 @@ body.fbig-open{overflow:hidden;}
           <span class="fs-open">Open sheet →</span>
         </div>
       </article>
-      <article class="fs rv d1" data-slug="casa-travertino" tabindex="0" role="button" aria-label="Open Casa Travertino">
+      <article class="fs rv d2" data-slug="casa-travertino" tabindex="0" role="button" aria-label="Open Casa Travertino">
         <div class="fs-slider" data-n="3"><div class="fs-trk"><img src="img/ig-C_3mXTMxFYj-1.jpg" alt="Casa Travertino" loading="lazy"><img src="img/ig-C_3mXTMxFYj-2.jpg" alt="Casa Travertino" loading="lazy"><img src="img/ig-C_3mXTMxFYj-3.jpg" alt="Casa Travertino" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i></div>
@@ -976,44 +925,41 @@ body.fbig-open{overflow:hidden;}
 <section class="band" id="developments">
   <div class="wrap">
     <div class="shead rv"><div class="eyebrow"><b>02</b>Developments</div><i></i></div>
-    <div class="devs">
-      <article class="dev dev2 rv" id="penas-arriba">
-        <div class="dev-car car h520" data-auto="4200">
-          <div class="trk"><div class="sl"><img src="img/ph-penas-obra-b-06.jpg" alt="Peñas Arriba"></div><div class="sl"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Peñas Arriba"></div><div class="sl"><img src="img/ph-penas-obra-b-07.jpg" alt="Peñas Arriba"></div><div class="sl"><img src="img/penas-arriba-map-casa-horizonte.jpg" alt="Peñas Arriba"></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
-        </div>
-        <div class="dev-bd">
-          <div class="dev-row">
-            <div class="dev-brand"><img src="img/penas-arriba-logo.png" alt="Peñas Arriba"></div>
-            <div><div class="dev-meta"><span>San Miguel de Allende</span><span>RBC with Espacios y Formas</span></div><p>A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.</p><div class="dev-cta"><a class="btn red" href="penas-arriba.html">Full sheet →</a><a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site</a></div></div>
-          </div>
+    <p class="lead rv d1" style="max-width:640px;margin:-6px 0 22px;">Peñas Arriba houses are on the Peñas Arriba sheet. Ask for the current inventory of any development.</p>
+    <div class="dms">
+      <article class="dm rv" id="magno-homes">
+        <div class="car dm-car" data-auto="4800"><div class="trk"><div class="sl"><img src="img/magno-4.jpg" alt="Magno Homes" loading="lazy"></div><div class="sl"><img src="img/magno-8.jpg" alt="Magno Homes" loading="lazy"></div><div class="sl"><img src="img/magno-2.jpg" alt="Magno Homes" loading="lazy"></div><div class="sl"><img src="img/magno-5.jpg" alt="Magno Homes" loading="lazy"></div></div><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button><div class="dots"></div></div>
+        <div class="dm-bd">
+          <div class="dm-brand dark"><img src="img/magno-logo-white.png" alt="Magno Homes" class="white"></div>
+          <div class="dm-tx"><b>Magno Homes</b><span>Celaya · Guanajuato · Single-family homes and lots</span><div class="dm-links"><a href="magno.html">Sheet →</a><a href="https://magnoresidencial.com/" target="_blank" rel="noopener">Website</a></div></div>
         </div>
       </article>
-      <article class="dev dev2 rv" id="magno">
-        <div class="dev-car car h520" data-auto="4600">
-          <div class="trk"><div class="sl"><img src="img/magno-4.jpg" alt="Magno Home &amp; Towers"></div><div class="sl"><img src="img/magno-2.jpg" alt="Magno Home &amp; Towers"></div><div class="sl"><img src="img/magno-5.jpg" alt="Magno Home &amp; Towers"></div><div class="sl"><img src="img/magno-8.jpg" alt="Magno Home &amp; Towers"></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
-        </div>
-        <div class="dev-bd">
-          <div class="dev-row">
-            <div class="dev-brand"><img src="img/magno-logo-white.png" alt="Magno Home &amp; Towers"></div>
-            <div><div class="dev-meta"><span>Celaya · Guanajuato</span><span>Espacios y Formas</span></div><p>Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery. Lots from MX $2.0M · apartments from MX $4.3M · homes from MX $5.5M.</p><div class="dev-cta"><a class="btn red" href="magno.html">Full sheet →</a><a class="btn ghost" href="https://magnoresidencial.com/" target="_blank" rel="noopener">Sales site</a><a class="btn ghost" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20would%20like%20the%20current%20inventory%20of%20apartments%2C%20homes%20and%20lots%20in%20Magno%2C%20Celaya.">Ask for inventory</a></div></div>
-          </div>
+      <article class="dm rv" id="magno-towers">
+        <div class="car dm-car" data-auto="4800"><div class="trk"><div class="sl"><img src="img/magno-1.jpg" alt="Magno Towers" loading="lazy"></div><div class="sl"><img src="img/magno-3.jpg" alt="Magno Towers" loading="lazy"></div><div class="sl"><img src="img/magno-6.jpg" alt="Magno Towers" loading="lazy"></div><div class="sl"><img src="img/magno-7.jpg" alt="Magno Towers" loading="lazy"></div></div><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button><div class="dots"></div></div>
+        <div class="dm-bd">
+          <div class="dm-brand dark"><img src="img/magno-logo-white.png" alt="Magno Towers" class="white"></div>
+          <div class="dm-tx"><b>Magno Towers</b><span>Celaya · Guanajuato · Apartments · immediate delivery</span><div class="dm-links"><a href="magno.html">Sheet →</a><a href="https://magnoresidencial.com/" target="_blank" rel="noopener">Website</a></div></div>
         </div>
       </article>
-      <article class="dev dev2 rv" id="escondida">
-        <div class="dev-car car h520" data-auto="5000">
-          <div class="trk"><div class="sl"><img src="img/community-trails.jpg" alt="La Escondida &amp; La Nueva Escondida"></div><div class="sl"><img src="img/valley-golden-hour.jpg" alt="La Escondida &amp; La Nueva Escondida"></div></div>
-          <button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button>
-          <div class="dots"></div>
+      <article class="dm rv" id="penas-arriba">
+        <div class="car dm-car" data-auto="4800"><div class="trk"><div class="sl"><img src="img/ig-DceaktFmAgJ-1.jpg" alt="Peñas Arriba" loading="lazy"></div><div class="sl"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Peñas Arriba" loading="lazy"></div><div class="sl"><img src="img/penas-arriba-map-casa-horizonte.jpg" alt="Peñas Arriba" loading="lazy"></div><div class="sl"><img src="img/ph-penas-obra-b-06.jpg" alt="Peñas Arriba" loading="lazy"></div></div><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button><div class="dots"></div></div>
+        <div class="dm-bd">
+          <div class="dm-brand"><img src="img/penas-arriba-logo.png" alt="Peñas Arriba" class=""></div>
+          <div class="dm-tx"><b>Peñas Arriba</b><span>San Miguel de Allende · Houses, shell-built homes and lots</span><div class="dm-links"><a href="penas-arriba.html">Sheet →</a><a href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Website</a><a href="https://instagram.com/penasarribasma" target="_blank" rel="noopener">Instagram</a></div></div>
         </div>
-        <div class="dev-bd">
-          <div class="dev-row">
-            <div class="dev-brand"><b>La Escondida &amp; La Nueva Escondida</b></div>
-            <div><div class="dev-meta"><span>San Miguel de Allende</span><span>In development</span></div><p>Two residential developments in San Miguel de Allende. Details to follow.</p><div class="dev-cta"><a class="btn" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Escondida%20and%20La%20Nueva%20Escondida%20in%20San%20Miguel.">Keep me informed</a></div></div>
-          </div>
+      </article>
+      <article class="dm rv" id="escondida">
+        <div class="dm-car one"><img src="img/community-trails.jpg" alt="La Escondida" loading="lazy"></div>
+        <div class="dm-bd">
+          <div class="dm-brand"><b>La Escondida</b></div>
+          <div class="dm-tx"><b>La Escondida</b><span>San Miguel de Allende · In development · details to follow</span><div class="dm-links"><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Escondida%20in%20San%20Miguel%20de%20Allende.">Keep me informed</a></div></div>
+        </div>
+      </article>
+      <article class="dm rv" id="nueva-escondida">
+        <div class="dm-car one"><img src="img/valley-golden-hour.jpg" alt="La Nueva Escondida" loading="lazy"></div>
+        <div class="dm-bd">
+          <div class="dm-brand"><b>La Nueva Escondida</b></div>
+          <div class="dm-tx"><b>La Nueva Escondida</b><span>San Miguel de Allende · In development · details to follow</span><div class="dm-links"><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Nueva%20Escondida%20in%20San%20Miguel%20de%20Allende.">Keep me informed</a></div></div>
         </div>
       </article></div>
   </div>
