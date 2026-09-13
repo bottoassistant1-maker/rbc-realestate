@@ -10,10 +10,10 @@ def reel_card(p, size=""):
     slides = "".join(f'<img src="{x}" alt="{p["name"]} — {p["place"]}" loading="lazy">' for x in ph)
     dots = "".join('<i></i>' for _ in ph) if len(ph) > 1 else ""
     arrows = '<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button>' if len(ph) > 1 else ""
-    sheet = f'<a href="{p["sale"]}">Sheet →</a>' if p.get("sale") else ""
+    sheet = ""
     return f"""
       <article class="reel rv {size}" data-types="{' '.join(types(p))}">
-        <div class="fs-slider reel-sl" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>{arrows}<div class="fs-dots">{dots}</div>{'<span class="fs-st">For sale</span>' if p.get('sale') else ''}</div>
+        <div class="fs-slider reel-sl" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>{arrows}<div class="fs-dots">{dots}</div></div>
         <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b>{sheet}<span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span></div>
       </article>"""
 
@@ -22,17 +22,15 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-ether", "big"), ("penas-obra", ""), ("hotel-casa-x", ""), ("amecsa", ""), ("casa-de-campo-sma", ""),
-  ("casa-horizonte", "hero"), ("depa-jc", "tall"),
-  ("casa-jalpa", "hero"), ("casa-cuadrante", "tall"),
-  ("bar-bachus", "hero"), ("condesa", "tall"),
-  ("chevrolet", "band"), ("daily-veggies", ""),
-  ("pabellon-arte", "wide"), ("tuluminati", ""), ("origen", ""),
-  ("casa-jalpa-2", "band"), ("restaurantes-sma", ""),
-  ("casa-jalpa-3", "band"), ("wellness-merida", ""),
-  ("casa-travertino", "wide"), ("plaza-qro", "wide"),
-  ("binary-pavilion", "wide"), ("saiko", ""), ("casa-artista", ""),
-  ("casa-velia", ""), ("casa-cien", ""),
+  ("casa-ether", "big"), ("penas-obra", ""), ("hotel-casa-x", ""), ("amecsa", ""), ("daily-veggies", ""),
+  ("casa-horizonte", "wide"), ("depa-jc", "t23"), ("casa-cuadrante", "t23"),
+  ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
+  ("casa-jalpa", "xl"), ("origen", ""), ("restaurantes-sma", ""),
+  ("bar-bachus", "xl"), ("wellness-merida", ""), ("pabellon-arte", ""),
+  ("casa-travertino", "big"), ("chevrolet", "big"),
+  ("casa-jalpa-2", "band"), ("binary-pavilion", ""),
+  ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("saiko", ""),
+  ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
 PENDING = {"saiko", "casa-artista", "casa-velia", "casa-cien"}
 
@@ -85,14 +83,16 @@ def construction_section(num="02"):
 
 CSS = r"""
 /* ── reels (v13) ── */
-.reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:280px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
+.reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
+.reel{grid-row:span 2;}
 @media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.reels{grid-template-columns:1fr;grid-auto-rows:260px;}}
+@media(max-width:600px){.reels{grid-template-columns:1fr;grid-auto-rows:130px;}}
 .reel{display:flex;flex-direction:column;min-height:0;}
-.reel.big{grid-column:span 2;grid-row:span 2;} .reel.tall{grid-row:span 2;} .reel.wide{grid-column:span 2;}
-.reel.hero{grid-column:span 3;grid-row:span 2;} .reel.band{grid-column:span 3;}
-@media(max-width:1000px){.reel.hero{grid-column:span 2;} .reel.band{grid-column:span 2;}}
-@media(max-width:600px){.reel.big,.reel.wide,.reel.hero,.reel.band{grid-column:span 1;}.reel.big,.reel.tall,.reel.hero{grid-row:span 1;}}
+.reel.big{grid-column:span 2;grid-row:span 4;} .reel.tall{grid-row:span 4;} .reel.wide{grid-column:span 2;}
+.reel.xl{grid-column:span 3;grid-row:span 4;} .reel.band{grid-column:span 3;}
+.reel.w32{grid-column:span 2;grid-row:span 3;} .reel.t23{grid-row:span 3;}
+@media(max-width:1000px){.reel.xl{grid-column:span 2;} .reel.band{grid-column:span 2;}}
+@media(max-width:600px){.reel.big,.reel.wide,.reel.xl,.reel.band,.reel.w32{grid-column:span 1;}.reel.big,.reel.tall,.reel.xl,.reel.w32,.reel.t23{grid-row:span 2;}}
 .reel-pend{display:flex;align-items:flex-end;padding:16px;background:var(--paper-2);border:1px solid var(--line);}
 .reel-pend span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
 .reel.hide{display:none;}
@@ -104,7 +104,8 @@ CSS = r"""
 .reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
 .reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.reel.big .reel-cap b,.reel.hero .reel-cap b{font-size:1.4rem;}
+.reel.big .reel-cap b,.reel.xl .reel-cap b{font-size:1.4rem;}
+.reel .fs-trk img[src$="ig-DZqIB1jmGm_-3.jpg"]{object-fit:cover;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
 .reel-cap a:hover{color:var(--red);}

@@ -60,7 +60,7 @@ nav .links .ind{display:none;}
 nav .links .sep{display:none;}
 nav .links a.sec{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);padding:10px 8px;}
 nav .links a.sec.on{color:var(--navy);text-decoration:none;}
-nav .links a.cta{margin-left:10px;padding:10px 16px;border-radius:var(--r);box-shadow:none;background:var(--navy);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;transition:background .25s;}
+nav .links a.cta{display:none;margin-left:10px;padding:10px 16px;border-radius:var(--r);box-shadow:none;background:var(--navy);font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;transition:background .25s;}
 nav .links a.cta:hover{background:var(--red);transform:none;box-shadow:none;}
 nav .links .lang{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;color:var(--ink-soft);padding:10px 8px;text-decoration:none;}
 nav .links .lang b{color:var(--navy);font-weight:500;}
@@ -383,9 +383,7 @@ nav .links a.d-arch:hover{color:var(--c-arch);} nav .links a.d-re:hover{color:va
 /* home doors */
 .doors3 .door::before{content:'';position:absolute;left:0;right:0;top:0;height:8px;z-index:3;}
 .doors3 .door:nth-child(1)::before{background:var(--c-arch);} .doors3 .door:nth-child(2)::before{background:var(--c-re);} .doors3 .door:nth-child(3)::before{background:var(--c-con);}
-.doors3 .door:nth-child(1)::after{background:linear-gradient(180deg,rgba(232,64,42,0) 40%,rgba(120,22,10,.86) 100%);}
-.doors3 .door:nth-child(2)::after{background:linear-gradient(180deg,rgba(35,47,102,0) 40%,rgba(18,26,66,.88) 100%);}
-.doors3 .door:nth-child(3)::after{background:linear-gradient(180deg,rgba(244,192,32,0) 40%,rgba(110,80,0,.86) 100%);}
+.doors3 .door::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.72) 100%);}
 .doors3 .door-t small{opacity:1;display:inline-block;padding:4px 8px;font-weight:600;}
 .doors3 .door:nth-child(1) .door-t small{background:var(--c-arch);color:#fff;} .doors3 .door:nth-child(2) .door-t small{background:var(--c-re);color:#fff;} .doors3 .door:nth-child(3) .door-t small{background:var(--c-con);color:#161616;}
 /* section pages: hero tag + section numbers in the discipline colour */
@@ -401,4 +399,8 @@ nav .brand img{height:38px;}
 .hero.home .rbc-mark{display:block;height:64px;width:auto;margin-bottom:22px;}
 .mnav .top img{height:40px;}
 .phero .in::before{content:'';display:block;width:64px;height:24px;background:url(img/rbc-mono-white.png) left center/contain no-repeat;margin-bottom:14px;opacity:.95;}
+"""
+CSS += r"""
+nav .links a.lang{display:none;}
+.mnav a.btn{display:none;}
 """
