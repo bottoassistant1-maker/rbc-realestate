@@ -56,7 +56,7 @@ def home(wa, SITE):
     {shead("02","RBC")}
     <div class="split rv d1" style="align-items:start;">
       <h2>Each project develops its own architectural language.</h2>
-      <p class="lead">RBC is the practice of Roberto Balderas Carrillo, architect. Houses, interiors and buildings, from the first drawing to the finished site — in collaboration with Espacios y Formas, the Balderas family's architecture and construction firm, for work at larger scale.</p>
+      <p class="lead">RBC is the practice of Roberto Balderas Carrillo, architect. Houses, interiors and buildings, from the first drawing to the finished site — in collaboration with Espacios y Formas, an architecture, construction and development firm with offices in Celaya and San Miguel de Allende.</p>
     </div>
     <div class="doors">
       <a class="door rv" href="work.html"><img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Architecture" loading="lazy"><div class="door-t"><small>01</small><b>Architecture</b><span>Houses, interiors, landscape, buildings.</span></div></a>
@@ -207,7 +207,7 @@ def about(wa, SITE):
       <div class="notes"><small>Criterion</small><p>Every project answers its site, its client, its budget and its scale. Each one develops its own architectural language.</p></div>
 
       {shead("02","Espacios y Formas")}
-      <p class="lead">RBC works in close collaboration with <a href="{EYF}" target="_blank" rel="noopener">Espacios y Formas</a>, the Balderas family's architecture, construction and development firm, with more than three decades of work across the Bajío. Principal office in Celaya; presence in San Miguel de Allende.</p>
+      <p class="lead">RBC works in close collaboration with <a href="{EYF}" target="_blank" rel="noopener">Espacios y Formas</a>, an architecture, construction and development firm with more than three decades of work across the Bajío. Principal office in Celaya; presence in San Miguel de Allende.</p>
       <div class="facts">
         <div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div>
         <div><small>Work</small><span>Architecture · Interiors · Landscape · Construction · Development · Selected properties</span></div>
@@ -225,7 +225,7 @@ def about(wa, SITE):
     ld = [{"@context":"https://schema.org","@type":"Person","name":"Roberto Balderas Carrillo","jobTitle":"Architect","url":f"{SITE}/about.html","worksFor":{"@type":"Organization","name":"RBC · Roberto Balderas Carrillo, Arquitecto","url":f"{SITE}/"},"affiliation":{"@type":"Organization","name":"Espacios y Formas","url":EYF},"sameAs":["https://www.instagram.com/arqrobertobalderas"],"address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"About","item":f"{SITE}/about.html"}]}]
     return ("about", "About — Roberto Balderas Carrillo, Arquitecto | RBC",
-            "Roberto Balderas Carrillo is an architect based in San Miguel de Allende. RBC is his practice, working in close collaboration with Espacios y Formas, the Balderas family's architecture, construction and development firm.",
+            "Roberto Balderas Carrillo is an architect based in San Miguel de Allende. RBC is his practice, working in close collaboration with Espacios y Formas, an architecture, construction and development firm.",
             body, "img/valley-golden-hour.jpg", ld, "0.7")
 
 # ───────────────────────────── CONTACT ─────────────────────────────
