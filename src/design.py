@@ -368,3 +368,29 @@ JS = r"""
 })();
 </script>
 """
+
+CSS += r"""
+/* ── v17: the three disciplines carry the three logo colours ── */
+:root{--c-arch:#E8402A;--c-re:#232F66;--c-con:#F4C020;}
+nav .links a.d-arch,nav .links a.d-re,nav .links a.d-con{padding-top:12px;}
+nav .links a.d-arch::before,nav .links a.d-re::before,nav .links a.d-con::before{content:'';position:absolute;left:12px;right:12px;top:0;height:3px;opacity:.9;}
+nav .links a.d-arch::before{background:var(--c-arch);} nav .links a.d-re::before{background:var(--c-re);} nav .links a.d-con::before{background:var(--c-con);}
+nav .links a.d-arch.on::after{background:var(--c-arch);} nav .links a.d-re.on::after{background:var(--c-re);} nav .links a.d-con.on::after{background:var(--c-con);}
+nav .links a.d-arch:hover{color:var(--c-arch);} nav .links a.d-re:hover{color:var(--c-re);} nav .links a.d-con:hover{color:#b98900;}
+.mnav a.d-arch small{color:var(--c-arch);} .mnav a.d-re small{color:#8fa0e6;} .mnav a.d-con small{color:var(--c-con);}
+.mnav a.d-arch,.mnav a.d-re,.mnav a.d-con{border-left:4px solid;padding-left:14px;}
+.mnav a.d-arch{border-color:var(--c-arch);} .mnav a.d-re{border-color:#8fa0e6;} .mnav a.d-con{border-color:var(--c-con);}
+/* home doors */
+.doors3 .door::before{content:'';position:absolute;left:0;right:0;top:0;height:8px;z-index:3;}
+.doors3 .door:nth-child(1)::before{background:var(--c-arch);} .doors3 .door:nth-child(2)::before{background:var(--c-re);} .doors3 .door:nth-child(3)::before{background:var(--c-con);}
+.doors3 .door:nth-child(1)::after{background:linear-gradient(180deg,rgba(232,64,42,0) 40%,rgba(120,22,10,.86) 100%);}
+.doors3 .door:nth-child(2)::after{background:linear-gradient(180deg,rgba(35,47,102,0) 40%,rgba(18,26,66,.88) 100%);}
+.doors3 .door:nth-child(3)::after{background:linear-gradient(180deg,rgba(244,192,32,0) 40%,rgba(110,80,0,.86) 100%);}
+.doors3 .door-t small{opacity:1;display:inline-block;padding:4px 8px;font-weight:600;}
+.doors3 .door:nth-child(1) .door-t small{background:var(--c-arch);color:#fff;} .doors3 .door:nth-child(2) .door-t small{background:var(--c-re);color:#fff;} .doors3 .door:nth-child(3) .door-t small{background:var(--c-con);color:#161616;}
+/* section pages: hero tag + section numbers in the discipline colour */
+body.pg-arch .phero .tag,body.pg-arch .eyebrow b{color:var(--c-arch);opacity:1;}
+body.pg-re .phero .tag,body.pg-re .eyebrow b{color:#8fa0e6;opacity:1;} body.pg-re .eyebrow b{color:var(--c-re);}
+body.pg-con .phero .tag,body.pg-con .eyebrow b{color:var(--c-con);opacity:1;} body.pg-con .eyebrow b{color:#b98900;}
+body.pg-arch .phero{border-top:8px solid var(--c-arch);} body.pg-re .phero{border-top:8px solid var(--c-re);} body.pg-con .phero{border-top:8px solid var(--c-con);}
+"""

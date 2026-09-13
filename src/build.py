@@ -124,12 +124,13 @@ nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-r
 
 def nav(active):
     ON = ' class="on"'
+    DISC = ["d-arch", "d-re", "d-con"]
     links = "".join(
-        f'<a href="{h}"{ON if h == active else ""}>{t}</a>' for h, t in NAV_ITEMS
+        f'<a href="{h}" class="{DISC[i]}{" on" if h == active else ""}">{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
     )
     sec = "".join(f'<a class="sec" href="{h}"{ON if h == active else ""}>{t}</a>' for h, t in SEC_ITEMS)
     m = "".join(
-        f'<a href="{h}"><small>0{i+1}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
+        f'<a href="{h}" class="{DISC[i]}"><small>0{i+1}</small>{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
     ) + "".join(f'<a class="msec" href="{h}">{t}</a>' for h, t in SEC_ITEMS)
     return f"""
 <nav>
@@ -218,6 +219,7 @@ document.querySelectorAll('form[data-wa]').forEach(f=>f.addEventListener('submit
 </script>
 """
 
+PGC = {"architecture.html":"pg-arch","real-estate.html":"pg-re","construction.html":"pg-con"}
 def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head=""):
     url = f"{SITE_URL}/" if slug == "index" else f"{SITE_URL}/{slug}.html"
     og = og_image if og_image.startswith("http") else f"{SITE_URL}/{og_image}"
@@ -248,9 +250,9 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {ld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}</style>
+<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}{devpages.CSS}</style>
 </head>
-<body>
+<body class="{PGC.get(active,'')}">
 {nav(active)}
 {body}
 {FOOTER}
@@ -279,7 +281,7 @@ ORG = {"@context":"https://schema.org","@type":["ProfessionalService","Organizat
   "address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}}
 
 if __name__ == "__main__":
-    import pages_v15
+    import pages_v15, devpages
     urls = pages_v15.build(page, wa, ORG, SITE_URL)
     # sitemap + robots
     sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

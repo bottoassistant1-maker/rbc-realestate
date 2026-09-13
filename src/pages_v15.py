@@ -73,11 +73,11 @@ def real_estate(wa, SITE):
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
         ["img/ph-penas-obra-b-06.jpg","img/ig-DceaktFmAgJ-1.jpg","img/ph-penas-obra-b-07.jpg","img/penas-arriba-map-casa-horizonte.jpg"],
-        '<a class="btn red" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site →</a><a class="btn ghost" href="#sale">Houses on this site</a>', 4200) + \
+        '<a class="btn red" href="penas-arriba.html">Full sheet →</a><a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site</a>', 4200) + \
     dev_card("magno", "img/magno-logo-white.png", "Magno Home &amp; Towers", "Celaya · Guanajuato", "Espacios y Formas",
         "Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery. Lots from MX $2.0M · apartments from MX $4.3M · homes from MX $5.5M.",
         ["img/magno-4.jpg","img/magno-2.jpg","img/magno-5.jpg","img/magno-8.jpg"],
-        f'<a class="btn red" href="https://magnoresidencial.com/" target="_blank" rel="noopener">Sales site →</a><a class="btn ghost" href="{wa("Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya.")}">Ask for inventory</a>', 4600) + \
+        f'<a class="btn red" href="magno.html">Full sheet →</a><a class="btn ghost" href="https://magnoresidencial.com/" target="_blank" rel="noopener">Sales site</a><a class="btn ghost" href="{wa("Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya.")}">Ask for inventory</a>', 4600) + \
     dev_card("escondida", "", "La Escondida &amp; La Nueva Escondida", "San Miguel de Allende", "In development",
         "Two residential developments in San Miguel de Allende. Details to follow.",
         ["img/community-trails.jpg","img/valley-golden-hour.jpg"],
@@ -134,13 +134,12 @@ def real_estate(wa, SITE):
 
 # ───────────────────────────── CONSTRUCTION ─────────────────────────────
 def construction(wa, SITE):
-    ps = [next(p for p in projects.PROJECTS if p["slug"] == s) for s in projects_v13.CONSTRUCTION_SLUGS]
     body = P.phero("img/ph-penas-obra-b-06.jpg", "RBC / Construction", "Construction.",
         "Directed personally. Larger works are built with Espacios y Formas.", '<a href="index.html">Home</a> › Construction') + f"""
 <section id="built">
   <div class="wrap">
-    {projects_v13.reels(ps)}
-    <div class="cap rv" style="margin-top:14px;">Magno Towers · Casa Elo · La Escondida — construction photography to follow.</div>
+    {shead("01","Peñas Arriba · San Miguel de Allende")}
+    {projects_v13.construction_grid()}
   </div>
 </section>
 """ + P.contact_band(wa, "Build", "From your plans or ours.",
@@ -164,6 +163,10 @@ def build(page, wa, ORG, SITE):
         slug, title, desc, body, og, ld, pr = fn(wa, SITE)
         if ld == "org": ld = [ORG]
         urls.append((page(slug, title, desc, body, og, ld, active=slug + ".html"), pr))
+    import devpages
+    for d in devpages.DEVS:
+        slug, title, desc, body, og, ld, pr = devpages.dev_page(d, wa, SITE)
+        urls.append((page(slug, title, desc, body, og, ld, active="real-estate.html"), pr))
     for l in listings.pages():
         slug, title, desc, body, og, ld, pr = listings.property_page(l, wa, SITE)
         body = body.replace('href="properties.html"', 'href="real-estate.html"')

@@ -157,22 +157,22 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
     img="img/san-miguel-de-allende-parroquia-view.jpg", gallery=["img/view-historic-center.jpg","img/valley-golden-hour.jpg"])
 
 # ───────── COUNTRYSIDE NEAR SMA ─────────
-add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Road to Jalpa · 15 minutes from San Miguel de Allende",
+add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Piedras Azules · 20 minutes from San Miguel de Allende",
     auth="Built by RBC · design developed from a prior scheme",
-    status="Built · contemporary country house", price_mxn=None, price_note="Price on request",
-    specs=[("Country","house"),("Italian","wood floors & ceilings"),("Spanish","kitchen"),("15 min","to San Miguel")],
-    blurb="A contemporary country house 15 minutes from San Miguel: sliding glass walls that open fully to the landscape, Italian wood on floors and ceilings, a Spanish kitchen.",
-    intro="Casa Ether began as a design received from elsewhere. RBC re-read it — circulations, proportions and material language — and built it. Sliding glass walls throughout open the house completely to the countryside, so interior and landscape read as one room. Italian hardwood on floors and ceilings, a Spanish kitchen, and elements taken from the land itself. Full presentation with plans and areas available on request.",
-    arch="A country house recomposed from a previous scheme: circulations, proportions and materials were re-read so the plan opens entirely to the landscape.",
-    site="Open countryside on the road to Jalpa, 15–20 minutes from the center of San Miguel.",
-    materials="Italian hardwood on floors and ceilings; Spanish kitchen; elements from the land itself.",
-    condition="Built and finished. Photography by Alejandro Torre.",
-    potential="A finished contemporary house in open country this close to San Miguel.",
-    notes="We took a design that was not ours and made it belong to the site. The glass walls were the decision that mattered.",
-    highlights=["15–20 minutes from the center of San Miguel de Allende, in open countryside","Sliding glass doors throughout, opening completely to the landscape","Italian hardwood floors and ceilings · Spanish kitchen","Built by RBC","Photography by Alejandro Torre"],
-    program=[("The house","Full presentation with plans and areas available on request")],
-    location="On the road to Jalpa, 15–20 minutes from the center of San Miguel de Allende, in open countryside.",
-    img="img/ig-DJ-iHIEx2Xi-1.jpg", gallery=["img/ig-DJ-iHIEx2Xi-4.jpg","img/ig-DJ-iHIEx2Xi-2.jpg","img/ig-DJ-iHIEx2Xi-3.jpg","img/ig-DJ-iHIEx2Xi-5.jpg","img/ig-DJ-iHIEx2Xi-6.jpg"])
+    status="Built · contemporary country estate", price_mxn=None, price_usd=2_200_000,
+    specs=[("1,159","m² built · 12,475 sq ft"),("7,999","m² lot · 1.98 acres"),("6","bedrooms"),("6+2","baths"),("2","levels"),("20 min","to San Miguel")],
+    blurb="A contemporary country estate on a private hilltop: double-height ceilings, oak floors and walls of glass that open to mountain views in every direction. Lap pool, jacuzzi and fire pit.",
+    intro="Casa Ether sits on a private hilltop of 7,999 m² inside Rancho Piedras Azules, twenty minutes from the center of San Miguel de Allende. Double-height ceilings, Sacarella oak floors and wood-panelled ceilings run through open living and dining spaces that slide open onto a wrap-around deck, a lap pool, a jacuzzi and a gas fire pit with step-down seating. Chef's kitchen with marble island and walk-in pantry, cava and bar, gallery-style hallways, marble master bathroom, staff quarters. Mountain and valley views in every direction.",
+    arch="Two levels on a hilltop: a long, low volume with a cantilevered roof plane, double-height living spaces and glass walls that dissolve the interior into the landscape. The design began as a scheme received from elsewhere and was re-read and built by RBC.",
+    site="Lot 15, Rancho Piedras Azules, Palo Blanco, Guanajuato — a gated community with an access road and complete privacy; 20 minutes from San Miguel de Allende centro. Views of the sierra and the valley on every side.",
+    materials="Sacarella oak floors; wood-panelled ceilings; marble island and master bathroom; double-paned windows; stone and concrete outside; agave gardens.",
+    condition="Built and finished; designer furnishings and art. Security system, ample parking.",
+    potential="A finished contemporary house of this scale, on nearly two hectares of private country this close to San Miguel, is rare.",
+    notes="We took a design that was not ours and made it belong to the site. The glass walls were the decision that mattered: every room opens to the mountains.",
+    highlights=["1,159 m² (12,475 sq ft) built on a 7,999 m² (1.98 acres) hilltop lot","6 bedrooms · 6 full + 2 half baths · 2 levels","Lap pool, jacuzzi and gas fire pit with step-down seating","Chef's kitchen with marble island and walk-in pantry · cava and bar","Sacarella oak floors · wood-panelled ceilings · marble master bath","Staff quarters with bath · security system · ample parking","Gated community, 20 minutes from San Miguel de Allende centro"],
+    program=[("Ground level","Living and dining in double height · chef's kitchen with pantry · cava and bar · terraces, deck and lap pool · staff quarters"),("Upper level","Bedrooms with mountain views · marble master bathroom · gallery-style hallways")],
+    location="Lot 15, Rancho Piedras Azules, Palo Blanco, Guanajuato — 20 minutes from San Miguel de Allende centro. Gated; mountain and valley views in every direction.",
+    img="img/ph-casa-ether-00.jpg", gallery=['img/ph-casa-ether-01.jpg', 'img/ph-casa-ether-02.jpg', 'img/ph-casa-ether-03.jpg', 'img/ph-casa-ether-04.jpg', 'img/ph-casa-ether-05.jpg', 'img/ph-casa-ether-06.jpg', 'img/ph-casa-ether-07.jpg', 'img/ph-casa-ether-08.jpg', 'img/ph-casa-ether-09.jpg', 'img/ph-casa-ether-10.jpg', 'img/ph-casa-ether-11.jpg', 'img/ph-casa-ether-12.jpg', 'img/ph-casa-ether-13.jpg', 'img/ph-casa-ether-14.jpg', 'img/ph-casa-ether-15.jpg'])
 
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="Club de Golf El Campanario · Querétaro",
@@ -215,6 +215,8 @@ def by(city, kind=None):
     return [l for l in L if l["city"] == city and (kind is None or l["kind"] == kind)]
 
 def price_line(l, big=False):
+    if l.get("price_usd"):
+        return f"US ${l['price_usd']:,}"
     if l.get("price_mxn"):
         if l["kind"] == "rent":
             return f"{mdp(l['price_mxn'])} <small>· ≈ {usd(l['price_mxn'])} per {l.get('price_per','month')}</small>"

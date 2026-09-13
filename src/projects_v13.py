@@ -35,7 +35,7 @@ def arch_section(num="01"):
   </div>
 </section>"""
 
-CONSTRUCTION_SLUGS = ["penas-obra", "casa-horizonte", "casa-ether", "casa-travertino", "bar-bachus", "casa-cuadrante", "depa-jc", "tuluminati"]
+CONSTRUCTION_SLUGS = ["penas-obra"]
 
 def construction_section(num="02"):
     ps = [next(p for p in PROJECTS if p["slug"] == s) for s in CONSTRUCTION_SLUGS]
@@ -66,7 +66,7 @@ CSS = r"""
 .reel:hover .fs-arr{opacity:1;}
 .reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
-.reel-cap b{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .reel.big .reel-cap b{font-size:1.4rem;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
@@ -94,4 +94,22 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   }));
 });
 </script>
+"""
+
+
+def construction_grid():
+    """Construction page: only the photos Roberto filed under construction, as a plain photo grid."""
+    p = next(p for p in PROJECTS if p["slug"] == "penas-obra")
+    tiles = "".join(f'<a class="lbx cg" href="{x}"><img src="{x}" alt="Peñas Arriba — construction" loading="lazy"></a>' for x in p["photos"])
+    return f'<div class="pgrid">{tiles}</div>'
+
+CSS += r"""
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr;}}
+.pgrid a{display:block;aspect-ratio:3/2;overflow:hidden;background:var(--paper-2);}
+.pgrid a:nth-child(6n+1){grid-column:span 2;aspect-ratio:2/1;}
+@media(max-width:600px){.pgrid a:nth-child(6n+1){grid-column:span 1;aspect-ratio:3/2;}}
+.pgrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease);}
+.pgrid a:hover img{transform:scale(1.03);}
 """
