@@ -663,6 +663,30 @@ footer .cols .seal{font-weight:500;letter-spacing:-.02em;}
 .draft{font-family:var(--sans);}
 .intents .intent b{font-weight:500;font-size:1rem;letter-spacing:-.01em;}
 
+/* ── v17: the three disciplines carry the three logo colours ── */
+:root{--c-arch:#E8402A;--c-re:#232F66;--c-con:#F4C020;}
+nav .links a.d-arch,nav .links a.d-re,nav .links a.d-con{padding-top:12px;}
+nav .links a.d-arch::before,nav .links a.d-re::before,nav .links a.d-con::before{content:'';position:absolute;left:12px;right:12px;top:0;height:3px;opacity:.9;}
+nav .links a.d-arch::before{background:var(--c-arch);} nav .links a.d-re::before{background:var(--c-re);} nav .links a.d-con::before{background:var(--c-con);}
+nav .links a.d-arch.on::after{background:var(--c-arch);} nav .links a.d-re.on::after{background:var(--c-re);} nav .links a.d-con.on::after{background:var(--c-con);}
+nav .links a.d-arch:hover{color:var(--c-arch);} nav .links a.d-re:hover{color:var(--c-re);} nav .links a.d-con:hover{color:#b98900;}
+.mnav a.d-arch small{color:var(--c-arch);} .mnav a.d-re small{color:#8fa0e6;} .mnav a.d-con small{color:var(--c-con);}
+.mnav a.d-arch,.mnav a.d-re,.mnav a.d-con{border-left:4px solid;padding-left:14px;}
+.mnav a.d-arch{border-color:var(--c-arch);} .mnav a.d-re{border-color:#8fa0e6;} .mnav a.d-con{border-color:var(--c-con);}
+/* home doors */
+.doors3 .door::before{content:'';position:absolute;left:0;right:0;top:0;height:8px;z-index:3;}
+.doors3 .door:nth-child(1)::before{background:var(--c-arch);} .doors3 .door:nth-child(2)::before{background:var(--c-re);} .doors3 .door:nth-child(3)::before{background:var(--c-con);}
+.doors3 .door:nth-child(1)::after{background:linear-gradient(180deg,rgba(232,64,42,0) 40%,rgba(120,22,10,.86) 100%);}
+.doors3 .door:nth-child(2)::after{background:linear-gradient(180deg,rgba(35,47,102,0) 40%,rgba(18,26,66,.88) 100%);}
+.doors3 .door:nth-child(3)::after{background:linear-gradient(180deg,rgba(244,192,32,0) 40%,rgba(110,80,0,.86) 100%);}
+.doors3 .door-t small{opacity:1;display:inline-block;padding:4px 8px;font-weight:600;}
+.doors3 .door:nth-child(1) .door-t small{background:var(--c-arch);color:#fff;} .doors3 .door:nth-child(2) .door-t small{background:var(--c-re);color:#fff;} .doors3 .door:nth-child(3) .door-t small{background:var(--c-con);color:#161616;}
+/* section pages: hero tag + section numbers in the discipline colour */
+body.pg-arch .phero .tag,body.pg-arch .eyebrow b{color:var(--c-arch);opacity:1;}
+body.pg-re .phero .tag,body.pg-re .eyebrow b{color:#8fa0e6;opacity:1;} body.pg-re .eyebrow b{color:var(--c-re);}
+body.pg-con .phero .tag,body.pg-con .eyebrow b{color:var(--c-con);opacity:1;} body.pg-con .eyebrow b{color:#b98900;}
+body.pg-arch .phero{border-top:8px solid var(--c-arch);} body.pg-re .phero{border-top:8px solid var(--c-re);} body.pg-con .phero{border-top:8px solid var(--c-con);}
+
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
 .pfilters button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px 12px 0;margin-right:18px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;position:relative;}
@@ -704,11 +728,20 @@ footer .cols .seal{font-weight:500;letter-spacing:-.02em;}
 .reel:hover .fs-arr{opacity:1;}
 .reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
-.reel-cap b{font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .reel.big .reel-cap b{font-size:1.4rem;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
 .reel-cap a:hover{color:var(--red);}
+
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr;}}
+.pgrid a{display:block;aspect-ratio:3/2;overflow:hidden;background:var(--paper-2);}
+.pgrid a:nth-child(6n+1){grid-column:span 2;aspect-ratio:2/1;}
+@media(max-width:600px){.pgrid a:nth-child(6n+1){grid-column:span 1;aspect-ratio:3/2;}}
+.pgrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease);}
+.pgrid a:hover img{transform:scale(1.03);}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -778,15 +811,21 @@ footer .cols .seal{font-weight:500;letter-spacing:-.02em;}
 .fb-cta{margin-top:34px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
 .fb-cta .note{font-size:.76rem;color:var(--ink-soft);flex-basis:100%;}
 body.fbig-open{overflow:hidden;}
+
+.dev-hero .in .dev-logo{display:block;max-width:300px;max-height:110px;object-fit:contain;margin:14px 0 10px;filter:brightness(0) invert(1);}
+.dev-hero h1.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+.dev-hero .sub{max-width:620px;}
+.dev-hero .in .dev-logo.white{filter:none;}
+.pp-bar .btn.ghost{margin-left:8px;}
 </style>
 </head>
-<body>
+<body class="">
 
 <nav>
   <div class="in">
     <a class="brand" href="index.html"><img src="img/rbc-logo.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
-      <a href="architecture.html">Architecture &amp; Design</a><a href="real-estate.html">Real Estate</a><a href="construction.html">Construction</a>
+      <a href="architecture.html" class="d-arch">Architecture &amp; Design</a><a href="real-estate.html" class="d-re">Real Estate</a><a href="construction.html" class="d-con">Construction</a>
       <a class="lang" href="#" title="Versión en español — próximamente"><b>EN</b> / ES</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
@@ -796,7 +835,7 @@ body.fbig-open{overflow:hidden;}
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
-  <a href="architecture.html"><small>01</small>Architecture &amp; Design</a><a href="real-estate.html"><small>02</small>Real Estate</a><a href="construction.html"><small>03</small>Construction</a>
+  <a href="architecture.html" class="d-arch"><small>01</small>Architecture &amp; Design</a><a href="real-estate.html" class="d-re"><small>02</small>Real Estate</a><a href="construction.html" class="d-con"><small>03</small>Construction</a>
   <a class="msec" href="contact.html">Contact</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
