@@ -4,7 +4,7 @@ Rules: no invented figures; architecture first; Espacios y Formas stated plainly
 import pages as P          # helpers only: phero, form, contact_band
 import projects, projects_v13, listings, fichas
 
-HZ = "img/casa-horizonte-sunset-facade.jpg"
+HZ = "img/hero-casa-jalpa.jpg"
 EYF = "https://www.espaciosyformas.com.mx/"
 SEL_WORK = ["casa-horizonte", "casa-ether", "bar-bachus", "casa-travertino", "hotel-casa-x", "casa-cuadrante"]
 SEL_PROPS = ("casa-horizonte", "casa-travertino", "casa-mirador")
@@ -61,7 +61,7 @@ def home(wa, SITE):
     <div class="doors">
       <a class="door rv" href="work.html"><img src="img/ig-DJ-iHIEx2Xi-1.jpg" alt="Architecture" loading="lazy"><div class="door-t"><small>01</small><b>Architecture</b><span>Houses, interiors, landscape, buildings.</span></div></a>
       <a class="door rv d1" href="properties.html"><img src="img/ig-DceaktFmAgJ-3.jpg" alt="Properties" loading="lazy"><div class="door-t"><small>02</small><b>Properties</b><span>A short selection, read by an architect.</span></div></a>
-      <a class="door rv d2" href="work.html#construction"><img src="img/ig-C8NS-m5RKyS-1.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+      <a class="door rv d2" href="work.html#construction"><img src="img/ph-penas-obra-b-06.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
     </div>
   </div>
 </section>
@@ -114,7 +114,7 @@ def properties(wa, SITE):
     sma = listings.by('sma','sale'); rent = listings.by('sma','rent')
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
-        ["img/parroquia-view-from-community.jpg","img/ig-DceaktFmAgJ-1.jpg","img/penas-arriba-map-casa-horizonte.jpg"],
+        ["img/ph-penas-obra-b-06.jpg","img/ig-DceaktFmAgJ-1.jpg","img/ph-penas-obra-b-07.jpg","img/penas-arriba-map-casa-horizonte.jpg"],
         '<a class="btn red" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site →</a><a class="btn ghost" href="#selected">Houses on this site</a>', 4200) + \
     dev_card("magno", "img/magno-logo-white.png", "Magno Home &amp; Towers", "Celaya · Guanajuato", "Espacios y Formas",
         "Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery. Lots from MX $2.0M · apartments from MX $4.3M · homes from MX $5.5M.",

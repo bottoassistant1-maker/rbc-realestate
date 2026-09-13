@@ -35,7 +35,7 @@ def arch_section(num="01"):
   </div>
 </section>"""
 
-CONSTRUCTION_SLUGS = ["casa-horizonte", "casa-ether", "casa-travertino", "bar-bachus", "casa-cuadrante", "depa-jc", "tuluminati"]
+CONSTRUCTION_SLUGS = ["penas-obra", "casa-horizonte", "casa-ether", "casa-travertino", "bar-bachus", "casa-cuadrante", "depa-jc", "tuluminati"]
 
 def construction_section(num="02"):
     ps = [next(p for p in PROJECTS if p["slug"] == s) for s in CONSTRUCTION_SLUGS]
@@ -46,7 +46,7 @@ def construction_section(num="02"):
     <h2 class="rv d1">Drawn and built by the same hand.</h2>
     <p class="lead rv d2" style="max-width:600px;">Roberto directs the site personally. Larger works are built with Espacios y Formas.</p>
     {reels(ps, sizes=False)}
-    <div class="cap rv" style="margin-top:14px;">Peñas Arriba · Magno Towers · Casa Elo · La Escondida — construction photography to follow.</div>
+    <div class="cap rv" style="margin-top:14px;">Magno Towers · Casa Elo · La Escondida — construction photography to follow.</div>
   </div>
 </section>"""
 

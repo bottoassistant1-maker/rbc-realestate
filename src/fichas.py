@@ -99,6 +99,7 @@ CSS = r"""
 .fb-hero{position:relative;height:min(58vh,560px);background:#111;}
 .fb-hero .fb-trk{display:flex;height:100%;transition:transform .8s var(--ease);}
 .fb-hero img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;}
+.fb-hero.plans img{object-fit:contain;background:#fff;}
 .fb-hero .fs-arr{opacity:1;width:48px;height:48px;}
 .fb-hero .fs-dots{bottom:16px;}
 .fb-tabs{position:absolute;top:16px;left:18px;display:flex;gap:6px;z-index:3;}
@@ -188,7 +189,7 @@ JS = r"""
     const hero=document.getElementById('fb-hero'); bigSl=slider(hero,'.fb-trk',true);
     // photo/plan tabs
     hero.querySelectorAll('.fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
-      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); hero.classList.toggle('plans', b.dataset.set==='plans');
       const set=b.dataset.set==='plans'?plans:shots; hero.querySelector('.fb-trk').innerHTML=mk(set,d.name);
       const dots=hero.querySelector('.fs-dots'); if(dots) dots.innerHTML=set.map(()=>'<i></i>').join('');
       if(bigSl) bigSl.stop(); bigSl=slider(hero,'.fb-trk',b.dataset.set!=='plans');

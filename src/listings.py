@@ -137,7 +137,7 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     highlights=["Living-dining room with fireplace and a direct view of the Parroquia","Bedroom with king bed and full bathroom","Private balcony facing the Parroquia","Furnished and decorated; art throughout; sound system","Laundry room · water, electricity and internet included","Above Casa Cuadrante, in the historic center","Mid-term stays"],
     program=[("The apartment","Living-dining with fireplace · kitchen · bedroom with full bath · laundry · private balcony")],
     location="Inside Casa Cuadrante, in the historic center of San Miguel de Allende — restaurants, galleries and the Jardín Principal on foot.",
-    img="img/luxury-home-san-miguel-interior-living.jpg", gallery=["img/san-miguel-de-allende-parroquia-view.jpg","img/san-miguel-street-vertical.jpg"])
+    img="img/ph-casa-cuadrante-01.jpg", gallery=['img/ph-casa-cuadrante-00.jpg', 'img/ph-casa-cuadrante-08.jpg', 'img/ph-casa-cuadrante-02.jpg', 'img/ph-casa-cuadrante-03.jpg', 'img/ph-casa-cuadrante-07.jpg', 'img/ph-casa-cuadrante-05.jpg'])
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="Casa Cuadrante · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
@@ -241,7 +241,7 @@ def property_page(l, wa, SITE):
 <header class="hero prop" id="top">
   <div class="bg" style="background-image:url('{l['img']}')"></div>
   <div class="in">
-    <div class="crumbs"><a href="index.html">Home</a> › <a href="properties.html">Properties</a> › {l['name']}</div>
+    <div class="crumbs"><a href="index.html">Home</a> › <a href="real-estate.html">Real Estate</a> › {l['name']}</div>
     <div class="tag">{'For rent' if rent else 'For sale'} · {l['where']}</div>
     <h1>{l['name']}</h1>
     <p class="sub">{l['blurb']}</p>
@@ -296,7 +296,7 @@ def property_page(l, wa, SITE):
     <div class="cgrid rv d2">
       <a class="btn red" href="{wa(msg)}">WhatsApp +52 461 101 2474</a>
       {('<a class="btn ghost lt" href="pdf/'+l['slug']+'.pdf" target="_blank" rel="noopener">Technical sheet (PDF)</a>') if l.get('pdf', True) else ''}
-      <a class="btn ghost lt" href="properties.html">All selected properties</a>
+      <a class="btn ghost lt" href="real-estate.html">All properties</a>
     </div>
   </div>
 </section>
@@ -305,7 +305,7 @@ def property_page(l, wa, SITE):
     ld = [{"@context":"https://schema.org","@type":"RealEstateListing","name":f"{l['name']} — {l['where']}","url":f"{SITE}/{l['slug']}.html",
            "about":{"@type":"Accommodation" if rent else "SingleFamilyResidence","name":l["name"],"address":{"@type":"PostalAddress","addressLocality":"Querétaro" if l["city"]=="qro" else ("Celaya" if l["city"]=="celaya" else "San Miguel de Allende"),"addressCountry":"MX"}},
            "offers":{"@type":"Offer","priceCurrency":"MXN","price":str(l["price_mxn"]) if l.get("price_mxn") else "0","availability":"https://schema.org/InStock","seller":{"@type":"Person","name":"Roberto Balderas Carrillo","jobTitle":"Architect","telephone":"+524611012474"}}},
-          {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Properties","item":f"{SITE}/properties.html"},{"@type":"ListItem","position":3,"name":l["name"],"item":f"{SITE}/{l['slug']}.html"}]}]
+          {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Real Estate","item":f"{SITE}/real-estate.html"},{"@type":"ListItem","position":3,"name":l["name"],"item":f"{SITE}/{l['slug']}.html"}]}]
     title = f"{l['name']} — {'For rent' if rent else 'For sale'} in {city} | RBC · Roberto Balderas Carrillo, Arquitecto"
     desc = (l["blurb"][:150] + "…") if len(l["blurb"]) > 155 else l["blurb"]
     return (l["slug"], title, desc + " Presented by architect Roberto Balderas Carrillo. WhatsApp +52 461 101 2474.", body, l["img"], ld, "0.8")
