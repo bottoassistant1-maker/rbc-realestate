@@ -21,10 +21,10 @@
 <meta name="twitter:image" content="https://rbc-realestate.vercel.app/img/ig-DJ-iHIEx2Xi-1.jpg">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "RealEstateListing", "name": "Casa Ether — Road to Jalpa · 15 minutes from San Miguel de Allende", "url": "https://rbc-realestate.vercel.app/casa-ether.html", "about": {"@type": "SingleFamilyResidence", "name": "Casa Ether", "address": {"@type": "PostalAddress", "addressLocality": "San Miguel de Allende", "addressCountry": "MX"}}, "offers": {"@type": "Offer", "priceCurrency": "MXN", "price": "0", "availability": "https://schema.org/InStock", "seller": {"@type": "Person", "name": "Roberto Balderas Carrillo", "jobTitle": "Architect", "telephone": "+524611012474"}}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rbc-realestate.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Properties", "item": "https://rbc-realestate.vercel.app/properties.html"}, {"@type": "ListItem", "position": 3, "name": "Casa Ether", "item": "https://rbc-realestate.vercel.app/casa-ether.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rbc-realestate.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Real Estate", "item": "https://rbc-realestate.vercel.app/real-estate.html"}, {"@type": "ListItem", "position": 3, "name": "Casa Ether", "item": "https://rbc-realestate.vercel.app/casa-ether.html"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Figtree:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#232F66; --navy-deep:#161E45; --red:#E8402A; --gold:#F4C020;
@@ -498,7 +498,8 @@ footer .row{border-top:none;padding-top:18px;}
 .notes .sig{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--ink-soft);margin-top:8px;font-style:normal;}
 /* ═══════════════ v12 · architect-first additions ═══════════════ */
 /* home hero: image first, three lines of type */
-.hero.home{min-height:94vh;align-items:flex-end;}
+.hero.home{min-height:86vh;align-items:flex-end;}
+.hero.home .bg{background-position:center 58%;}
 .hero.home .in{padding:0 32px 56px;max-width:1280px;}
 .hero.home .rbc{font-family:var(--mono);font-size:.7rem;letter-spacing:.3em;color:#fff;opacity:.9;}
 .hero.home h1{font-size:clamp(2.4rem,6vw,5.2rem);margin:14px 0 4px;letter-spacing:-.025em;max-width:none;}
@@ -507,7 +508,7 @@ footer .row{border-top:none;padding-top:18px;}
 .hero.home .meta{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:34px;padding-top:16px;border-top:1px solid rgba(255,255,255,.35);font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85);}
 .hero.home .meta a{color:#fff;text-decoration:none;}
 .hero.home .meta a:hover{color:var(--gold);}
-.hero.home::after{background:linear-gradient(180deg,rgba(22,30,69,0) 35%,rgba(22,30,69,.78) 100%);}
+.hero.home::after{background:linear-gradient(180deg,rgba(22,30,69,0) 45%,rgba(22,30,69,.7) 100%);}
 @media(max-width:700px){.hero.home{min-height:86vh;}.hero.home .in{padding:0 20px 40px;}}
 /* selected work: large images, one line each */
 .swgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px 22px;margin-top:34px;}
@@ -578,7 +579,7 @@ footer .row{border-top:none;padding-top:18px;}
 /* about */
 .about{display:grid;grid-template-columns:1fr 1.5fr;gap:44px;align-items:start;}
 @media(max-width:860px){.about{grid-template-columns:1fr;}}
-.about .portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.portrait{aspect-ratio:4/5;background:var(--paper-2);border:1px solid var(--hair);display:flex;align-items:flex-end;padding:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
 .about h2{font-size:clamp(1.7rem,2.8vw,2.4rem);margin-bottom:14px;}
 .about .lead+.lead{margin-top:12px;}
 /* ── three doors (v13) ── */
@@ -608,6 +609,61 @@ footer .row{border-top:none;padding-top:18px;}
 .dev2 .car .sl img{width:100%;height:100%;object-fit:cover;}
 /* intents: shorter */
 .intent b{font-size:1.15rem;}
+/* v15 */
+.lead.big{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(1.35rem,2.2vw,1.8rem);line-height:1.35;color:var(--navy);margin-bottom:16px;}
+.portrait.sm{aspect-ratio:4/5;max-width:360px;}
+.doors3 .door{aspect-ratio:3/4;}
+.doors3 .door-t b{font-size:2.6rem;}
+@media(max-width:860px){.doors3 .door{aspect-ratio:16/10;}}
+nav .links a:not(.cta):not(.sec){font-size:.72rem;}
+/* ═══════ v16 · one grotesk, editorial restraint (refs: Reed Hilderbrand · dmb · BIG) ═══════ */
+:root{--sans:'Instrument Sans','Helvetica Neue',Helvetica,Arial,sans-serif;--mono:var(--sans);}
+html,body,button,input,select,textarea{font-family:var(--sans);}
+body{color:#161616;}
+h1,h2,h3,h4,.serif,.hero h1,.phero h1,.hero.home .role,.lead.big,.notes p,.sw-cap b,.reel-cap b,.door-t b,.intent b,.dev h3,.dev2 .dev-brand b,.fs h3,.fb-head h2,.pp-price,.stats .n,.area h3,.wwww b,nav .brand .who b,footer .cols .seal,.form h3{font-family:var(--sans);font-style:normal;}
+h2{font-weight:400;letter-spacing:-.02em;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.15;}
+h3{font-weight:500;}
+.hero h1,.phero h1,.hero.home h1{font-weight:500;letter-spacing:-.03em;}
+.hero.home h1{font-size:clamp(2.2rem,5vw,4.4rem);}
+.hero.home .role{font-weight:400;font-style:normal;color:#fff;opacity:.9;font-size:clamp(1.1rem,1.8vw,1.5rem);letter-spacing:.02em;}
+.hero.home .rbc,.hero.home .meta,.eyebrow,.code,.cap,.tag,.crumbs,.sw-cap .cd,.sw-cap span:last-child,.reel-cap .cd,.reel-cap>span:last-child,.reel-cap a,.fs-where,.fs-auth,.fs-open,.fs-st,.dev-meta,.door-t small,.intent small,.caps small,.facts small,.pp-auth small,.pp-sec small,.notes small,.stats .l,.form label,footer .cols small,.scale,.wwww small,nav .brand .who span,.provnote{font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;}
+.eyebrow b{font-weight:500;}
+.lead{font-size:1rem;line-height:1.65;}
+.lead.big{font-weight:400;font-size:clamp(1.25rem,2vw,1.6rem);letter-spacing:-.01em;line-height:1.35;color:#161616;}
+.notes p{font-style:normal;font-weight:400;font-size:1rem;line-height:1.55;}
+.notes{border-left:1px solid #161616;}
+nav .links a:not(.cta):not(.sec){font-family:var(--sans);font-weight:500;font-size:.7rem;letter-spacing:.1em;color:#161616;}
+nav .links a.on::after{background:#161616;}
+nav .links a.cta{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.1em;background:#161616;}
+nav .links a.cta:hover{background:var(--red);}
+nav .brand .who b{font-weight:500;font-size:.88rem;letter-spacing:-.01em;}
+.btn{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.1em;border-radius:0;padding:13px 22px;}
+.btn.ghost{border:1px solid #161616;color:#161616;}
+.btn.ghost:hover{background:#161616;color:#fff;}
+.btn:not(.ghost):not(.red){background:#161616;}
+.btn.red{background:#161616;} .btn.red:hover{background:var(--red);}
+.shead i{background:rgba(22,22,22,.18);}
+.shead .eyebrow b{color:#161616;margin-right:8px;}
+.eyebrow{color:#161616;}
+.sw-cap .cd,.reel-cap .cd{color:#8a8a8a;}
+.sw-cap b{font-weight:500;font-size:1rem;} .sw.sw-lead .sw-cap b{font-size:1.25rem;}
+.reel-cap b{font-weight:500;font-size:.95rem;} .reel.big .reel-cap b{font-size:1.15rem;}
+.door-t b{font-weight:500;letter-spacing:-.02em;font-size:2rem;} .doors3 .door-t b{font-size:2.2rem;}
+.door-t small{color:#fff;opacity:.7;}
+.fs h3{font-weight:500;font-size:1.05rem;} .fs-pr{font-family:var(--sans);font-weight:500;color:#161616;}
+.fs-pr small{font-weight:400;color:#8a8a8a;}
+.fs-auth{color:#8a8a8a;}
+.dev h3,.dev2 .dev-brand b{font-weight:500;font-size:1.4rem;letter-spacing:-.02em;}
+.pp-price{font-weight:500;font-size:1.5rem;letter-spacing:-.02em;}
+.stats .n{font-weight:500;font-size:1.6rem;letter-spacing:-.02em;}
+.fb-head h2{font-weight:500;}
+.contact h2{font-weight:400;letter-spacing:-.02em;}
+footer .cols .seal{font-weight:500;letter-spacing:-.02em;}
+.hero.home .role{font-family:var(--sans);}
+.hero .tag,.phero .tag{opacity:.75;}
+.wa-float{font-family:var(--sans);font-weight:500;font-size:.68rem;letter-spacing:.1em;border-radius:0;}
+.draft{font-family:var(--sans);}
+.intents .intent b{font-weight:500;font-size:1rem;letter-spacing:-.01em;}
 
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
@@ -697,6 +753,7 @@ footer .row{border-top:none;padding-top:18px;}
 .fb-hero{position:relative;height:min(58vh,560px);background:#111;}
 .fb-hero .fb-trk{display:flex;height:100%;transition:transform .8s var(--ease);}
 .fb-hero img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;}
+.fb-hero.plans img{object-fit:contain;background:#fff;}
 .fb-hero .fs-arr{opacity:1;width:48px;height:48px;}
 .fb-hero .fs-dots{bottom:16px;}
 .fb-tabs{position:absolute;top:16px;left:18px;display:flex;gap:6px;z-index:3;}
@@ -729,9 +786,9 @@ body.fbig-open{overflow:hidden;}
 
 <nav>
   <div class="in">
-    <a class="brand" href="index.html"><img src="img/rbc-logo.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto · San Miguel de Allende</span></span></a>
+    <a class="brand" href="index.html"><img src="img/rbc-logo.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
-      <a href="work.html">Work</a><a href="properties.html" class="on">Properties</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      <a href="architecture.html">Architecture &amp; Design</a><a href="real-estate.html" class="on">Real Estate</a><a href="construction.html">Construction</a>
       <a class="lang" href="#" title="Versión en español — próximamente"><b>EN</b> / ES</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
@@ -741,8 +798,8 @@ body.fbig-open{overflow:hidden;}
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-logo.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
   <a href="index.html"><small>00</small>Home</a>
-  <a href="work.html"><small>01</small>Work</a><a href="properties.html"><small>02</small>Properties</a><a href="about.html"><small>03</small>About</a><a href="contact.html"><small>04</small>Contact</a>
-  <a class="msec" href="properties.html#developments">Developments</a>
+  <a href="architecture.html"><small>01</small>Architecture &amp; Design</a><a href="real-estate.html"><small>02</small>Real Estate</a><a href="construction.html"><small>03</small>Construction</a>
+  <a class="msec" href="contact.html">Contact</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
   <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a>
 </div>
@@ -751,7 +808,7 @@ body.fbig-open{overflow:hidden;}
 <header class="hero prop" id="top">
   <div class="bg" style="background-image:url('img/ig-DJ-iHIEx2Xi-1.jpg')"></div>
   <div class="in">
-    <div class="crumbs"><a href="index.html">Home</a> › <a href="properties.html">Properties</a> › Casa Ether</div>
+    <div class="crumbs"><a href="index.html">Home</a> › <a href="real-estate.html">Real Estate</a> › Casa Ether</div>
     <div class="tag">For sale · Road to Jalpa · 15 minutes from San Miguel de Allende</div>
     <h1>Casa Ether</h1>
     <p class="sub">A contemporary country house 15 minutes from San Miguel: sliding glass walls that open fully to the landscape, Italian wood on floors and ceilings, a Spanish kitchen.</p>
@@ -806,7 +863,7 @@ body.fbig-open{overflow:hidden;}
     <div class="cgrid rv d2">
       <a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%27m%20interested%20in%20Casa%20Ether%20%28Road%20to%20Jalpa%20%C2%B7%2015%20minutes%20from%20San%20Miguel%20de%20Allende%29.">WhatsApp +52 461 101 2474</a>
       <a class="btn ghost lt" href="pdf/casa-ether.pdf" target="_blank" rel="noopener">Technical sheet (PDF)</a>
-      <a class="btn ghost lt" href="properties.html">All selected properties</a>
+      <a class="btn ghost lt" href="real-estate.html">All properties</a>
     </div>
   </div>
 </section>
@@ -816,7 +873,7 @@ body.fbig-open{overflow:hidden;}
   <div class="in">
     <div class="cols">
       <div><div class="seal">RBC<span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
-      <div><small>Site</small><a href="work.html">Work</a><a href="work.html#construction">Construction</a><a href="properties.html">Properties</a><a href="properties.html#developments">Developments</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div><small>Site</small><a href="architecture.html">Architecture &amp; Design</a><a href="real-estate.html">Real Estate</a><a href="real-estate.html#developments">Developments</a><a href="construction.html">Construction</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
       <div><small>Direct</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
@@ -986,7 +1043,7 @@ document.querySelectorAll('.pfilters').forEach(f=>{
     const hero=document.getElementById('fb-hero'); bigSl=slider(hero,'.fb-trk',true);
     // photo/plan tabs
     hero.querySelectorAll('.fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
-      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on'); hero.classList.toggle('plans', b.dataset.set==='plans');
       const set=b.dataset.set==='plans'?plans:shots; hero.querySelector('.fb-trk').innerHTML=mk(set,d.name);
       const dots=hero.querySelector('.fs-dots'); if(dots) dots.innerHTML=set.map(()=>'<i></i>').join('');
       if(bigSl) bigSl.stop(); bigSl=slider(hero,'.fb-trk',b.dataset.set!=='plans');
