@@ -394,3 +394,11 @@ body.pg-re .phero .tag,body.pg-re .eyebrow b{color:#8fa0e6;opacity:1;} body.pg-r
 body.pg-con .phero .tag,body.pg-con .eyebrow b{color:var(--c-con);opacity:1;} body.pg-con .eyebrow b{color:#b98900;}
 body.pg-arch .phero{border-top:8px solid var(--c-arch);} body.pg-re .phero{border-top:8px solid var(--c-re);} body.pg-con .phero{border-top:8px solid var(--c-con);}
 """
+CSS += r"""
+/* v18: RBC monogram, larger and present */
+nav .brand img{height:38px;}
+@media(max-width:600px){nav .brand img{height:32px;}}
+.hero.home .rbc-mark{display:block;height:64px;width:auto;margin-bottom:22px;}
+.mnav .top img{height:40px;}
+.phero .in::before{content:'';display:block;width:64px;height:24px;background:url(img/rbc-mono-white.png) left center/contain no-repeat;margin-bottom:14px;opacity:.95;}
+"""

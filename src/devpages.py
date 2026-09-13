@@ -7,10 +7,10 @@ from pages_v12 import shead
 DEVS = [
   dict(slug="penas-arriba", name="Peñas Arriba", logo="img/penas-arriba-logo.png", logo_dark=False,
        place="San Miguel de Allende · Guanajuato", role="RBC with Espacios y Formas", status="Houses, shell-built homes and lots",
-       hero="img/ig-DceaktFmAgJ-1.jpg",
+       hero="img/pa-view-parroquia.jpg",
        intro="A gated community on the hillside above San Miguel de Allende, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
        facts=[("Houses","designed by RBC"),("Shell-built","homes"),("Lots","in the community"),("Gated","hillside community")],
-       photos=["img/ig-DceaktFmAgJ-1.jpg","img/ig-DceaktFmAgJ-3.jpg","img/ph-penas-obra-b-06.jpg","img/ig-DceaktFmAgJ-4.jpg","img/ph-penas-obra-b-07.jpg","img/ig-DceaktFmAgJ-5.jpg","img/penas-arriba-map-casa-horizonte.jpg"],
+       photos=["img/pa-master-plan.jpg","img/pa-view-parroquia.jpg","img/pa-portal.jpg","img/ig-DceaktFmAgJ-1.jpg","img/pa-view-01.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-render-jade.jpg","img/pa-amenity-02.jpg","img/ig-DceaktFmAgJ-3.jpg"],
        site="https://penasarriba.vercel.app/", site_label="Community site →",
        msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba, San Miguel de Allende.",
        houses=lambda l: l["kind"] == "sale" and "Peñas Arriba" in l["where"]),
@@ -78,7 +78,7 @@ CARDS = [
   dict(id="magno-towers", logo="img/magno-logo-white.png", dark=True, name="Magno Towers", place="Celaya · Guanajuato", status="Apartments · immediate delivery",
        imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
-       imgs=["img/ig-DceaktFmAgJ-1.jpg","img/ig-DceaktFmAgJ-3.jpg","img/penas-arriba-map-casa-horizonte.jpg","img/ph-penas-obra-b-06.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
+       imgs=["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/ig-DceaktFmAgJ-1.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
        imgs=[], sheet="", web="", ig="", fb=""),
   dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="In development · details to follow",
@@ -117,6 +117,7 @@ CSS += r"""
 @media(max-width:800px){.dms{grid-template-columns:1fr;}}
 .dm .dm-car{height:300px;overflow:hidden;background:var(--paper-2);}
 .dm .dm-car.pend{display:flex;align-items:flex-end;padding:16px;border:1px solid var(--line);} .dm .dm-car.pend span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.dm .car .sl img[src$="pa-master-plan.jpg"]{object-fit:contain;background:#fff;}
 .dm .dm-car.one img{width:100%;height:100%;object-fit:cover;display:block;}
 .dm .car .trk{height:100%;padding-bottom:0;gap:0;} .dm .car .sl{height:100%;border-radius:0;} .dm .car .sl img{width:100%;height:100%;object-fit:cover;}
 .dm .car .dots{position:absolute;bottom:10px;left:0;right:0;margin:0;}

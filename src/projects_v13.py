@@ -150,6 +150,7 @@ CSS += r"""
 @media(max-width:600px){.pgrid>*:nth-child(6n+1){grid-column:span 1;} .pgrid>*:nth-child(6n+1) a{aspect-ratio:3/2;}}
 .pgrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease);}
 .pgrid a:hover img{transform:scale(1.03);}
+.pgrid img[src$="pa-master-plan.jpg"]{object-fit:contain;background:#fff;}
 .pgrid figcaption{display:flex;justify-content:space-between;gap:12px;padding:8px 0 0;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .pgrid figcaption b{font-weight:500;color:#161616;}
 """

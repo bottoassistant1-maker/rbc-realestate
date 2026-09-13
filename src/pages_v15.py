@@ -13,7 +13,7 @@ def home(wa, SITE):
 <header class="hero home" id="top">
   <div class="bg" style="background-image:url('{HERO}')"></div>
   <div class="in">
-    <div class="rbc">RBC</div>
+    <img class="rbc-mark" src="img/rbc-mono-white.png" alt="RBC">
     <h1>Roberto Balderas Carrillo</h1>
     <div class="role">Arquitecto</div>
     <div class="meta"><span>San Miguel de Allende · Bajío · México</span><a href="#intro">↓</a></div>
@@ -72,7 +72,7 @@ def real_estate(wa, SITE):
     rent = [l for l in listings.L if l["kind"] == "rent"]
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
-        ["img/ph-penas-obra-b-06.jpg","img/ig-DceaktFmAgJ-1.jpg","img/ph-penas-obra-b-07.jpg","img/penas-arriba-map-casa-horizonte.jpg"],
+        ["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/ig-DceaktFmAgJ-1.jpg","img/pa-portal.jpg"],
         '<a class="btn red" href="penas-arriba.html">Full sheet →</a><a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Community site</a>', 4200) + \
     dev_card("magno", "img/magno-logo-white.png", "Magno Home &amp; Towers", "Celaya · Guanajuato", "Espacios y Formas",
         "Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery. Lots from MX $2.0M · apartments from MX $4.3M · homes from MX $5.5M.",
