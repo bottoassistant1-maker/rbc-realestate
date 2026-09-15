@@ -29,7 +29,8 @@ LAYOUT = [
   ("bar-bachus", "xl"), ("wellness-merida", ""), ("pabellon-arte", ""),
   ("casa-travertino", "big"), ("chevrolet", "big"),
   ("casa-jalpa-2", "band"), ("binary-pavilion", ""),
-  ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("saiko", ""),
+  ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("casa-ventanas", ""),
+  ("saiko", ""),
   ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
 PENDING = {"saiko", "casa-artista", "casa-velia", "casa-cien"}
@@ -154,4 +155,60 @@ CSS += r"""
 .pgrid img[src$="pa-master-plan.jpg"]{object-fit:contain;background:#fff;}
 .pgrid figcaption{display:flex;justify-content:space-between;gap:12px;padding:8px 0 0;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .pgrid figcaption b{font-weight:500;color:#161616;}
+"""
+
+
+# ── v20: construction organised by site, with captions (photos Roberto sent 14-sep-2026) ──
+def _ob(tag, n):
+    return [f"img/ob-{tag}-{i:02d}.jpg" for i in range(1, n + 1)]
+
+SITES = [
+  ("Magno Towers", "Celaya · Guanajuato", "Espacios y Formas", _ob("magno-towers-a", 4) + _ob("magno-towers-b", 6)),
+  ("Magno", "Celaya · Guanajuato", "Espacios y Formas", _ob("magno", 3)),
+  ("Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas", None),
+  ("Casa Ether", "Piedras Azules · San Miguel de Allende", "Built by RBC", _ob("casa-ether", 17)),
+  ("Casa Travertino", "Club de Golf El Campanario · Querétaro", "Built by RBC", _ob("casa-travertino", 9)),
+  ("Casa Ventanas", "San Miguel de Allende", "Built by RBC", _ob("casa-ventanas", 10)),
+  ("Quinta Elo", "Los Huizaches · San Miguel de Allende", "Built by RBC", _ob("quinta-elo", 9)),
+  ("La Nueva Escondida", "San Miguel de Allende", "Espacios y Formas", _ob("nueva-escondida", 7)),
+]
+
+def construction_sites():
+    out = []
+    for i, (name, place, who, photos) in enumerate(SITES):
+        if photos is None:
+            photos = next(p for p in PROJECTS if p["slug"] == "penas-obra")["photos"]
+        def _wide(x):
+            try:
+                from PIL import Image; import os
+                base = os.path.dirname(os.path.abspath(__file__))
+                for cand in (os.path.join(base, "..", "site", x), os.path.join(base, "..", x)):
+                    if os.path.exists(cand):
+                        w, h = Image.open(cand).size
+                        return w > h
+                return False
+            except Exception:
+                return False
+        tiles = "".join(f'<figure class="cg{" wide" if _wide(x) else ""}"><a class="lbx" href="{x}"><img src="{x}" alt="{name} — construction, {place}" loading="lazy"></a><figcaption><b>{name}</b><span>{place} · {k+1:02d}</span></figcaption></figure>' for k, x in enumerate(photos))
+        out.append(f"""
+<section class="{'band' if i % 2 else ''}" id="site-{i+1}"><div class="wrap">
+  <div class="shead rv"><div class="eyebrow"><b>{i+1:02d}</b>{name}</div><i></i></div>
+  <div class="site-meta rv"><span>{place}</span><span>{who}</span><span>{len(photos)} photos</span></div>
+  <div class="ogrid">{tiles}</div>
+</div></section>""")
+    return "".join(out)
+
+CSS += r"""
+.site-meta{display:flex;gap:22px;flex-wrap:wrap;margin:-8px 0 18px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media(max-width:900px){.ogrid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.ogrid{grid-template-columns:repeat(2,1fr);gap:12px;}}
+.ogrid figure{margin:0;}
+.ogrid a{display:block;aspect-ratio:3/4;overflow:hidden;background:var(--paper-2);}
+.ogrid figure.wide{grid-column:span 2;} .ogrid figure.wide a{aspect-ratio:3/2;}
+@media(max-width:600px){.ogrid figure.wide{grid-column:span 2;}}
+.ogrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease);}
+.ogrid a:hover img{transform:scale(1.03);}
+.ogrid figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 0 0;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.ogrid figcaption b{font-weight:500;color:#161616;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 """

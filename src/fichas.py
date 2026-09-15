@@ -38,7 +38,7 @@ def modal_data(ls, wa):
         out[l["slug"]] = dict(
             name=l["name"], where=l["where"], status=l["status"], price=price_line(l, True),
             photos=photos(l), plans=l.get("plans", []), specs=l["specs"],
-            intro=l.get("intro") or l.get("blurb", ""), highlights=l.get("highlights", []),
+            intro=l.get("intro") or l.get("blurb", ""), highlights=l.get("highlights", []), units=l.get("units", []),
             sections=[(k, l.get(v, "")) for k, v in (("Architecture","arch"),("Site","site"),("Materials","materials"),("Condition","condition"),("Potential","potential")) if l.get(v) and l.get(v) != "—"], notes=l.get("notes", ""), auth=l.get("auth",""), nlabel=__import__('listings').notes_label(),
             program=l.get("program", []), location=l.get("location", ""),
             page=(l["slug"] + ".html") if l.get("page") else l.get("href", ""),
@@ -58,6 +58,11 @@ MODAL_HTML = """
 """
 
 CSS = r"""
+.fb-units{margin:0 0 26px;} .fb-units>div{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:10px 0;border-top:1px solid var(--line);}
+.fb-units>div b{font-weight:500;color:#161616;}
+.fb-units>div span{grid-column:1;font-size:.82rem;color:var(--ink-soft);}
+.fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
+
 .fs h3{display:flex;align-items:center;gap:10px;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
@@ -171,6 +176,7 @@ JS = r"""
       '<div class="fb-in">'+
         '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+esc(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
         '<div class="fb-specs">'+d.specs.map(s=>'<div><div class="n">'+esc(s[0])+'</div><div class="l">'+esc(s[1])+'</div></div>').join('')+'</div>'+
+        ((d.units||[]).length?'<div class="fb-units"><h4>Available units</h4>'+d.units.map(u=>'<div><b>'+esc(u[0])+'</b><span>'+esc(u[1])+'</span><i>'+esc(u[2])+'</i></div>').join('')+'</div>':'')+
         '<div class="fb-grid"><div>'+
           '<h4>The '+(d.kind==='rent'?'space':'house')+'</h4><p class="lead" style="font-size:1rem">'+esc(d.intro)+'</p>'+
           (d.sections||[]).map(s=>'<h4>'+esc(s[0])+'</h4><p style="font-size:.92rem;color:var(--ink-soft)">'+esc(s[1])+'</p>').join('')+
@@ -185,7 +191,7 @@ JS = r"""
           '<a class="btn red" href="'+d.wa+'">Request information on WhatsApp</a>'+
           (d.pdf?'<a class="btn ghost" href="'+d.pdf+'" target="_blank" rel="noopener">Full sheet (PDF)</a>':'')+
           (d.page?'<a class="btn ghost" href="'+d.page+'">Open full page</a>':'')+
-          '<div class="note">WhatsApp +52 461 101 2474 · Prices in MXN; USD approximate. Images provisional where noted.</div>'+
+          '<div class="note">Prices in MXN; USD approximate. Images provisional where noted.</div>'+
         '</div>'+
       '</div>';
     box.classList.add('on'); box.setAttribute('aria-hidden','false'); document.body.classList.add('fbig-open'); body.scrollTop=0;

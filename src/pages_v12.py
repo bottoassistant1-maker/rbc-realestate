@@ -102,7 +102,7 @@ def work(wa, SITE):
         '<a href="index.html">Home</a> › Work') + projects_v13.arch_section("01") + projects_v13.construction_section("02") + \
         P.contact_band(wa, "Start a project", "Tell me about the site.",
         "A lot, a house to renovate, a building to plan. English and Spanish.",
-        "Hi Roberto, I would like to talk about a project.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like to talk about a project.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"CollectionPage","name":"Work — RBC Roberto Balderas Carrillo, Arquitecto","url":f"{SITE}/work.html"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Work","item":f"{SITE}/work.html"}]}]
     return ("work", "Work — Architecture, Interiors and Construction by Roberto Balderas Carrillo | RBC",
@@ -211,7 +211,7 @@ def about(wa, SITE):
       <div class="facts">
         <div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div>
         <div><small>Work</small><span>Architecture · Interiors · Landscape · Construction · Development · Selected properties</span></div>
-        <div><small>Contact</small><span>WhatsApp +52 461 101 2474 · @arqrobertobalderas</span></div>
+        <div><small>Contact</small><span>WhatsApp · @arqrobertobalderas</span></div>
       </div>
       <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn red" href="{wa('Hi Roberto, I read your About page and I would like to talk.')}">WhatsApp</a>
@@ -243,7 +243,7 @@ def contact(wa, SITE):
       <a class="intent" href="#general"><small>04</small><b>General inquiry</b></a>
     </div>
     <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;" class="rv">
-      <a class="btn red" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
+      <a class="btn red" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp Roberto</a>
       <span class="code">Roberto replies personally · Video calls for clients abroad</span>
     </div>
   </div>
@@ -283,7 +283,7 @@ def contact(wa, SITE):
 <section id="general">
   <div class="wrap split" style="align-items:start;">
     <div class="rv">{shead("04","General inquiry")}<h2>Anything else.</h2>
-      <div class="facts"><div><small>WhatsApp</small><span>+52 461 101 2474</span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div></div></div>
+      <div class="facts"><div><small>WhatsApp</small><span><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Show number</button></span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div></div></div>
     <div class="rv d1">{F("Message", "",
         [("row",[("text","Name","Your name","Jane Smith"),("text","Contact","Best way to reach you","Phone or email")]),
          ("area","Message","Message","")], "Hi Roberto, I'm writing from your website:", "Send to Roberto")}</div>
@@ -293,7 +293,7 @@ def contact(wa, SITE):
     ld = [{"@context":"https://schema.org","@type":"ContactPage","url":f"{SITE}/contact.html","name":"Contact Roberto Balderas Carrillo, Arquitecto"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Contact","item":f"{SITE}/contact.html"}]}]
     return ("contact", "Contact — Start a Project, Buy or Sell a Property | RBC · Roberto Balderas Carrillo, Arquitecto",
-            "Contact architect Roberto Balderas Carrillo in San Miguel de Allende: start a design-and-build project, ask for a reading of your lot, buy a selected property or have a property looked at for sale. WhatsApp +52 461 101 2474.",
+            "Contact architect Roberto Balderas Carrillo in San Miguel de Allende: start a design-and-build project, ask for a reading of your lot, buy a selected property or have a property looked at for sale..",
             body, "img/sunset-terrace-luxury-villa-mexico.jpg", ld, "0.6")
 
 # ───────────────────────────── REDIRECTS ─────────────────────────────

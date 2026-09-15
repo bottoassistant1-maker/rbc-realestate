@@ -150,7 +150,7 @@ def nav(active):
   {m}
   <a class="msec" href="contact.html">Contact</a>
   <a class="msec" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram</a>
-  <a class="btn red" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a>
+  <a class="btn red" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp Roberto</a>
 </div>
 """
 
@@ -161,7 +161,7 @@ FOOTER = f"""
       <div><div class="seal"><img src="img/rbc-mono-white.png" alt="RBC" style="height:46px;display:block;margin-bottom:12px;"><span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Architecture, construction and selected properties.<br>San Miguel de Allende · Bajío · México.<br>In collaboration with <a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener" style="display:inline;padding:0;">Espacios y Formas</a>.</p></div>
       <div><small>Site</small><a href="architecture.html">Architecture &amp; Design</a><a href="real-estate.html">Real Estate</a><a href="real-estate.html#developments">Developments</a><a href="construction.html">Construction</a><a href="contact.html">Contact</a></div>
       <div><small>Start</small><a href="contact.html#project">Start a project</a><a href="contact.html#buy">Buy a property</a><a href="contact.html#sell">Sell a property</a><a href="contact.html#general">General inquiry</a></div>
-      <div><small>Direct</small><a href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp +52 461 101 2474</a><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
+      <div><small>Direct</small><a href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp Roberto</a><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Show phone number</button><a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx</a><a href="privacy.html">Privacy notice</a><a href="terms.html">Terms</a></div>
     </div>
     <div class="row">
       <div>© 2026 RBC · Roberto Balderas Carrillo, Arquitecto</div>
@@ -250,7 +250,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {ld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}{devpages.CSS}</style>
+<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}{devpages.CSS}{legal.CSS}</style>
 </head>
 <body class="{PGC.get(active,'')}">
 {nav(active)}
@@ -262,6 +262,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {projects.JS}
 {projects_v13.JS}
 {fichas.JS}
+{legal.COOKIE}
 </body>
 </html>
 """
@@ -273,7 +274,6 @@ ORG = {"@context":"https://schema.org","@type":["ProfessionalService","Organizat
   "name":"RBC · Roberto Balderas Carrillo, Arquitecto","url":SITE_URL + "/",
   "logo":SITE_URL + "/img/rbc-logo.png",
   "description":"Architecture practice of Roberto Balderas Carrillo in San Miguel de Allende: architectural design, interiors, construction and a selection of properties presented with an architect's perspective. In collaboration with Espacios y Formas.",
-  "telephone":"+524611012474",
   "knowsAbout":["Architecture","Residential architecture","Interior design","Construction","Real estate"],
   "sameAs":["https://www.instagram.com/arqrobertobalderas","https://www.espaciosyformas.com.mx/","https://penasarriba.vercel.app/"],
   "areaServed":[{"@type":"City","name":"San Miguel de Allende"},{"@type":"AdministrativeArea","name":"Bajío"},{"@type":"Country","name":"Mexico"}],
@@ -281,8 +281,9 @@ ORG = {"@context":"https://schema.org","@type":["ProfessionalService","Organizat
   "address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}}
 
 if __name__ == "__main__":
-    import pages_v15, devpages
+    import pages_v15, devpages, legal
     urls = pages_v15.build(page, wa, ORG, SITE_URL)
+    legal.pages(page, SITE_URL)
     # sitemap + robots
     sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u, pr in urls:
@@ -290,14 +291,6 @@ if __name__ == "__main__":
     sm.append('</urlset>')
     open(os.path.join(OUT,"sitemap.xml"),"w").write("\n".join(sm)+"\n")
     open(os.path.join(OUT,"robots.txt"),"w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
-    # fix privacy/terms absolute refs
-    for fn in ("privacy.html","terms.html"):
-        p=os.path.join(OUT,fn)
-        if os.path.exists(p):
-            s=open(p,encoding="utf-8").read()
-            s=re.sub(r"https://rbc-realestate\.(vercel\.app|netlify\.app)/img/","img/",s)
-            s=re.sub(r"https://rbc-realestate\.(vercel\.app|netlify\.app)/?", SITE_URL + "/", s)
-            open(p,"w",encoding="utf-8").write(s)
     print("built", len(urls), "pages ->", SITE_URL)
     if "--pdf" in sys.argv:
         import listings

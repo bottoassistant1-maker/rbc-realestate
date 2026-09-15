@@ -63,7 +63,7 @@ def form(title, intro, fields, wa_prefix, btn):
       <form data-wa="{wa_prefix}">
         {rows}
         <button class="btn red" type="submit">{btn}</button>
-        <div class="note">Sends your answers to Roberto on WhatsApp (+52 461 101 2474). Nothing is stored on this website.</div>
+        <div class="note">Sends your answers to Roberto on WhatsApp. Nothing is stored on this website.</div>
       </form>
     </div>"""
 
@@ -204,7 +204,7 @@ def home(wa, SITE):
       <div class="cap" style="margin-top:2px;">Architect · Builder · Developer · Real Estate Advisor</div>
       <div class="cap" style="margin-top:8px;">Celaya · Querétaro · San Miguel de Allende</div>
       <div style="margin-top:20px;display:grid;gap:9px;">
-        <a class="btn" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
+        <a class="btn" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp Roberto</a>
         <a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a>
       </div>
     </div>
@@ -212,7 +212,7 @@ def home(wa, SITE):
 </section>
 """ + contact_band(wa, "Let's talk", "Buying, designing, building or investing — start with a message.",
         "Tell me what you have in mind and I'll reply personally. English and Spanish spoken.",
-        "Hi Roberto, I found your website. I'm interested in: ", "WhatsApp +52 461 101 2474") + fichas.modal_data([l for l in listings.L if l['slug'] in ('casa-horizonte','casa-travertino','casa-mirador')], wa)
+        "Hi Roberto, I found your website. I'm interested in: ", "WhatsApp Roberto") + fichas.modal_data([l for l in listings.L if l['slug'] in ('casa-horizonte','casa-travertino','casa-mirador')], wa)
     return ("index",
             "Luxury Homes for Sale in San Miguel de Allende &amp; Querétaro — Direct from the Architect | RBC Roberto Balderas Carrillo",
             "Architect, builder, developer and real estate advisor in San Miguel de Allende, Querétaro and Celaya. Luxury homes for sale direct from the architect-developer, custom home design and construction quotes, and buyer representation for foreigners. WhatsApp +52 461 101 2474.",
@@ -281,7 +281,7 @@ def real_estate(wa, SITE):
 </section>
 """ + contact_band(wa, "Private showings", "See it at sunset. That's when it wins you over.",
         "Private, by appointment — the homes, the community and the view in about an hour. English spoken.",
-        "Hi Roberto, I would like to schedule a private showing in San Miguel de Allende.", "WhatsApp +52 461 101 2474") + fichas.modal_data(listings.L, wa)
+        "Hi Roberto, I would like to schedule a private showing in San Miguel de Allende.", "WhatsApp Roberto") + fichas.modal_data(listings.L, wa)
     ld = [{"@context":"https://schema.org","@type":"ItemList","name":"Luxury homes for sale and rent by RBC — San Miguel de Allende, Querétaro, Celaya",
       "itemListElement":[{"@type":"ListItem","position":i+1,"name":f"{l['name']} — {l['where']}","url":f"{SITE}/{l['slug']}.html" if l.get('page') else f"{SITE}/real-estate.html"} for i,l in enumerate(listings.L)]},
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Real Estate","item":f"{SITE}/real-estate.html"}]}]
@@ -374,7 +374,7 @@ def architecture(wa, SITE):
 </section>
 """ + contact_band(wa, "Architecture & Design", "Prefer to talk first?",
         "Send a message and we'll set up a call or a visit. English and Spanish spoken.",
-        "Hi Roberto, I would like to talk about designing a house.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like to talk about designing a house.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"Service","serviceType":"Residential architecture and design","provider":{"@type":"Organization","name":"RBC · Roberto Balderas Carrillo"},"areaServed":["San Miguel de Allende","Querétaro","Celaya"],"url":f"{SITE}/architecture.html"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Architecture & Design","item":f"{SITE}/architecture.html"}]}]
     return ("architecture",
@@ -450,7 +450,7 @@ def construction(wa, SITE):
 </section>
 """ + contact_band(wa, "Construction", "Questions before quoting?",
         "Send a message — we'll set up a call or a site visit.",
-        "Hi Roberto, I would like to talk about a construction project.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like to talk about a construction project.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"Service","serviceType":"Residential construction","provider":{"@type":"GeneralContractor","name":"Espacios y Formas · Roberto Balderas Carrillo","url":"https://www.espaciosyformas.com.mx/"},"areaServed":["San Miguel de Allende","Querétaro","Celaya"],"url":f"{SITE}/construction.html"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Construction","item":f"{SITE}/construction.html"}]}]
     return ("construction",
@@ -565,7 +565,7 @@ def development(wa, SITE):
 </section>
 """ + contact_band(wa, "Development", "Visit Peñas Arriba.",
         "See the community, the amenities and the available homes and lots — private tour, about an hour.",
-        "Hi Roberto, I would like to visit Peñas Arriba.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like to visit Peñas Arriba.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"Residence","name":"Peñas Arriba","description":"Gated luxury residential community on the highest hillside of San Miguel de Allende. 39 lots, built amenities, 24/7 security.","url":"https://penasarriba.vercel.app/","address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Development","item":f"{SITE}/development.html"}]}]
     return ("development",
@@ -597,7 +597,7 @@ def roberto(wa, SITE):
       <div class="quote">"The best of both worlds: the experience and backing of a large firm, with the craft, care and attention of one architect who answers personally."</div>
       <p class="lead">We do everything: architectural and executive project, engineering, construction, real-estate development, sales and advisory, interior and furniture design, landscaping, maintenance — from small renovations and restorations to luxury homes, country houses, modern apartment buildings, dealerships and commercial centers, as well as mid-income housing. What doesn't change is how: responsibly, with processes that guarantee delivery on time and as promised, without surprises. Today most of my time goes to <a href="development.html">Peñas Arriba</a> above San Miguel, and to clients who want a house designed for their lot — or help finding and evaluating the right property. If you write, I answer personally.</p>
       <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn red" href="{wa('Hi Roberto, I read your introduction and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
+        <a class="btn red" href="{wa('Hi Roberto, I read your introduction and I would like to talk.')}">WhatsApp Roberto</a>
         <a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">@arqrobertobalderas</a>
       </div>
       <p class="cap" style="margin-top:26px;">A fuller story — the studio, the projects, the people — is being written for this page.</p>
@@ -606,7 +606,7 @@ def roberto(wa, SITE):
 </section>
 """ + contact_band(wa, "Let's talk", "Buying, designing, building or investing — start with a message.",
         "English and Spanish spoken. I reply personally.",
-        "Hi Roberto, I found your website and I would like to talk.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I found your website and I would like to talk.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"Person","name":"Roberto Balderas Carrillo","jobTitle":"Architect, builder, developer and real estate advisor","url":f"{SITE}/roberto-balderas-carrillo.html","worksFor":{"@type":"Organization","name":"Espacios y Formas","url":"https://www.espaciosyformas.com.mx/"},"sameAs":["https://www.instagram.com/arqrobertobalderas"],"address":{"@type":"PostalAddress","addressLocality":"San Miguel de Allende","addressRegion":"Guanajuato","addressCountry":"MX"}},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Roberto Balderas Carrillo","item":f"{SITE}/roberto-balderas-carrillo.html"}]}]
     return ("roberto-balderas-carrillo",
@@ -627,7 +627,7 @@ def contact(wa, SITE):
       <h2>Roberto Balderas Carrillo</h2>
       <p class="lead">Architect · Builder · Developer · Real Estate Advisor<br>Celaya · Querétaro · San Miguel de Allende, México</p>
       <div style="margin-top:20px;display:grid;gap:10px;max-width:420px;">
-        <a class="btn red" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp +52 461 101 2474</a>
+        <a class="btn red" href="{wa('Hi Roberto, I found your website and I would like to talk.')}">WhatsApp Roberto</a>
         <a class="btn ghost" href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener">Instagram @arqrobertobalderas</a>
         <a class="btn ghost" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas — construction firm</a>
         <a class="btn ghost" href="https://penasarriba.vercel.app/" target="_blank" rel="noopener">Peñas Arriba — development site</a>

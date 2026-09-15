@@ -87,44 +87,30 @@ add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-
     location="Lot M6-L1, the first house of block 6 in Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
     img="img/luxury-villa-sunset-san-miguel.jpg", gallery=["img/stone-walls-community.jpg","img/parroquia-view-from-community.jpg","img/villa-garden-day.jpg"])
 
-add(slug="duplex-upper", page=False, city="sma", kind="sale", name="Duplex · Upper residence · M1-L12", where="Peñas Arriba · San Miguel de Allende",
+add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
-    status="Built · ~6 months to delivery", price_mxn=6_600_000,
-    specs=[("≈205","m² · 2,207 sq ft"),("3","bedrooms"),("3½","baths"),("2","cars")],
-    blurb="One level on the upper floor of a duplex, with the full view of the historic center and no garden to maintain.",
-    intro="The upper residence of a duplex in Peñas Arriba: a single level with the view of the historic center. Built; delivered in about six months with finishes chosen by the buyer.",
-    arch="Single-level plan; living, kitchen and terrace on the view side.",
-    site="Lot M1-L12, Peñas Arriba.",
-    materials="Built; finishes chosen with the practice.",
+    status="Built · ~6 months to delivery", price_mxn=None, price_note="From MX $6.6M",
+    specs=[("3","units available"),("188–205","m²"),("3","bedrooms"),("3","full baths")],
+    blurb="Two-level duplex houses in Peñas Arriba: a garden residence on the ground floor and an upper residence with the view of the historic center. Three units available.",
+    intro="The duplex houses of Peñas Arriba pair a ground-floor garden residence with an upper residence that takes the view of the historic center. Each unit has three bedrooms, three full bathrooms, living-dining, kitchen, terrace, laundry and one parking space. Built; delivered in about six months with finishes chosen by the buyer.",
+    arch="Two independent residences per building: the garden residence opens to a private garden; the upper residence is a single level facing the view.",
+    site="Blocks 1 and 5 of Peñas Arriba; the M5 units sit next to the clubhouse and pool.",
+    materials="Stone, wood pergolas and clay tile roofs; finishes chosen with the practice.",
     condition="Built; about six months to delivery.",
-    potential="Lock-and-leave living with a view and no garden upkeep.",
-    notes="The right size for two people who want San Miguel without the maintenance of a large house.",
-    highlights=["≈ 205 m² (2,207 sq ft) on a single level","3 bedrooms · 3½ baths · 2 cars","Views of the center and the Parroquia","Built — finishes chosen with the architect"],
-    program=[("Upper level","Living-dining, kitchen, terrace with the view · master suite · two bedrooms · 3½ baths")],
-    location="Lot M1-L12, Peñas Arriba, San Miguel de Allende.",
-    img="img/listing-duplex-upper-unit.jpg", wa_msg="Hi Roberto, I'm interested in the Duplex upper residence M1-L12.", gallery=["img/view-historic-center.jpg"])
-
-add(slug="duplex-garden", page=False, city="sma", kind="sale", name="Duplex · Garden residence · M5-L9", where="Peñas Arriba · San Miguel de Allende",
-    auth="Peñas Arriba · built with Espacios y Formas",
-    status="Built · ~6 months to delivery", price_mxn=7_433_000,
-    specs=[("≈188","m² · 2,024 sq ft"),("3","bedrooms"),("3½","baths"),("2","cars")],
-    blurb="Ground-floor living with a private garden, next to the clubhouse and pool.",
-    intro="The garden residence of a duplex in Peñas Arriba: ground-floor living opening to a private garden, steps from the club. Built; delivered in about six months with finishes chosen by the buyer.",
-    arch="Ground-floor plan; living-dining and kitchen open to the garden.",
-    site="Lot M5-L9, Peñas Arriba, next to the clubhouse and pool.",
-    materials="Built; finishes chosen with the practice.",
-    condition="Built; about six months to delivery.",
-    potential="A private garden inside a gated community, with the pool and club a few steps away.",
-    notes="Closest house to the club. Between the two duplex units, this is the one for anyone who wants to eat breakfast outside.",
-    highlights=["≈ 188 m² (2,024 sq ft) with private garden","3 bedrooms · 3½ baths · 2 cars","Steps from the clubhouse and pool","Built — finishes chosen with the architect"],
-    program=[("Ground level","Living-dining and kitchen opening to the garden · master suite · two bedrooms · 3½ baths")],
-    location="Lot M5-L9, Peñas Arriba, San Miguel de Allende.",
-    img="img/listing-duplex-garden-unit.jpg", wa_msg="Hi Roberto, I'm interested in the Duplex garden residence M5-L9.", gallery=["img/community-pool-stone.jpg"])
+    potential="Lock-and-leave living inside a gated community, with the club a few steps away.",
+    notes="The garden units are for anyone who wants breakfast outside; the upper unit is for the view.",
+    highlights=["Three units available: M1-L12 upper, M5-L9 garden, M5-L2 garden","3 bedrooms · 3 full baths · terrace · laundry · 1 parking space","Built — finishes chosen with the architect","Next to the clubhouse and pool (block 5)"],
+    units=[("Upper residence · M1-L12","≈ 205 m² · terrace with the view of the historic center","MX $6.6M"),
+           ("Garden residence · M5-L9","≈ 188 m² · private garden · next to the club","MX $7.433M"),
+           ("Garden residence · M5-L2","3 bedrooms · private garden · next to the club","Price on request")],
+    program=[("Garden residence","Living-dining and kitchen opening to the garden · 3 bedrooms · 3 baths · laundry · 1 car"),("Upper residence","Single level: living-dining, kitchen, terrace with the view · 3 bedrooms · 3 baths · laundry · 1 car")],
+    location="Peñas Arriba, San Miguel de Allende.",
+    img="img/ph-duplex-render-01.jpg", wa_msg="Hi Roberto, I'm interested in the duplex residences in Peñas Arriba. Which units are available?", gallery=["img/listing-duplex-garden-unit.jpg","img/listing-duplex-upper-unit.jpg"])
 
 # ───────── SAN MIGUEL · rent ─────────
 add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="Casa Cuadrante · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
-    status="Furnished apartment · mid-term stays", price_mxn=None, price_note="Monthly rate on request · services included",
+    status="Furnished apartment · short & mid-term stays", price_mxn=None, price_note="From MX $5,500 / night · monthly rates on request",
     specs=[("1","bedroom · king"),("1","full bath"),("Balcony","facing the Parroquia"),("Services","included")],
     blurb="An apartment above Casa Cuadrante: living-dining with fireplace and a view of the Parroquia, private balcony, art on every wall. Furnished; services included.",
     intro="Casa Musa is the apartment above Casa Cuadrante, the restaurant on the ground floor of a historic house that RBC restored, adapted and furnished. It was made for people who like living among art: a living-dining room with a fireplace and a direct view of the Parroquia, a bedroom with a king bed and full bath, a sound system, a private balcony over the street and a laundry room. Water, electricity and internet are included. Available for mid-term stays.",
@@ -141,7 +127,7 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="Casa Cuadrante · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
-    status="Suite with private terrace · mid-term stays", price_mxn=40_000, price_per="month · services included", price_note=None,
+    status="Suite with private terrace · short & mid-term stays", price_mxn=None, price_note="From MX $2,800 / night · MX $40,000 / month, services included",
     specs=[("300°","terrace view"),("1","queen bed"),("1","full bath"),("Services","included")],
     blurb="A suite with a large private terrace directly in front of the Parroquia — a 300-degree view of the town. Queen bed, full bath, mini-fridge.",
     intro="The Panoramic Suite is defined by its terrace: large, private and directly in front of the Parroquia, with the whole of San Miguel around it. Queen bed, full bathroom and mini-fridge; an outdoor kitchenette can be fitted on the terrace if needed. Loungers and tables outside. Services included; also available for short stays.",
@@ -193,10 +179,10 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
     img="img/ig-C_3mXTMxFYj-1.jpg", gallery=["img/ig-C_3mXTMxFYj-2.jpg","img/ig-C_3mXTMxFYj-3.jpg"])
 
 # ───────── CELAYA ─────────
-add(slug="magno", page=False, city="celaya", kind="sale", name="Magno Home & Towers", where="Celaya · Guanajuato",
+add(slug="magno-apartment", page=False, city="celaya", kind="sale", name="Magno Towers · Apartments", where="Celaya · Guanajuato",
     auth="A development by Espacios y Formas",
-    status="Apartments · homes · lots", price_mxn=None, price_note="Lots from MX $2.0M · Apartments from MX $4.3M · Homes from MX $5.5M",
-    specs=[("Towers","& homes"),("Spa · pool","gym · club"),("Immediate","delivery units")],
+    status="Immediate delivery", price_mxn=None, price_note="From MX $4.3M",
+    specs=[("Tower","apartments"),("Spa · pool","gym · club"),("Immediate","delivery")],
     blurb="Residential towers, single-family homes and lots in one gated community in Celaya, developed by Espacios y Formas. Apartments available for immediate delivery.",
     intro="Magno Home & Towers combines residential towers, single-family homes and lots inside one gated community in Celaya, with spa, pool, gym, clubhouse, business center, bar, multipurpose hall, gardens and underground parking. Developed and built by Espacios y Formas; apartments available for immediate delivery.",
     arch="Residential towers, single-family homes and lots in one master-planned community.",
@@ -207,8 +193,25 @@ add(slug="magno", page=False, city="celaya", kind="sale", name="Magno Home & Tow
     highlights=["Apartments with immediate delivery","Homes and lots inside the same community","Spa · pool · gym · clubhouse · business center · gardens","24/7 gated security"],
     program=[("Availability","Ask for the current inventory and floor plans — units are released as they complete.")],
     location="Celaya, Guanajuato — about 45 minutes from Querétaro and 1 hour from San Miguel de Allende.",
-    img="img/community-club-pool.jpg", href="work.html#magno", pdf=False,
-    wa_msg="Hi Roberto, I'm interested in Magno in Celaya (apartments, homes or lots).")
+    img="img/magno-1.jpg", gallery=["img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg","img/ob-magno-towers-a-02.jpg"], href="work.html#magno", pdf=False,
+    wa_msg="Hi Roberto, I'm interested in an apartment in Magno Towers, Celaya.")
+
+add(slug="magno-home", page=False, city="celaya", kind="sale", name="Magno Homes · Houses & lots", where="Celaya · Guanajuato",
+    auth="A development by Espacios y Formas",
+    status="Houses and lots", price_mxn=None, price_note="Homes from MX $5.5M · Lots from MX $2.0M",
+    specs=[("Single-family","homes"),("Lots","available"),("Spa · pool","gym · club")],
+    blurb="Residential towers, single-family homes and lots in one gated community in Celaya, developed by Espacios y Formas. Apartments available for immediate delivery.",
+    intro="Magno Home & Towers combines residential towers, single-family homes and lots inside one gated community in Celaya, with spa, pool, gym, clubhouse, business center, bar, multipurpose hall, gardens and underground parking. Developed and built by Espacios y Formas; apartments available for immediate delivery.",
+    arch="Residential towers, single-family homes and lots in one master-planned community.",
+    site="Celaya, Guanajuato; about 45 minutes from Querétaro.",
+    condition="Apartments with immediate delivery; homes and lots available.",
+    potential="One community with three ways in — apartment, house or lot — and amenities already built.",
+    notes="This is Espacios y Formas' project, not mine alone, but I know the floor plans well. Ask me which units I would consider.",
+    highlights=["Apartments with immediate delivery","Homes and lots inside the same community","Spa · pool · gym · clubhouse · business center · gardens","24/7 gated security"],
+    program=[("Availability","Ask for the current inventory and floor plans — units are released as they complete.")],
+    location="Celaya, Guanajuato — about 45 minutes from Querétaro and 1 hour from San Miguel de Allende.",
+    img="img/magno-4.jpg", gallery=["img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], href="work.html#magno", pdf=False,
+    wa_msg="Hi Roberto, I'm interested in a house or lot in Magno, Celaya.")
 
 
 def by(city, kind=None):
@@ -296,7 +299,7 @@ def property_page(l, wa, SITE):
     <h2 class="rv d1">{'Ask about your dates.' if rent else 'See it in person, or on a video call.'}</h2>
     <p class="lead rv d2">English and Spanish. Roberto answers personally.</p>
     <div class="cgrid rv d2">
-      <a class="btn red" href="{wa(msg)}">WhatsApp +52 461 101 2474</a>
+      <a class="btn red" href="{wa(msg)}">WhatsApp Roberto</a>
       {('<a class="btn ghost lt" href="pdf/'+l['slug']+'.pdf" target="_blank" rel="noopener">Technical sheet (PDF)</a>') if l.get('pdf', True) else ''}
       <a class="btn ghost lt" href="real-estate.html">All properties</a>
     </div>
@@ -310,7 +313,7 @@ def property_page(l, wa, SITE):
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Real Estate","item":f"{SITE}/real-estate.html"},{"@type":"ListItem","position":3,"name":l["name"],"item":f"{SITE}/{l['slug']}.html"}]}]
     title = f"{l['name']} — {'For rent' if rent else 'For sale'} in {city} | RBC · Roberto Balderas Carrillo, Arquitecto"
     desc = (l["blurb"][:150] + "…") if len(l["blurb"]) > 155 else l["blurb"]
-    return (l["slug"], title, desc + " Presented by architect Roberto Balderas Carrillo. WhatsApp +52 461 101 2474.", body, l["img"], ld, "0.8")
+    return (l["slug"], title, desc + " Presented by architect Roberto Balderas Carrillo.", body, l["img"], ld, "0.8")
 
 def pages():
     return [l for l in L if l.get("page")]

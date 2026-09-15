@@ -28,7 +28,7 @@ def home(wa, SITE):
     <div class="rv d1">
       <p class="lead big">Roberto Balderas Carrillo is an architect based in San Miguel de Allende. His practice, RBC, designs and builds — houses, interiors, hotels, commercial buildings — and represents a small selection of properties he knows well.</p>
       <p class="lead">Each project develops its own architectural language. Larger works are built with Espacios y Formas, architecture, construction and development, with offices in Celaya and San Miguel de Allende.</p>
-      <div class="facts" style="margin-top:22px;"><div><small>Contact</small><span><a href="{wa('Hi Roberto, I found your website and I would like to talk.')}" style="color:var(--navy);text-decoration:none;">WhatsApp +52 461 101 2474</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;">@arqrobertobalderas</a></span></div></div>
+      <div class="facts" style="margin-top:22px;"><div><small>Contact</small><span><a href="{wa('Hi Roberto, I found your website and I would like to talk.')}" style="color:var(--navy);text-decoration:none;">WhatsApp Roberto</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;">@arqrobertobalderas</a></span></div></div>
     </div>
   </div>
 </section>
@@ -38,7 +38,7 @@ def home(wa, SITE):
     <div class="doors doors3">
       <a class="door rv" href="architecture.html"><img src="img/ph-bar-bachus-06.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
       <a class="door rv d1" href="real-estate.html"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
-      <a class="door rv d2" href="construction.html"><img src="img/ph-penas-obra-a-03.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+      <a class="door rv d2" href="construction.html"><img src="img/ob-magno-towers-a-01.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
     </div>
   </div>
 </section>
@@ -59,7 +59,7 @@ def architecture(wa, SITE):
 </section>
 """ + P.contact_band(wa, "Start a project", "Tell me about the site.",
         "A lot, a house to renovate, a building to plan. English and Spanish.",
-        "Hi Roberto, I would like to talk about a project.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like to talk about a project.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"CollectionPage","name":"Architecture & Design — RBC","url":f"{SITE}/architecture.html"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Architecture & Design","item":f"{SITE}/architecture.html"}]}]
     return ("architecture", "Architecture &amp; Design — Roberto Balderas Carrillo, Arquitecto | RBC",
@@ -68,7 +68,7 @@ def architecture(wa, SITE):
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
 def real_estate(wa, SITE):
-    sale = [l for l in listings.L if l["kind"] == "sale" and l["slug"] != "magno"]
+    sale = [l for l in listings.L if l["kind"] == "sale"]
     rent = [l for l in listings.L if l["kind"] == "rent"]
     devs = dev_card("penas-arriba", "img/penas-arriba-logo.png", "Peñas Arriba", "San Miguel de Allende", "RBC with Espacios y Formas",
         "A gated community on the hillside above San Miguel de Allende, with views of the Parroquia. Houses, shell-built homes and lots.",
@@ -87,30 +87,24 @@ def real_estate(wa, SITE):
         "A short selection of houses, and the developments behind them.", '<a href="index.html">Home</a> › Real Estate') + f"""
 <section id="sale">
   <div class="wrap">
-    {shead("01","Houses")}
-    """ + fichas.grid(sale, wa) + f"""
-    <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Open a sheet for plans, program, an architect's reading and the PDF</div>
+    {shead("01","Homes")}
+    """ + fichas.grid(sale + rent, wa) + f"""
+    <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Rentals per night or month · Open a sheet for plans, program and the PDF</div>
   </div>
 </section>
 
 <section class="band" id="developments">
   <div class="wrap">
     {shead("02","Developments")}
-    {__import__('devpages').dev_cards(wa)}
+    {__import__('devpages').dev_blocks(wa)}
   </div>
 </section>
 
-<section id="stays">
-  <div class="wrap">
-    {shead("03","Stays · historic center")}
-    """ + fichas.grid(rent, wa, md=True) + f"""
-  </div>
-</section>
 
 <section class="band" id="sell">
   <div class="wrap split" style="align-items:start;">
     <div class="rv">
-      {shead("04","Sell")}
+      {shead("03","Sell")}
       <h2>Have Roberto look at it first.</h2>
       <p class="lead">RBC represents a short list, after a visit.</p>
     </div>
@@ -136,15 +130,10 @@ def real_estate(wa, SITE):
 def construction(wa, SITE):
     body = P.phero("img/ph-penas-obra-b-06.jpg", "RBC / Construction", "Construction.",
         "Directed personally. Larger works are built with Espacios y Formas.", '<a href="index.html">Home</a> › Construction') + f"""
-<section id="built">
-  <div class="wrap">
-    {shead("01","Peñas Arriba · San Miguel de Allende")}
-    {projects_v13.construction_grid()}
-  </div>
-</section>
+{projects_v13.construction_sites()}
 """ + P.contact_band(wa, "Build", "From your plans or ours.",
         "Renovations, houses, larger residences and developments. English and Spanish.",
-        "Hi Roberto, I would like a construction quote.", "WhatsApp +52 461 101 2474")
+        "Hi Roberto, I would like a construction quote.", "WhatsApp Roberto")
     ld = [{"@context":"https://schema.org","@type":"CollectionPage","name":"Construction — RBC","url":f"{SITE}/construction.html"},
           {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":f"{SITE}/"},{"@type":"ListItem","position":2,"name":"Construction","item":f"{SITE}/construction.html"}]}]
     return ("construction", "Construction — Roberto Balderas Carrillo, Arquitecto, with Espacios y Formas | RBC",

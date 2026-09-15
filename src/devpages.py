@@ -81,8 +81,8 @@ CARDS = [
        imgs=["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/ig-DceaktFmAgJ-1.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
        imgs=[], sheet="", web="", ig="", fb=""),
-  dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="In development · details to follow",
-       imgs=[], sheet="", web="", ig="", fb=""),
+  dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · site photos",
+       imgs=["img/ob-nueva-escondida-06.jpg","img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg"], sheet="", web="", ig="", fb=""),
 ]
 
 def dev_md(c, wa):
@@ -133,4 +133,82 @@ CSS += r"""
 .dm-links{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;}
 .dm-links a{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--c-re);padding-bottom:1px;}
 .dm-links a:hover{color:var(--c-arch);border-color:var(--c-arch);}
+"""
+
+# ── v21: large composite development blocks for the Real Estate page ──
+BLOCKS = [
+  dict(id="penas-arriba", name="Peñas Arriba", place="San Miguel de Allende · Guanajuato", status="Houses, shell-built homes and lots · RBC with Espacios y Formas",
+       logo="img/penas-arriba-logo.png", dark=False, cover="img/pa-view-parroquia.jpg",
+       reel=["img/pa-master-plan.jpg","img/ig-DceaktFmAgJ-1.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/ig-DceaktFmAgJ-3.jpg","img/pa-render-jade.jpg"],
+       text="A gated community on the hillside above San Miguel, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
+       sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma",
+       msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba."),
+  dict(id="magno", name="Magno Home &amp; Towers", place="Celaya · Guanajuato", status="Apartments, homes and lots · Espacios y Formas",
+       logo="img/magno-logo-white.png", dark=True, cover="img/magno-2.jpg",
+       reel=["img/magno-1.jpg","img/magno-4.jpg","img/magno-3.jpg","img/magno-8.jpg","img/magno-6.jpg","img/magno-5.jpg","img/magno-7.jpg","img/ob-magno-towers-a-01.jpg"],
+       text="Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery.",
+       sheet="magno.html", web="https://magnoresidencial.com/", ig="",
+       msg="Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya."),
+  dict(id="nueva-escondida", name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · Espacios y Formas",
+       logo="", dark=False, cover="img/ob-nueva-escondida-06.jpg",
+       reel=["img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg","img/ob-nueva-escondida-04.jpg","img/ob-nueva-escondida-02.jpg","img/ob-nueva-escondida-01.jpg"],
+       text="A residential community in San Miguel de Allende, under construction. Details, renders and the master plan to follow.",
+       sheet="", web="", ig="", msg="Hi Roberto, please keep me informed about La Nueva Escondida in San Miguel de Allende."),
+  dict(id="escondida", name="La Escondida", place="San Miguel de Allende", status="In development",
+       logo="", dark=False, cover="", reel=[],
+       text="A residential development in San Miguel de Allende. Details to follow.",
+       sheet="", web="", ig="", msg="Hi Roberto, please keep me informed about La Escondida in San Miguel de Allende."),
+]
+
+def dev_block(b, wa):
+    logo = f'<img src="{b["logo"]}" alt="{b["name"]}">' if b["logo"] else f'<b>{b["name"]}</b>'
+    cover = f'<img src="{b["cover"]}" alt="{b["name"]}" loading="lazy">' if b["cover"] else '<span class="pend">Cover and renders pending</span>'
+    btns = ""
+    if b["sheet"]: btns += f'<a class="btn" href="{b["sheet"]}">Full sheet →</a>'
+    btns += f'<a class="btn red" href="{wa(b["msg"])}">Ask about {b["name"].replace("&amp;","&")}</a>'
+    if b["web"]: btns += f'<a class="btn ghost" href="{b["web"]}" target="_blank" rel="noopener">Website</a>'
+    if b["ig"]: btns += f'<a class="btn ghost" href="{b["ig"]}" target="_blank" rel="noopener">Instagram</a>'
+    reel = ""
+    if b["reel"]:
+        sl = "".join(f'<div class="sl"><img src="{x}" alt="{b["name"]}" loading="lazy"></div>' for x in b["reel"])
+        reel = f'<div class="car multi db-reel" data-auto="5200"><div class="trk">{sl}</div><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button><div class="dots"></div></div>'
+    return f"""
+      <article class="db rv" id="{b['id']}">
+        <div class="db-top">
+          <div class="db-cover">{cover}</div>
+          <div class="db-side">
+            <div class="db-logo{' dark' if b['dark'] else ''}">{logo}</div>
+            <div class="db-meta"><span>{b['place']}</span><span>{b['status']}</span></div>
+            <p>{b['text']}</p>
+            <div class="db-btns">{btns}</div>
+          </div>
+        </div>
+        {reel}
+      </article>"""
+
+def dev_blocks(wa):
+    return '<div class="dbs">' + "".join(dev_block(b, wa) for b in BLOCKS) + '</div>'
+
+CSS += r"""
+.dbs{display:grid;gap:48px;margin-top:8px;}
+.db{border:1px solid var(--line);background:#fff;padding:18px;}
+.db-top{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;}
+@media(max-width:860px){.db-top{grid-template-columns:1fr;}}
+.db-cover{aspect-ratio:3/2;overflow:hidden;background:var(--paper-2);display:flex;align-items:flex-end;}
+.db-cover img{width:100%;height:100%;object-fit:cover;display:block;}
+.db-cover img[src$="pa-master-plan.jpg"]{object-fit:contain;background:#fff;}
+.db-cover .pend{padding:16px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.db-side{display:flex;flex-direction:column;gap:14px;padding:6px 6px 0;}
+.db-logo{min-height:120px;display:flex;align-items:center;justify-content:center;padding:18px;background:var(--paper);border:1px solid var(--line);}
+.db-logo.dark{background:#161616;border-color:#161616;}
+.db-logo img{max-width:80%;max-height:110px;object-fit:contain;display:block;}
+.db-logo b{font-family:var(--sans);font-weight:500;font-size:1.6rem;letter-spacing:-.02em;color:var(--navy);text-align:center;line-height:1.1;}
+.db-meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.db-side p{font-size:.94rem;color:var(--ink-soft);margin:0;}
+.db-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;}
+.db-btns .btn{padding:12px 16px;font-size:.64rem;}
+.db-reel{margin-top:18px;}
+.db-reel .trk{gap:14px;} .db-reel .sl{aspect-ratio:4/3;border-radius:0;} .db-reel .sl img{width:100%;height:100%;object-fit:cover;}
+.db-reel .sl img[src$="pa-master-plan.jpg"]{object-fit:contain;background:#fff;}
+.db-reel .dots{margin-top:8px;}
 """
