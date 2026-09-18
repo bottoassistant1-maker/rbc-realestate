@@ -124,7 +124,7 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     highlights=["Living-dining room with fireplace and a direct view of the Parroquia","Bedroom with king bed and full bathroom","Private balcony facing the Parroquia","Furnished and decorated; art throughout; sound system","Laundry room · water, electricity and internet included","Above Casa Cuadrante, in the historic center","Mid-term stays"],
     program=[("The apartment","Living-dining with fireplace · kitchen · bedroom with full bath · laundry · private balcony")],
     location="Inside Casa Cuadrante, in the historic center of San Miguel de Allende — restaurants, galleries and the Jardín Principal on foot.",
-    img="img/ph-casa-musa-h03.jpg", gallery=['img/ph-casa-musa-h01.jpg', 'img/ph-casa-musa-h02.jpg', 'img/ph-casa-cuadrante-01.jpg', 'img/ph-casa-cuadrante-00.jpg', 'img/ph-casa-cuadrante-08.jpg', 'img/ph-casa-cuadrante-02.jpg', 'img/ph-casa-cuadrante-03.jpg', 'img/ph-casa-cuadrante-07.jpg', 'img/ph-casa-cuadrante-05.jpg'])
+    img="img/ph-casa-musa-h03.jpg", gallery=['img/ph-casa-musa-h01.jpg', 'img/ph-casa-musa-h02.jpg', 'img/ph-musa-e-01.jpg', 'img/ph-musa-e-02.jpg', 'img/ph-musa-e-07.jpg', 'img/ph-musa-e-08.jpg', 'img/ph-musa-e-09.jpg', 'img/ph-musa-e-10.jpg', 'img/ph-musa-e-05.jpg', 'img/ph-musa-e-06.jpg', 'img/ph-musa-e-03.jpg', 'img/ph-musa-e-04.jpg', 'img/ph-musa-e-11.jpg', 'img/ph-musa-e-12.jpg', 'img/ph-musa-e-13.jpg', 'img/ph-casa-cuadrante-01.jpg', 'img/ph-casa-cuadrante-00.jpg', 'img/ph-casa-cuadrante-08.jpg', 'img/ph-casa-cuadrante-02.jpg', 'img/ph-casa-cuadrante-03.jpg', 'img/ph-casa-cuadrante-07.jpg', 'img/ph-casa-cuadrante-05.jpg'])
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
@@ -141,7 +141,7 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
     highlights=["Large private terrace with a 300° view of San Miguel, facing the Parroquia","Queen bed, full bathroom, mini-fridge","Outdoor kitchenette on the terrace on request","Loungers and tables on the terrace","Services included · mid-term stays","Short stays also available (Airbnb link pending)","Inside Casa Cuadrante, restored and designed by RBC"],
     program=[("The suite","Bedroom with queen bed · full bath · mini-fridge · private panoramic terrace")],
     location="Casa Cuadrante, historic center of San Miguel de Allende — the terrace faces the Parroquia directly.",
-    img="img/ph-suite-h01.jpg", gallery=["img/ph-suite-h02.jpg","img/ph-suite-h03.jpg"])
+    img="img/ph-suite-h01.jpg", gallery=["img/ph-suite-h02.jpg","img/ph-suite-h03.jpg", 'img/ph-suite-e-05.jpg', 'img/ph-suite-e-06.jpg', 'img/ph-suite-e-03.jpg', 'img/ph-suite-e-04.jpg', 'img/ph-suite-e-01.jpg', 'img/ph-suite-e-02.jpg', 'img/ph-suite-e-07.jpg', 'img/ph-suite-e-11.jpg', 'img/ph-suite-e-08.jpg', 'img/ph-suite-e-10.jpg', 'img/ph-suite-e-09.jpg', 'img/ph-suite-e-12.jpg', 'img/ph-suite-e-13.jpg'])
 
 # ───────── COUNTRYSIDE NEAR SMA ─────────
 add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Piedras Azules · 20 minutes from San Miguel de Allende",
