@@ -14,7 +14,7 @@ def reel_card(p, size=""):
     return f"""
       <article class="reel rv {size}" data-types="{' '.join(types(p))}" data-cat="{cat_of(p['slug'])}">
         <div class="fs-slider reel-sl" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>{arrows}<div class="fs-dots">{dots}</div></div>
-        <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b>{sheet}<span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span></div>
+        <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b>{sheet}<span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span>{('<em class="reel-note">' + p['note'] + '</em>') if p.get('note') else ''}</div>
       </article>"""
 
 REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
@@ -117,7 +117,8 @@ CSS = r"""
 .reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .reel.big .reel-cap b,.reel.xl .reel-cap b,.reel.xw .reel-cap b{font-size:1.4rem;}
 .reel .fs-trk img[src*="-plan"]{object-fit:contain;background:#fff;}
-.reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
+.reel-note{grid-column:2;font-style:normal;font-size:.72rem;line-height:1.4;color:var(--red);margin-top:2px;}
+.reel-cap>span:not(.cd){grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
 .reel-cap a:hover{color:var(--red);}
 """
