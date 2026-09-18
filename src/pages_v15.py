@@ -67,6 +67,12 @@ def architecture(wa, SITE):
             body, "img/ph-casa-jalpa-02.jpg", ld, "0.9")
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
+HOMES_ORDER = ["casa-horizonte","casa-ether","casa-zafiro","casa-musa","casa-cima","casa-travertino"]  # Roberto, 18-sep-2026
+def _homes_order(ls):
+    by = {l["slug"]: l for l in ls}
+    first = [by[s] for s in HOMES_ORDER if s in by]
+    return first + [l for l in ls if l["slug"] not in HOMES_ORDER]
+
 def real_estate(wa, SITE):
     sale = [l for l in listings.L if l["kind"] == "sale"]
     rent = [l for l in listings.L if l["kind"] == "rent"]
@@ -88,7 +94,8 @@ def real_estate(wa, SITE):
 <section id="sale">
   <div class="wrap">
     {shead("01","Homes")}
-    """ + fichas.grid(rent + sale, wa) + f"""
+    <div class="pfilters cityf rv"><button class="on" data-city="all">All</button><button data-city="sma">San Miguel de Allende</button><button data-city="qro">Querétaro</button><button data-city="celaya">Celaya</button></div>
+    """ + fichas.grid(_homes_order(rent + sale), wa) + f"""
     <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Rentals: price on request · Open a sheet for plans, program and the PDF</div>
   </div>
 </section>

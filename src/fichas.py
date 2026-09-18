@@ -12,7 +12,7 @@ def small_card(l, wa, i=0, md=False):
     from listings import price_line
     d = "d" + str(i % 3) if i % 3 else ""
     return f"""
-      <article class="fs rv {d}{' fs-md' if md else ''}" data-slug="{l['slug']}" tabindex="0" role="button" aria-label="Open {html.escape(l['name'])}">
+      <article class="fs rv {d}{' fs-md' if md else ''}" data-slug="{l['slug']}" data-city="{'sma' if l.get('city') in ('sma','jalpa') else l.get('city','')}" tabindex="0" role="button" aria-label="Open {html.escape(l['name'])}">
         <div class="fs-slider" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots">{"".join('<i></i>' for _ in ph)}</div>
@@ -64,6 +64,8 @@ CSS = r"""
 .fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
 
 .fs h3{display:flex;align-items:center;gap:10px;}
+.cityf{margin:-6px 0 22px;}
+.fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
@@ -297,3 +299,15 @@ def build_pdfs(ls, out_dir, site_dir, site_url):
     try: os.rmdir(tmpdir)
     except Exception: pass
     print("pdfs built:", len([l for l in ls if l.get('pdf', True)]))
+
+JS_CITY = r"""
+<script>
+document.querySelectorAll('.cityf').forEach(f=>{
+  const grid=f.parentElement.querySelector('.fgrid'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.city; grid.querySelectorAll('.fs').forEach(p=>p.classList.toggle('hide', c!=='all' && p.dataset.city!==c));
+  }));
+});
+</script>
+"""

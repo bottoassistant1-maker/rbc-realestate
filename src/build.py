@@ -262,6 +262,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {projects.JS}
 {projects_v13.JS}
 {fichas.JS}
+{fichas.JS_CITY}
 {legal.COOKIE}
 </body>
 </html>
