@@ -401,6 +401,6 @@ nav .brand img{height:38px;}
 .phero .in::before{content:'';display:block;width:64px;height:24px;background:url(img/rbc-mono-white.png) left center/contain no-repeat;margin-bottom:14px;opacity:.95;}
 """
 CSS += r"""
-nav .links a.lang{display:none;}
+nav .links a.lang{display:inline-block;}
 .mnav a.btn{display:none;}
 """

@@ -88,8 +88,9 @@ def pages(page, SITE):
          _wrap("Terms of use", "Aviso legal · Términos de uso", TERMS_EN, TERMS_ES), "img/hero-casa-jalpa.jpg", None, active="")
 
 COOKIE = """
-<div class="ck" id="ck" hidden><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
-<script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.hidden=false;document.getElementById('ck-ok').addEventListener('click',function(){c.hidden=true;try{localStorage.setItem('rbc-ck','1');}catch(e){}});})();</script>
+<div class="ck off" id="ck"><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
+<script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.classList.remove('off');var ok=function(e){if(e)e.preventDefault();c.classList.add('off');c.style.display='none';try{localStorage.setItem('rbc-ck','1');}catch(e2){}};var b=document.getElementById('ck-ok');b.addEventListener('click',ok);b.addEventListener('touchend',ok);})();</script>
+<script>document.querySelectorAll('[data-lang]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=location.pathname;if(p==='/'||p==='')p='/index.html';location.href='https://rbc--realestate-vercel-app.translate.goog'+p+'?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp'+location.hash;});});</script>
 <script>document.querySelectorAll('.tel-reveal').forEach(function(b){b.addEventListener('click',function(){var n=atob(b.dataset.t);b.outerHTML='<a href="tel:'+n.replace(/\\s/g,'')+'">'+n+'</a>';});});</script>
 """
 
@@ -100,6 +101,7 @@ CSS = r"""
 .legal-tabs{display:flex;gap:4px;margin:0 0 28px;} .legal-tabs button{background:none;border:1px solid var(--line);padding:9px 16px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--ink-soft);}
 .legal-tabs button.on{background:#161616;color:#fff;border-color:#161616;}
 .ck{position:fixed;left:20px;bottom:20px;z-index:96;max-width:420px;background:#fff;border:1px solid var(--line);padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.14);display:flex;gap:16px;align-items:center;}
+.ck.off{display:none!important;}
 .ck p{margin:0;font-size:.78rem;line-height:1.45;color:var(--ink-soft);} .ck p a{color:var(--navy);}
 .ck .btn{padding:10px 14px;font-size:.62rem;white-space:nowrap;}
 @media(max-width:600px){.ck{left:12px;right:12px;bottom:12px;max-width:none;flex-direction:column;align-items:stretch;}}

@@ -30,6 +30,8 @@ nav .links a.sec{font-weight:500;text-transform:none;letter-spacing:.04em;font-s
 nav .links .sep{width:1px;height:18px;background:var(--line);display:inline-block;}
 @media(max-width:860px){nav .links .sep{display:none;}}
 .mnav a.msec{font-family:'Figtree',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);border-bottom:none;padding:8px 0;}
+nav .mtabs{display:none;}
+@media(max-width:860px){nav .mtabs{display:flex;align-items:center;gap:0;padding:0 20px 8px;overflow-x:auto;} nav .mtabs a{position:relative;flex:0 0 auto;font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#161616;text-decoration:none;padding:10px 12px 10px 0;margin-right:14px;} nav .mtabs a::before{content:'';display:block;height:3px;margin-bottom:6px;background:var(--hair);} nav .mtabs a.d-arch::before{background:var(--c-arch);} nav .mtabs a.d-re::before{background:var(--c-re);} nav .mtabs a.d-con::before{background:var(--c-con);} nav .mtabs a.on{color:var(--navy);} nav .mtabs a.on::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gold);} nav .mtabs .lang{margin-left:auto;margin-right:0;padding-right:0;} nav .mtabs .lang::before{display:none;}}
 nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-radius:3px;color:var(--navy);width:40px;height:36px;font-size:1.2rem;cursor:pointer;}
 @media(max-width:860px){nav .burger{display:inline-flex;align-items:center;justify-content:center;}}
 .mnav{position:fixed;inset:0;z-index:120;background:var(--navy-deep);color:#fff;display:none;flex-direction:column;padding:26px 22px;}
@@ -125,6 +127,9 @@ nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-r
 def nav(active):
     ON = ' class="on"'
     DISC = ["d-arch", "d-re", "d-con"]
+    mtabs = "".join(
+        f'<a href="{h}" class="{DISC[i]}{" on" if h == active else ""}">{t.replace(" &amp; Design","")}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
+    )
     links = "".join(
         f'<a href="{h}" class="{DISC[i]}{" on" if h == active else ""}">{t}</a>' for i, (h, t) in enumerate(NAV_ITEMS)
     )
@@ -138,11 +143,12 @@ def nav(active):
     <a class="brand" href="index.html"><img src="img/rbc-mono.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
       {links}
-      <a class="lang" href="#" title="Versión en español — próximamente"><b>EN</b> / ES</a>
+      <a class="lang" href="#" data-lang><b>EN</b> / ES</a>
       <a class="cta" href="{wa("Hi Roberto, I found your website and I'd like to talk.")}">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
   </div>
+  <div class="mtabs">{mtabs}</div>
 </nav>
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-mono.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
