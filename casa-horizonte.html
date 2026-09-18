@@ -14,11 +14,11 @@
 <meta property="og:site_name" content="RBC · Roberto Balderas Carrillo, Arquitecto">
 <meta property="og:title" content="Casa Horizonte · M4-L7 — For sale in San Miguel de Allende | RBC · Roberto Balderas Carrillo, Arquitecto">
 <meta property="og:description" content="A house that follows its slope: entered from the top, stepping down the hill so the principal rooms face the historic center. Under construction; fini… Presented by architect Roberto Balderas Carrillo.">
-<meta property="og:image" content="https://rbc-realestate.vercel.app/img/pa-hz-01.jpg">
+<meta property="og:image" content="https://rbc-realestate.vercel.app/img/pa-hz-r01.jpg">
 <meta property="og:url" content="https://rbc-realestate.vercel.app/casa-horizonte.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Casa Horizonte · M4-L7 — For sale in San Miguel de Allende | RBC · Roberto Balderas Carrillo, Arquitecto">
-<meta name="twitter:image" content="https://rbc-realestate.vercel.app/img/pa-hz-01.jpg">
+<meta name="twitter:image" content="https://rbc-realestate.vercel.app/img/pa-hz-r01.jpg">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "RealEstateListing", "name": "Casa Horizonte · M4-L7 — Peñas Arriba · San Miguel de Allende", "url": "https://rbc-realestate.vercel.app/casa-horizonte.html", "about": {"@type": "SingleFamilyResidence", "name": "Casa Horizonte · M4-L7", "address": {"@type": "PostalAddress", "addressLocality": "San Miguel de Allende", "addressCountry": "MX"}}, "offers": {"@type": "Offer", "priceCurrency": "MXN", "price": "32500000", "availability": "https://schema.org/InStock", "seller": {"@type": "Person", "name": "Roberto Balderas Carrillo", "jobTitle": "Architect", "telephone": "+524611012474"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://rbc-realestate.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Real Estate", "item": "https://rbc-realestate.vercel.app/real-estate.html"}, {"@type": "ListItem", "position": 3, "name": "Casa Horizonte · M4-L7", "item": "https://rbc-realestate.vercel.app/casa-horizonte.html"}]}</script>
@@ -724,6 +724,8 @@ nav .links a.lang{display:none;}
 .provnote{margin-top:18px;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:12px;}
 
 /* ── reels (v13) ── */
+.rsec+.rsec{margin-top:72px;}
+.rsec .shead{grid-template-columns:auto 1fr auto;} .rsub{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
 .reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
 .reel{grid-row:span 2;}
 @media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
@@ -746,7 +748,7 @@ nav .links a.lang{display:none;}
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
 .reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .reel.big .reel-cap b,.reel.xl .reel-cap b{font-size:1.4rem;}
-.reel .fs-trk img[src$="-plan.jpg"]{object-fit:contain;background:#fff;}
+.reel .fs-trk img[src*="-plan"]{object-fit:contain;background:#fff;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
 .reel-cap a:hover{color:var(--red);}
@@ -763,6 +765,12 @@ nav .links a.lang{display:none;}
 .pgrid figcaption{display:flex;justify-content:space-between;gap:12px;padding:8px 0 0;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .pgrid figcaption b{font-weight:500;color:#161616;}
 
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;margin-top:8px;}
+.packs .reel.pack{grid-row:auto;grid-column:auto;}
+.packs .reel.pack .reel-sl{aspect-ratio:4/3;flex:none;}
+.pack-n{position:absolute;top:10px;left:10px;z-index:2;background:rgba(255,255,255,.9);color:var(--navy);font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;}
+@media(max-width:900px){.packs{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.packs{grid-template-columns:1fr;}}
 .site-meta{display:flex;gap:22px;flex-wrap:wrap;margin:-8px 0 18px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 @media(max-width:900px){.ogrid{grid-template-columns:repeat(3,1fr);}}
@@ -782,6 +790,7 @@ nav .links a.lang{display:none;}
 .fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
 
 .fs h3{display:flex;align-items:center;gap:10px;}
+.fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
 /* ── ficha chica ── */
@@ -938,7 +947,7 @@ body.fbig-open{overflow:hidden;}
 
 
 <header class="hero prop" id="top">
-  <div class="bg" style="background-image:url('img/pa-hz-01.jpg')"></div>
+  <div class="bg" style="background-image:url('img/pa-hz-r01.jpg')"></div>
   <div class="in">
     <div class="crumbs"><a href="index.html">Home</a> › <a href="real-estate.html">Real Estate</a> › Casa Horizonte · M4-L7</div>
     <div class="tag">For sale · Peñas Arriba · San Miguel de Allende</div>
@@ -973,14 +982,14 @@ body.fbig-open{overflow:hidden;}
   <div class="wrap">
     <div class="shead rv"><div class="eyebrow"><b>03</b>Program</div><i></i></div>
     <div class="steps" style="grid-template-columns:repeat(2,1fr);"><div class="step rv"><h4>Upper level — entry</h4><p>Entry court and two-car garage · living-dining with open kitchen · primary suite with two walk-ins and two baths · study with bath · two bedrooms · linen room · covered terrace · sun deck with pool</p></div><div class="step rv"><h4>Lower level</h4><p>Two large en-suite bedrooms · family room · wine cellar in the excavated rock · elevator shaft · private garden facing the center</p></div></div>
-    <div class="shead rv" style="margin-top:50px;"><div class="eyebrow"><b>04</b>Plans</div><i></i></div><div class="pp-plans rv"><a class="lbx" href="img/pa-hz-plan-pa.jpg"><img src="img/pa-hz-plan-pa.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a><a class="lbx" href="img/pa-hz-plan-pb.jpg"><img src="img/pa-hz-plan-pb.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a><a class="lbx" href="img/pa-hz-plan-corte.jpg"><img src="img/pa-hz-plan-corte.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a></div>
+    <div class="shead rv" style="margin-top:50px;"><div class="eyebrow"><b>04</b>Plans</div><i></i></div><div class="pp-plans rv"><a class="lbx" href="img/pa-hz-plan-pa.jpg"><img src="img/pa-hz-plan-pa.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a><a class="lbx" href="img/pa-hz-plan-pb.jpg"><img src="img/pa-hz-plan-pb.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a><a class="lbx" href="img/pa-hz-plan-seccion.jpg"><img src="img/pa-hz-plan-seccion.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a><a class="lbx" href="img/pa-hz-plan-corte.jpg"><img src="img/pa-hz-plan-corte.jpg" alt="Casa Horizonte · M4-L7 — plan" loading="lazy"></a></div>
   </div>
 </section>
 
 <section id="gallery">
   <div class="wrap">
     <div class="shead rv"><div class="eyebrow"><b>05</b>Photographs</div><i></i></div>
-    <div class="masonry rv d1"><a class="lbx" href="img/pa-hz-01.jpg"><img src="img/pa-hz-01.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-02.jpg"><img src="img/pa-hz-02.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-03.jpg"><img src="img/pa-hz-03.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-04.jpg"><img src="img/pa-hz-04.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-05.jpg"><img src="img/pa-hz-05.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-06.jpg"><img src="img/pa-hz-06.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-07.jpg"><img src="img/pa-hz-07.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-08.jpg"><img src="img/pa-hz-08.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-09.jpg"><img src="img/pa-hz-09.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-10.jpg"><img src="img/pa-hz-10.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-11.jpg"><img src="img/pa-hz-11.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-12.jpg"><img src="img/pa-hz-12.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a></div>
+    <div class="masonry rv d1"><a class="lbx" href="img/pa-hz-r01.jpg"><img src="img/pa-hz-r01.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r03.jpg"><img src="img/pa-hz-r03.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r04.jpg"><img src="img/pa-hz-r04.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r09.jpg"><img src="img/pa-hz-r09.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r02.jpg"><img src="img/pa-hz-r02.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r08.jpg"><img src="img/pa-hz-r08.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r07.jpg"><img src="img/pa-hz-r07.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r10.jpg"><img src="img/pa-hz-r10.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r18.jpg"><img src="img/pa-hz-r18.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r11.jpg"><img src="img/pa-hz-r11.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r06.jpg"><img src="img/pa-hz-r06.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r14.jpg"><img src="img/pa-hz-r14.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r15.jpg"><img src="img/pa-hz-r15.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r16.jpg"><img src="img/pa-hz-r16.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a><a class="lbx" href="img/pa-hz-r12.jpg"><img src="img/pa-hz-r12.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></a></div>
     <div class="cap rv" style="margin-top:12px;">Provisional images — photography in progress.</div>
     <div class="shead rv" style="margin-top:50px;"><div class="eyebrow"><b>06</b>Location</div><i></i></div>
     <p class="lead rv" style="max-width:720px;">Lot M4-L7, upper tier of Peñas Arriba, San Miguel de Allende — about 7 minutes (1.8 mi) from the Jardín Principal. BJX airport ~1 h 15, QRO ~1 h.</p>
@@ -1169,6 +1178,7 @@ document.querySelectorAll('.pfilters').forEach(f=>{
           '<a class="btn red" href="'+d.wa+'">Request information on WhatsApp</a>'+
           (d.pdf?'<a class="btn ghost" href="'+d.pdf+'" target="_blank" rel="noopener">Full sheet (PDF)</a>':'')+
           (d.page?'<a class="btn ghost" href="'+d.page+'">Open full page</a>':'')+
+          (d.links||[]).map(k=>'<a class="btn ghost" href="'+k[1]+'" target="_blank" rel="noopener">'+esc(k[0])+'</a>').join('')+
           '<div class="note">Prices in MXN; USD approximate. Images provisional where noted.</div>'+
         '</div>'+
       '</div>';
