@@ -199,7 +199,7 @@ def about(wa, SITE):
 <section id="bio">
   <div class="wrap about">
     <div class="rv">
-      <img class="portrait" src="img/portrait-roberto.jpg" alt="Roberto Balderas Carrillo" loading="lazy">
+      <img class="portrait" src="img/portrait-roberto-2.jpg" alt="Roberto Balderas Carrillo" loading="lazy">
     </div>
     <div class="rv d1">
       {shead("01","Roberto")}
