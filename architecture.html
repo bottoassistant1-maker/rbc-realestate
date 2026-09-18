@@ -221,6 +221,8 @@ nav .links a.sec{font-weight:500;text-transform:none;letter-spacing:.04em;font-s
 nav .links .sep{width:1px;height:18px;background:var(--line);display:inline-block;}
 @media(max-width:860px){nav .links .sep{display:none;}}
 .mnav a.msec{font-family:'Figtree',sans-serif;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);border-bottom:none;padding:8px 0;}
+nav .mtabs{display:none;}
+@media(max-width:860px){nav .mtabs{display:flex;align-items:center;gap:0;padding:0 20px 8px;overflow-x:auto;} nav .mtabs a{position:relative;flex:0 0 auto;font-family:var(--sans);font-weight:500;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#161616;text-decoration:none;padding:10px 12px 10px 0;margin-right:14px;} nav .mtabs a::before{content:'';display:block;height:3px;margin-bottom:6px;background:var(--hair);} nav .mtabs a.d-arch::before{background:var(--c-arch);} nav .mtabs a.d-re::before{background:var(--c-re);} nav .mtabs a.d-con::before{background:var(--c-con);} nav .mtabs a.on{color:var(--navy);} nav .mtabs a.on::after{content:'';position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--gold);} nav .mtabs .lang{margin-left:auto;margin-right:0;padding-right:0;} nav .mtabs .lang::before{display:none;}}
 nav .burger{display:none;background:none;border:1.5px solid var(--navy);border-radius:3px;color:var(--navy);width:40px;height:36px;font-size:1.2rem;cursor:pointer;}
 @media(max-width:860px){nav .burger{display:inline-flex;align-items:center;justify-content:center;}}
 .mnav{position:fixed;inset:0;z-index:120;background:var(--navy-deep);color:#fff;display:none;flex-direction:column;padding:26px 22px;}
@@ -694,7 +696,7 @@ nav .brand img{height:38px;}
 .mnav .top img{height:40px;}
 .phero .in::before{content:'';display:block;width:64px;height:24px;background:url(img/rbc-mono-white.png) left center/contain no-repeat;margin-bottom:14px;opacity:.95;}
 
-nav .links a.lang{display:none;}
+nav .links a.lang{display:inline-block;}
 .mnav a.btn{display:none;}
 
 /* ── work index ── */
@@ -919,6 +921,7 @@ body.fbig-open{overflow:hidden;}
 .legal-tabs{display:flex;gap:4px;margin:0 0 28px;} .legal-tabs button{background:none;border:1px solid var(--line);padding:9px 16px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--ink-soft);}
 .legal-tabs button.on{background:#161616;color:#fff;border-color:#161616;}
 .ck{position:fixed;left:20px;bottom:20px;z-index:96;max-width:420px;background:#fff;border:1px solid var(--line);padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.14);display:flex;gap:16px;align-items:center;}
+.ck.off{display:none!important;}
 .ck p{margin:0;font-size:.78rem;line-height:1.45;color:var(--ink-soft);} .ck p a{color:var(--navy);}
 .ck .btn{padding:10px 14px;font-size:.62rem;white-space:nowrap;}
 @media(max-width:600px){.ck{left:12px;right:12px;bottom:12px;max-width:none;flex-direction:column;align-items:stretch;}}
@@ -932,11 +935,12 @@ body.fbig-open{overflow:hidden;}
     <a class="brand" href="index.html"><img src="img/rbc-mono.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
       <a href="architecture.html" class="d-arch on">Architecture &amp; Design</a><a href="real-estate.html" class="d-re">Real Estate</a><a href="construction.html" class="d-con">Construction</a>
-      <a class="lang" href="#" title="Versión en español — próximamente"><b>EN</b> / ES</a>
+      <a class="lang" href="#" data-lang><b>EN</b> / ES</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
   </div>
+  <div class="mtabs"><a href="architecture.html" class="d-arch on">Architecture</a><a href="real-estate.html" class="d-re">Real Estate</a><a href="construction.html" class="d-con">Construction</a></div>
 </nav>
 <div class="mnav" id="mnav">
   <div class="top"><img src="img/rbc-mono.png" alt="RBC"><button class="x" aria-label="Close" onclick="document.getElementById('mnav').classList.remove('on')">×</button></div>
@@ -1296,8 +1300,9 @@ document.querySelectorAll('.cityf').forEach(f=>{
 </script>
 
 
-<div class="ck" id="ck" hidden><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
-<script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.hidden=false;document.getElementById('ck-ok').addEventListener('click',function(){c.hidden=true;try{localStorage.setItem('rbc-ck','1');}catch(e){}});})();</script>
+<div class="ck off" id="ck"><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
+<script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.classList.remove('off');var ok=function(e){if(e)e.preventDefault();c.classList.add('off');c.style.display='none';try{localStorage.setItem('rbc-ck','1');}catch(e2){}};var b=document.getElementById('ck-ok');b.addEventListener('click',ok);b.addEventListener('touchend',ok);})();</script>
+<script>document.querySelectorAll('[data-lang]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=location.pathname;if(p==='/'||p==='')p='/index.html';location.href='https://rbc--realestate-vercel-app.translate.goog'+p+'?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp'+location.hash;});});</script>
 <script>document.querySelectorAll('.tel-reveal').forEach(function(b){b.addEventListener('click',function(){var n=atob(b.dataset.t);b.outerHTML='<a href="tel:'+n.replace(/\s/g,'')+'">'+n+'</a>';});});</script>
 
 </body>
