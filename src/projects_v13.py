@@ -12,7 +12,7 @@ def reel_card(p, size=""):
     arrows = '<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button>' if len(ph) > 1 else ""
     sheet = ""
     return f"""
-      <article class="reel rv {size}" data-types="{' '.join(types(p))}">
+      <article class="reel rv {size}" data-types="{' '.join(types(p))}" data-cat="{cat_of(p['slug'])}">
         <div class="fs-slider reel-sl" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>{arrows}<div class="fs-dots">{dots}</div></div>
         <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b>{sheet}<span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span></div>
       </article>"""
@@ -22,52 +22,46 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-ether", "big"), ("casa-jalpa", "xl"), ("pabellon-arte", "w32"),
-  ("casa-jalpa-2", "band"), ("casa-jalpa-3", "wide"), ("casa-valle", "wide"), ("casa-horizonte", "wide"),
-  ("depa-jc", "w32"), ("casa-de-campo-sma", "w32"), ("condesa", ""),
-  ("casa-travertino", "big"), ("casa-ventanas", ""), ("casa-artista", ""), ("casa-velia", ""),
+  ("casa-ether", "big"), ("casa-jalpa", "xw"),
+  ("hotel-casa-x", "big"), ("bar-bachus", "xl"), ("pabellon-arte", "w32"),
+  ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
+  ("depa-jc", "w32"), ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
+  ("casa-jalpa-2", "band"), ("origen", ""), ("restaurantes-sma", ""), ("wellness-merida", ""),
+  ("casa-travertino", "big"), ("chevrolet", "big"),
+  ("binary-pavilion", ""), ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("casa-valle", "wide"),
+  ("casa-ventanas", ""), ("casa-cuadrante", "wide"), ("penas-obra", "wide"),
+  ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
-# v22: categories (Roberto, 18-sep-2026)
-SECTIONS = [
-  ("01", "Homes", "Residential", LAYOUT),
-  ("02", "Business", "Commercial", [
-    ("hotel-casa-x", "big"), ("amecsa", ""), ("daily-veggies", ""),
-    ("bar-bachus", "xl"), ("tuluminati", ""), ("restaurantes-sma", ""),
-    ("chevrolet", "big"), ("wellness-merida", ""), ("plaza-qro", ""),
-    ("casa-cuadrante", "wide"), ("origen", ""), ("saiko", ""), ("casa-cien", ""),
-  ]),
-  ("03", "Other", "Research · site", [
-    ("binary-pavilion", "wide"), ("penas-obra", "wide"),
-  ]),
-]
+# v22b: one grid (Roberto's arrangement) + category FILTER buttons (Roberto, 18-sep-2026)
+CATS = {
+  "homes": {"casa-ether","casa-jalpa","casa-jalpa-2","casa-jalpa-3","casa-valle","casa-horizonte","depa-jc","casa-de-campo-sma","condesa","casa-travertino","casa-ventanas","casa-artista","casa-velia"},
+  "business": {"hotel-casa-x","amecsa","daily-veggies","casa-cuadrante","bar-bachus","tuluminati","restaurantes-sma","chevrolet","wellness-merida","plaza-qro","origen","saiko","casa-cien"},
+}
+def cat_of(slug):
+    for k, v in CATS.items():
+        if slug in v: return k
+    return "other"
 PENDING = {"saiko", "casa-artista", "casa-velia", "casa-cien", "origen"}
 
 def pending_card(p, size=""):
     return f"""
-      <article class="reel rv pend {size}" data-types="{' '.join(types(p))}">
+      <article class="reel rv pend {size}" data-types="{' '.join(types(p))}" data-cat="{cat_of(p['slug'])}">
         <div class="reel-sl reel-pend"><span>Photography pending</span></div>
         <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b><span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span></div>
       </article>"""
 
-def _reel_list(layout):
-    by = {p["slug"]: p for p in PROJECTS}
-    out = []
-    for slug, size in layout:
-        p = by.get(slug)
-        if not p: continue
-        out.append(pending_card(p, size) if slug in PENDING else reel_card(p, size))
-    return out
-
 def reels(ps=None, sizes=True):
     if ps is None:
-        seen = {s for sec in SECTIONS for s, _ in sec[3]}
+        by = {p["slug"]: p for p in PROJECTS}
         out = []
-        for num, title, sub, layout in SECTIONS:
-            cards = _reel_list(layout)
-            if title == "Other":
-                cards += [reel_card(p, "") for p in PROJECTS if p["slug"] not in seen]
-            out.append(f'<div class="rsec"><div class="shead rv"><div class="eyebrow"><b>{num}</b>{title}</div><i></i><span class="rsub">{sub}</span></div><div class="reels">' + "".join(cards) + '</div></div>')
-        return "".join(out)
+        for slug, size in LAYOUT:
+            p = by.get(slug)
+            if not p: continue
+            out.append(pending_card(p, size) if slug in PENDING else reel_card(p, size))
+        seen = {s for s, _ in LAYOUT}
+        out += [reel_card(p, "") for p in PROJECTS if p["slug"] not in seen]
+        fl = '<div class="pfilters catf rv"><button class="on" data-cat="all">All</button><button data-cat="homes">Homes</button><button data-cat="business">Business</button><button data-cat="other">Other</button></div>'
+        return fl + '<div class="reels">' + "".join(out) + '</div>'
     return '<div class="reels">' + "".join(reel_card(p, REEL_SIZES[i % len(REEL_SIZES)] if sizes else "") for i, p in enumerate(ps)) + '</div>'
 
 def arch_section(num="01"):
@@ -99,8 +93,7 @@ def construction_section(num="02"):
 
 CSS = r"""
 /* ── reels (v13) ── */
-.rsec+.rsec{margin-top:72px;}
-.rsec .shead{grid-template-columns:auto 1fr auto;} .rsub{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.catf{margin-top:0;}
 .reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
 .reel{grid-row:span 2;}
 @media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
@@ -108,9 +101,9 @@ CSS = r"""
 .reel{display:flex;flex-direction:column;min-height:0;}
 .reel.big{grid-column:span 2;grid-row:span 4;} .reel.tall{grid-row:span 4;} .reel.wide{grid-column:span 2;}
 .reel.xl{grid-column:span 3;grid-row:span 4;} .reel.band{grid-column:span 3;}
-.reel.w32{grid-column:span 2;grid-row:span 3;} .reel.t23{grid-row:span 3;}
-@media(max-width:1000px){.reel.xl{grid-column:span 2;} .reel.band{grid-column:span 2;}}
-@media(max-width:600px){.reel.big,.reel.wide,.reel.xl,.reel.band,.reel.w32{grid-column:span 1;}.reel.big,.reel.tall,.reel.xl,.reel.w32,.reel.t23{grid-row:span 2;}}
+.reel.w32{grid-column:span 2;grid-row:span 3;} .reel.t23{grid-row:span 3;} .reel.xw{grid-column:span 3;grid-row:span 3;}
+@media(max-width:1000px){.reel.xl,.reel.xw{grid-column:span 2;} .reel.band{grid-column:span 2;}}
+@media(max-width:600px){.reel.big,.reel.wide,.reel.xl,.reel.xw,.reel.band,.reel.w32{grid-column:span 1;}.reel.big,.reel.tall,.reel.xl,.reel.xw,.reel.w32,.reel.t23{grid-row:span 2;}}
 .reel-pend{display:flex;align-items:flex-end;padding:16px;background:var(--paper-2);border:1px solid var(--line);}
 .reel-pend span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
 .reel.hide{display:none;}
@@ -122,7 +115,7 @@ CSS = r"""
 .reel-cap{display:grid;grid-template-columns:auto 1fr auto;gap:3px 12px;align-items:baseline;padding:10px 0 0;}
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
 .reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.reel.big .reel-cap b,.reel.xl .reel-cap b{font-size:1.4rem;}
+.reel.big .reel-cap b,.reel.xl .reel-cap b,.reel.xw .reel-cap b{font-size:1.4rem;}
 .reel .fs-trk img[src*="-plan"]{object-fit:contain;background:#fff;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
@@ -146,7 +139,7 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   const grid=f.parentElement.querySelector('.reels'); if(!grid) return;
   f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
     f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
-    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && !(' '+p.dataset.types+' ').includes(' '+c+' ')));
+    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && (f.classList.contains('catf') ? p.dataset.cat!==c : !(' '+p.dataset.types+' ').includes(' '+c+' '))));
   }));
 });
 </script>
