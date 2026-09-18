@@ -22,19 +22,25 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-ether", "big"), ("penas-obra", ""), ("hotel-casa-x", ""), ("amecsa", ""), ("daily-veggies", ""),
-  ("casa-horizonte", "wide"), ("depa-jc", "t23"), ("casa-cuadrante", "t23"),
-  ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
-  ("casa-jalpa", "xl"), ("origen", ""), ("restaurantes-sma", ""),
-  ("bar-bachus", "xl"), ("wellness-merida", ""), ("pabellon-arte", ""),
-  ("casa-travertino", "big"), ("chevrolet", "big"),
-  ("casa-jalpa-2", "band"), ("binary-pavilion", ""),
-  ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("casa-valle", "wide"),
-  ("casa-ventanas", ""),
-  ("saiko", ""),
-  ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
+  ("casa-ether", "big"), ("casa-jalpa", "xl"), ("pabellon-arte", "w32"),
+  ("casa-jalpa-2", "band"), ("casa-jalpa-3", "wide"), ("casa-valle", "wide"), ("casa-horizonte", "wide"),
+  ("depa-jc", "w32"), ("casa-de-campo-sma", "w32"), ("condesa", ""),
+  ("casa-travertino", "big"), ("casa-ventanas", ""), ("casa-artista", ""), ("casa-velia", ""),
 ]
-PENDING = {"saiko", "casa-artista", "casa-velia", "casa-cien"}
+# v22: categories (Roberto, 18-sep-2026)
+SECTIONS = [
+  ("01", "Homes", "Residential", LAYOUT),
+  ("02", "Business", "Commercial", [
+    ("hotel-casa-x", "big"), ("amecsa", ""), ("daily-veggies", ""),
+    ("bar-bachus", "xl"), ("tuluminati", ""), ("restaurantes-sma", ""),
+    ("chevrolet", "big"), ("wellness-merida", ""), ("plaza-qro", ""),
+    ("casa-cuadrante", "wide"), ("origen", ""), ("saiko", ""), ("casa-cien", ""),
+  ]),
+  ("03", "Other", "Research · site", [
+    ("binary-pavilion", "wide"), ("penas-obra", "wide"),
+  ]),
+]
+PENDING = {"saiko", "casa-artista", "casa-velia", "casa-cien", "origen"}
 
 def pending_card(p, size=""):
     return f"""
@@ -43,17 +49,25 @@ def pending_card(p, size=""):
         <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b><span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span></div>
       </article>"""
 
+def _reel_list(layout):
+    by = {p["slug"]: p for p in PROJECTS}
+    out = []
+    for slug, size in layout:
+        p = by.get(slug)
+        if not p: continue
+        out.append(pending_card(p, size) if slug in PENDING else reel_card(p, size))
+    return out
+
 def reels(ps=None, sizes=True):
     if ps is None:
-        by = {p["slug"]: p for p in PROJECTS}
+        seen = {s for sec in SECTIONS for s, _ in sec[3]}
         out = []
-        for slug, size in LAYOUT:
-            p = by.get(slug)
-            if not p: continue
-            out.append(pending_card(p, size) if slug in PENDING else reel_card(p, size))
-        seen = {s for s, _ in LAYOUT}
-        out += [reel_card(p, "") for p in PROJECTS if p["slug"] not in seen]
-        return '<div class="reels">' + "".join(out) + '</div>'
+        for num, title, sub, layout in SECTIONS:
+            cards = _reel_list(layout)
+            if title == "Other":
+                cards += [reel_card(p, "") for p in PROJECTS if p["slug"] not in seen]
+            out.append(f'<div class="rsec"><div class="shead rv"><div class="eyebrow"><b>{num}</b>{title}</div><i></i><span class="rsub">{sub}</span></div><div class="reels">' + "".join(cards) + '</div></div>')
+        return "".join(out)
     return '<div class="reels">' + "".join(reel_card(p, REEL_SIZES[i % len(REEL_SIZES)] if sizes else "") for i, p in enumerate(ps)) + '</div>'
 
 def arch_section(num="01"):
@@ -85,6 +99,8 @@ def construction_section(num="02"):
 
 CSS = r"""
 /* ── reels (v13) ── */
+.rsec+.rsec{margin-top:72px;}
+.rsec .shead{grid-template-columns:auto 1fr auto;} .rsub{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
 .reels{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:18px;margin-top:28px;}
 .reel{grid-row:span 2;}
 @media(max-width:1000px){.reels{grid-template-columns:repeat(2,1fr);}}
@@ -107,7 +123,7 @@ CSS = r"""
 .reel-cap .cd{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--red);}
 .reel-cap b{font-family:var(--sans);font-weight:400;font-size:1.05rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .reel.big .reel-cap b,.reel.xl .reel-cap b{font-size:1.4rem;}
-.reel .fs-trk img[src$="-plan.jpg"]{object-fit:contain;background:#fff;}
+.reel .fs-trk img[src*="-plan"]{object-fit:contain;background:#fff;}
 .reel-cap>span:last-child{grid-column:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .reel-cap a{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;}
 .reel-cap a:hover{color:var(--red);}
@@ -174,6 +190,21 @@ SITES = [
   ("La Nueva Escondida", "San Miguel de Allende", "Espacios y Formas", _ob("nueva-escondida", 7)),
 ]
 
+def construction_packs():
+    """v22: one same-size pack per site — slider with all its photos (Roberto, 18-sep-2026)."""
+    out = []
+    for i, (name, place, who, photos) in enumerate(SITES):
+        if photos is None:
+            photos = next(p for p in PROJECTS if p["slug"] == "penas-obra")["photos"]
+        slides = "".join(f'<img src="{x}" alt="{name} — construction, {place}" loading="lazy">' for x in photos)
+        dots = "".join('<i></i>' for _ in photos)
+        out.append(f"""
+      <article class="reel rv pack" id="site-{i+1}">
+        <div class="fs-slider reel-sl" data-n="{len(photos)}"><div class="fs-trk">{slides}</div><button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots">{dots}</div><span class="pack-n">{len(photos)} photos</span></div>
+        <div class="reel-cap"><span class="cd">RBC/C-{i+1:03d}</span><b>{name}</b><span>{place} · {who}</span></div>
+      </article>""")
+    return '<div class="packs">' + "".join(out) + '</div>'
+
 def construction_sites():
     out = []
     for i, (name, place, who, photos) in enumerate(SITES):
@@ -200,6 +231,12 @@ def construction_sites():
     return "".join(out)
 
 CSS += r"""
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 18px;margin-top:8px;}
+.packs .reel.pack{grid-row:auto;grid-column:auto;}
+.packs .reel.pack .reel-sl{aspect-ratio:4/3;flex:none;}
+.pack-n{position:absolute;top:10px;left:10px;z-index:2;background:rgba(255,255,255,.9);color:var(--navy);font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;}
+@media(max-width:900px){.packs{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.packs{grid-template-columns:1fr;}}
 .site-meta{display:flex;gap:22px;flex-wrap:wrap;margin:-8px 0 18px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 @media(max-width:900px){.ogrid{grid-template-columns:repeat(3,1fr);}}

@@ -16,7 +16,7 @@ def small_card(l, wa, i=0, md=False):
         <div class="fs-slider" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots">{"".join('<i></i>' for _ in ph)}</div>
-          <span class="fs-st">{l['status']}</span>
+          <span class="fs-st{' fs-rent' if l.get('kind')=='rent' else ''}">{l['status']}</span>
         </div>
         <div class="fs-bd">
           <div class="fs-where">{l['where']}</div>
@@ -44,7 +44,7 @@ def modal_data(ls, wa):
             page=(l["slug"] + ".html") if l.get("page") else l.get("href", ""),
             pdf=f"pdf/{l['slug']}.pdf" if l.get("pdf", True) else "",
             wa=wa(f"Hi Roberto, I'm interested in {l['name']} ({l['where']}). Could you send me more information?"),
-            kind=l.get("kind", "sale"))
+            kind=l.get("kind", "sale"), links=l.get("links", []))
     return f'<script>window.FICHAS=Object.assign(window.FICHAS||{{}},{json.dumps(out, ensure_ascii=False)});</script>'
 
 MODAL_HTML = """
@@ -64,6 +64,7 @@ CSS = r"""
 .fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
 
 .fs h3{display:flex;align-items:center;gap:10px;}
+.fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
 /* ── ficha chica ── */
@@ -191,6 +192,7 @@ JS = r"""
           '<a class="btn red" href="'+d.wa+'">Request information on WhatsApp</a>'+
           (d.pdf?'<a class="btn ghost" href="'+d.pdf+'" target="_blank" rel="noopener">Full sheet (PDF)</a>':'')+
           (d.page?'<a class="btn ghost" href="'+d.page+'">Open full page</a>':'')+
+          (d.links||[]).map(k=>'<a class="btn ghost" href="'+k[1]+'" target="_blank" rel="noopener">'+esc(k[0])+'</a>').join('')+
           '<div class="note">Prices in MXN; USD approximate. Images provisional where noted.</div>'+
         '</div>'+
       '</div>';

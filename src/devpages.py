@@ -10,19 +10,20 @@ DEVS = [
        hero="img/pa-view-parroquia.jpg",
        intro="A gated community on the hillside above San Miguel de Allende, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
        facts=[("Houses","designed by RBC"),("Shell-built","homes"),("Lots","in the community"),("Gated","hillside community")],
-       photos=["img/pa-master-plan.jpg","img/pa-view-parroquia.jpg","img/pa-portal.jpg","img/pa-hz-01.jpg","img/pa-view-01.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-render-jade.jpg","img/pa-amenity-02.jpg","img/pa-zaf-01.jpg","img/pa-dup-01.jpg"],
+       photos=["img/pa-master-plan.jpg","img/pa-view-parroquia.jpg","img/pa-portal.jpg","img/pa-hz-r01.jpg","img/pa-view-01.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-render-jade.jpg","img/pa-amenity-02.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r01.jpg"],
        site="https://penasarriba.vercel.app/", site_label="Community site →",
        msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba, San Miguel de Allende.",
        houses=lambda l: l["kind"] == "sale" and "Peñas Arriba" in l["where"]),
   dict(slug="magno", name="Magno Home &amp; Towers", logo="img/magno-logo-white.png", logo_dark=True,
        place="Celaya · Guanajuato", role="Espacios y Formas", status="Apartments, homes and lots",
        hero="img/magno-4.jpg",
-       intro="Residential towers, single-family homes and lots in one gated community in Celaya, with spa, pool, gym and clubhouse. Apartments available for immediate delivery.",
-       facts=[("Towers","apartments, immediate delivery"),("Homes","single-family"),("Lots","from MX $2.0M"),("Amenities","spa · pool · gym · clubhouse")],
-       photos=["img/magno-4.jpg","img/magno-2.jpg","img/magno-5.jpg","img/magno-8.jpg","img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg"],
+       intro="Residential tower, single-family homes and lots in one gated community in Celaya, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery; lots in Cluster 1; homes built by Espacios y Formas.",
+       facts=[("26","apartments available · from MX $4.65M"),("Homes","from MX $5.5M"),("Lots","225–450 m² · from MX $2.0M"),("Amenities","spa · pool · gym · clubhouse")],
+       photos=["img/magno-4.jpg","img/magno-2.jpg","img/magno-5.jpg","img/magno-8.jpg","img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg","img/magno-plan-1303.jpg","img/magno-plan-lots-cluster1.jpg"],
        site="https://magnoresidencial.com/", site_label="Sales site →",
+       extra=[("Showroom apartment · virtual tour","https://goo.gl/maps/GToGB8UTHR4UdR3HA")],
        msg="Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya.",
-       houses=lambda l: False),
+       houses=lambda l: l["slug"] in ("magno-apartment","magno-home")),
 ]
 
 def dev_page(d, wa, SITE):
@@ -50,7 +51,7 @@ def dev_page(d, wa, SITE):
   <div class="pp-auth"><small>Developed by</small>{d['role']}</div>
   <div class="pp-auth"><small>Where</small>{d['place']}</div>
   <a class="btn red" href="{wa(d['msg'])}">Request information</a>
-  <a class="btn ghost" href="{d['site']}" target="_blank" rel="noopener">{d['site_label']}</a>
+  <a class="btn ghost" href="{d['site']}" target="_blank" rel="noopener">{d['site_label']}</a>{"".join(f'<a class="btn ghost" href="{u}" target="_blank" rel="noopener">{t}</a>' for t, u in d.get("extra", []))}
 </div></div>
 <div class="stats"><div class="in">{facts}</div></div>
 <section id="photos"><div class="wrap">
@@ -76,9 +77,9 @@ CARDS = [
   dict(id="magno-homes", logo="img/magno-logo-white.png", dark=True, name="Magno Homes", place="Celaya · Guanajuato", status="Single-family homes and lots",
        imgs=["img/magno-4.jpg","img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
   dict(id="magno-towers", logo="img/magno-logo-white.png", dark=True, name="Magno Towers", place="Celaya · Guanajuato", status="Apartments · immediate delivery",
-       imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
+       imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
-       imgs=["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/pa-hz-01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
+       imgs=["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/pa-hz-r01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
        imgs=[], sheet="", web="", ig="", fb=""),
   dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · site photos",
@@ -139,15 +140,15 @@ CSS += r"""
 BLOCKS = [
   dict(id="penas-arriba", name="Peñas Arriba", place="San Miguel de Allende · Guanajuato", status="Houses, shell-built homes and lots · RBC with Espacios y Formas",
        logo="img/penas-arriba-logo.png", dark=False, cover="img/pa-view-parroquia.jpg",
-       reel=["img/pa-master-plan.jpg","img/pa-hz-01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-zaf-01.jpg","img/pa-dup-01.jpg","img/pa-render-jade.jpg"],
+       reel=["img/pa-master-plan.jpg","img/pa-hz-r01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r01.jpg","img/pa-render-jade.jpg"],
        text="A gated community on the hillside above San Miguel, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
        sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma",
        msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba."),
   dict(id="magno", name="Magno Home &amp; Towers", place="Celaya · Guanajuato", status="Apartments, homes and lots · Espacios y Formas",
        logo="img/magno-logo-white.png", dark=True, cover="img/magno-2.jpg",
-       reel=["img/magno-1.jpg","img/magno-4.jpg","img/magno-3.jpg","img/magno-8.jpg","img/magno-6.jpg","img/magno-5.jpg","img/magno-7.jpg","img/ob-magno-towers-a-01.jpg"],
-       text="Residential towers, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. Apartments available for immediate delivery.",
-       sheet="magno.html", web="https://magnoresidencial.com/", ig="",
+       reel=["img/magno-1.jpg","img/magno-4.jpg","img/magno-3.jpg","img/magno-8.jpg","img/magno-6.jpg","img/magno-5.jpg","img/ob-magno-towers-a-01.jpg"],
+       text="Residential tower, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery from MX $4.65M; lots of 225–450 m² from MX $2.0M; homes from MX $5.5M.",
+       sheet="magno.html", web="https://magnoresidencial.com/", ig="", tour="https://goo.gl/maps/GToGB8UTHR4UdR3HA",
        msg="Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya."),
   dict(id="nueva-escondida", name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · Espacios y Formas",
        logo="", dark=False, cover="img/ob-nueva-escondida-06.jpg",
@@ -168,6 +169,7 @@ def dev_block(b, wa):
     btns += f'<a class="btn red" href="{wa(b["msg"])}">Ask about {b["name"].replace("&amp;","&")}</a>'
     if b["web"]: btns += f'<a class="btn ghost" href="{b["web"]}" target="_blank" rel="noopener">Website</a>'
     if b["ig"]: btns += f'<a class="btn ghost" href="{b["ig"]}" target="_blank" rel="noopener">Instagram</a>'
+    if b.get("tour"): btns += f'<a class="btn ghost" href="{b["tour"]}" target="_blank" rel="noopener">Showroom · virtual tour</a>'
     reel = ""
     if b["reel"]:
         sl = "".join(f'<div class="sl"><img src="{x}" alt="{b["name"]}" loading="lazy"></div>' for x in b["reel"])

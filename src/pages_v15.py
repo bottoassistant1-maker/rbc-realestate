@@ -88,8 +88,8 @@ def real_estate(wa, SITE):
 <section id="sale">
   <div class="wrap">
     {shead("01","Homes")}
-    """ + fichas.grid(sale + rent, wa) + f"""
-    <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Rentals per night or month · Open a sheet for plans, program and the PDF</div>
+    """ + fichas.grid(rent + sale, wa) + f"""
+    <div class="cap rv" style="margin-top:14px;">Prices in MXN; USD approximate · Rentals: price on request · Open a sheet for plans, program and the PDF</div>
   </div>
 </section>
 
@@ -130,7 +130,12 @@ def real_estate(wa, SITE):
 def construction(wa, SITE):
     body = P.phero("img/ph-penas-obra-b-06.jpg", "RBC / Construction", "Construction.",
         "Directed personally. Larger works are built with Espacios y Formas.", '<a href="index.html">Home</a> › Construction') + f"""
-{projects_v13.construction_sites()}
+<section id="sites">
+  <div class="wrap">
+    <div class="shead rv"><div class="eyebrow"><b>01</b>Sites</div><i></i></div>
+    {projects_v13.construction_packs()}
+  </div>
+</section>
 """ + P.contact_band(wa, "Build", "From your plans or ours.",
         "Renovations, houses, larger residences and developments. English and Spanish.",
         "Hi Roberto, I would like a construction quote.", "WhatsApp Roberto")
@@ -160,7 +165,7 @@ def build(page, wa, ORG, SITE):
         slug, title, desc, body, og, ld, pr = listings.property_page(l, wa, SITE)
         body = body.replace('href="properties.html"', 'href="real-estate.html"')
         urls.append((page(slug, title, desc, body, og, ld, active="real-estate.html"), pr))
-    for slug, to in REDIRECTS:
+    for slug, to in REDIRECTS + (('casa-mirador','real-estate.html'),):
         s, t, d, b, o, ld, pr = redirect(slug, to)
         page(s, t, d, b, o, ld, active="", extra_head='<meta name="robots" content="noindex">')
     urls.append((f"{SITE}/privacy.html", "0.2")); urls.append((f"{SITE}/terms.html", "0.2"))

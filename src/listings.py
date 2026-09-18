@@ -32,11 +32,11 @@ add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizo
     highlights=["622 m² (6,693 sq ft) built on an 827 m² (8,905 sq ft) lot","5 bedrooms: three on the entry level (one convertible to staff), two below · 5½ baths","Pool and pergola terrace facing the Parroquia","Wine cellar in the excavated rock · elevator-ready","Under construction — finishes chosen by the buyer"],
     program=[("Upper level — entry","Entry court and two-car garage · living-dining with open kitchen · primary suite with two walk-ins and two baths · study with bath · two bedrooms · linen room · covered terrace · sun deck with pool"),("Lower level","Two large en-suite bedrooms · family room · wine cellar in the excavated rock · elevator shaft · private garden facing the center")],
     location="Lot M4-L7, upper tier of Peñas Arriba, San Miguel de Allende — about 7 minutes (1.8 mi) from the Jardín Principal. BJX airport ~1 h 15, QRO ~1 h.",
-    img="img/pa-hz-01.jpg",
-    gallery=['img/pa-hz-02.jpg', 'img/pa-hz-03.jpg', 'img/pa-hz-04.jpg', 'img/pa-hz-05.jpg', 'img/pa-hz-06.jpg', 'img/pa-hz-07.jpg', 'img/pa-hz-08.jpg', 'img/pa-hz-09.jpg', 'img/pa-hz-10.jpg', 'img/pa-hz-11.jpg', 'img/pa-hz-12.jpg'],
-    plans=['img/pa-hz-plan-pa.jpg', 'img/pa-hz-plan-pb.jpg', 'img/pa-hz-plan-corte.jpg'])
+    img="img/pa-hz-r01.jpg",
+    gallery=['img/pa-hz-r03.jpg', 'img/pa-hz-r04.jpg', 'img/pa-hz-r09.jpg', 'img/pa-hz-r02.jpg', 'img/pa-hz-r08.jpg', 'img/pa-hz-r07.jpg', 'img/pa-hz-r10.jpg', 'img/pa-hz-r18.jpg', 'img/pa-hz-r11.jpg', 'img/pa-hz-r06.jpg', 'img/pa-hz-r14.jpg', 'img/pa-hz-r15.jpg', 'img/pa-hz-r16.jpg', 'img/pa-hz-r12.jpg'],
+    plans=['img/pa-hz-plan-pa.jpg', 'img/pa-hz-plan-pb.jpg', 'img/pa-hz-plan-seccion.jpg', 'img/pa-hz-plan-corte.jpg'])
 
-add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
+HIDDEN_MIRADOR = dict(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
     auth="Represented by RBC",
     status="Finished · furnished", price_mxn=None, price_note="Price on request",
     specs=[("4","levels"),("2","bedrooms"),("2½","baths"),("1","car"),("Rooftop","jacuzzi")],
@@ -51,7 +51,7 @@ add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador"
     highlights=["Views of the historic center and the Parroquia from the rooftop and upper levels","Central courtyard with automatic sliding glass dome","Two full bedrooms with en-suite baths, air conditioning and blackout curtains","Master suite with a private garden inside the bathroom","Rooftop with jacuzzi, outdoor kitchen, bar and lounge","TV room, guest half-bath, garage, two fountains","Delivered furnished and decorated"],
     program=[("Ground level","Garage, entry, central courtyard with the glass dome, two fountains"),("Living levels","Living, dining, kitchen, TV room and guest half-bath around the courtyard"),("Bedroom level","Two en-suite bedrooms with A/C; master suite with garden bath"),("Rooftop","Jacuzzi, outdoor kitchen, bar and terrace facing the Parroquia")],
     location="Historic center of San Miguel de Allende, walking distance from the Jardín Principal.",
-    img="img/view-historic-center.jpg", gallery=["img/san-miguel-de-allende-parroquia-view.jpg"])  # photos of the house pending
+    img="img/view-historic-center.jpg", gallery=["img/san-miguel-de-allende-parroquia-view.jpg"])  # hidden for now (Roberto, sep 2026)
 
 add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro · M1-L14", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
@@ -68,7 +68,7 @@ add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro �
     highlights=["Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)","343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 5½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
     program=[("The house","Living-dining and kitchen open to terrace and garden · master suite · three further bedrooms · staff quarters · two-car garage")],
     location="Lot M1-L14, Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
-    img="img/pa-zaf-01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-02.jpg', 'img/pa-zaf-03.jpg', 'img/pa-zaf-04.jpg', 'img/pa-zaf-05.jpg', 'img/pa-zaf-06.jpg'], plans=['img/pa-zaf-plan-pb.jpg', 'img/pa-zaf-plan-pa.jpg', 'img/pa-zaf-plan-lote.jpg'])
+    img="img/pa-zaf-r01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-r02.jpg'], plans=['img/pa-zaf-plan-pb2.jpg', 'img/pa-zaf-plan-pb1.jpg', 'img/pa-zaf-plan-pa.jpg', 'img/pa-zaf-lote-m1l14.jpg', 'img/pa-zaf-lote-m1l15.jpg', 'img/pa-zaf-plan-master.jpg'])
 
 add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-L1", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
@@ -85,7 +85,7 @@ add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-
     highlights=["Option to add a pool with a view of the historic center inside the garden","763.55 m² lot (8,219 sq ft) · 592.06 m² built (6,373 sq ft)","Double-height living, dining and bar opening to terrace and garden","Master suite on the social level: walk-in closet, two baths, private sitting room, double view","Upper level: three double bedrooms, each with full bath, and a TV lounge","Kitchen with pantry room, staff quarters, garage and storage","Option to add a pool facing the historic center","Shell built — finishes chosen with the architect"],
     program=[("Ground level","Garage and storage · master suite with walk-in, two baths and sitting room · double-height living, dining and bar · kitchen with pantry · staff room · terrace with dining and lounge · garden"),("Upper level","TV lounge · three double bedrooms with full baths"),("Baths","6 full + 2 guest half-baths")],
     location="Lot M6-L1, the first house of block 6 in Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
-    img="img/pa-cima-01.jpg", gallery=['img/pa-cima-02.jpg', 'img/pa-cima-05.jpg', 'img/pa-cima-03.jpg', 'img/pa-cima-04.jpg', 'img/pa-cima-06.jpg'], plans=['img/pa-cima-plan-pb.jpg', 'img/pa-cima-plan-pa.jpg'])
+    img="img/pa-cima-r01.jpg", gallery=['img/pa-cima-r05.jpg', 'img/pa-cima-r03.jpg', 'img/pa-cima-r04.jpg'], plans=['img/pa-cima-plan-pb.jpg', 'img/pa-cima-plan-pa.jpg'])
 
 add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
@@ -106,12 +106,12 @@ add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences"
            ("Upper residence · M5-L2","≈ 205 m² · single level","MX $6,600,000")],
     program=[("Garden residence","Living-dining and kitchen opening to the garden · 3 bedrooms · 3 baths · laundry · 1 car"),("Upper residence","Single level: living-dining, kitchen, terrace with the view · 3 bedrooms · 3 baths · laundry · 1 car")],
     location="Peñas Arriba, San Miguel de Allende.",
-    img="img/pa-dup-01.jpg", wa_msg="Hi Roberto, I'm interested in the duplex residences in Peñas Arriba. Which units are available?", gallery=['img/pa-dup-02.jpg', 'img/pa-dup-03.jpg', 'img/pa-dup-04.jpg', 'img/pa-dup-05.jpg', 'img/pa-dup-06.jpg', 'img/pa-dup-08.jpg'], plans=['img/pa-dup-plan-pb.jpg', 'img/pa-dup-plan-pa.jpg', 'img/pa-dup-plan-master.jpg'])
+    img="img/pa-dup-r01.jpg", wa_msg="Hi Roberto, I'm interested in the duplex residences in Peñas Arriba. Which units are available?", gallery=['img/pa-dup-r02.jpg', 'img/pa-dup-r05.jpg'], plans=['img/pa-dup-plan-pb.jpg', 'img/pa-dup-plan-pa.jpg', 'img/pa-dup-plan-m1l12.jpg', 'img/pa-dup-plan-m5l2.jpg', 'img/pa-dup-plan-m5l9.jpg', 'img/pa-dup-lote-m1l12.jpg', 'img/pa-dup-lote-m5l2.jpg', 'img/pa-dup-lote-m5l9.jpg', 'img/pa-dup-plan-master.jpg'])
 
 # ───────── SAN MIGUEL · rent ─────────
-add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="Casa Cuadrante · Historic center · San Miguel de Allende",
+add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
-    status="Furnished apartment · short & mid-term stays", price_mxn=None, price_note="From MX $5,500 / night · monthly rates on request",
+    status="For rent · Historic center", price_mxn=None, price_note="Price on request",
     specs=[("1","bedroom · king"),("1","full bath"),("Balcony","facing the Parroquia"),("Services","included")],
     blurb="An apartment above Casa Cuadrante: living-dining with fireplace and a view of the Parroquia, private balcony, art on every wall. Furnished; services included.",
     intro="Casa Musa is the apartment above Casa Cuadrante, the restaurant on the ground floor of a historic house that RBC restored, adapted and furnished. It was made for people who like living among art: a living-dining room with a fireplace and a direct view of the Parroquia, a bedroom with a king bed and full bath, a sound system, a private balcony over the street and a laundry room. Water, electricity and internet are included. Available for mid-term stays.",
@@ -126,9 +126,9 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     location="Inside Casa Cuadrante, in the historic center of San Miguel de Allende — restaurants, galleries and the Jardín Principal on foot.",
     img="img/ph-casa-musa-h03.jpg", gallery=['img/ph-casa-musa-h01.jpg', 'img/ph-casa-musa-h02.jpg', 'img/ph-casa-cuadrante-01.jpg', 'img/ph-casa-cuadrante-00.jpg', 'img/ph-casa-cuadrante-08.jpg', 'img/ph-casa-cuadrante-02.jpg', 'img/ph-casa-cuadrante-03.jpg', 'img/ph-casa-cuadrante-07.jpg', 'img/ph-casa-cuadrante-05.jpg'])
 
-add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="Casa Cuadrante · Historic center · San Miguel de Allende",
+add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
-    status="Suite with private terrace · short & mid-term stays", price_mxn=None, price_note="From MX $2,800 / night · MX $40,000 / month, services included",
+    status="For rent · Historic center", price_mxn=None, price_note="Price on request",
     specs=[("300°","terrace view"),("1","queen bed"),("1","full bath"),("Services","included")],
     blurb="A suite with a large private terrace directly in front of the Parroquia — a 300-degree view of the town. Queen bed, full bath, mini-fridge.",
     intro="The Panoramic Suite is defined by its terrace: large, private and directly in front of the Parroquia, with the whole of San Miguel around it. Queen bed, full bathroom and mini-fridge; an outdoor kitchenette can be fitted on the terrace if needed. Loungers and tables outside. Services included; also available for short stays.",
@@ -141,7 +141,7 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
     highlights=["Large private terrace with a 300° view of San Miguel, facing the Parroquia","Queen bed, full bathroom, mini-fridge","Outdoor kitchenette on the terrace on request","Loungers and tables on the terrace","Services included · mid-term stays","Short stays also available (Airbnb link pending)","Inside Casa Cuadrante, restored and designed by RBC"],
     program=[("The suite","Bedroom with queen bed · full bath · mini-fridge · private panoramic terrace")],
     location="Casa Cuadrante, historic center of San Miguel de Allende — the terrace faces the Parroquia directly.",
-    img="img/ph-suite-h01.jpg", gallery=["img/ph-suite-h02.jpg","img/ph-suite-h03.jpg","img/san-miguel-de-allende-parroquia-view.jpg"])
+    img="img/ph-suite-h01.jpg", gallery=["img/ph-suite-h02.jpg","img/ph-suite-h03.jpg"])
 
 # ───────── COUNTRYSIDE NEAR SMA ─────────
 add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Piedras Azules · 20 minutes from San Miguel de Allende",
@@ -159,7 +159,7 @@ add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", 
     highlights=["1,159 m² (12,475 sq ft) built on a 7,999 m² (1.98 acres) hilltop lot","6 bedrooms · 6 full + 2 half baths · 2 levels","Lap pool, jacuzzi and gas fire pit with step-down seating","Chef's kitchen with marble island and walk-in pantry · cava and bar","Sacarella oak floors · wood-panelled ceilings · marble master bath","Staff quarters with bath · security system · ample parking","Gated community, 20 minutes from San Miguel de Allende centro"],
     program=[("Ground level","Living and dining in double height · chef's kitchen with pantry · cava and bar · terraces, deck and lap pool · staff quarters"),("Upper level","Bedrooms with mountain views · marble master bathroom · gallery-style hallways")],
     location="Lot 15, Rancho Piedras Azules, Palo Blanco, Guanajuato — 20 minutes from San Miguel de Allende centro. Gated; mountain and valley views in every direction.",
-    img="img/ph-casa-ether-00.jpg", gallery=['img/ph-casa-ether-01.jpg', 'img/ph-casa-ether-02.jpg', 'img/ph-casa-ether-03.jpg', 'img/ph-casa-ether-04.jpg', 'img/ph-casa-ether-05.jpg', 'img/ph-casa-ether-06.jpg', 'img/ph-casa-ether-07.jpg', 'img/ph-casa-ether-08.jpg', 'img/ph-casa-ether-09.jpg', 'img/ph-casa-ether-10.jpg', 'img/ph-casa-ether-11.jpg', 'img/ph-casa-ether-12.jpg', 'img/ph-casa-ether-13.jpg', 'img/ph-casa-ether-14.jpg', 'img/ph-casa-ether-15.jpg'])
+    img="img/ph-casa-ether-00.jpg", gallery=['img/ph-casa-ether-01.jpg', 'img/ph-casa-ether-02.jpg', 'img/ph-casa-ether-03.jpg', 'img/ph-casa-ether-04.jpg', 'img/ph-casa-ether-05.jpg', 'img/ph-casa-ether-06.jpg', 'img/ph-casa-ether-07.jpg', 'img/ph-casa-ether-08.jpg', 'img/ph-casa-ether-09.jpg', 'img/ph-casa-ether-10.jpg', 'img/ph-casa-ether-11.jpg', 'img/ph-casa-ether-12.jpg', 'img/ph-casa-ether-13.jpg', 'img/ph-casa-ether-14.jpg', 'img/ph-casa-ether-15.jpg'], plans=['img/ph-casa-ether-plan-pb.jpg','img/ph-casa-ether-plan-m1.jpg','img/ph-casa-ether-plan-site.jpg'])
 
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="Club de Golf El Campanario · Querétaro",
@@ -182,26 +182,53 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
 # ───────── CELAYA ─────────
 add(slug="magno-apartment", page=False, city="celaya", kind="sale", name="Magno Towers · Apartments", where="Celaya · Guanajuato",
     auth="A development by Espacios y Formas",
-    status="Immediate delivery", price_mxn=None, price_note="From MX $4.3M",
-    specs=[("Tower","apartments"),("Spa · pool","gym · club"),("Immediate","delivery")],
-    blurb="Residential towers, single-family homes and lots in one gated community in Celaya, developed by Espacios y Formas. Apartments available for immediate delivery.",
-    intro="Magno Home & Towers combines residential towers, single-family homes and lots inside one gated community in Celaya, with spa, pool, gym, clubhouse, business center, bar, multipurpose hall, gardens and underground parking. Developed and built by Espacios y Formas; apartments available for immediate delivery.",
-    arch="Residential towers, single-family homes and lots in one master-planned community.",
-    site="Celaya, Guanajuato; about 45 minutes from Querétaro.",
-    condition="Apartments with immediate delivery; homes and lots available.",
-    potential="One community with three ways in — apartment, house or lot — and amenities already built.",
+    status="Immediate delivery", price_mxn=None, price_note="From MX $4.65M · 26 apartments available",
+    specs=[("2–3","bedrooms"),("171–229","m² living"),("18","floors"),("Immediate","delivery")],
+    blurb="Apartments in the Magno tower in Celaya, developed and built by Espacios y Formas: 2 and 3 bedrooms, 171 to 229 m² of living space plus parking and storage, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery.",
+    intro="Magno Towers is the residential tower of Magno Home & Towers, a gated community in Celaya developed and built by Espacios y Formas. Every apartment comes with two parking spaces and a storage room (about 31–43 m²) on top of its living area, and shares the spa, pool, gym, clubhouse, business center, bar, multipurpose hall and gardens of the community. Twenty-six apartments are available for immediate delivery (price list 2026, list below); the furnished showroom apartment can be visited online.",
+    arch="A single tower of 18 floors, four to five apartments per floor; the larger 228–229 m² units occupy the corners from the seventh floor up.",
+    site="Magno Home & Towers, Celaya, Guanajuato; about 45 minutes from Querétaro.",
+    condition="Finished; immediate delivery.",
+    potential="A furnished apartment inside a community whose amenities are already built — the showroom tour shows the finished standard.",
     notes="This is Espacios y Formas' project, not mine alone, but I know the floor plans well. Ask me which units I would consider.",
-    highlights=["Apartments with immediate delivery","Homes and lots inside the same community","Spa · pool · gym · clubhouse · business center · gardens","24/7 gated security"],
-    program=[("Availability","Ask for the current inventory and floor plans — units are released as they complete.")],
+    highlights=["26 apartments available · immediate delivery","2 and 3 bedrooms · 171 to 229 m² of living space","Two parking spaces and a storage room with every apartment","Spa · pool · gym · clubhouse · business center · gardens","24/7 gated security with double access"],
+    units=[('Apartment 204 · floor 2', '187.84 m² living + 31.69 m² parking & storage · 3 bedrooms', 'MX $5,058,067'),
+ ('Apartment 205 · floor 2', '180.8 m² living + 30.78 m² parking & storage · 3 bedrooms', 'MX $4,875,471'),
+ ('Apartment 301 · floor 3', '170.88 m² living + 30.88 m² parking & storage · 3 bedrooms', 'MX $4,649,300'),
+ ('Apartment 304 · floor 3', '186.75 m² living + 30.64 m² parking & storage · 3 bedrooms', 'MX $5,011,035'),
+ ('Apartment 401 · floor 4', '170.88 m² living + 30.94 m² parking & storage · 3 bedrooms', 'MX $4,673,948'),
+ ('Apartment 404 · floor 4', '186.75 m² living + 31.11 m² parking & storage · 3 bedrooms', 'MX $5,046,993'),
+ ('Apartment 405 · floor 4', '180.8 m² living + 30.88 m² parking & storage · 3 bedrooms', 'MX $4,902,177'),
+ ('Apartment 504 · floor 5', '186.75 m² living + 31.14 m² parking & storage · 3 bedrooms', 'MX $5,047,688'),
+ ('Apartment 604 · floor 6', '186.75 m² living + 31.01 m² parking & storage · 3 bedrooms', 'MX $5,069,786'),
+ ('Apartment 605 · floor 6', '180.8 m² living + 30.74 m² parking & storage · 3 bedrooms', 'MX $4,923,318'),
+ ('Apartment 901 · floor 9', '170.88 m² living + 30.98 m² parking & storage · 3 bedrooms', 'MX $4,767,952'),
+ ('Apartment 903 · floor 9', '228.34 m² living + 31.3 m² parking & storage · 3 bedrooms', 'MX $6,132,925'),
+ ('Apartment 1102 · floor 11', '229.49 m² living + 30.97 m² parking & storage · 3 bedrooms', 'MX $6,271,924'),
+ ('Apartment 1201 · floor 12', '170.88 m² living + 30.98 m² parking & storage · 3 bedrooms', 'MX $4,907,569'),
+ ('Apartment 1204 · floor 12', '180.8 m² living + 35.72 m² parking & storage · 3 bedrooms', 'MX $5,263,913'),
+ ('Apartment 1301 · floor 13', '170.88 m² living + 35.28 m² parking & storage · 3 bedrooms', 'MX $5,059,692'),
+ ('Apartment 1303 · floor 13', '228.34 m² living + 35.72 m² parking & storage · 2 bedrooms', 'MX $6,480,904'),
+ ('Apartment 1401 · floor 14', '170.88 m² living + 35.28 m² parking & storage · 3 bedrooms', 'MX $5,107,223'),
+ ('Apartment 1501 · floor 15', '170.88 m² living + 35.28 m² parking & storage · 3 bedrooms', 'MX $5,154,754'),
+ ('Apartment 1504 · floor 15', '180.8 m² living + 35.72 m² parking & storage · 3 bedrooms', 'MX $5,413,667'),
+ ('Apartment 1601 · floor 16', '170.88 m² living + 35.28 m² parking & storage · 3 bedrooms', 'MX $5,202,284'),
+ ('Apartment 1604 · floor 16', '180.8 m² living + 33.98 m² parking & storage · 3 bedrooms', 'MX $5,368,658'),
+ ('Apartment 1701 · floor 17', '170.88 m² living + 37.13 m² parking & storage · 3 bedrooms', 'MX $5,296,948'),
+ ('Apartment 1704 · floor 17', '180.8 m² living + 35.78 m² parking & storage · 3 bedrooms', 'MX $5,515,032'),
+ ('Apartment 1801 · floor 18', '177.55 m² living + 43.3 m² parking & storage · 2 bedrooms', 'MX $5,945,641'),
+ ('Apartment 1802 · floor 18', '173.03 m² living + 40.21 m² parking & storage · 2 bedrooms', 'MX $5,740,767')],
+    program=[("Apartment 1303 (plan shown)","228 m² living + 36 m² parking & storage = 264 m² total · living, dining, kitchen, TV room, terrace · primary suite with walk-in · second bedroom with bath · service room · MX $6,480,904"),("Availability","Price list 2026 by Espacios y Formas; units are released as they complete — ask for the current list.")],
     location="Celaya, Guanajuato — about 45 minutes from Querétaro and 1 hour from San Miguel de Allende.",
-    img="img/magno-1.jpg", gallery=["img/magno-3.jpg","img/magno-6.jpg","img/magno-7.jpg","img/ob-magno-towers-a-02.jpg"], href="work.html#magno", pdf=False,
+    img="img/magno-1.jpg", gallery=["img/magno-3.jpg","img/magno-6.jpg","img/ob-magno-towers-a-02.jpg"], plans=["img/magno-plan-1303.jpg"], href="magno.html", pdf=False,
+    links=[("Virtual tour of the showroom apartment","https://goo.gl/maps/GToGB8UTHR4UdR3HA")],
     wa_msg="Hi Roberto, I'm interested in an apartment in Magno Towers, Celaya.")
 
 add(slug="magno-home", page=False, city="celaya", kind="sale", name="Magno Homes · Houses & lots", where="Celaya · Guanajuato",
     auth="A development by Espacios y Formas",
     status="Houses and lots", price_mxn=None, price_note="Homes from MX $5.5M · Lots from MX $2.0M",
-    specs=[("Single-family","homes"),("Lots","available"),("Spa · pool","gym · club")],
-    blurb="Residential towers, single-family homes and lots in one gated community in Celaya, developed by Espacios y Formas. Apartments available for immediate delivery.",
+    specs=[("Single-family","homes"),("225–450","m² lots"),("Spa · pool","gym · club")],
+    blurb="Single-family homes and residential lots inside Magno Home & Towers, Celaya, developed by Espacios y Formas. Lots of 225 to 450 m² in Cluster 1, with the spa, pool, gym and clubhouse already built.",
     intro="Magno Home & Towers combines residential towers, single-family homes and lots inside one gated community in Celaya, with spa, pool, gym, clubhouse, business center, bar, multipurpose hall, gardens and underground parking. Developed and built by Espacios y Formas; apartments available for immediate delivery.",
     arch="Residential towers, single-family homes and lots in one master-planned community.",
     site="Celaya, Guanajuato; about 45 minutes from Querétaro.",
@@ -209,9 +236,9 @@ add(slug="magno-home", page=False, city="celaya", kind="sale", name="Magno Homes
     potential="One community with three ways in — apartment, house or lot — and amenities already built.",
     notes="This is Espacios y Formas' project, not mine alone, but I know the floor plans well. Ask me which units I would consider.",
     highlights=["Apartments with immediate delivery","Homes and lots inside the same community","Spa · pool · gym · clubhouse · business center · gardens","24/7 gated security"],
-    program=[("Availability","Ask for the current inventory and floor plans — units are released as they complete.")],
+    program=[("Lots · Cluster 1","Lots of about 225 m² (9 × 25 m), 300 m² (12 × 25 m), 360 m² and 450 m² (15 × 30 m); availability plan of September 2026 shown."),("Homes","Houses built by Espacios y Formas on the community's lots, from MX $5.5M; ask for the current models.")],
     location="Celaya, Guanajuato — about 45 minutes from Querétaro and 1 hour from San Miguel de Allende.",
-    img="img/magno-4.jpg", gallery=["img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], href="work.html#magno", pdf=False,
+    img="img/magno-4.jpg", gallery=["img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], plans=["img/magno-plan-lots-cluster1.jpg"], href="magno.html", pdf=False,
     wa_msg="Hi Roberto, I'm interested in a house or lot in Magno, Celaya.")
 
 
