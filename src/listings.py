@@ -17,7 +17,7 @@ L = []
 def add(**k): L.append(k); return k
 
 # ───────── SAN MIGUEL DE ALLENDE · sale ─────────
-add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizonte", where="Peñas Arriba · San Miguel de Allende",
+add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizonte · M4-L7", where="Peñas Arriba · San Miguel de Allende",
     auth="Designed by RBC · built with Espacios y Formas",
     status="Under construction · finishes open", feat=True, price_mxn=32_500_000,
     specs=[("622","m² built · 6,693 sq ft"),("827","m² lot · 8,905 sq ft"),("5","bedrooms"),("5½","baths"),("2","cars")],
@@ -32,9 +32,9 @@ add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizo
     highlights=["622 m² (6,693 sq ft) built on an 827 m² (8,905 sq ft) lot","5 bedrooms: three on the entry level (one convertible to staff), two below · 5½ baths","Pool and pergola terrace facing the Parroquia","Wine cellar in the excavated rock · elevator-ready","Under construction — finishes chosen by the buyer"],
     program=[("Upper level — entry","Entry court and two-car garage · living-dining with open kitchen · primary suite with two walk-ins and two baths · study with bath · two bedrooms · linen room · covered terrace · sun deck with pool"),("Lower level","Two large en-suite bedrooms · family room · wine cellar in the excavated rock · elevator shaft · private garden facing the center")],
     location="Lot M4-L7, upper tier of Peñas Arriba, San Miguel de Allende — about 7 minutes (1.8 mi) from the Jardín Principal. BJX airport ~1 h 15, QRO ~1 h.",
-    img="img/ig-DceaktFmAgJ-1.jpg",
-    gallery=["img/ig-DceaktFmAgJ-3.jpg","img/ig-DceaktFmAgJ-5.jpg","img/ig-DceaktFmAgJ-2.jpg","img/ig-DceZkcqmPiU-2.jpg","img/ig-DceaktFmAgJ-6.jpg","img/ig-DceaktFmAgJ-4.jpg","img/ig-DceZkcqmPiU-4.jpg","img/casa-horizonte-garden-facade-day.jpg"],
-    plans=["img/ig-DceZkcqmPiU-5.jpg","img/ig-DceZkcqmPiU-6.jpg","img/architecture-section-hillside-home.jpg"])
+    img="img/pa-hz-01.jpg",
+    gallery=['img/pa-hz-02.jpg', 'img/pa-hz-03.jpg', 'img/pa-hz-04.jpg', 'img/pa-hz-05.jpg', 'img/pa-hz-06.jpg', 'img/pa-hz-07.jpg', 'img/pa-hz-08.jpg', 'img/pa-hz-09.jpg', 'img/pa-hz-10.jpg', 'img/pa-hz-11.jpg', 'img/pa-hz-12.jpg'],
+    plans=['img/pa-hz-plan-pa.jpg', 'img/pa-hz-plan-pb.jpg', 'img/pa-hz-plan-corte.jpg'])
 
 add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
     auth="Represented by RBC",
@@ -56,7 +56,7 @@ add(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador"
 add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro · M1-L14", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
     status="Shell built · ~6 months to delivery", price_mxn=13_900_000,
-    specs=[("344","m² built · 3,700 sq ft"),("418","m² lot · 4,500 sq ft"),("4+s","bedrooms"),("5½","baths"),("2","cars")],
+    specs=[("343","m² built · 3,692 sq ft"),("418","m² lot · 4,500 sq ft"),("4+s","bedrooms"),("5½","baths"),("2","cars")],
     blurb="On the largest garden lot of the community, built to shell: plan and site are done, every finish is still open.",
     intro="Casa Zafiro sits on the largest garden lot in Peñas Arriba. It is built to shell stage, with delivery in about six months once the finishes are defined together with the practice.",
     arch="Compact plan opening to terrace and garden; master suite on the main level.",
@@ -65,10 +65,10 @@ add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro �
     condition="Shell complete; about six months to delivery once finishes are defined.",
     potential="The plan and the site without waiting for a full build, and the level of finish set to the buyer's budget.",
     notes="The garden is the argument. It is the biggest lot in the community and the shell is already there; what remains is the part most owners enjoy deciding.",
-    highlights=["343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 5½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
+    highlights=["Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)","343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 5½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
     program=[("The house","Living-dining and kitchen open to terrace and garden · master suite · three further bedrooms · staff quarters · two-car garage")],
     location="Lot M1-L14, Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
-    img="img/listing-casa-zafiro-san-miguel.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=["img/community-club-pool.jpg","img/parroquia-view-from-community.jpg"])
+    img="img/pa-zaf-01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-02.jpg', 'img/pa-zaf-03.jpg', 'img/pa-zaf-04.jpg', 'img/pa-zaf-05.jpg', 'img/pa-zaf-06.jpg'], plans=['img/pa-zaf-plan-pb.jpg', 'img/pa-zaf-plan-pa.jpg', 'img/pa-zaf-plan-lote.jpg'])
 
 add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-L1", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
@@ -82,30 +82,31 @@ add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-
     condition="Shell built; ready for flooring, stone, carpentry and paint. Pool with a view of the town can be added.",
     potential="The freedom to define every finish on a house whose structure, plan and garden are already resolved.",
     notes="The master suite is downstairs on purpose: whoever lives here should have the garden and the view without a staircase in between.",
-    highlights=["763.55 m² lot (8,219 sq ft) · 592.06 m² built (6,373 sq ft)","Double-height living, dining and bar opening to terrace and garden","Master suite on the social level: walk-in closet, two baths, private sitting room, double view","Upper level: three double bedrooms, each with full bath, and a TV lounge","Kitchen with pantry room, staff quarters, garage and storage","Option to add a pool facing the historic center","Shell built — finishes chosen with the architect"],
+    highlights=["Option to add a pool with a view of the historic center inside the garden","763.55 m² lot (8,219 sq ft) · 592.06 m² built (6,373 sq ft)","Double-height living, dining and bar opening to terrace and garden","Master suite on the social level: walk-in closet, two baths, private sitting room, double view","Upper level: three double bedrooms, each with full bath, and a TV lounge","Kitchen with pantry room, staff quarters, garage and storage","Option to add a pool facing the historic center","Shell built — finishes chosen with the architect"],
     program=[("Ground level","Garage and storage · master suite with walk-in, two baths and sitting room · double-height living, dining and bar · kitchen with pantry · staff room · terrace with dining and lounge · garden"),("Upper level","TV lounge · three double bedrooms with full baths"),("Baths","6 full + 2 guest half-baths")],
     location="Lot M6-L1, the first house of block 6 in Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
-    img="img/luxury-villa-sunset-san-miguel.jpg", gallery=["img/stone-walls-community.jpg","img/parroquia-view-from-community.jpg","img/villa-garden-day.jpg"])
+    img="img/pa-cima-01.jpg", gallery=['img/pa-cima-02.jpg', 'img/pa-cima-05.jpg', 'img/pa-cima-03.jpg', 'img/pa-cima-04.jpg', 'img/pa-cima-06.jpg'], plans=['img/pa-cima-plan-pb.jpg', 'img/pa-cima-plan-pa.jpg'])
 
 add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
-    status="Built · ~6 months to delivery", price_mxn=None, price_note="From MX $6.6M",
-    specs=[("3","units available"),("188–205","m²"),("3","bedrooms"),("3","full baths")],
+    status="Built and under construction", price_mxn=None, price_note="From MX $6.6M",
+    specs=[("4","units available"),("188–205","m²"),("3","bedrooms"),("3","full baths"),("2","cars")],
     blurb="Two-level duplex houses in Peñas Arriba: a garden residence on the ground floor and an upper residence with the view of the historic center. Three units available.",
-    intro="The duplex houses of Peñas Arriba pair a ground-floor garden residence with an upper residence that takes the view of the historic center. Each unit has three bedrooms, three full bathrooms, living-dining, kitchen, terrace, laundry and one parking space. Built; delivered in about six months with finishes chosen by the buyer.",
+    intro="The duplex houses of Peñas Arriba pair a ground-floor garden residence with an upper, apartment-style residence, each with its own entrance, kitchen, living-dining, three bedrooms, three bathrooms and two parking spaces. Buy one unit or both. The upper residence has a single price on every lot; the garden residence varies with the size of its garden. Two units are already built; finishes are chosen by the buyer.",
     arch="Two independent residences per building: the garden residence opens to a private garden; the upper residence is a single level facing the view.",
     site="Blocks 1 and 5 of Peñas Arriba; the M5 units sit next to the clubhouse and pool.",
     materials="Stone, wood pergolas and clay tile roofs; finishes chosen with the practice.",
     condition="Built; about six months to delivery.",
     potential="Lock-and-leave living inside a gated community, with the club a few steps away.",
     notes="The garden units are for anyone who wants breakfast outside; the upper unit is for the view.",
-    highlights=["Three units available: M1-L12 upper, M5-L9 garden, M5-L2 garden","3 bedrooms · 3 full baths · terrace · laundry · 1 parking space","Built — finishes chosen with the architect","Next to the clubhouse and pool (block 5)"],
-    units=[("Upper residence · M1-L12","≈ 205 m² · terrace with the view of the historic center","MX $6.6M"),
-           ("Garden residence · M5-L9","≈ 188 m² · private garden · next to the club","MX $7.433M"),
-           ("Garden residence · M5-L2","3 bedrooms · private garden · next to the club","Price on request")],
+    highlights=["Buy the whole duplex (≈ 393 m²) or one unit: upper residence at a single MX $6.6M price on every lot; garden residence from MX $7.433M depending on the garden","3 bedrooms · 3 full baths · 2 parking spaces per unit","Several façades and interior layouts to choose from","Block 5 units sit next to the clubhouse and pool"],
+    units=[("Upper residence · M1-L12","≈ 205 m² · single level · already built","MX $6,600,000"),
+           ("Garden residence · M5-L9","≈ 188 m² · private garden on a 322 m² lot · already built","MX $7,433,000"),
+           ("Garden residence · M5-L2","190 m² · private garden on a 363 m² lot","MX $8,232,000"),
+           ("Upper residence · M5-L2","≈ 205 m² · single level","MX $6,600,000")],
     program=[("Garden residence","Living-dining and kitchen opening to the garden · 3 bedrooms · 3 baths · laundry · 1 car"),("Upper residence","Single level: living-dining, kitchen, terrace with the view · 3 bedrooms · 3 baths · laundry · 1 car")],
     location="Peñas Arriba, San Miguel de Allende.",
-    img="img/ph-duplex-render-01.jpg", wa_msg="Hi Roberto, I'm interested in the duplex residences in Peñas Arriba. Which units are available?", gallery=["img/listing-duplex-garden-unit.jpg","img/listing-duplex-upper-unit.jpg"])
+    img="img/pa-dup-01.jpg", wa_msg="Hi Roberto, I'm interested in the duplex residences in Peñas Arriba. Which units are available?", gallery=['img/pa-dup-02.jpg', 'img/pa-dup-03.jpg', 'img/pa-dup-04.jpg', 'img/pa-dup-05.jpg', 'img/pa-dup-06.jpg', 'img/pa-dup-08.jpg'], plans=['img/pa-dup-plan-pb.jpg', 'img/pa-dup-plan-pa.jpg', 'img/pa-dup-plan-master.jpg'])
 
 # ───────── SAN MIGUEL · rent ─────────
 add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="Casa Cuadrante · Historic center · San Miguel de Allende",
