@@ -23,7 +23,7 @@ def home(wa, SITE):
 <section id="intro">
   <div class="wrap split" style="align-items:start;">
     <div class="rv">
-      <div class="portrait sm">Portrait pending</div>
+      <img class="portrait sm" src="img/portrait-roberto.jpg" alt="Roberto Balderas Carrillo" loading="lazy">
     </div>
     <div class="rv d1">
       <p class="lead big">Roberto Balderas Carrillo is an architect based in San Miguel de Allende. His practice, RBC, designs and builds — houses, interiors, hotels, commercial buildings — and represents a small selection of properties he knows well.</p>
