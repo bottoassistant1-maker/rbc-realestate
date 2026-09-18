@@ -789,6 +789,8 @@ nav .links a.lang{display:none;}
 .fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
 
 .fs h3{display:flex;align-items:center;gap:10px;}
+.cityf{margin:-6px 0 22px;}
+.fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
@@ -971,7 +973,7 @@ body.fbig-open{overflow:hidden;}
 <section id="houses"><div class="wrap">
   <div class="shead rv"><div class="eyebrow"><b>02</b>Available in Peñas Arriba</div><i></i></div>
   <div class="fgrid">
-      <article class="fs rv " data-slug="casa-horizonte" tabindex="0" role="button" aria-label="Open Casa Horizonte · M4-L7">
+      <article class="fs rv " data-slug="casa-horizonte" data-city="sma" tabindex="0" role="button" aria-label="Open Casa Horizonte · M4-L7">
         <div class="fs-slider" data-n="15"><div class="fs-trk"><img src="img/pa-hz-r01.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r03.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r04.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r09.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r02.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r08.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r07.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r10.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r18.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r11.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r06.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r14.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r15.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r16.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"><img src="img/pa-hz-r12.jpg" alt="Casa Horizonte · M4-L7" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -985,7 +987,7 @@ body.fbig-open{overflow:hidden;}
           <span class="fs-open">Open sheet →</span>
         </div>
       </article>
-      <article class="fs rv d1" data-slug="casa-zafiro" tabindex="0" role="button" aria-label="Open Casa Zafiro · M1-L14">
+      <article class="fs rv d1" data-slug="casa-zafiro" data-city="sma" tabindex="0" role="button" aria-label="Open Casa Zafiro · M1-L14">
         <div class="fs-slider" data-n="2"><div class="fs-trk"><img src="img/pa-zaf-r01.jpg" alt="Casa Zafiro · M1-L14" loading="lazy"><img src="img/pa-zaf-r02.jpg" alt="Casa Zafiro · M1-L14" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i></div>
@@ -999,7 +1001,7 @@ body.fbig-open{overflow:hidden;}
           <span class="fs-open">Open sheet →</span>
         </div>
       </article>
-      <article class="fs rv d2" data-slug="casa-cima" tabindex="0" role="button" aria-label="Open Casa Cima · M6-L1">
+      <article class="fs rv d2" data-slug="casa-cima" data-city="sma" tabindex="0" role="button" aria-label="Open Casa Cima · M6-L1">
         <div class="fs-slider" data-n="4"><div class="fs-trk"><img src="img/pa-cima-r01.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/pa-cima-r05.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/pa-cima-r03.jpg" alt="Casa Cima · M6-L1" loading="lazy"><img src="img/pa-cima-r04.jpg" alt="Casa Cima · M6-L1" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i><i></i></div>
@@ -1013,7 +1015,7 @@ body.fbig-open{overflow:hidden;}
           <span class="fs-open">Open sheet →</span>
         </div>
       </article>
-      <article class="fs rv " data-slug="duplex" tabindex="0" role="button" aria-label="Open Duplex residences">
+      <article class="fs rv " data-slug="duplex" data-city="sma" tabindex="0" role="button" aria-label="Open Duplex residences">
         <div class="fs-slider" data-n="3"><div class="fs-trk"><img src="img/pa-dup-r01.jpg" alt="Duplex residences" loading="lazy"><img src="img/pa-dup-r02.jpg" alt="Duplex residences" loading="lazy"><img src="img/pa-dup-r05.jpg" alt="Duplex residences" loading="lazy"></div>
           <button class="fs-arr l" aria-label="Previous photo">‹</button><button class="fs-arr r" aria-label="Next photo">›</button>
           <div class="fs-dots"><i></i><i></i><i></i></div>
@@ -1232,6 +1234,17 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   // deep link: real-estate.html#casa-cima opens the sheet
   if(location.hash && (window.FICHAS||{})[location.hash.slice(1)]) setTimeout(()=>openFicha(location.hash.slice(1)),400);
 })();
+</script>
+
+
+<script>
+document.querySelectorAll('.cityf').forEach(f=>{
+  const grid=f.parentElement.querySelector('.fgrid'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.city; grid.querySelectorAll('.fs').forEach(p=>p.classList.toggle('hide', c!=='all' && p.dataset.city!==c));
+  }));
+});
 </script>
 
 

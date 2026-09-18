@@ -790,6 +790,8 @@ nav .links a.lang{display:none;}
 .fb-units>div i{grid-column:2;grid-row:1/3;font-style:normal;color:var(--red);font-weight:500;align-self:center;white-space:nowrap;}
 
 .fs h3{display:flex;align-items:center;gap:10px;}
+.cityf{margin:-6px 0 22px;}
+.fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
 .fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
 
@@ -1228,6 +1230,17 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   // deep link: real-estate.html#casa-cima opens the sheet
   if(location.hash && (window.FICHAS||{})[location.hash.slice(1)]) setTimeout(()=>openFicha(location.hash.slice(1)),400);
 })();
+</script>
+
+
+<script>
+document.querySelectorAll('.cityf').forEach(f=>{
+  const grid=f.parentElement.querySelector('.fgrid'); if(!grid) return;
+  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const c=b.dataset.city; grid.querySelectorAll('.fs').forEach(p=>p.classList.toggle('hide', c!=='all' && p.dataset.city!==c));
+  }));
+});
 </script>
 
 
