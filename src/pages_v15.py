@@ -27,7 +27,7 @@ def home(wa, SITE):
     </div>
     <div class="rv d1">
       <p class="lead big">Roberto Balderas Carrillo is an architect based in San Miguel de Allende. His practice, RBC, designs and builds — houses, interiors, hotels, commercial buildings — and represents a small selection of properties he knows well.</p>
-      <p class="lead">Each project develops its own architectural language. Larger works are built with Espacios y Formas, architecture, construction and development, with offices in Celaya and San Miguel de Allende.</p>
+      <p class="lead">Each project develops its own architectural language. Larger works are built with <a class="eyf-link" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas ↗</a>, architecture, construction and development, with offices in Celaya and San Miguel de Allende.</p>
       <div class="facts" style="margin-top:22px;"><div><small>Contact</small><span><a href="{wa('Hi Roberto, I found your website and I would like to talk.')}" style="color:var(--navy);text-decoration:none;">WhatsApp Roberto</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;">@arqrobertobalderas</a></span></div></div>
     </div>
   </div>

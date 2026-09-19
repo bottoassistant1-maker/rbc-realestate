@@ -80,9 +80,7 @@ CARDS = [
        imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
        imgs=["img/view-historic-center.jpg","img/pa-comm-02.jpg","img/pa-hz-r17.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r04.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
-  dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
-       imgs=[], sheet="", web="", ig="", fb=""),
-  dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · site photos",
+  dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Completed · units available",
        imgs=["img/ob-nueva-escondida-06.jpg","img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg"], sheet="", web="", ig="", fb=""),
 ]
 
@@ -150,15 +148,11 @@ BLOCKS = [
        text="Residential tower, single-family homes and lots in one gated community, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery from MX $4.65M; lots of 225–450 m² from MX $2.0M; homes from MX $5.5M.",
        sheet="magno.html", web="https://magnoresidencial.com/", ig="", tour="https://goo.gl/maps/GToGB8UTHR4UdR3HA",
        msg="Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya."),
-  dict(id="nueva-escondida", name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · Espacios y Formas",
+  dict(id="nueva-escondida", name="La Nueva Escondida", place="San Miguel de Allende", status="Completed · a few units available · Espacios y Formas",
        logo="", dark=False, cover="img/ob-nueva-escondida-06.jpg",
        reel=["img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg","img/ob-nueva-escondida-04.jpg","img/ob-nueva-escondida-02.jpg","img/ob-nueva-escondida-01.jpg"],
-       text="A residential community in San Miguel de Allende, under construction. Details, renders and the master plan to follow.",
-       sheet="", web="", ig="", msg="Hi Roberto, please keep me informed about La Nueva Escondida in San Miguel de Allende."),
-  dict(id="escondida", name="La Escondida", place="San Miguel de Allende", status="In development",
-       logo="", dark=False, cover="", reel=[],
-       text="A residential development in San Miguel de Allende. Details to follow.",
-       sheet="", web="", ig="", msg="Hi Roberto, please keep me informed about La Escondida in San Miguel de Allende."),
+       text="A residential community in San Miguel de Allende, now completed. A few units remain available for sale — ask for the current availability.",
+       sheet="", web="", ig="", msg="Hi Roberto, I'm interested in the available units at La Nueva Escondida in San Miguel de Allende."),
 ]
 
 def dev_block(b, wa):

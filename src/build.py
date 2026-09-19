@@ -291,6 +291,16 @@ if __name__ == "__main__":
     import pages_v15, devpages, legal
     urls = pages_v15.build(page, wa, ORG, SITE_URL)
     legal.pages(page, SITE_URL)
+    # v23: Spanish version → /es/
+    import glob
+    slugs = [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(OUT, "*.html"))]
+    try:
+        import es_build
+        es_build.patch_en(OUT, SITE_URL, slugs)
+        es_build.build_es(OUT, SITE_URL, slugs)
+    except ImportError as e:
+        print("ES build skipped:", e)
+    urls += [(f"{SITE_URL}/es/{s}.html", "0.7") for s in slugs if s in ("index","architecture","real-estate","construction","contact","penas-arriba","magno","casa-horizonte","casa-cima","casa-ether","casa-travertino","casa-musa","panoramic-suite")]
     # sitemap + robots
     sm = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u, pr in urls:

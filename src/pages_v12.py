@@ -283,7 +283,7 @@ def contact(wa, SITE):
 <section id="general">
   <div class="wrap split" style="align-items:start;">
     <div class="rv">{shead("04","General inquiry")}<h2>Anything else.</h2>
-      <div class="facts"><div><small>WhatsApp</small><span><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Show number</button></span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div></div></div>
+      <div class="facts"><div><small>WhatsApp</small><span><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Show number</button></span></div><div><small>Instagram</small><span>@arqrobertobalderas</span></div><div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div><div><small>Espacios y Formas</small><span><a class="eyf-link" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">espaciosyformas.com.mx ↗</a></span></div></div></div>
     <div class="rv d1">{F("Message", "",
         [("row",[("text","Name","Your name","Jane Smith"),("text","Contact","Best way to reach you","Phone or email")]),
          ("area","Message","Message","")], "Hi Roberto, I'm writing from your website:", "Send to Roberto")}</div>

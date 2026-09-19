@@ -405,3 +405,8 @@ CSS += r"""
 nav .links a.lang{display:inline-block;}
 .mnav a.btn{display:none;}
 """
+
+CSS += r"""
+a.eyf-link{color:var(--c-arch);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;}
+a.eyf-link:hover{color:var(--c-re);}
+"""
