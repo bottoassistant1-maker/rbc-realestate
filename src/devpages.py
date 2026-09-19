@@ -7,10 +7,10 @@ from pages_v12 import shead
 DEVS = [
   dict(slug="penas-arriba", name="Peñas Arriba", logo="img/penas-arriba-logo.png", logo_dark=False,
        place="San Miguel de Allende · Guanajuato", role="RBC with Espacios y Formas", status="Houses, shell-built homes and lots",
-       hero="img/pa-view-parroquia.jpg",
+       hero="img/view-historic-center.jpg",
        intro="A gated community on the hillside above San Miguel de Allende, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
        facts=[("Houses","designed by RBC"),("Shell-built","homes"),("Lots","in the community"),("Gated","hillside community")],
-       photos=["img/pa-master-plan.jpg","img/pa-view-parroquia.jpg","img/pa-portal.jpg","img/pa-hz-r01.jpg","img/pa-view-01.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-render-jade.jpg","img/pa-amenity-02.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r01.jpg"],
+       photos=["img/pa-comm-02.jpg","img/pa-comm-01.jpg","img/pa-hz-r17.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r04.jpg","img/pa-comm-03.jpg","img/pa-comm-04.jpg","img/pa-comm-05.jpg","img/pa-comm-06.jpg","img/pa-comm-07.jpg","img/pa-master-plan.jpg","img/pa-portal.jpg","img/pa-amenity-01.jpg","img/pa-gym.jpg"],
        site="https://penasarriba.vercel.app/", site_label="Community site →",
        msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba, San Miguel de Allende.",
        houses=lambda l: l["kind"] == "sale" and "Peñas Arriba" in l["where"]),
@@ -79,7 +79,7 @@ CARDS = [
   dict(id="magno-towers", logo="img/magno-logo-white.png", dark=True, name="Magno Towers", place="Celaya · Guanajuato", status="Apartments · immediate delivery",
        imgs=["img/magno-1.jpg","img/magno-3.jpg","img/magno-6.jpg"], sheet="magno.html", web="https://magnoresidencial.com/", ig="", fb=""),
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
-       imgs=["img/pa-view-parroquia.jpg","img/pa-master-plan.jpg","img/pa-hz-r01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
+       imgs=["img/view-historic-center.jpg","img/pa-comm-02.jpg","img/pa-hz-r17.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r04.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="escondida", logo="", dark=False, name="La Escondida", place="San Miguel de Allende", status="In development · details to follow",
        imgs=[], sheet="", web="", ig="", fb=""),
   dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Under construction · site photos",
@@ -139,8 +139,8 @@ CSS += r"""
 # ── v21: large composite development blocks for the Real Estate page ──
 BLOCKS = [
   dict(id="penas-arriba", name="Peñas Arriba", place="San Miguel de Allende · Guanajuato", status="Houses, shell-built homes and lots · RBC with Espacios y Formas",
-       logo="img/penas-arriba-logo.png", dark=False, cover="img/pa-view-parroquia.jpg",
-       reel=["img/pa-master-plan.jpg","img/pa-hz-r01.jpg","img/pa-portal.jpg","img/pa-render-pirul.jpg","img/pa-amenity-01.jpg","img/pa-render-onix.jpg","img/pa-gym.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r01.jpg","img/pa-render-jade.jpg"],
+       logo="img/penas-arriba-logo.png", dark=False, cover="img/view-historic-center.jpg",
+       reel=["img/pa-comm-02.jpg","img/pa-hz-r17.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r04.jpg","img/pa-comm-01.jpg","img/pa-comm-03.jpg","img/pa-master-plan.jpg"],
        text="A gated community on the hillside above San Miguel, with views of the Parroquia and the valley. Roberto designs the houses; larger works are built with Espacios y Formas.",
        sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma",
        msg="Hi Roberto, I would like information about houses and lots in Peñas Arriba."),

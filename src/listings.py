@@ -34,7 +34,7 @@ add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizo
     location="Lot M4-L7, upper tier of Peñas Arriba, San Miguel de Allende — about 7 minutes (1.8 mi) from the Jardín Principal. BJX airport ~1 h 15, QRO ~1 h.",
     img="img/pa-hz-r01.jpg",
     gallery=['img/pa-hz-r03.jpg', 'img/pa-hz-r04.jpg', 'img/pa-hz-r09.jpg', 'img/pa-hz-r02.jpg', 'img/pa-hz-r08.jpg', 'img/pa-hz-r07.jpg', 'img/pa-hz-r10.jpg', 'img/pa-hz-r18.jpg', 'img/pa-hz-r11.jpg', 'img/pa-hz-r06.jpg', 'img/pa-hz-r14.jpg', 'img/pa-hz-r15.jpg', 'img/pa-hz-r16.jpg', 'img/pa-hz-r12.jpg'],
-    plans=['img/pa-hz-plan-pa.jpg', 'img/pa-hz-plan-pb.jpg', 'img/pa-hz-plan-seccion.jpg', 'img/pa-hz-plan-corte.jpg'])
+    plans=['img/pa-hz-plan-pb-2.jpg', 'img/pa-hz-plan-p1-2.jpg', 'img/pa-hz-plan-section-2.jpg', 'img/pa-hz-plan-pa.jpg', 'img/pa-hz-plan-pb.jpg'])
 
 HIDDEN_MIRADOR = dict(slug="casa-mirador", page=True, city="sma", kind="sale", name="Casa Mirador", where="Historic center · San Miguel de Allende",
     auth="Represented by RBC",
@@ -68,7 +68,7 @@ add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro �
     highlights=["Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)","343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 5½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
     program=[("The house","Living-dining and kitchen open to terrace and garden · master suite · three further bedrooms · staff quarters · two-car garage")],
     location="Lot M1-L14, Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
-    img="img/pa-zaf-r01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-r02.jpg'], plans=['img/pa-zaf-plan-pb2.jpg', 'img/pa-zaf-plan-pb1.jpg', 'img/pa-zaf-plan-pa.jpg', 'img/pa-zaf-lote-m1l14.jpg', 'img/pa-zaf-lote-m1l15.jpg', 'img/pa-zaf-plan-master.jpg'])
+    img="img/pa-zaf-r01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-r02.jpg'], plans=['img/pa-zaf-plan-pb-opt1.jpg', 'img/pa-zaf-plan-pb-opt2.jpg', 'img/pa-zaf-plan-pa-2.jpg', 'img/pa-zaf-lote-m1l14.jpg', 'img/pa-zaf-lote-m1l15.jpg', 'img/pa-zaf-plan-master.jpg'])
 
 add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-L1", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",

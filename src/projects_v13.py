@@ -24,7 +24,7 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 LAYOUT = [
   ("casa-ether", "big"), ("casa-jalpa", "xw"),
   ("hotel-casa-x", "big"), ("bar-bachus", "xl"), ("pabellon-arte", "w32"),
-  ("casa-valle", "wide"), ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
+  ("casa-valle", "wide"), ("casa-pena", "wide"), ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
   ("depa-jc", "w32"), ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
   ("casa-jalpa-2", "band"), ("restaurantes-sma", ""), ("wellness-merida", ""),
   ("casa-travertino", "big"), ("chevrolet", "big"),
@@ -34,7 +34,7 @@ LAYOUT = [
 ]
 # v22b: one grid (Roberto's arrangement) + category FILTER buttons (Roberto, 18-sep-2026)
 CATS = {
-  "homes": {"casa-ether","casa-jalpa","casa-jalpa-2","casa-jalpa-3","casa-valle","casa-horizonte","depa-jc","casa-de-campo-sma","condesa","casa-travertino","casa-ventanas","casa-artista","casa-velia"},
+  "homes": {"casa-ether","casa-jalpa","casa-pena","casa-jalpa-2","casa-jalpa-3","casa-valle","casa-horizonte","depa-jc","casa-de-campo-sma","condesa","casa-travertino","casa-ventanas","casa-artista","casa-velia"},
   "business": {"hotel-casa-x","amecsa","daily-veggies","casa-cuadrante","bar-bachus","tuluminati","restaurantes-sma","chevrolet","wellness-merida","plaza-qro","origen","saiko","casa-cien"},
 }
 def cat_of(slug):
