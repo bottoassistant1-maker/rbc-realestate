@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Dependencies
+        run: pip install beautifulsoup4
       - name: Build pages
         run: python3 src/build.py
       - name: Commit generated site
