@@ -55,6 +55,7 @@ def build_es(OUT, SITE_URL, pages):
         # remove the old google-translate hook
         html = re.sub(r"<script>document\.querySelectorAll\('\[data-lang\]'\).*?</script>\n?", "", html, flags=re.S)
         s = BeautifulSoup(html, "html.parser")
+        if s.html is None or s.head is None or s.body is None: continue  # not a site page (e.g. verification file)
         s.html["lang"] = "es"
         # text nodes
         for t in list(s.find_all(string=True)):

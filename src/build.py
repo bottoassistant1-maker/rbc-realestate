@@ -293,7 +293,7 @@ if __name__ == "__main__":
     legal.pages(page, SITE_URL)
     # v23: Spanish version → /es/
     import glob
-    slugs = [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(OUT, "*.html"))]
+    slugs = [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(OUT, "*.html")) if not os.path.basename(p).startswith("google")]
     try:
         import es_build
         es_build.patch_en(OUT, SITE_URL, slugs)
