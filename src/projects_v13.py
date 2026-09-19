@@ -24,13 +24,13 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 LAYOUT = [
   ("casa-ether", "big"), ("casa-jalpa", "xw"),
   ("hotel-casa-x", "big"), ("bar-bachus", "xl"), ("pabellon-arte", "w32"),
-  ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
+  ("casa-valle", "wide"), ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
   ("depa-jc", "w32"), ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
-  ("casa-jalpa-2", "band"), ("origen", ""), ("restaurantes-sma", ""), ("wellness-merida", ""),
+  ("casa-jalpa-2", "band"), ("restaurantes-sma", ""), ("wellness-merida", ""),
   ("casa-travertino", "big"), ("chevrolet", "big"),
-  ("binary-pavilion", ""), ("casa-jalpa-3", "wide"), ("plaza-qro", ""), ("casa-valle", "wide"),
-  ("casa-ventanas", ""), ("casa-cuadrante", "wide"), ("penas-obra", "wide"),
-  ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
+  ("binary-pavilion", ""), ("casa-jalpa-3", "wide"), ("plaza-qro", "wide"),
+  ("casa-ventanas", ""), ("casa-cuadrante", "big"), ("penas-obra", "wide"),
+  ("origen", ""), ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
 # v22b: one grid (Roberto's arrangement) + category FILTER buttons (Roberto, 18-sep-2026)
 CATS = {
