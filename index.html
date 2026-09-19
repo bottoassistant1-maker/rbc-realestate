@@ -9,6 +9,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="alternate" hreflang="en" href="https://rbc-realestate.vercel.app/">
+<link rel="alternate" hreflang="es" href="https://rbc-realestate.vercel.app/es/index.html">
 <link rel="alternate" hreflang="x-default" href="https://rbc-realestate.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RBC · Roberto Balderas Carrillo, Arquitecto">
@@ -699,6 +700,9 @@ nav .brand img{height:38px;}
 nav .links a.lang{display:inline-block;}
 .mnav a.btn{display:none;}
 
+a.eyf-link{color:var(--c-arch);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;}
+a.eyf-link:hover{color:var(--c-re);}
+
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
 .pfilters button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px 12px 0;margin-right:18px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;position:relative;}
@@ -935,7 +939,7 @@ body.fbig-open{overflow:hidden;}
     <a class="brand" href="index.html"><img src="img/rbc-mono.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
       <a href="architecture.html" class="d-arch">Architecture &amp; Design</a><a href="real-estate.html" class="d-re">Real Estate</a><a href="construction.html" class="d-con">Construction</a>
-      <a class="lang" href="#" data-lang><b>EN</b> / ES</a>
+      <a class="lang" href="es/index.html"><b>EN</b> / ES</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
@@ -969,7 +973,7 @@ body.fbig-open{overflow:hidden;}
     </div>
     <div class="rv d1">
       <p class="lead big">Roberto Balderas Carrillo is an architect based in San Miguel de Allende. His practice, RBC, designs and builds — houses, interiors, hotels, commercial buildings — and represents a small selection of properties he knows well.</p>
-      <p class="lead">Each project develops its own architectural language. Larger works are built with Espacios y Formas, architecture, construction and development, with offices in Celaya and San Miguel de Allende.</p>
+      <p class="lead">Each project develops its own architectural language. Larger works are built with <a class="eyf-link" href="https://www.espaciosyformas.com.mx/" target="_blank" rel="noopener">Espacios y Formas ↗</a>, architecture, construction and development, with offices in Celaya and San Miguel de Allende.</p>
       <div class="facts" style="margin-top:22px;"><div><small>Contact</small><span><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%20would%20like%20to%20talk." style="color:var(--navy);text-decoration:none;">WhatsApp Roberto</a> · <a href="https://www.instagram.com/arqrobertobalderas" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none;">@arqrobertobalderas</a></span></div></div>
     </div>
   </div>
@@ -1193,7 +1197,6 @@ document.querySelectorAll('.cityf').forEach(f=>{
 
 <div class="ck off" id="ck"><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
 <script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.classList.remove('off');var ok=function(e){if(e)e.preventDefault();c.classList.add('off');c.style.display='none';try{localStorage.setItem('rbc-ck','1');}catch(e2){}};var b=document.getElementById('ck-ok');b.addEventListener('click',ok);b.addEventListener('touchend',ok);})();</script>
-<script>document.querySelectorAll('[data-lang]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=location.pathname;if(p==='/'||p==='')p='/index.html';location.href='https://rbc--realestate-vercel-app.translate.goog'+p+'?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp'+location.hash;});});</script>
 <script>document.querySelectorAll('.tel-reveal').forEach(function(b){b.addEventListener('click',function(){var n=atob(b.dataset.t);b.outerHTML='<a href="tel:'+n.replace(/\s/g,'')+'">'+n+'</a>';});});</script>
 
 </body>

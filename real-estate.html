@@ -9,6 +9,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="alternate" hreflang="en" href="https://rbc-realestate.vercel.app/real-estate.html">
+<link rel="alternate" hreflang="es" href="https://rbc-realestate.vercel.app/es/real-estate.html">
 <link rel="alternate" hreflang="x-default" href="https://rbc-realestate.vercel.app/real-estate.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RBC · Roberto Balderas Carrillo, Arquitecto">
@@ -700,6 +701,9 @@ nav .brand img{height:38px;}
 nav .links a.lang{display:inline-block;}
 .mnav a.btn{display:none;}
 
+a.eyf-link{color:var(--c-arch);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;}
+a.eyf-link:hover{color:var(--c-re);}
+
 /* ── work index ── */
 .pfilters{display:flex;gap:0;flex-wrap:wrap;margin-top:26px;border-bottom:1px solid var(--hair);}
 .pfilters button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 16px 12px 0;margin-right:18px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;position:relative;}
@@ -936,7 +940,7 @@ body.fbig-open{overflow:hidden;}
     <a class="brand" href="index.html"><img src="img/rbc-mono.png" alt="RBC"><span class="who"><b>Roberto Balderas Carrillo</b><span>Arquitecto</span></span></a>
     <div class="links">
       <a href="architecture.html" class="d-arch">Architecture &amp; Design</a><a href="real-estate.html" class="d-re on">Real Estate</a><a href="construction.html" class="d-con">Construction</a>
-      <a class="lang" href="#" data-lang><b>EN</b> / ES</a>
+      <a class="lang" href="es/real-estate.html"><b>EN</b> / ES</a>
       <a class="cta" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp</a>
       <button class="burger" aria-label="Menu" onclick="document.getElementById('mnav').classList.add('on')">☰</button>
     </div>
@@ -1144,24 +1148,12 @@ body.fbig-open{overflow:hidden;}
           <div class="db-cover"><img src="img/ob-nueva-escondida-06.jpg" alt="La Nueva Escondida" loading="lazy"></div>
           <div class="db-side">
             <div class="db-logo"><b>La Nueva Escondida</b></div>
-            <div class="db-meta"><span>San Miguel de Allende</span><span>Under construction · Espacios y Formas</span></div>
-            <p>A residential community in San Miguel de Allende, under construction. Details, renders and the master plan to follow.</p>
-            <div class="db-btns"><a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Nueva%20Escondida%20in%20San%20Miguel%20de%20Allende.">Ask about La Nueva Escondida</a></div>
+            <div class="db-meta"><span>San Miguel de Allende</span><span>Completed · a few units available · Espacios y Formas</span></div>
+            <p>A residential community in San Miguel de Allende, now completed. A few units remain available for sale — ask for the current availability.</p>
+            <div class="db-btns"><a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%27m%20interested%20in%20the%20available%20units%20at%20La%20Nueva%20Escondida%20in%20San%20Miguel%20de%20Allende.">Ask about La Nueva Escondida</a></div>
           </div>
         </div>
         <div class="car multi db-reel" data-auto="5200"><div class="trk"><div class="sl"><img src="img/ob-nueva-escondida-07.jpg" alt="La Nueva Escondida" loading="lazy"></div><div class="sl"><img src="img/ob-nueva-escondida-05.jpg" alt="La Nueva Escondida" loading="lazy"></div><div class="sl"><img src="img/ob-nueva-escondida-03.jpg" alt="La Nueva Escondida" loading="lazy"></div><div class="sl"><img src="img/ob-nueva-escondida-04.jpg" alt="La Nueva Escondida" loading="lazy"></div><div class="sl"><img src="img/ob-nueva-escondida-02.jpg" alt="La Nueva Escondida" loading="lazy"></div><div class="sl"><img src="img/ob-nueva-escondida-01.jpg" alt="La Nueva Escondida" loading="lazy"></div></div><button class="arr l" aria-label="Previous">‹</button><button class="arr r" aria-label="Next">›</button><div class="dots"></div></div>
-      </article>
-      <article class="db rv" id="escondida">
-        <div class="db-top">
-          <div class="db-cover"><span class="pend">Cover and renders pending</span></div>
-          <div class="db-side">
-            <div class="db-logo"><b>La Escondida</b></div>
-            <div class="db-meta"><span>San Miguel de Allende</span><span>In development</span></div>
-            <p>A residential development in San Miguel de Allende. Details to follow.</p>
-            <div class="db-btns"><a class="btn red" href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20please%20keep%20me%20informed%20about%20La%20Escondida%20in%20San%20Miguel%20de%20Allende.">Ask about La Escondida</a></div>
-          </div>
-        </div>
-        
       </article></div>
   </div>
 </section>
@@ -1397,7 +1389,6 @@ document.querySelectorAll('.cityf').forEach(f=>{
 
 <div class="ck off" id="ck"><p>This site sets no cookies of its own. Typefaces are served by Google Fonts and the site is hosted by Vercel, which may log technical data. <a href="privacy.html">Privacy notice</a></p><button class="btn" id="ck-ok">OK</button></div>
 <script>(function(){try{if(localStorage.getItem('rbc-ck'))return;}catch(e){}var c=document.getElementById('ck');if(!c)return;c.classList.remove('off');var ok=function(e){if(e)e.preventDefault();c.classList.add('off');c.style.display='none';try{localStorage.setItem('rbc-ck','1');}catch(e2){}};var b=document.getElementById('ck-ok');b.addEventListener('click',ok);b.addEventListener('touchend',ok);})();</script>
-<script>document.querySelectorAll('[data-lang]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var p=location.pathname;if(p==='/'||p==='')p='/index.html';location.href='https://rbc--realestate-vercel-app.translate.goog'+p+'?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp'+location.hash;});});</script>
 <script>document.querySelectorAll('.tel-reveal').forEach(function(b){b.addEventListener('click',function(){var n=atob(b.dataset.t);b.outerHTML='<a href="tel:'+n.replace(/\s/g,'')+'">'+n+'</a>';});});</script>
 
 </body>
