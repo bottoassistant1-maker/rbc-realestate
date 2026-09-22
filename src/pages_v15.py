@@ -36,9 +36,9 @@ def home(wa, SITE):
 <section class="band" id="tabs">
   <div class="wrap">
     <div class="doors doors3">
-      <a class="door rv" href="architecture.html"><img src="img/ph-bar-bachus-06.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
-      <a class="door rv d1" href="real-estate.html"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
-      <a class="door rv d2" href="construction.html"><img src="img/ob-magno-towers-a-01.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+      <a class="door rv" href="architecture.html"><img src="img/ph-travertino-r02.jpg" data-rot="img/ph-travertino-r02.jpg|img/ph-bar-bachus-06.jpg|img/ph-travertino-r01.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
+      <a class="door rv d1" href="real-estate.html"><img src="img/pa-m4l6-vista.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
+      <a class="door rv d2" href="construction.html"><img src="img/ob-magno-towers-a-01.jpg" data-rot="img/ob-magno-towers-a-01.jpg|img/ob-magno-towers-b-03.jpg|img/ob-magno-towers-b-02.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
     </div>
   </div>
 </section>
@@ -50,7 +50,7 @@ def home(wa, SITE):
 
 # ───────────────────────────── ARCHITECTURE & DESIGN ─────────────────────────────
 def architecture(wa, SITE):
-    body = P.phero(["img/ph-travertino-r02.jpg", "img/ph-bar-bachus-06.jpg", "img/ph-travertino-r01.jpg"], "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
+    body = P.phero("img/ph-colina-01.jpg", "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
         "Houses, interiors, hotels, bars, stores and offices.", '<a href="index.html">Home</a> › Architecture &amp; Design') + f"""
 <section id="projects">
   <div class="wrap">
@@ -89,7 +89,7 @@ def real_estate(wa, SITE):
         ["img/community-trails.jpg","img/valley-golden-hour.jpg"],
         f'<a class="btn" href="{wa("Hi Roberto, please keep me informed about La Escondida and La Nueva Escondida in San Miguel.")}">Keep me informed</a>', 5000)
 
-    body = P.phero("img/ph-travertino-r01.jpg", "RBC / Real Estate", "Real Estate.",
+    body = P.phero("img/view-historic-center.jpg", "RBC / Real Estate", "Real Estate.",
         "A short selection of houses, and the developments behind them.", '<a href="index.html">Home</a> › Real Estate') + f"""
 <section id="sale">
   <div class="wrap">
@@ -135,7 +135,7 @@ def real_estate(wa, SITE):
 
 # ───────────────────────────── CONSTRUCTION ─────────────────────────────
 def construction(wa, SITE):
-    body = P.phero("img/ph-penas-obra-b-06.jpg", "RBC / Construction", "Construction.",
+    body = P.phero("img/ph-penas-obra-b-03.jpg", "RBC / Construction", "Construction.",
         "Directed personally. Larger works are built with Espacios y Formas.", '<a href="index.html">Home</a> › Construction') + f"""
 <section id="sites">
   <div class="wrap">

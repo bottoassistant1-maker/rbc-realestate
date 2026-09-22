@@ -498,3 +498,41 @@ def tr_text(s):
     t = tr(core)
     if t == core: return s
     return s.replace(core, t, 1)
+
+# v24 — project sheet (Architecture modal)
+T.update({
+ "About the project": "Sobre el proyecto", "Built by RBC": "Construido por RBC", "Project": "Proyecto",
+ "View on Instagram": "Ver en Instagram", "Ask about this project": "Preguntar por este proyecto", "This house is for sale →": "Esta casa está en venta →",
+ "Competition · research": "Concurso · investigación", "Condesa · Mexico City": "Condesa · Ciudad de México", "Mérida · Yucatán": "Mérida · Yucatán",
+ "A contemporary country house on a hilltop in Piedras Azules. Construction and design intervened by RBC on an existing siting and scheme: the plan, façades and interiors were reworked and the house was built by RBC. Sliding glass walls open fully to the landscape; Italian hardwood on floors and ceilings; a Spanish kitchen.":
+ "Casa de campo contemporánea en lo alto de una colina en Piedras Azules. Construcción y diseño intervenidos por RBC sobre un sembrado y planteamiento existentes: se reelaboraron la planta, las fachadas y los interiores, y la casa fue construida por RBC. Muros de cristal corredizos que se abren por completo al paisaje; madera italiana en pisos y plafones; cocina española.",
+ "Country house on open land: long horizontal volumes, deep covered terraces and a plan that opens entirely to the landscape.": "Casa de campo en terreno abierto: volúmenes largos y horizontales, terrazas cubiertas profundas y una planta que se abre por completo al paisaje.",
+ "Shaped by its topography: the house follows the slope, unfolding across levels and opening both floors toward San Miguel. Entered from the top; rock from the excavation left exposed inside. Under construction; for sale.": "Moldeada por su topografía: la casa sigue la pendiente, se despliega en niveles y abre ambas plantas hacia San Miguel. Se entra por arriba; la roca de la excavación queda expuesta en el interior. En construcción; en venta.",
+ "Gallery, studio and private refuge in one sequence: a contemplation courtyard leads to rooms for permanent and temporary exhibitions, sculpture, painting and performance. Water, natural light and honest materials.": "Galería, taller y refugio privado en una sola secuencia: un patio de contemplación conduce a salas para exposiciones permanentes y temporales, escultura, pintura y performance. Agua, luz natural y materiales honestos.",
+ "Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool and sun deck, three en-suite bedrooms. Designed and built by RBC; for sale.": "Recién construida en el último lote de su calle privada, frente a las montañas: sala y bar a doble altura, alberca y asoleadero, tres recámaras con baño. Diseñada y construida por RBC; en venta.",
+ "A hotel immersed in the landscape, transforming an existing ranch through a sensitive master plan: stone-walled cabins set into the hill, an integrated pool, an open-air deck for events, greenhouse and productive gardens.": "Un hotel inmerso en el paisaje que transforma un rancho existente mediante un plan maestro sensible: cabañas de muros de piedra asentadas en la ladera, alberca integrada, deck al aire libre para eventos, invernadero y huertos productivos.",
+ "Fluid, parametric curves unify every area of the bar into one enveloping volume, absorbing the uneven levels of an old house in the center without breaking the flow.": "Curvas fluidas y paramétricas unifican todas las áreas del bar en un solo volumen envolvente, absorbiendo los desniveles de una casa antigua del centro sin romper la continuidad.",
+ "Restoration, construction, adaptation and interior design of a historic house: the restaurant on the ground floor, and above it Casa Musa and the Panoramic Suite, both available for mid-term stays.": "Restauración, construcción, adaptación y diseño interior de una casa histórica: el restaurante en planta baja y, arriba, Casa Musa y la Panoramic Suite, ambas disponibles para estancias de mediano plazo.",
+ "Showroom and service facility for a heavy-machinery distributor.": "Sala de exhibición y taller de servicio para un distribuidor de maquinaria pesada.",
+ "Remodelling proposal and new façade for an apartment building in Condesa.": "Propuesta de remodelación y nueva fachada para un edificio de departamentos en la Condesa.",
+ "Office interiors: timber, planting and daylight.": "Interiores de oficinas: madera, vegetación y luz natural.",
+ "Country residence outside town — stone, timber and glass under one continuous roof plane.": "Residencia de campo a las afueras — piedra, madera y cristal bajo un solo plano de cubierta continuo.",
+ "Projects for San Mezcal rooftop, San Burger and Terraza Quiote — terraces, bars and dining rooms over the historic center.": "Proyectos para el rooftop de San Mezcal, San Burger y Terraza Quiote — terrazas, bares y comedores sobre el centro histórico.",
+ "Preliminary project for a commercial plaza with a residential tower.": "Anteproyecto de una plaza comercial con torre residencial.",
+ "Retail design: Plaza Atrio in San Miguel and Plaza Puerto Paraíso in Los Cabos — parametric timber ribs, natural stone and warm light.": "Diseño de tiendas: Plaza Atrio en San Miguel y Plaza Puerto Paraíso en Los Cabos — costillas paramétricas de madera, piedra natural y luz cálida.",
+ "Preliminary project for a wellness complex — bar, yoga and treatment spaces in the Yucatán landscape.": "Anteproyecto de un complejo de bienestar — bar, yoga y espacios de tratamiento en el paisaje yucateco.",
+ "Renovation of an apartment in the historic center with a panoramic roof terrace.": "Renovación de un departamento en el centro histórico con roof garden panorámico.",
+ "Guest suites in a house in San Miguel de Allende.": "Suites de huéspedes en una casa de San Miguel de Allende.",
+ "Retail design for Origen in San Miguel de Allende.": "Diseño de tienda para Origen en San Miguel de Allende.",
+ "Preliminary project for Saiko in San Miguel de Allende.": "Anteproyecto para Saiko en San Miguel de Allende.",
+ "Preliminary project for the architect's own house.": "Anteproyecto de la casa propia del arquitecto.",
+ "A house in the historic center of San Miguel de Allende — restoration and new architecture within the walls of the old town.": "Una casa en el centro histórico de San Miguel de Allende — restauración y arquitectura nueva dentro de los muros del casco antiguo.",
+ "With Ana Laura González: a pavilion whose façade preserves a message in binary code. Plus computational studies in Grasshopper/Rhino and the 'NFT Eggs' parametric collection.": "Con Ana Laura González: un pabellón cuya fachada conserva un mensaje en código binario. Además, estudios computacionales en Grasshopper/Rhino y la colección paramétrica 'NFT Eggs'.",
+ "A single-storey country house: one long roof, glass to the landscape, stone base.": "Casa de campo de una planta: una cubierta larga, cristal hacia el paisaje, basamento de piedra.",
+ "Two volumes on a slope: a cantilevered social level over the garage, bedrooms behind.": "Dos volúmenes sobre una pendiente: un nivel social en voladizo sobre la cochera, recámaras atrás.",
+ "Showroom and service facility for a car dealership.": "Sala de exhibición y taller de servicio para una agencia de autos.",
+ "Urbanization, stone terracing, amenity buildings and houses on the hillside above San Miguel.": "Urbanización, terrazas de piedra, edificios de amenidades y casas en la ladera sobre San Miguel.",
+ "A single-level country house on a steel-roofed platform, open to the valley.": "Casa de campo de un nivel sobre una plataforma con cubierta de acero, abierta al valle.",
+ "A large house on the rock at the top of Peñas Arriba: three levels stepping down the slope, terraces with plunge pools, a family wing and a guest wing, and parking for four cars.": "Una casa grande sobre la roca en lo alto de Peñas Arriba: tres niveles que descienden con la pendiente, terrazas con albercas de inmersión, un ala familiar y un ala de huéspedes, y estacionamiento para cuatro autos.",
+ "House by a golf course; stone, wood ceilings and an inner patio with a pool.": "Casa junto a un campo de golf; piedra, plafones de madera y un patio interior con alberca.",
+})

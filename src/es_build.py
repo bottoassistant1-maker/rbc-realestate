@@ -18,8 +18,10 @@ JS_LITERALS = [
     (">Full sheet (PDF)<", ">Ficha completa (PDF)<"), (">Open full page<", ">Abrir página completa<"),
     ("Prices in MXN; USD approximate. Images provisional where noted.", "Precios en MXN; USD aproximado. Imágenes provisionales donde se indica."),
     ("'Previous'", "'Anterior'"), ("'Next'", "'Siguiente'"),
+    ("<h4>About the project</h4>", "<h4>Sobre el proyecto</h4>"), (">This house is for sale →<", ">Esta casa está en venta →<"),
+    (">View on Instagram<", ">Ver en Instagram<"), (">Ask about this project<", ">Preguntar por este proyecto<"),
 ]
-SKIP_KEYS = {"photos", "plans", "wa", "pdf", "page", "links"}
+SKIP_KEYS = {"photos", "plans", "wa", "pdf", "page", "links", "ig", "sale", "code", "m2"}
 
 def _tr_json(o):
     if isinstance(o, str): return es.tr(o)
@@ -48,10 +50,11 @@ def build_es(OUT, SITE_URL, pages):
         html = open(src, encoding="utf-8").read()
         # JS literals inside scripts / JSON
         for a, b in JS_LITERALS: html = html.replace(a, b)
-        m = re.search(r'window\.FICHAS=Object\.assign\(window\.FICHAS\|\|\{\},(\{.*?\})\);</script>', html, re.S)
-        if m:
-            d = json.loads(m.group(1))
-            html = html[:m.start(1)] + json.dumps(_tr_json(d), ensure_ascii=False) + html[m.end(1):]
+        for var in ("FICHAS", "PROJ"):
+            m = re.search(r'window\.' + var + r'=Object\.assign\(window\.' + var + r'\|\|\{\},(\{.*?\})\);</script>', html, re.S)
+            if m:
+                d = json.loads(m.group(1))
+                html = html[:m.start(1)] + json.dumps(_tr_json(d), ensure_ascii=False) + html[m.end(1):]
         # remove the old google-translate hook
         html = re.sub(r"<script>document\.querySelectorAll\('\[data-lang\]'\).*?</script>\n?", "", html, flags=re.S)
         s = BeautifulSoup(html, "html.parser")

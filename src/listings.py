@@ -177,7 +177,7 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
     highlights=["Last lot of its private street — open mountain views","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Three en-suite bedrooms upstairs + family TV room + reading lobby","Ground-floor en-suite room for gym, bedroom or study","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed and built by RBC"],
     program=[("Ground level","Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · en-suite room (gym / study / bedroom) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage"),("Upper level","Three bedrooms with baths · family TV room · lobby for reading or linen")],
     location="Club de Golf El Campanario, Querétaro — the last lot of its private street, with open mountain views.",
-    img="img/ph-travertino-r01.jpg", gallery=["img/ph-travertino-r02.jpg","img/ig-C_3mXTMxFYj-1.jpg","img/ig-C_3mXTMxFYj-2.jpg","img/ig-C_3mXTMxFYj-3.jpg"])
+    img="img/ph-travertino-r01.jpg", gallery=["img/ph-travertino-r02.jpg"])
 
 # ───────── CELAYA ─────────
 add(slug="magno-apartment", page=False, city="celaya", kind="sale", name="Magno Towers · Apartments", where="Celaya · Guanajuato",

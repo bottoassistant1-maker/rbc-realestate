@@ -12,7 +12,7 @@ def reel_card(p, size=""):
     arrows = '<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button>' if len(ph) > 1 else ""
     sheet = ""
     return f"""
-      <article class="reel rv {size}" data-types="{' '.join(types(p))}" data-cat="{cat_of(p['slug'])}">
+      <article class="reel rv {size}" data-types="{' '.join(types(p))}" data-cat="{cat_of(p['slug'])}" data-proj="{p['slug']}" tabindex="0" role="button" aria-label="Open {p['name']}">
         <div class="fs-slider reel-sl" data-n="{len(ph)}"><div class="fs-trk">{slides}</div>{arrows}<div class="fs-dots">{dots}</div></div>
         <div class="reel-cap"><span class="cd">{code(PROJECTS.index(p), p)}</span><b>{p['name']}</b>{sheet}<span>{p['place']}{(' · ' + p['year']) if p.get('year') else ''}</span>{('<em class="reel-note">' + p['note'] + '</em>') if p.get('note') else ''}</div>
       </article>"""
@@ -22,15 +22,16 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-travertino", "xw"), ("casa-jalpa", "xw"), ("bar-bachus", "xl"),
-  ("casa-valle", "wide"), ("depa-jc", "w32"), ("pabellon-arte", "w32"),
-  ("casa-ether", "big"), ("hotel-casa-x", "big"),
-  ("casa-pena", "wide"), ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
-  ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
-  ("casa-jalpa-2", "band"), ("restaurantes-sma", ""), ("wellness-merida", ""),
-  ("chevrolet", "big"),
-  ("binary-pavilion", ""), ("casa-jalpa-3", "wide"), ("plaza-qro", "wide"),
-  ("casa-ventanas", ""), ("casa-cuadrante", "big"), ("penas-obra", "wide"),
+  ("casa-jalpa", "xw"), ("depa-jc", "t23"),
+  ("casa-travertino", "xl"), ("casa-valle", "tall"),
+  ("casa-ether", "big"), ("bar-bachus", "big"),
+  ("hotel-casa-x", "big"), ("chevrolet", "big"),
+  ("casa-horizonte", "wide"), ("casa-jalpa-3", "wide"),
+  ("pabellon-arte", "w32"), ("casa-pena", "w32"),
+  ("casa-jalpa-2", "band"), ("casa-de-campo-sma", ""),
+  ("casa-cuadrante", "big"), ("penas-obra", "wide"), ("plaza-qro", "wide"),
+  ("amecsa", ""), ("daily-veggies", ""), ("tuluminati", ""), ("condesa", ""),
+  ("restaurantes-sma", ""), ("wellness-merida", ""), ("binary-pavilion", ""), ("casa-ventanas", ""),
   ("origen", ""), ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
 # v22b: one grid (Roberto's arrangement) + category FILTER buttons (Roberto, 18-sep-2026)
@@ -62,7 +63,7 @@ def reels(ps=None, sizes=True):
         seen = {s for s, _ in LAYOUT}
         out += [reel_card(p, "") for p in PROJECTS if p["slug"] not in seen]
         fl = '<div class="pfilters catf rv"><button class="on" data-cat="all">All</button><button data-cat="homes">Homes</button><button data-cat="business">Business</button><button data-cat="other">Other</button></div>'
-        return fl + '<div class="reels">' + "".join(out) + '</div>'
+        return fl + '<div class="reels">' + "".join(out) + '</div>' + proj_data()
     return '<div class="reels">' + "".join(reel_card(p, REEL_SIZES[i % len(REEL_SIZES)] if sizes else "") for i, p in enumerate(ps)) + '</div>'
 
 def arch_section(num="01"):
@@ -244,4 +245,92 @@ CSS += r"""
 .ogrid a:hover img{transform:scale(1.03);}
 .ogrid figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 0 0;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .ogrid figcaption b{font-weight:500;color:#161616;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+"""
+
+
+# ── v24: project sheet (modal) in Architecture — only data we actually have (Roberto, 22-sep-2026) ──
+import json as _json
+def proj_data():
+    out = {}
+    for p in PROJECTS:
+        if p["slug"] in PENDING: continue
+        ph = _ph(p)
+        photos = [x for x in ph if "-plan" not in x and "-section" not in x]
+        plans = [x for x in ph if x not in photos]
+        out[p["slug"]] = dict(
+            code=code(PROJECTS.index(p), p), name=p["name"], place=p["place"], year=p.get("year", ""),
+            status="Built by RBC" if p.get("built") else "Project",
+            txt=p.get("txt", ""), note=p.get("note", ""), m2=p.get("m2", ""), long=p.get("long", ""),
+            photos=photos, plans=plans,
+            ig=f"https://www.instagram.com/p/{p['ig']}/" if p.get("ig") else "",
+            sale=p.get("sale", ""))
+    return f'<script>window.PROJ=Object.assign(window.PROJ||{{}},{_json.dumps(out, ensure_ascii=False)});</script>'
+
+JS = r"""
+<script>
+(function(){
+  const box=document.getElementById('fbig'), body=document.getElementById('fbig-body');
+  if(!box||!window.PROJ) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  let timer=null;
+  function slider(root,auto){
+    const trk=root.querySelector('.fb-trk'), n=trk.children.length, dots=root.querySelector('.fs-dots'); let i=0;
+    const paint=()=>{trk.style.transform='translateX(-'+(i*100)+'%)'; if(dots)[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));};
+    const go=d=>{i=(i+d+n)%n;paint();};
+    clearInterval(timer); if(auto&&n>1) timer=setInterval(()=>go(1),4000);
+    root.querySelectorAll('.fs-arr').forEach(b=>b.onclick=e=>{e.stopPropagation();clearInterval(timer);go(b.classList.contains('l')?-1:1);});
+    if(dots)[...dots.children].forEach((d,k)=>d.onclick=e=>{e.stopPropagation();clearInterval(timer);i=k;paint();});
+    paint();
+  }
+  window.openProj=function(slug){
+    const d=window.PROJ[slug]; if(!d) return;
+    const mk=arr=>arr.map(p=>'<img src="'+p+'" alt="'+esc(d.name)+'" loading="lazy">').join('');
+    const shots=d.photos.length?d.photos:d.plans, plans=d.photos.length?d.plans:[];
+    body.innerHTML=
+      '<div class="fb-hero'+(d.photos.length?'':' plans')+'" id="fb-hero"><div class="fb-trk">'+mk(shots)+'</div>'+
+        (shots.length>1?'<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots">'+shots.map(()=>'<i></i>').join('')+'</div>':'')+
+        (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Photos</button><button data-set="plans">Plans</button></div>':'')+
+      '</div>'+
+      '<div class="fb-in pj-in">'+
+        '<div class="fb-head"><div><div class="fs-where"><span class="cd">'+esc(d.code)+'</span> · '+esc(d.place)+(d.year?' · '+esc(d.year):'')+'</div><h2>'+esc(d.name)+'</h2><div class="fs-auth">'+esc(d.status)+'</div></div>'+
+        (d.m2?'<div class="fs-pr">'+esc(d.m2)+' m²</div>':'')+'</div>'+
+        '<div class="fb-grid"><div>'+
+          (d.txt?'<h4>About the project</h4><p class="lead" style="font-size:1rem">'+esc(d.txt)+'</p>':'')+
+          (d.long?'<p style="font-size:.92rem;color:var(--ink-soft)">'+esc(d.long)+'</p>':'')+
+          (d.note?'<p class="reel-note" style="display:block;margin-top:10px">'+esc(d.note)+'</p>':'')+
+        '</div><div>'+
+          (plans.length?'<h4>Plans</h4><div class="fb-plans">'+plans.map(p=>'<a class="lbx2" href="'+p+'"><img src="'+p+'" alt="Plan"></a>').join('')+'</div>':'')+
+        '</div></div>'+
+        '<div class="fb-cta">'+
+          (d.sale?'<a class="btn red" href="'+d.sale+'">This house is for sale →</a>':'')+
+          (d.ig?'<a class="btn ghost" href="'+d.ig+'" target="_blank" rel="noopener">View on Instagram</a>':'')+
+          '<a class="btn ghost" href="contact.html">Ask about this project</a>'+
+        '</div>'+
+      '</div>';
+    box.classList.add('on'); box.setAttribute('aria-hidden','false'); document.body.classList.add('fbig-open'); body.scrollTop=0;
+    const hero=document.getElementById('fb-hero'); slider(hero,true);
+    hero.querySelectorAll('.fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
+      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      const isP=b.dataset.set==='plans'; hero.classList.toggle('plans',isP); const set=isP?plans:shots;
+      hero.querySelector('.fb-trk').innerHTML=mk(set); const dots=hero.querySelector('.fs-dots'); if(dots) dots.innerHTML=set.map(()=>'<i></i>').join('');
+      slider(hero,!isP);
+    }));
+    body.querySelectorAll('a.lbx2').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const lb=document.getElementById('lb');if(lb){document.getElementById('lbimg').src=a.href;lb.classList.add('on');}}));
+    history.replaceState(null,'','#'+slug);
+  };
+  document.querySelectorAll('.reel[data-proj]').forEach(card=>{
+    const open=()=>openProj(card.dataset.proj);
+    card.addEventListener('click',e=>{ if(e.target.closest('.fs-arr,.fs-dots')) return; open(); });
+    card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  });
+  const stop=()=>clearInterval(timer);
+  box.querySelector('.fbig-x').addEventListener('click',stop); box.querySelector('.fbig-bg').addEventListener('click',stop);
+  if(location.hash && window.PROJ[location.hash.slice(1)]) setTimeout(()=>openProj(location.hash.slice(1)),400);
+})();
+</script>
+"""
+CSS += r"""
+.reel[data-proj]{cursor:pointer;} .reel[data-proj]:hover .reel-cap b{color:var(--red);}
+.pj-in .fs-where .cd{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--red);}
+.pj-in .fb-head .fs-pr{font-size:1.5rem;}
 """

@@ -208,6 +208,11 @@ document.querySelectorAll('.phero[data-rot]').forEach(h=>{
   list.forEach(u=>{const im=new Image();im.src=u;});
   setInterval(()=>{i=(i+1)%list.length;const nx=top===a?b:a;nx.style.backgroundImage="url('"+list[i]+"')";nx.style.opacity=1;top.style.opacity=0;top=nx;},180000);
 });
+document.querySelectorAll('img[data-rot]').forEach(im=>{
+  const list=im.dataset.rot.split('|');let i=Math.floor(Math.random()*list.length);im.src=list[i];
+  list.forEach(u=>{const p=new Image();p.src=u;});im.style.transition='opacity .9s ease';
+  setInterval(()=>{i=(i+1)%list.length;im.style.opacity=0;setTimeout(()=>{im.src=list[i];im.style.opacity=1;},900);},180000+Math.floor(Math.random()*60000));
+});
 const nv=document.querySelector('nav');
 addEventListener('scroll',()=>nv.classList.toggle('scrolled',scrollY>40),{passive:true});
 const hbg=document.querySelector('.hero .bg');
@@ -276,6 +281,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {projects_v13.JS}
 {fichas.JS}
 {fichas.JS_CITY}
+{projects_v13.JS}
 {legal.COOKIE}
 </body>
 </html>
