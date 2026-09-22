@@ -536,3 +536,10 @@ T.update({
  "A large house on the rock at the top of Peñas Arriba: three levels stepping down the slope, terraces with plunge pools, a family wing and a guest wing, and parking for four cars.": "Una casa grande sobre la roca en lo alto de Peñas Arriba: tres niveles que descienden con la pendiente, terrazas con albercas de inmersión, un ala familiar y un ala de huéspedes, y estacionamiento para cuatro autos.",
  "House by a golf course; stone, wood ceilings and an inner patio with a pool.": "Casa junto a un campo de golf; piedra, plafones de madera y un patio interior con alberca.",
 })
+T.update({
+ "Completed · a few units available": "Terminado · algunas unidades disponibles", "Completed": "Terminado", "community": "comunidad",
+ "A few": "Algunas", "units for sale": "unidades en venta", "& gardens": "y jardines",
+ "Completed community": "Comunidad terminada", "A few units available for sale": "Algunas unidades disponibles en venta", "Built by Espacios y Formas": "Construida por Espacios y Formas",
+ "Completed; a few units available.": "Terminada; algunas unidades disponibles.", "San Miguel de Allende.": "San Miguel de Allende.",
+ "A development by Espacios y Formas": "Un desarrollo de Espacios y Formas", "Espacios y Formas · completed": "Espacios y Formas · terminada",
+})

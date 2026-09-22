@@ -81,7 +81,7 @@ CARDS = [
   dict(id="penas-arriba", logo="img/penas-arriba-logo.png", dark=False, name="Peñas Arriba", place="San Miguel de Allende", status="Houses, shell-built homes and lots",
        imgs=["img/view-historic-center.jpg","img/pa-comm-02.jpg","img/pa-hz-r17.jpg","img/pa-zaf-r01.jpg","img/pa-dup-r04.jpg"], sheet="penas-arriba.html", web="https://penasarriba.vercel.app/", ig="https://instagram.com/penasarribasma", fb=""),
   dict(id="nueva-escondida", logo="", dark=False, name="La Nueva Escondida", place="San Miguel de Allende", status="Completed · units available",
-       imgs=["img/ob-nueva-escondida-06.jpg","img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg"], sheet="", web="", ig="", fb=""),
+       imgs=['img/ph-nesc-08.jpg', 'img/ph-nesc-01.jpg', 'img/ph-nesc-03.jpg', 'img/ph-nesc-13.jpg'], sheet="", web="", ig="", fb=""),
 ]
 
 def dev_md(c, wa):
@@ -149,8 +149,8 @@ BLOCKS = [
        sheet="magno.html", web="https://magnoresidencial.com/", ig="", tour="https://goo.gl/maps/GToGB8UTHR4UdR3HA",
        msg="Hi Roberto, I would like the current inventory of apartments, homes and lots in Magno, Celaya."),
   dict(id="nueva-escondida", name="La Nueva Escondida", place="San Miguel de Allende", status="Completed · a few units available · Espacios y Formas",
-       logo="", dark=False, cover="img/ob-nueva-escondida-06.jpg",
-       reel=["img/ob-nueva-escondida-07.jpg","img/ob-nueva-escondida-05.jpg","img/ob-nueva-escondida-03.jpg","img/ob-nueva-escondida-04.jpg","img/ob-nueva-escondida-02.jpg","img/ob-nueva-escondida-01.jpg"],
+       logo="", dark=False, cover="img/ph-nesc-08.jpg",
+       reel=['img/ph-nesc-01.jpg', 'img/ph-nesc-03.jpg', 'img/ph-nesc-13.jpg', 'img/ph-nesc-15.jpg', 'img/ph-nesc-21.jpg', 'img/ph-nesc-24.jpg', 'img/ph-nesc-05.jpg', 'img/ph-nesc-11.jpg', 'img/ph-nesc-19.jpg', 'img/ph-nesc-23.jpg', 'img/ph-nesc-09.jpg', 'img/ph-nesc-16.jpg', 'img/ph-nesc-22.jpg'],
        text="A residential community in San Miguel de Allende, now completed. A few units remain available for sale — ask for the current availability.",
        sheet="", web="", ig="", msg="Hi Roberto, I'm interested in the available units at La Nueva Escondida in San Miguel de Allende."),
 ]

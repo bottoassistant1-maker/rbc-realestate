@@ -22,16 +22,16 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-jalpa", "xw"), ("depa-jc", "t23"),
-  ("casa-travertino", "xl"), ("casa-valle", "tall"),
+  ("casa-jalpa", "xw"), ("casa-horizonte", "t23"),
+  ("casa-travertino", "xl"), ("casa-jalpa-3", ""), ("casa-jalpa-2", ""),
+  ("depa-jc", "xl"), ("casa-de-campo-sma", ""), ("casa-ventanas", ""),
   ("casa-ether", "big"), ("bar-bachus", "big"),
-  ("hotel-casa-x", "big"), ("chevrolet", "big"),
-  ("casa-horizonte", "wide"), ("casa-jalpa-3", "wide"),
-  ("pabellon-arte", "w32"), ("casa-pena", "w32"),
-  ("casa-jalpa-2", "band"), ("casa-de-campo-sma", ""),
-  ("casa-cuadrante", "big"), ("penas-obra", "wide"), ("plaza-qro", "wide"),
+  ("hotel-casa-x", "big"), ("casa-cuadrante", "big"),
+  ("casa-valle", "wide"), ("chevrolet", "wide"),
+  ("pabellon-arte", "wide"), ("casa-pena", "wide"),
+  ("penas-obra", "wide"), ("plaza-qro", "wide"),
   ("amecsa", ""), ("daily-veggies", ""), ("tuluminati", ""), ("condesa", ""),
-  ("restaurantes-sma", ""), ("wellness-merida", ""), ("binary-pavilion", ""), ("casa-ventanas", ""),
+  ("restaurantes-sma", ""), ("wellness-merida", ""), ("binary-pavilion", ""),
   ("origen", ""), ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),
 ]
 # v22b: one grid (Roberto's arrangement) + category FILTER buttons (Roberto, 18-sep-2026)
@@ -183,7 +183,7 @@ SITES = [
   ("Casa Travertino", "Club de Golf El Campanario · Querétaro", "Built by RBC", _ob("casa-travertino", 9)),
   ("Casa Ventanas", "San Miguel de Allende", "Built by RBC", _ob("casa-ventanas", 10)),
   ("Quinta Elo", "Los Huizaches · San Miguel de Allende", "Built by RBC", _ob("quinta-elo", 9)),
-  ("La Nueva Escondida", "San Miguel de Allende", "Espacios y Formas", _ob("nueva-escondida", 7)),
+  ("La Nueva Escondida", "San Miguel de Allende", "Espacios y Formas · completed", ['img/ph-nesc-08.jpg', 'img/ph-nesc-01.jpg', 'img/ph-nesc-03.jpg', 'img/ph-nesc-13.jpg', 'img/ph-nesc-15.jpg', 'img/ph-nesc-21.jpg'] + _ob("nueva-escondida", 7)),
 ]
 
 def construction_packs():
@@ -250,6 +250,8 @@ CSS += r"""
 
 # ── v24: project sheet (modal) in Architecture — only data we actually have (Roberto, 22-sep-2026) ──
 import json as _json
+# only descriptions Roberto dictated or approved (22-sep-2026); the rest wait for his text / Instagram captions
+DESC_OK = {"casa-ether", "casa-travertino", "casa-horizonte", "casa-cuadrante"}
 def proj_data():
     out = {}
     for p in PROJECTS:
@@ -260,13 +262,13 @@ def proj_data():
         out[p["slug"]] = dict(
             code=code(PROJECTS.index(p), p), name=p["name"], place=p["place"], year=p.get("year", ""),
             status="Built by RBC" if p.get("built") else "Project",
-            txt=p.get("txt", ""), note=p.get("note", ""), m2=p.get("m2", ""), long=p.get("long", ""),
+            txt=p.get("txt", "") if p["slug"] in DESC_OK else "", note=p.get("note", ""), m2=p.get("m2", ""), long=p.get("long", ""),
             photos=photos, plans=plans,
             ig=f"https://www.instagram.com/p/{p['ig']}/" if p.get("ig") else "",
             sale=p.get("sale", ""))
     return f'<script>window.PROJ=Object.assign(window.PROJ||{{}},{_json.dumps(out, ensure_ascii=False)});</script>'
 
-JS = r"""
+JS_PROJ = r"""
 <script>
 (function(){
   const box=document.getElementById('fbig'), body=document.getElementById('fbig-body');
@@ -287,7 +289,7 @@ JS = r"""
     const mk=arr=>arr.map(p=>'<img src="'+p+'" alt="'+esc(d.name)+'" loading="lazy">').join('');
     const shots=d.photos.length?d.photos:d.plans, plans=d.photos.length?d.plans:[];
     body.innerHTML=
-      '<div class="fb-hero'+(d.photos.length?'':' plans')+'" id="fb-hero"><div class="fb-trk">'+mk(shots)+'</div>'+
+      '<div class="fb-hero pj-hero'+(d.photos.length?'':' plans')+'" id="fb-hero"><div class="fb-trk">'+mk(shots)+'</div>'+
         (shots.length>1?'<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots">'+shots.map(()=>'<i></i>').join('')+'</div>':'')+
         (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Photos</button><button data-set="plans">Plans</button></div>':'')+
       '</div>'+
@@ -330,6 +332,8 @@ JS = r"""
 </script>
 """
 CSS += r"""
+.fb-hero.pj-hero img{object-fit:contain;background:#111;}
+.fb-hero.pj-hero{height:min(66vh,640px);}
 .reel[data-proj]{cursor:pointer;} .reel[data-proj]:hover .reel-cap b{color:var(--red);}
 .pj-in .fs-where .cd{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--red);}
 .pj-in .fb-head .fs-pr{font-size:1.5rem;}

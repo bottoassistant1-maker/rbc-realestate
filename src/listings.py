@@ -124,7 +124,7 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     highlights=["Living-dining room with fireplace and a direct view of the Parroquia","Bedroom with king bed and full bathroom","Private balcony facing the Parroquia","Furnished and decorated; art throughout; sound system","Laundry room · water, electricity and internet included","Above Casa Cuadrante, in the historic center","Mid-term stays"],
     program=[("The apartment","Living-dining with fireplace · kitchen · bedroom with full bath · laundry · private balcony")],
     location="Inside Casa Cuadrante, in the historic center of San Miguel de Allende — restaurants, galleries and the Jardín Principal on foot.",
-    img="img/ph-casa-musa-h03.jpg", gallery=['img/ph-casa-musa-h01.jpg', 'img/ph-casa-musa-h02.jpg', 'img/ph-musa-e-01.jpg', 'img/ph-musa-e-02.jpg', 'img/ph-musa-e-07.jpg', 'img/ph-musa-e-08.jpg', 'img/ph-musa-e-09.jpg', 'img/ph-musa-e-10.jpg', 'img/ph-musa-e-05.jpg', 'img/ph-musa-e-06.jpg', 'img/ph-musa-e-03.jpg', 'img/ph-musa-e-04.jpg', 'img/ph-musa-e-11.jpg', 'img/ph-musa-e-12.jpg', 'img/ph-musa-e-13.jpg', 'img/ph-casa-cuadrante-01.jpg', 'img/ph-casa-cuadrante-00.jpg', 'img/ph-casa-cuadrante-08.jpg', 'img/ph-casa-cuadrante-02.jpg', 'img/ph-casa-cuadrante-03.jpg', 'img/ph-casa-cuadrante-07.jpg', 'img/ph-casa-cuadrante-05.jpg'])
+    img="img/ph-musa-n07.jpg", gallery=['img/ph-musa-n35.jpg', 'img/ph-musa-n09.jpg', 'img/ph-musa-n05.jpg', 'img/ph-musa-n23.jpg', 'img/ph-musa-n13.jpg', 'img/ph-musa-n14.jpg', 'img/ph-musa-n17.jpg', 'img/ph-musa-n28.jpg', 'img/ph-musa-n29.jpg', 'img/ph-musa-n30.jpg', 'img/ph-musa-n31.jpg', 'img/ph-musa-n33.jpg', 'img/ph-musa-n27.jpg', 'img/ph-musa-n24.jpg', 'img/ph-musa-n01.jpg', 'img/ph-musa-n20.jpg', 'img/ph-cuad-n03.jpg', 'img/ph-cuad-n01.jpg'])
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
@@ -141,7 +141,7 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
     highlights=["Large private terrace with a 300° view of San Miguel, facing the Parroquia","Queen bed, full bathroom, mini-fridge","Outdoor kitchenette on the terrace on request","Loungers and tables on the terrace","Services included · mid-term stays","Short stays also available (Airbnb link pending)","Inside Casa Cuadrante, restored and designed by RBC"],
     program=[("The suite","Bedroom with queen bed · full bath · mini-fridge · private panoramic terrace")],
     location="Casa Cuadrante, historic center of San Miguel de Allende — the terrace faces the Parroquia directly.",
-    img="img/ph-suite-h01.jpg", gallery=["img/ph-suite-h02.jpg","img/ph-suite-h03.jpg", 'img/ph-suite-e-05.jpg', 'img/ph-suite-e-06.jpg', 'img/ph-suite-e-03.jpg', 'img/ph-suite-e-04.jpg', 'img/ph-suite-e-01.jpg', 'img/ph-suite-e-02.jpg', 'img/ph-suite-e-07.jpg', 'img/ph-suite-e-11.jpg', 'img/ph-suite-e-08.jpg', 'img/ph-suite-e-10.jpg', 'img/ph-suite-e-09.jpg', 'img/ph-suite-e-12.jpg', 'img/ph-suite-e-13.jpg'])
+    img="img/ph-suite-n19.jpg", gallery=['img/ph-suite-n15.jpg', 'img/ph-suite-n16.jpg', 'img/ph-suite-n11.jpg', 'img/ph-suite-n17.jpg', 'img/ph-suite-n18.jpg', 'img/ph-suite-n08.jpg', 'img/ph-suite-n14.jpg', 'img/ph-suite-n10.jpg', 'img/ph-suite-n12.jpg', 'img/ph-suite-n01.jpg', 'img/ph-suite-n20.jpg', 'img/ph-cuad-n02.jpg'])
 
 # ───────── COUNTRYSIDE NEAR SMA ─────────
 add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Piedras Azules · 20 minutes from San Miguel de Allende",
@@ -240,6 +240,20 @@ add(slug="magno-home", page=False, city="celaya", kind="sale", name="Magno Homes
     location="Celaya, Guanajuato — about 45 minutes from Querétaro and 1 hour from San Miguel de Allende.",
     img="img/magno-4.jpg", gallery=["img/magno-8.jpg","img/magno-2.jpg","img/magno-5.jpg"], plans=["img/magno-plan-lots-cluster1.jpg"], href="magno.html", pdf=False,
     wa_msg="Hi Roberto, I'm interested in a house or lot in Magno, Celaya.")
+
+# ───────── LA NUEVA ESCONDIDA (completed · units for sale) ─────────
+add(slug="nueva-escondida", page=False, city="sma", kind="sale", name="La Nueva Escondida", where="San Miguel de Allende",
+    auth="A development by Espacios y Formas",
+    status="Completed · a few units available", price_mxn=None, price_note="Price on request",
+    specs=[("Completed","community"),("A few","units for sale"),("Pool","& gardens")],
+    blurb="A residential community in San Miguel de Allende, now completed. A few units remain available for sale — ask for the current availability.",
+    intro="A residential community in San Miguel de Allende, now completed. A few units remain available for sale — ask for the current availability.",
+    arch="—", site="—", materials="—", condition="Completed; a few units available.", potential="—",
+    notes="", highlights=["Completed community","A few units available for sale","Built by Espacios y Formas"], program=[],
+    location="San Miguel de Allende.",
+    img="img/ph-nesc-08.jpg", gallery=['img/ph-nesc-01.jpg', 'img/ph-nesc-03.jpg', 'img/ph-nesc-13.jpg', 'img/ph-nesc-15.jpg', 'img/ph-nesc-21.jpg', 'img/ph-nesc-24.jpg', 'img/ph-nesc-05.jpg', 'img/ph-nesc-11.jpg', 'img/ph-nesc-19.jpg', 'img/ph-nesc-23.jpg'],
+    href="real-estate.html#nueva-escondida", pdf=False,
+    wa_msg="Hi Roberto, I'm interested in the available units at La Nueva Escondida, San Miguel de Allende.")
 
 
 def by(city, kind=None):

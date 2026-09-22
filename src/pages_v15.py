@@ -50,8 +50,8 @@ def home(wa, SITE):
 
 # ───────────────────────────── ARCHITECTURE & DESIGN ─────────────────────────────
 def architecture(wa, SITE):
-    body = P.phero("img/ph-colina-01.jpg", "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
-        "Houses, interiors, hotels, bars, stores and offices.", '<a href="index.html">Home</a> › Architecture &amp; Design') + f"""
+    body = P.phero("img/ph-colina-02.jpg", "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
+        "Houses, interiors, hotels, bars, stores and offices.", '<a href="index.html">Home</a> › Architecture &amp; Design', pos="center 30%") + f"""
 <section id="projects">
   <div class="wrap">
     {projects_v13.reels()}
@@ -67,7 +67,7 @@ def architecture(wa, SITE):
             body, "img/ph-casa-jalpa-02.jpg", ld, "0.9")
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
-HOMES_ORDER = ["casa-travertino","casa-horizonte","casa-ether","casa-zafiro","casa-musa","casa-cima"]  # Roberto, 18-sep-2026
+HOMES_ORDER = ["casa-travertino","casa-horizonte","casa-musa","casa-ether","casa-zafiro","casa-cima","magno-apartment","duplex","panoramic-suite","magno-home","nueva-escondida"]  # Roberto, 18-sep-2026
 def _homes_order(ls):
     by = {l["slug"]: l for l in ls}
     first = [by[s] for s in HOMES_ORDER if s in by]
