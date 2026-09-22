@@ -404,8 +404,9 @@ nav .burger{border-radius:var(--r);}
 .wwww span{display:block;font-size:.84rem;color:var(--ink-soft);margin-top:3px;}
 /* ── interior page hero ── */
 .phero{min-height:54vh;background:var(--navy-deep);}
-.phero::after{background:linear-gradient(180deg,rgba(22,30,69,.2) 0%,rgba(22,30,69,.75) 100%);}
-.phero .bg{animation:none;}
+.phero::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45) 100%);}
+.phero .in{text-shadow:0 1px 14px rgba(0,0,0,.45);}
+.phero .bg{animation:none;transition:opacity 1.6s ease;}
 .phero .in{padding:120px 32px 44px;max-width:1280px;}
 .phero .in>*{opacity:1;transform:none;animation:none;}
 .phero .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:#fff;opacity:.85;}
@@ -1064,6 +1065,13 @@ document.querySelectorAll('.car').forEach(car=>{
   car.addEventListener('pointerenter',()=>clearInterval(t));
   car.addEventListener('pointerleave',()=>{clearInterval(t);t=setInterval(auto,parseInt(car.dataset.auto||5000));});
   paint();
+});
+document.querySelectorAll('.phero[data-rot]').forEach(h=>{
+  const list=h.dataset.rot.split('|');let i=Math.floor(Math.random()*list.length);
+  const a=h.querySelector('.bg');a.style.backgroundImage="url('"+list[i]+"')";
+  const b=a.cloneNode(false);b.classList.add('bg2');b.style.opacity=0;a.after(b);let top=a;
+  list.forEach(u=>{const im=new Image();im.src=u;});
+  setInterval(()=>{i=(i+1)%list.length;const nx=top===a?b:a;nx.style.backgroundImage="url('"+list[i]+"')";nx.style.opacity=1;top.style.opacity=0;top=nx;},180000);
 });
 const nv=document.querySelector('nav');
 addEventListener('scroll',()=>nv.classList.toggle('scrolled',scrollY>40),{passive:true});
