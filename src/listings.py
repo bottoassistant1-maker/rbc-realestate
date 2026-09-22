@@ -56,7 +56,7 @@ HIDDEN_MIRADOR = dict(slug="casa-mirador", page=True, city="sma", kind="sale", n
 add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro · M1-L14", where="Peñas Arriba · San Miguel de Allende",
     auth="Peñas Arriba · built with Espacios y Formas",
     status="Shell built · ~6 months to delivery", price_mxn=13_900_000,
-    specs=[("343","m² built · 3,692 sq ft"),("418","m² lot · 4,500 sq ft"),("4+s","bedrooms"),("5½","baths"),("2","cars")],
+    specs=[("343","m² built · 3,692 sq ft"),("418","m² lot · 4,500 sq ft"),("4+s","bedrooms"),("4½","baths"),("2","cars")],
     blurb="On the largest garden lot of the community, built to shell: plan and site are done, every finish is still open.",
     intro="Casa Zafiro sits on the largest garden lot in Peñas Arriba. It is built to shell stage, with delivery in about six months once the finishes are defined together with the practice.",
     arch="Compact plan opening to terrace and garden; master suite on the main level.",
@@ -65,7 +65,7 @@ add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro �
     condition="Shell complete; about six months to delivery once finishes are defined.",
     potential="The plan and the site without waiting for a full build, and the level of finish set to the buyer's budget.",
     notes="The garden is the argument. It is the biggest lot in the community and the shell is already there; what remains is the part most owners enjoy deciding.",
-    highlights=["Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)","343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 5½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
+    highlights=["Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)","343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot","4 bedrooms + staff · 4½ baths · 2 cars","Shell built — flooring, stone, carpentry and paint chosen by the buyer","Views of the historic center and the Parroquia","Inside gated Peñas Arriba: pool, gym, restaurant, 24/7 security"],
     program=[("The house","Living-dining and kitchen open to terrace and garden · master suite · three further bedrooms · staff quarters · two-car garage")],
     location="Lot M1-L14, Peñas Arriba, San Miguel de Allende — about 7 minutes from the historic center.",
     img="img/pa-zaf-r01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-r02.jpg'], plans=['img/pa-zaf-plan-pb-opt1.jpg', 'img/pa-zaf-plan-pb-opt2.jpg', 'img/pa-zaf-plan-pa-2.jpg', 'img/pa-zaf-lote-m1l14.jpg', 'img/pa-zaf-lote-m1l15.jpg', 'img/pa-zaf-plan-master.jpg'])

@@ -229,7 +229,7 @@ T.update({
 "The garden is the argument. It is the biggest lot in the community and the shell is already there; what remains is the part most owners enjoy deciding.":
  "El jardín es el argumento. Es el lote más grande de la comunidad y la obra gris ya está; lo que falta es la parte que más disfrutan decidir los dueños.",
 "343.7 m² (3,700 sq ft) built on a 4,500 sq ft garden lot": "343.7 m² (3,700 sq ft) construidos en un lote con jardín de 418 m²",
-"4 bedrooms + staff · 5½ baths · 2 cars": "4 recámaras + servicio · 5½ baños · 2 autos",
+"4 bedrooms + staff · 4½ baths · 2 cars": "4 recámaras + servicio · 4½ baños · 2 autos",
 "Shell built — finishes chosen with the architect": "Obra gris — acabados elegidos con el arquitecto",
 "Shell built — flooring, stone, carpentry and paint chosen by the buyer": "Obra gris — pisos, cantera, carpintería y pintura a elección del comprador",
 "Payment plan: 40% at signing, the balance in monthly payments until delivery (~6 months)": "Plan de pagos: 40% a la firma, el resto en mensualidades hasta la entrega (~6 meses)",
