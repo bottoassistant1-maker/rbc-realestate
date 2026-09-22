@@ -251,7 +251,7 @@ CSS += r"""
 # ── v24: project sheet (modal) in Architecture — only data we actually have (Roberto, 22-sep-2026) ──
 import json as _json
 # only descriptions Roberto dictated or approved (22-sep-2026); the rest wait for his text / Instagram captions
-DESC_OK = {"casa-ether", "casa-travertino", "casa-horizonte", "casa-cuadrante"}
+DESC_OK = {"casa-ether", "casa-travertino", "casa-horizonte", "casa-cuadrante", "hotel-casa-x", "pabellon-arte", "bar-bachus", "binary-pavilion", "casa-jalpa", "casa-de-campo-sma", "depa-jc", "condesa", "wellness-merida", "restaurantes-sma", "tuluminati", "amecsa", "chevrolet", "plaza-qro", "daily-veggies"}
 def proj_data():
     out = {}
     for p in PROJECTS:

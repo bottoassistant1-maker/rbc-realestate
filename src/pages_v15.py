@@ -135,7 +135,7 @@ def real_estate(wa, SITE):
 
 # ───────────────────────────── CONSTRUCTION ─────────────────────────────
 def construction(wa, SITE):
-    body = P.phero("img/ph-penas-obra-b-03.jpg", "RBC / Construction", "Construction.",
+    body = P.phero("img/ph-penas-obra-a-04.jpg", "RBC / Construction", "Construction.",
         "Directed personally. Larger works are built with Espacios y Formas.", '<a href="index.html">Home</a> › Construction') + f"""
 <section id="sites">
   <div class="wrap">
