@@ -791,6 +791,10 @@ a.eyf-link:hover{color:var(--c-re);}
 .ogrid figcaption{display:flex;justify-content:space-between;gap:10px;padding:8px 0 0;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
 .ogrid figcaption b{font-weight:500;color:#161616;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
+.reel[data-proj]{cursor:pointer;} .reel[data-proj]:hover .reel-cap b{color:var(--red);}
+.pj-in .fs-where .cd{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--red);}
+.pj-in .fb-head .fs-pr{font-size:1.5rem;}
+
 .fb-units{margin:0 0 26px;} .fb-units>div{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:10px 0;border-top:1px solid var(--line);}
 .fb-units>div b{font-weight:500;color:#161616;}
 .fb-units>div span{grid-column:1;font-size:.82rem;color:var(--ink-soft);}
@@ -983,9 +987,9 @@ body.fbig-open{overflow:hidden;}
 <section class="band" id="tabs">
   <div class="wrap">
     <div class="doors doors3">
-      <a class="door rv" href="architecture.html"><img src="img/ph-bar-bachus-06.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
-      <a class="door rv d1" href="real-estate.html"><img src="img/ig-DceaktFmAgJ-5.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
-      <a class="door rv d2" href="construction.html"><img src="img/ob-magno-towers-a-01.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
+      <a class="door rv" href="architecture.html"><img src="img/ph-travertino-r02.jpg" data-rot="img/ph-travertino-r02.jpg|img/ph-bar-bachus-06.jpg|img/ph-travertino-r01.jpg" alt="Architecture & Design" loading="lazy"><div class="door-t"><small>01</small><b>Architecture<br>&amp; Design</b><span>Houses, interiors, hospitality, commercial.</span></div></a>
+      <a class="door rv d1" href="real-estate.html"><img src="img/pa-m4l6-vista.jpg" alt="Real Estate" loading="lazy"><div class="door-t"><small>02</small><b>Real Estate</b><span>Selected properties and developments.</span></div></a>
+      <a class="door rv d2" href="construction.html"><img src="img/ob-magno-towers-a-01.jpg" data-rot="img/ob-magno-towers-a-01.jpg|img/ob-magno-towers-b-03.jpg|img/ob-magno-towers-b-02.jpg" alt="Construction" loading="lazy"><div class="door-t"><small>03</small><b>Construction</b><span>Directed personally; built with Espacios y Formas.</span></div></a>
     </div>
   </div>
 </section>
@@ -1046,6 +1050,11 @@ document.querySelectorAll('.phero[data-rot]').forEach(h=>{
   list.forEach(u=>{const im=new Image();im.src=u;});
   setInterval(()=>{i=(i+1)%list.length;const nx=top===a?b:a;nx.style.backgroundImage="url('"+list[i]+"')";nx.style.opacity=1;top.style.opacity=0;top=nx;},180000);
 });
+document.querySelectorAll('img[data-rot]').forEach(im=>{
+  const list=im.dataset.rot.split('|');let i=Math.floor(Math.random()*list.length);im.src=list[i];
+  list.forEach(u=>{const p=new Image();p.src=u;});im.style.transition='opacity .9s ease';
+  setInterval(()=>{i=(i+1)%list.length;im.style.opacity=0;setTimeout(()=>{im.src=list[i];im.style.opacity=1;},900);},180000+Math.floor(Math.random()*60000));
+});
 const nv=document.querySelector('nav');
 addEventListener('scroll',()=>nv.classList.toggle('scrolled',scrollY>40),{passive:true});
 const hbg=document.querySelector('.hero .bg');
@@ -1091,24 +1100,65 @@ document.querySelectorAll('.pfilters').forEach(f=>{
 
 
 <script>
-// reels: auto-advancing sliders; a manual arrow stops the auto-advance
-document.querySelectorAll('.reel-sl').forEach(root=>{
-  const trk=root.querySelector('.fs-trk'), n=parseInt(root.dataset.n||1); if(n<2) return;
-  const dots=[...root.querySelectorAll('.fs-dots i')]; let i=0, t=null;
-  const go=k=>{i=(k+n)%n; trk.style.transform='translateX(-'+(i*100)+'%)'; dots.forEach((d,j)=>d.classList.toggle('on',j===i));};
-  const start=()=>{if(!t)t=setInterval(()=>go(i+1),3600+Math.random()*900);}; const stop=()=>{clearInterval(t);t=null;};
-  root.querySelector('.fs-arr.l').addEventListener('click',e=>{e.stopPropagation();stop();go(i-1);});
-  root.querySelector('.fs-arr.r').addEventListener('click',e=>{e.stopPropagation();stop();go(i+1);});
-  dots.forEach((d,j)=>d.addEventListener('click',e=>{e.stopPropagation();stop();go(j);}));
-  go(0); new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else stop();}),{threshold:.2}).observe(root);
-});
-document.querySelectorAll('.pfilters').forEach(f=>{
-  const grid=f.parentElement.querySelector('.reels'); if(!grid) return;
-  f.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-    f.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
-    const c=b.dataset.cat; grid.querySelectorAll('.reel').forEach(p=>p.classList.toggle('hide', c!=='all' && (f.classList.contains('catf') ? p.dataset.cat!==c : !(' '+p.dataset.types+' ').includes(' '+c+' '))));
-  }));
-});
+(function(){
+  const box=document.getElementById('fbig'), body=document.getElementById('fbig-body');
+  if(!box||!window.PROJ) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  let timer=null;
+  function slider(root,auto){
+    const trk=root.querySelector('.fb-trk'), n=trk.children.length, dots=root.querySelector('.fs-dots'); let i=0;
+    const paint=()=>{trk.style.transform='translateX(-'+(i*100)+'%)'; if(dots)[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));};
+    const go=d=>{i=(i+d+n)%n;paint();};
+    clearInterval(timer); if(auto&&n>1) timer=setInterval(()=>go(1),4000);
+    root.querySelectorAll('.fs-arr').forEach(b=>b.onclick=e=>{e.stopPropagation();clearInterval(timer);go(b.classList.contains('l')?-1:1);});
+    if(dots)[...dots.children].forEach((d,k)=>d.onclick=e=>{e.stopPropagation();clearInterval(timer);i=k;paint();});
+    paint();
+  }
+  window.openProj=function(slug){
+    const d=window.PROJ[slug]; if(!d) return;
+    const mk=arr=>arr.map(p=>'<img src="'+p+'" alt="'+esc(d.name)+'" loading="lazy">').join('');
+    const shots=d.photos.length?d.photos:d.plans, plans=d.photos.length?d.plans:[];
+    body.innerHTML=
+      '<div class="fb-hero'+(d.photos.length?'':' plans')+'" id="fb-hero"><div class="fb-trk">'+mk(shots)+'</div>'+
+        (shots.length>1?'<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots">'+shots.map(()=>'<i></i>').join('')+'</div>':'')+
+        (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Photos</button><button data-set="plans">Plans</button></div>':'')+
+      '</div>'+
+      '<div class="fb-in pj-in">'+
+        '<div class="fb-head"><div><div class="fs-where"><span class="cd">'+esc(d.code)+'</span> · '+esc(d.place)+(d.year?' · '+esc(d.year):'')+'</div><h2>'+esc(d.name)+'</h2><div class="fs-auth">'+esc(d.status)+'</div></div>'+
+        (d.m2?'<div class="fs-pr">'+esc(d.m2)+' m²</div>':'')+'</div>'+
+        '<div class="fb-grid"><div>'+
+          (d.txt?'<h4>About the project</h4><p class="lead" style="font-size:1rem">'+esc(d.txt)+'</p>':'')+
+          (d.long?'<p style="font-size:.92rem;color:var(--ink-soft)">'+esc(d.long)+'</p>':'')+
+          (d.note?'<p class="reel-note" style="display:block;margin-top:10px">'+esc(d.note)+'</p>':'')+
+        '</div><div>'+
+          (plans.length?'<h4>Plans</h4><div class="fb-plans">'+plans.map(p=>'<a class="lbx2" href="'+p+'"><img src="'+p+'" alt="Plan"></a>').join('')+'</div>':'')+
+        '</div></div>'+
+        '<div class="fb-cta">'+
+          (d.sale?'<a class="btn red" href="'+d.sale+'">This house is for sale →</a>':'')+
+          (d.ig?'<a class="btn ghost" href="'+d.ig+'" target="_blank" rel="noopener">View on Instagram</a>':'')+
+          '<a class="btn ghost" href="contact.html">Ask about this project</a>'+
+        '</div>'+
+      '</div>';
+    box.classList.add('on'); box.setAttribute('aria-hidden','false'); document.body.classList.add('fbig-open'); body.scrollTop=0;
+    const hero=document.getElementById('fb-hero'); slider(hero,true);
+    hero.querySelectorAll('.fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
+      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      const isP=b.dataset.set==='plans'; hero.classList.toggle('plans',isP); const set=isP?plans:shots;
+      hero.querySelector('.fb-trk').innerHTML=mk(set); const dots=hero.querySelector('.fs-dots'); if(dots) dots.innerHTML=set.map(()=>'<i></i>').join('');
+      slider(hero,!isP);
+    }));
+    body.querySelectorAll('a.lbx2').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const lb=document.getElementById('lb');if(lb){document.getElementById('lbimg').src=a.href;lb.classList.add('on');}}));
+    history.replaceState(null,'','#'+slug);
+  };
+  document.querySelectorAll('.reel[data-proj]').forEach(card=>{
+    const open=()=>openProj(card.dataset.proj);
+    card.addEventListener('click',e=>{ if(e.target.closest('.fs-arr,.fs-dots')) return; open(); });
+    card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  });
+  const stop=()=>clearInterval(timer);
+  box.querySelector('.fbig-x').addEventListener('click',stop); box.querySelector('.fbig-bg').addEventListener('click',stop);
+  if(location.hash && window.PROJ[location.hash.slice(1)]) setTimeout(()=>openProj(location.hash.slice(1)),400);
+})();
 </script>
 
 
@@ -1200,6 +1250,69 @@ document.querySelectorAll('.cityf').forEach(f=>{
     const c=b.dataset.city; grid.querySelectorAll('.fs').forEach(p=>p.classList.toggle('hide', c!=='all' && p.dataset.city!==c));
   }));
 });
+</script>
+
+
+<script>
+(function(){
+  const box=document.getElementById('fbig'), body=document.getElementById('fbig-body');
+  if(!box||!window.PROJ) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  let timer=null;
+  function slider(root,auto){
+    const trk=root.querySelector('.fb-trk'), n=trk.children.length, dots=root.querySelector('.fs-dots'); let i=0;
+    const paint=()=>{trk.style.transform='translateX(-'+(i*100)+'%)'; if(dots)[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));};
+    const go=d=>{i=(i+d+n)%n;paint();};
+    clearInterval(timer); if(auto&&n>1) timer=setInterval(()=>go(1),4000);
+    root.querySelectorAll('.fs-arr').forEach(b=>b.onclick=e=>{e.stopPropagation();clearInterval(timer);go(b.classList.contains('l')?-1:1);});
+    if(dots)[...dots.children].forEach((d,k)=>d.onclick=e=>{e.stopPropagation();clearInterval(timer);i=k;paint();});
+    paint();
+  }
+  window.openProj=function(slug){
+    const d=window.PROJ[slug]; if(!d) return;
+    const mk=arr=>arr.map(p=>'<img src="'+p+'" alt="'+esc(d.name)+'" loading="lazy">').join('');
+    const shots=d.photos.length?d.photos:d.plans, plans=d.photos.length?d.plans:[];
+    body.innerHTML=
+      '<div class="fb-hero'+(d.photos.length?'':' plans')+'" id="fb-hero"><div class="fb-trk">'+mk(shots)+'</div>'+
+        (shots.length>1?'<button class="fs-arr l" aria-label="Previous">‹</button><button class="fs-arr r" aria-label="Next">›</button><div class="fs-dots">'+shots.map(()=>'<i></i>').join('')+'</div>':'')+
+        (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Photos</button><button data-set="plans">Plans</button></div>':'')+
+      '</div>'+
+      '<div class="fb-in pj-in">'+
+        '<div class="fb-head"><div><div class="fs-where"><span class="cd">'+esc(d.code)+'</span> · '+esc(d.place)+(d.year?' · '+esc(d.year):'')+'</div><h2>'+esc(d.name)+'</h2><div class="fs-auth">'+esc(d.status)+'</div></div>'+
+        (d.m2?'<div class="fs-pr">'+esc(d.m2)+' m²</div>':'')+'</div>'+
+        '<div class="fb-grid"><div>'+
+          (d.txt?'<h4>About the project</h4><p class="lead" style="font-size:1rem">'+esc(d.txt)+'</p>':'')+
+          (d.long?'<p style="font-size:.92rem;color:var(--ink-soft)">'+esc(d.long)+'</p>':'')+
+          (d.note?'<p class="reel-note" style="display:block;margin-top:10px">'+esc(d.note)+'</p>':'')+
+        '</div><div>'+
+          (plans.length?'<h4>Plans</h4><div class="fb-plans">'+plans.map(p=>'<a class="lbx2" href="'+p+'"><img src="'+p+'" alt="Plan"></a>').join('')+'</div>':'')+
+        '</div></div>'+
+        '<div class="fb-cta">'+
+          (d.sale?'<a class="btn red" href="'+d.sale+'">This house is for sale →</a>':'')+
+          (d.ig?'<a class="btn ghost" href="'+d.ig+'" target="_blank" rel="noopener">View on Instagram</a>':'')+
+          '<a class="btn ghost" href="contact.html">Ask about this project</a>'+
+        '</div>'+
+      '</div>';
+    box.classList.add('on'); box.setAttribute('aria-hidden','false'); document.body.classList.add('fbig-open'); body.scrollTop=0;
+    const hero=document.getElementById('fb-hero'); slider(hero,true);
+    hero.querySelectorAll('.fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
+      hero.querySelectorAll('.fb-tabs button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      const isP=b.dataset.set==='plans'; hero.classList.toggle('plans',isP); const set=isP?plans:shots;
+      hero.querySelector('.fb-trk').innerHTML=mk(set); const dots=hero.querySelector('.fs-dots'); if(dots) dots.innerHTML=set.map(()=>'<i></i>').join('');
+      slider(hero,!isP);
+    }));
+    body.querySelectorAll('a.lbx2').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const lb=document.getElementById('lb');if(lb){document.getElementById('lbimg').src=a.href;lb.classList.add('on');}}));
+    history.replaceState(null,'','#'+slug);
+  };
+  document.querySelectorAll('.reel[data-proj]').forEach(card=>{
+    const open=()=>openProj(card.dataset.proj);
+    card.addEventListener('click',e=>{ if(e.target.closest('.fs-arr,.fs-dots')) return; open(); });
+    card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();open();} });
+  });
+  const stop=()=>clearInterval(timer);
+  box.querySelector('.fbig-x').addEventListener('click',stop); box.querySelector('.fbig-bg').addEventListener('click',stop);
+  if(location.hash && window.PROJ[location.hash.slice(1)]) setTimeout(()=>openProj(location.hash.slice(1)),400);
+})();
 </script>
 
 
