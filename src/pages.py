@@ -10,9 +10,11 @@ PA = "https://penasarriba.vercel.app/PE%C3%91AS%20ARRIBA/fotos"
 HZ_HERO = f"img/casa-horizonte-sunset-facade.jpg"
 
 def phero(bg, tag, h1, sub, crumbs=""):
+    bgs = bg if isinstance(bg, (list, tuple)) else [bg]
+    rot = f' data-rot="{"|".join(bgs)}"' if len(bgs) > 1 else ""
     return f"""
-<header class="phero">
-  <div class="bg" style="background-image:url('{bg}')"></div>
+<header class="phero"{rot}>
+  <div class="bg" style="background-image:url('{bgs[0]}')"></div>
   <div class="in">
     {f'<div class="crumbs">{crumbs}</div>' if crumbs else ''}
     <div class="tag">{tag}</div>

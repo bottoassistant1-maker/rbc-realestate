@@ -201,6 +201,13 @@ document.querySelectorAll('.car').forEach(car=>{
   car.addEventListener('pointerleave',()=>{clearInterval(t);t=setInterval(auto,parseInt(car.dataset.auto||5000));});
   paint();
 });
+document.querySelectorAll('.phero[data-rot]').forEach(h=>{
+  const list=h.dataset.rot.split('|');let i=Math.floor(Math.random()*list.length);
+  const a=h.querySelector('.bg');a.style.backgroundImage="url('"+list[i]+"')";
+  const b=a.cloneNode(false);b.classList.add('bg2');b.style.opacity=0;a.after(b);let top=a;
+  list.forEach(u=>{const im=new Image();im.src=u;});
+  setInterval(()=>{i=(i+1)%list.length;const nx=top===a?b:a;nx.style.backgroundImage="url('"+list[i]+"')";nx.style.opacity=1;top.style.opacity=0;top=nx;},180000);
+});
 const nv=document.querySelector('nav');
 addEventListener('scroll',()=>nv.classList.toggle('scrolled',scrollY>40),{passive:true});
 const hbg=document.querySelector('.hero .bg');

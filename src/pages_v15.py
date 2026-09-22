@@ -50,7 +50,7 @@ def home(wa, SITE):
 
 # ───────────────────────────── ARCHITECTURE & DESIGN ─────────────────────────────
 def architecture(wa, SITE):
-    body = P.phero("img/ph-casa-jalpa-02.jpg", "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
+    body = P.phero(["img/ph-travertino-r02.jpg", "img/ph-bar-bachus-06.jpg", "img/ph-travertino-r01.jpg"], "RBC / Architecture &amp; Design", "Architecture &amp; Design.",
         "Houses, interiors, hotels, bars, stores and offices.", '<a href="index.html">Home</a> › Architecture &amp; Design') + f"""
 <section id="projects">
   <div class="wrap">
@@ -67,7 +67,7 @@ def architecture(wa, SITE):
             body, "img/ph-casa-jalpa-02.jpg", ld, "0.9")
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
-HOMES_ORDER = ["casa-horizonte","casa-ether","casa-zafiro","casa-musa","casa-cima","casa-travertino"]  # Roberto, 18-sep-2026
+HOMES_ORDER = ["casa-travertino","casa-horizonte","casa-ether","casa-zafiro","casa-musa","casa-cima"]  # Roberto, 18-sep-2026
 def _homes_order(ls):
     by = {l["slug"]: l for l in ls}
     first = [by[s] for s in HOMES_ORDER if s in by]
@@ -89,7 +89,7 @@ def real_estate(wa, SITE):
         ["img/community-trails.jpg","img/valley-golden-hour.jpg"],
         f'<a class="btn" href="{wa("Hi Roberto, please keep me informed about La Escondida and La Nueva Escondida in San Miguel.")}">Keep me informed</a>', 5000)
 
-    body = P.phero("img/ig-DceaktFmAgJ-2.jpg", "RBC / Real Estate", "Real Estate.",
+    body = P.phero("img/ph-travertino-r01.jpg", "RBC / Real Estate", "Real Estate.",
         "A short selection of houses, and the developments behind them.", '<a href="index.html">Home</a> › Real Estate') + f"""
 <section id="sale">
   <div class="wrap">

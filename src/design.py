@@ -92,8 +92,9 @@ nav .burger{border-radius:var(--r);}
 .wwww span{display:block;font-size:.84rem;color:var(--ink-soft);margin-top:3px;}
 /* ── interior page hero ── */
 .phero{min-height:54vh;background:var(--navy-deep);}
-.phero::after{background:linear-gradient(180deg,rgba(22,30,69,.2) 0%,rgba(22,30,69,.75) 100%);}
-.phero .bg{animation:none;}
+.phero::after{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.45) 100%);}
+.phero .in{text-shadow:0 1px 14px rgba(0,0,0,.45);}
+.phero .bg{animation:none;transition:opacity 1.6s ease;}
 .phero .in{padding:120px 32px 44px;max-width:1280px;}
 .phero .in>*{opacity:1;transform:none;animation:none;}
 .phero .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:#fff;opacity:.85;}

@@ -22,13 +22,13 @@ REEL_SIZES = ["big", "", "", "tall", "", "", "wide", "", "", "", ""]
 # v18: explicit order + size per project (Roberto, 13-sep-2026).
 # big = 2x2 · hero = 3x2 · tall = 1x2 · wide = 2x1 · band = 3x1 · "" = 1x1
 LAYOUT = [
-  ("casa-jalpa", "xw"), ("bar-bachus", "xl"),
+  ("casa-travertino", "xw"), ("casa-jalpa", "xw"), ("bar-bachus", "xl"),
   ("casa-valle", "wide"), ("depa-jc", "w32"), ("pabellon-arte", "w32"),
   ("casa-ether", "big"), ("hotel-casa-x", "big"),
   ("casa-pena", "wide"), ("amecsa", ""), ("daily-veggies", ""), ("casa-horizonte", "wide"),
   ("casa-de-campo-sma", "w32"), ("tuluminati", ""), ("condesa", ""),
   ("casa-jalpa-2", "band"), ("restaurantes-sma", ""), ("wellness-merida", ""),
-  ("casa-travertino", "big"), ("chevrolet", "big"),
+  ("chevrolet", "big"),
   ("binary-pavilion", ""), ("casa-jalpa-3", "wide"), ("plaza-qro", "wide"),
   ("casa-ventanas", ""), ("casa-cuadrante", "big"), ("penas-obra", "wide"),
   ("origen", ""), ("saiko", ""), ("casa-artista", ""), ("casa-velia", ""), ("casa-cien", ""),

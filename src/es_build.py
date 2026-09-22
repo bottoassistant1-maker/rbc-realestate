@@ -68,6 +68,7 @@ def build_es(OUT, SITE_URL, pages):
                 if tag.has_attr(a) and tag[a].strip(): tag[a] = es.tr(tag[a].strip())
             if tag.has_attr("href") and tag.name in ("a", "link"): tag["href"] = _fix_url(tag["href"])
             if tag.has_attr("src"): tag["src"] = _fix_url(tag["src"])
+            if tag.has_attr("data-rot"): tag["data-rot"] = "|".join(_fix_url(u) for u in tag["data-rot"].split("|"))
             if tag.has_attr("style") and "url(" in tag["style"]:
                 tag["style"] = re.sub(r"url\('(img/[^']+)'\)", r"url('../\1')", tag["style"])
             if tag.has_attr("data-t") is False and tag.has_attr("data-set"): pass
