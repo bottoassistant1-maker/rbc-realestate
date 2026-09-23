@@ -203,11 +203,11 @@ def about(wa, SITE):
     </div>
     <div class="rv d1">
       {shead("01","Roberto")}
-      <p class="lead">Roberto Balderas Carrillo is an architect from Celaya, Guanajuato, based in San Miguel de Allende. RBC is his practice: the projects he authors, the buildings he directs on site, and a short list of properties he represents because he knows them.</p>
+      <p class="lead">Roberto Balderas Carrillo is an architect based in San Miguel de Allende. Through his practice, RBC, he works across architecture, interiors and construction, while representing a select number of properties he knows firsthand.</p>
       <div class="notes"><small>Criterion</small><p>Every project answers its site, its client, its budget and its scale. Each one develops its own architectural language.</p></div>
 
       {shead("02","Espacios y Formas")}
-      <p class="lead">RBC works in close collaboration with <a href="{EYF}" target="_blank" rel="noopener">Espacios y Formas</a>, an architecture, construction and development firm with more than three decades of work across the Bajío. Principal office in Celaya; presence in San Miguel de Allende.</p>
+      <p class="lead">Each project develops its own architectural language, shaped by its context, scale and purpose. RBC operates within <a class="eyf-link" href="{EYF}" target="_blank" rel="noopener">Espacios y Formas ↗</a>, the Balderas family’s architecture, construction and development firm, with more than 30 years of experience and offices in Celaya and San Miguel de Allende. This allows for a personal, hands-on approach to every project, supported by the experience, team and capabilities of an established firm.</p>
       <div class="facts">
         <div><small>Offices</small><span>San Miguel de Allende / Celaya</span></div>
         <div><small>Work</small><span>Architecture · Interiors · Landscape · Construction · Development · Selected properties</span></div>

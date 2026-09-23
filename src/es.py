@@ -564,3 +564,12 @@ T.update({
  'Commercial plaza · Querétaro.': 'Plaza comercial · Querétaro.',
  'Daily Veggies offices · Querétaro.': 'Oficinas Daily Veggies · Querétaro.',
 })
+
+# v24c — RBC presentation text by Roberto (23-sep-2026)
+T.update({
+ 'Roberto Balderas Carrillo is an architect based in San Miguel de Allende. Through his practice, RBC, he works across architecture, interiors and construction, while representing a select number of properties he knows firsthand.': 'Roberto Balderas Carrillo es arquitecto con base en San Miguel de Allende. A través de su práctica, RBC, trabaja en arquitectura, interiores y construcción, además de representar una selección de propiedades que conoce de primera mano.',
+ 'Each project develops its own architectural language, shaped by its context, scale and purpose. RBC operates within': 'Cada proyecto desarrolla su propio lenguaje arquitectónico, definido por su contexto, escala y propósito. RBC forma parte de',
+ ', the Balderas family’s architecture, construction and development firm, with more than 30 years of experience and offices in Celaya and San Miguel de Allende. This allows for a personal, hands-on approach to every project, supported by the experience, team and capabilities of an established firm.': ', la firma familiar de arquitectura, construcción y desarrollo de la familia Balderas, con más de 30 años de experiencia y oficinas en Celaya y San Miguel de Allende. Esto permite ofrecer una atención personal y directa en cada proyecto, respaldada por la experiencia, el equipo y la capacidad de una firma consolidada.',
+})
+
+T.update({"Offices in Celaya and San Miguel de Allende": "Oficinas en Celaya y San Miguel de Allende"})

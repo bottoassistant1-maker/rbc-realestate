@@ -411,3 +411,5 @@ CSS += r"""
 a.eyf-link{color:var(--c-arch);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;}
 a.eyf-link:hover{color:var(--c-re);}
 """
+
+CSS += r""".intro-contact{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;} .intro-contact a{color:var(--navy);text-decoration:none;} .intro-contact a:hover{color:var(--red);} .intro-contact span{line-height:1.7;} @media(max-width:600px){.intro-contact{grid-template-columns:1fr;}}"""
