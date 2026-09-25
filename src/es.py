@@ -574,4 +574,4 @@ T.update({
 
 T.update({"Offices in Celaya and San Miguel de Allende": "Oficinas en Celaya y San Miguel de Allende"})
 
-T.update({"m² built · 7,851 sq ft": "m² construidos · 7,851 sq ft", "m² lot · 11,858 sq ft": "m² de lote · 11,858 sq ft", "729.38 m² (7,851 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot": "729.38 m² (7,851 sq ft) construidos en un lote de 1,101.65 m² (11,858 sq ft)"})
+T.update({"m² built · 7,868 sq ft": "m² construidos · 7,868 sq ft", "m² lot · 11,858 sq ft": "m² de lote · 11,858 sq ft", "731 m² (7,868 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot": "731 m² (7,868 sq ft) construidos en un lote de 1,101.65 m² (11,858 sq ft)"})
