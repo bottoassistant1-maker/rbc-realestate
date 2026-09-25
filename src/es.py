@@ -73,7 +73,7 @@ T = {
 "Bajío · 2022": "Bajío · 2022", "Mérida · Yucatán · 2022": "Mérida · Yucatán · 2022",
 "Piedras Azules · San Miguel de Allende · 2025": "Piedras Azules · San Miguel de Allende · 2025",
 "Peñas Arriba · San Miguel de Allende · 2026": "Peñas Arriba · San Miguel de Allende · 2026",
-"Hacienda El Campanario · Querétaro · 2025": "Hacienda El Campanario · Querétaro · 2025",
+"El Campanario Residencial & Golf · Querétaro · 2025": "El Campanario Residencial & Golf · Querétaro · 2025",
 "San Miguel de Allende · Los Cabos · 2022": "San Miguel de Allende · Los Cabos · 2022",
 
 # ── real estate page ──
@@ -101,11 +101,11 @@ T = {
 "For rent · Historic center · San Miguel de Allende": "En renta · Centro histórico · San Miguel de Allende",
 "For rent · For rent · Historic center · San Miguel de Allende": "En renta · Centro histórico · San Miguel de Allende",
 "For sale · Peñas Arriba · San Miguel de Allende": "En venta · Peñas Arriba · San Miguel de Allende",
-"For sale · Hacienda El Campanario · Querétaro": "En venta · Hacienda El Campanario · Querétaro",
+"For sale · El Campanario Residencial & Golf · Querétaro": "En venta · El Campanario Residencial & Golf · Querétaro",
 "For sale · Piedras Azules · 20 minutes from San Miguel de Allende": "En venta · Piedras Azules · a 20 minutos de San Miguel de Allende",
 "Peñas Arriba · San Miguel de Allende": "Peñas Arriba · San Miguel de Allende",
 "Piedras Azules · 20 minutes from San Miguel de Allende": "Piedras Azules · a 20 minutos de San Miguel de Allende",
-"Hacienda El Campanario · Querétaro": "Hacienda El Campanario · Querétaro",
+"El Campanario Residencial & Golf · Querétaro": "El Campanario Residencial & Golf · Querétaro",
 "Celaya · Guanajuato": "Celaya · Guanajuato",
 "Sell a property": "Vender una propiedad", "Buy a property": "Comprar una propiedad",
 "RBC represents a short list, after a visit.": "RBC representa una lista corta, después de una visita.",
@@ -352,11 +352,11 @@ T.update({
 # Travertino
 "Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.":
  "Recién construida en el último lote de su privada, frente a las montañas: sala y bar en doble altura, alberca con asoleadero, cuatro recámaras con baño (tres arriba y una en planta baja) más cuarto de servicio.",
-"Casa Travertino occupies the last lot of its private street inside Hacienda El Campanario, which is why every terrace looks at the mountains. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.":
- "Casa Travertino ocupa el último lote de su privada dentro de Hacienda El Campanario, por eso todas las terrazas miran a las montañas. La planta baja está hecha para reunirse: sala con bar y comedor en doble altura, cocina con desayunador, terraza techada y asoleadero alrededor de la alberca. Cuatro recámaras con baño en total — tres arriba con sala de TV familiar y un lobby que funciona como sala de lectura o closet de blancos, más una en planta baja — y cuarto de servicio completo. Recién construida; nunca habitada.",
+"Casa Travertino occupies the last lot of its private street inside El Campanario Residencial & Golf, which is why every terrace looks at the mountains. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.":
+ "Casa Travertino ocupa el último lote de su privada dentro de El Campanario Residencial & Golf, por eso todas las terrazas miran a las montañas. La planta baja está hecha para reunirse: sala con bar y comedor en doble altura, cocina con desayunador, terraza techada y asoleadero alrededor de la alberca. Cuatro recámaras con baño en total — tres arriba con sala de TV familiar y un lobby que funciona como sala de lectura o closet de blancos, más una en planta baja — y cuarto de servicio completo. Recién construida; nunca habitada.",
 "Double-height living with bar and dining on the ground floor, terraces to the mountains; four en-suite bedrooms — three upstairs with a family room, one on the ground floor — plus staff quarters.":
  "Sala en doble altura con bar y comedor en planta baja, terrazas hacia las montañas; cuatro recámaras con baño — tres arriba con sala familiar, una en planta baja — más cuarto de servicio.",
-"Hacienda El Campanario, Querétaro — the last lot of its private street, with open mountain views.": "Hacienda El Campanario, Querétaro — el último lote de su privada, con vistas abiertas a las montañas.",
+"El Campanario Residencial & Golf, Querétaro — the last lot of its private street, with open mountain views.": "El Campanario Residencial & Golf, Querétaro — el último lote de su privada, con vistas abiertas a las montañas.",
 "Newly built; stone, concrete and glass; pool with sun deck and covered terrace.": "Recién construida; piedra, concreto y cristal; alberca con asoleadero y terraza techada.",
 "New. Never lived in.": "Nueva. Nunca habitada.",
 "The ground-floor suite absorbs a gym, an office or a fourth bedroom without touching the rest of the plan.": "La suite de planta baja absorbe un gym, una oficina o una cuarta recámara sin tocar el resto de la planta.",
@@ -371,7 +371,7 @@ T.update({
 "Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · fourth en-suite bedroom (also gym / study) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage":
  "Cochera para 3 autos · cuarto de servicio con baño y patio de servicio · cocina con desayunador · cuarta recámara con baño (también gym / estudio) · sala-bar y comedor en doble altura · terraza techada · asoleadero y alberca · medio baño exterior · medio baño de visitas · bodega",
 "Three bedrooms with baths · family TV room · lobby for reading or linen": "Tres recámaras con baño · sala de TV familiar · lobby para lectura o blancos",
-"Last lot of its private street in Hacienda El Campanario, Querétaro — open mountain views with nothing to be built in front.": "Último lote de su privada en Hacienda El Campanario, Querétaro — vistas abiertas a la montaña sin nada por construir enfrente.",
+"Last lot of its private street in El Campanario Residencial & Golf, Querétaro — open mountain views with nothing to be built in front.": "Último lote de su privada en El Campanario Residencial & Golf, Querétaro — vistas abiertas a la montaña sin nada por construir enfrente.",
 # Magno
 "Apartments in the Magno tower in Celaya, developed and built by Espacios y Formas: 2 and 3 bedrooms, 171 to 229 m² of living space plus parking and storage, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery.":
  "Departamentos en la torre Magno en Celaya, desarrollada y construida por Espacios y Formas: 2 y 3 recámaras, 171 a 229 m² habitables más estacionamiento y bodega, con spa, alberca, gym y casa club. 26 departamentos disponibles para entrega inmediata.",
@@ -425,7 +425,7 @@ T.update({
 "Built by RBC": "Construida por RBC", "Espacios y Formas": "Espacios y Formas",
 "San Miguel de Allende · Built by RBC": "San Miguel de Allende · Construida por RBC",
 "Piedras Azules · San Miguel de Allende · Built by RBC": "Piedras Azules · San Miguel de Allende · Construida por RBC",
-"Hacienda El Campanario · Querétaro · Built by RBC": "Hacienda El Campanario · Querétaro · Construida por RBC",
+"El Campanario Residencial & Golf · Querétaro · Built by RBC": "El Campanario Residencial & Golf · Querétaro · Construida por RBC",
 "Los Huizaches · San Miguel de Allende · Built by RBC": "Los Huizaches · San Miguel de Allende · Construida por RBC",
 "3 photos": "3 fotos", "7 photos": "7 fotos", "9 photos": "9 fotos", "10 photos": "10 fotos", "14 photos": "14 fotos", "17 photos": "17 fotos",
 # contact

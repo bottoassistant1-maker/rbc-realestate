@@ -242,7 +242,7 @@ def real_estate(wa, SITE):
     <div class="cityhead" id="countryside"><h3>Countryside near San Miguel</h3><span class="cnt">Jalpa road · 15 minutes from town</span></div>
     """ + fichas.grid(listings.by('jalpa','sale'), wa) + f"""
 
-    <div class="cityhead" id="queretaro"><h3>Querétaro</h3><span class="cnt">Hacienda El Campanario</span></div>
+    <div class="cityhead" id="queretaro"><h3>Querétaro</h3><span class="cnt">El Campanario Residencial & Golf</span></div>
     """ + fichas.grid(listings.by('qro','sale'), wa) + f"""
 
     <div class="cityhead" id="celaya"><h3>Celaya</h3><span class="cnt">Magno Home &amp; Towers · built by our group</span></div>
