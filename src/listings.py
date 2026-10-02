@@ -161,6 +161,23 @@ add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", 
     location="Lot 15, Rancho Piedras Azules, Palo Blanco, Guanajuato — 20 minutes from San Miguel de Allende centro. Gated; mountain and valley views in every direction.",
     img="img/ph-casa-ether-00.jpg", gallery=['img/ph-casa-ether-01.jpg', 'img/ph-casa-ether-02.jpg', 'img/ph-casa-ether-03.jpg', 'img/ph-casa-ether-04.jpg', 'img/ph-casa-ether-05.jpg', 'img/ph-casa-ether-06.jpg', 'img/ph-casa-ether-07.jpg', 'img/ph-casa-ether-08.jpg', 'img/ph-casa-ether-09.jpg', 'img/ph-casa-ether-10.jpg', 'img/ph-casa-ether-11.jpg', 'img/ph-casa-ether-12.jpg', 'img/ph-casa-ether-13.jpg', 'img/ph-casa-ether-14.jpg', 'img/ph-casa-ether-15.jpg'], plans=['img/ph-casa-ether-plan-pb.jpg','img/ph-casa-ether-plan-m1.jpg','img/ph-casa-ether-plan-site.jpg'])
 
+# ───────── CASA PUERTA AZUL (Los Huizaches · built by Espacios y Formas) ─────────
+add(slug="casa-puerta-azul", page=True, city="sma", kind="sale", name="Casa Puerta Azul", where="Los Huizaches · San Miguel de Allende",
+    auth="Designed and built by Espacios y Formas",
+    status="Built · large garden", price_mxn=10_995_000,
+    specs=[("379","m² built · 4,080 sq ft"),("952","m² lot · 10,247 sq ft"),("4","bedrooms"),("5","baths"),("2","cars"),("Pool","& garden"),("A/C","every bedroom")],
+    blurb="Mexican architecture in stone and wood on a 952 m² lot in Los Huizaches: a large garden framed by native huizache trees, a pool, four bedrooms (one on the ground floor) and a fireplace. Minutes from the San Miguel reservoir.",
+    intro="Casa Puerta Azul sits in Los Huizaches, a residential community in the lower part of Los Frailes built around a landscape of native huizache trees, where the houses were designed in harmony with the terrain. The house was designed and built by Espacios y Formas. Its great asset is the garden: a large, private 952 m² lot where huizaches frame the grounds and the pool anchors the outdoor life — for entertaining, family gatherings or simply privacy. Inside, warm stone and wood details carry the authentic Mexican character; four bedrooms, one of them on the ground floor, each with its own mini-split; a fireplace for the cooler months. A quiet setting minutes from the San Miguel de Allende reservoir, ideal for walks in nature.",
+    arch="Traditional Mexican architecture — stone and wood — organised around the garden and pool; one bedroom on the ground floor, three above.",
+    site="Los Huizaches, lower Los Frailes, San Miguel de Allende: a community developed around native huizache trees, minutes from the reservoir.",
+    materials="Stone and wood throughout; fireplace; mini-split air conditioning in every bedroom.",
+    condition="Built; ready to move in.",
+    highlights=["379 m² (4,080 sq ft) built on a 952 m² (10,247 sq ft) lot","Large private garden framed by native huizache trees","Pool for entertaining and family gatherings","4 bedrooms — master on the ground floor — and 5 baths","Staff room · 2-car garage","Mini-split A/C in every bedroom · fireplace","Authentic Mexican architecture in stone and wood","Minutes from the San Miguel de Allende reservoir","Designed and built by Espacios y Formas"],
+    program=[("Ground floor","Entry and vestibule · living room with fireplace and bar · dining · kitchen · guest toilet · covered terrace · pool and garden · master bedroom with bath · staff room with bath and service patio · 2-car garage"),("Upper floor","Three bedrooms with baths · family room · closet · roof terrace")],
+    location="Los Huizaches, lower part of Los Frailes, San Miguel de Allende — a quiet residential community minutes from the reservoir.",
+    plans=["img/ph-puerta-azul-plan-pb.jpg","img/ph-puerta-azul-plan-pa.jpg"],
+    img="img/ph-puerta-azul-13.jpg", gallery=["img/ph-puerta-azul-12.jpg", "img/ph-puerta-azul-16.jpg", "img/ph-puerta-azul-22.jpg", "img/ph-puerta-azul-11.jpg", "img/ph-puerta-azul-09.jpg", "img/ph-puerta-azul-05.jpg", "img/ph-puerta-azul-02.jpg", "img/ph-puerta-azul-04.jpg", "img/ph-puerta-azul-01.jpg", "img/ph-puerta-azul-03.jpg", "img/ph-puerta-azul-06.jpg", "img/ph-puerta-azul-07.jpg", "img/ph-puerta-azul-08.jpg", "img/ph-puerta-azul-10.jpg", "img/ph-puerta-azul-14.jpg", "img/ph-puerta-azul-15.jpg", "img/ph-puerta-azul-17.jpg", "img/ph-puerta-azul-18.jpg", "img/ph-puerta-azul-19.jpg", "img/ph-puerta-azul-20.jpg", "img/ph-puerta-azul-21.jpg"])
+
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="El Campanario Residencial & Golf · Querétaro",
     auth="Designed and built by RBC",

@@ -575,3 +575,37 @@ T.update({
 T.update({"Offices in Celaya and San Miguel de Allende": "Oficinas en Celaya y San Miguel de Allende"})
 
 T.update({"m² built · 7,933 sq ft": "m² construidos · 7,933 sq ft", "m² lot · 11,858 sq ft": "m² de lote · 11,858 sq ft", "737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot": "737 m² (7,933 sq ft) construidos en un lote de 1,101.65 m² (11,858 sq ft)"})
+
+# Casa Puerta Azul (1-oct-2026)
+T.update({
+ "Los Huizaches · San Miguel de Allende": "Los Huizaches · San Miguel de Allende",
+ "Designed and built by Espacios y Formas": "Diseñada y construida por Espacios y Formas",
+ "Built · large garden": "Construida · gran jardín", "m² built · 4,080 sq ft": "m² construidos · 4,080 sq ft", "m² lot · 10,247 sq ft": "m² de lote · 10,247 sq ft",
+ "& garden": "y jardín", "A/C": "A/C", "every bedroom": "en cada recámara",
+ "Mexican architecture in stone and wood on a 952 m² lot in Los Huizaches: a large garden framed by native huizache trees, a pool, four bedrooms (one on the ground floor) and a fireplace. Minutes from the San Miguel reservoir.": "Arquitectura mexicana en piedra y madera sobre un lote de 952 m² en Los Huizaches: un gran jardín enmarcado por huizaches nativos, alberca, cuatro recámaras (una en planta baja) y chimenea. A minutos de la presa de San Miguel.",
+ "Casa Puerta Azul sits in Los Huizaches, a residential community in the lower part of Los Frailes built around a landscape of native huizache trees, where the houses were designed in harmony with the terrain. The house was designed and built by Espacios y Formas. Its great asset is the garden: a large, private 952 m² lot where huizaches frame the grounds and the pool anchors the outdoor life — for entertaining, family gatherings or simply privacy. Inside, warm stone and wood details carry the authentic Mexican character; four bedrooms, one of them on the ground floor, each with its own mini-split; a fireplace for the cooler months. A quiet setting minutes from the San Miguel de Allende reservoir, ideal for walks in nature.": "Casa Puerta Azul está en Los Huizaches, una comunidad residencial en la parte baja de Los Frailes, desarrollada en torno a un paisaje de huizaches nativos donde las casas se diseñaron en armonía con el terreno. La casa fue diseñada y construida por Espacios y Formas. Su gran atractivo es el jardín: un lote amplio y privado de 952 m² donde los huizaches enmarcan el terreno y la alberca organiza la vida exterior — para reuniones, la familia o simplemente privacidad. Adentro, cálidos detalles de piedra y madera dan el carácter mexicano auténtico; cuatro recámaras, una de ellas en planta baja, cada una con su minisplit; chimenea para los meses fríos. Un entorno tranquilo a minutos de la presa de San Miguel de Allende, ideal para caminar en la naturaleza.",
+ "Traditional Mexican architecture — stone and wood — organised around the garden and pool; one bedroom on the ground floor, three above.": "Arquitectura mexicana tradicional — piedra y madera — organizada alrededor del jardín y la alberca; una recámara en planta baja, tres arriba.",
+ "Los Huizaches, lower Los Frailes, San Miguel de Allende: a community developed around native huizache trees, minutes from the reservoir.": "Los Huizaches, parte baja de Los Frailes, San Miguel de Allende: una comunidad desarrollada en torno a huizaches nativos, a minutos de la presa.",
+ "Stone and wood throughout; fireplace; mini-split air conditioning in every bedroom.": "Piedra y madera en toda la casa; chimenea; aire acondicionado minisplit en cada recámara.",
+ "Built and lived in; ready to move in.": "Construida y habitada; lista para ocuparse.",
+ "A 952 m² lot with a mature garden this close to town is hard to find; the ground-floor bedroom suits guests or single-level living.": "Un lote de 952 m² con jardín maduro tan cerca del centro es difícil de encontrar; la recámara en planta baja sirve para huéspedes o para vivir en un solo nivel.",
+ "We built this house. The garden is what sells it — go in the late afternoon when the huizaches throw their shade over the pool.": "Esta casa la construimos nosotros. El jardín es lo que la vende: ve por la tarde, cuando los huizaches dan sombra sobre la alberca.",
+ "379 m² (4,080 sq ft) built on a 952 m² (10,247 sq ft) lot": "379 m² (4,080 sq ft) construidos en un lote de 952 m² (10,247 sq ft)",
+ "Large private garden framed by native huizache trees": "Gran jardín privado enmarcado por huizaches nativos",
+ "Pool for entertaining and family gatherings": "Alberca para reuniones y la familia",
+ "4 bedrooms — one on the ground floor — and 5 baths": "4 recámaras — una en planta baja — y 5 baños",
+ "Mini-split A/C in every bedroom · fireplace": "Minisplit en cada recámara · chimenea",
+ "Authentic Mexican architecture in stone and wood": "Arquitectura mexicana auténtica en piedra y madera",
+ "Minutes from the San Miguel de Allende reservoir": "A minutos de la presa de San Miguel de Allende",
+ "Ground floor": "Planta baja", "Upper floor": "Planta alta",
+ "Living and dining with fireplace · kitchen · one bedroom with bath · garden and pool": "Sala y comedor con chimenea · cocina · una recámara con baño · jardín y alberca",
+ "Three bedrooms with baths": "Tres recámaras con baño",
+ "Los Huizaches, lower part of Los Frailes, San Miguel de Allende — a quiet residential community minutes from the reservoir.": "Los Huizaches, parte baja de Los Frailes, San Miguel de Allende — una comunidad residencial tranquila a minutos de la presa.",
+})
+# Casa Puerta Azul · planos (1-oct-2026)
+T.update({
+ "Entry and vestibule · living room with fireplace and bar · dining · kitchen · guest toilet · covered terrace · pool and garden · master bedroom with bath · staff room with bath and service patio · 2-car garage": "Acceso y vestíbulo · sala con chimenea y bar · comedor · cocina · medio baño de visitas · terraza cubierta · alberca y jardín · recámara principal con baño · cuarto de servicio con baño y patio de servicio · cochera para 2 autos",
+ "Three bedrooms with baths · family room · closet · roof terrace": "Tres recámaras con baño · sala familiar · clóset · azotea",
+ "4 bedrooms — master on the ground floor — and 5 baths": "4 recámaras — la principal en planta baja — y 5 baños",
+ "Staff room · 2-car garage": "Cuarto de servicio · cochera para 2 autos",
+})

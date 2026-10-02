@@ -220,61 +220,121 @@ JS = r"""
 </script>
 """
 
-# ───────────── PDF technical sheet ─────────────
+# ───────────── PDF technical sheet (v2 design, 1-oct-2026) ─────────────
+def font_faces():
+    """Local @font-face rules (Google Fonts is unreachable from the build box)."""
+    import os, glob
+    d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+    out = []
+    for f in sorted(glob.glob(os.path.join(d, "*-latin-*.woff2"))):
+        n = os.path.basename(f)[:-6]
+        fam, _, rest = n.partition("-latin-")
+        if rest.startswith("ext-"): continue
+        w, st = rest.split("-")
+        fam = {"fraunces":"Fraunces","figtree":"Figtree","instrument-sans":"Instrument Sans"}[fam]
+        out.append(f"@font-face{{font-family:'{fam}';font-weight:{w};font-style:{st};src:url('file://{f}') format('woff2');}}")
+    return "\n".join(out)
+
 def pdf_html(l, site_url):
-    from listings import price_line
+    from listings import price_line, mdp, usd
     ph = photos(l)
     sp = "".join(f'<div class="s"><b>{a}</b><span>{b}</span></div>' for a, b in l["specs"])
     hl = "".join(f"<li>{h}</li>" for h in l.get("highlights", []))
     prog = "".join(f"<div class='p'><b>{a}</b>{b}</div>" for a, b in l.get("program", []))
-    plans = "".join(f'<img class="plan" src="{p}">' for p in l.get("plans", []))
-    gal = "".join(f'<img src="{p}">' for p in ph[1:])
+    secs = "".join(f"<h3>{k}</h3><p>{l.get(v)}</p>" for k, v in (("Architecture","arch"),("Site","site"),("Materials","materials"),("Condition","condition"),("Potential","potential")) if l.get(v) and l.get(v) != "—")
+    notes = (f"<div class='notes'><b>Roberto's Notes</b><p>{l['notes']}</p><span>— R. Balderas Carrillo, Arquitecto</span></div>") if l.get('notes') else ''
+    kind = 'For rent' if l.get('kind') == 'rent' else 'For sale'
+    # price (big + secondary)
+    if l.get("price_usd"):
+        pbig, psmall = f"US ${l['price_usd']:,}", ""
+    elif l.get("price_mxn"):
+        if l["kind"] == "rent": pbig, psmall = mdp(l['price_mxn']), f"≈ {usd(l['price_mxn'])} per {l.get('price_per','month')}"
+        else: pbig, psmall = f"MX ${l['price_mxn']:,}", f"≈ {usd(l['price_mxn'])}"
+    else:
+        pbig, psmall = l.get('price_note', 'Price on request'), ""
+    foot = f'<div class="foot"><span>{l["name"]} · {l["where"]}</span><span>Roberto Balderas Carrillo · Arquitecto · WhatsApp +52 461 101 2474 · {site_url}</span></div><div class="bar"><i></i><i></i><i></i></div>'
+    # plans page
+    plans_pg = ""
+    if l.get("plans"):
+        plans_pg = f'<section class="pg"><div class="eyebrow">Plans</div><h2>{l["name"]} · floor plans</h2><div class="plancap"><span>Ground floor</span><span>Upper floor</span></div><div class="plans">' + "".join(f'<img src="{p}">' for p in l["plans"]) + f'</div>{foot}</section>'
+    # gallery pages, 6 photos per page, uncropped 3:2 cells
+    gal = ph[1:]
+    gal_pgs = ""
+    for i in range(0, len(gal), 8):
+        chunk = gal[i:i+8]
+        gal_pgs += f'<section class="pg"><div class="eyebrow">Gallery {i//8+1}</div><div class="gal">' + "".join(f'<figure><img src="{p}"></figure>' for p in chunk) + f'</div>{foot}</section>'
     return f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>{l['name']} — RBC technical sheet</title>
 <style>
-@page{{size:A4;margin:14mm 14mm 16mm;}}
-body{{font-family:'Figtree','Helvetica Neue',Arial,sans-serif;color:#20242E;font-size:10.5pt;line-height:1.45;}}
-h1,h2,h3{{font-family:'Fraunces',Georgia,serif;font-weight:400;color:#232F66;margin:0;}}
-.top{{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #E0D9CA;padding-bottom:8px;}}
-.top img{{height:34px;}} .top .r{{font-size:8pt;letter-spacing:.2em;text-transform:uppercase;color:#5A6070;text-align:right;}}
-.hero{{margin:12px 0 10px;height:95mm;overflow:hidden;border-radius:6px;background:#eee;}} .hero img{{width:100%;height:100%;object-fit:cover;}}
+{font_faces()}
+@page{{size:A4;margin:0;}}
+*{{box-sizing:border-box;margin:0;padding:0}}
+html,body{{background:#fff;}}
+body{{font-family:'Figtree','Helvetica Neue',Arial,sans-serif;color:#20242E;font-size:10pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+h1,h2,h3{{font-family:'Fraunces',Georgia,serif;font-weight:300;color:#232F66;}}
+.pg{{position:relative;width:210mm;height:297mm;overflow:hidden;padding:14mm 16mm 20mm;page-break-after:always;background:#FAF7F1;}}
+.pg:last-child{{page-break-after:auto;}}
+.cover{{padding:0;background:#fff;}}
+.cover .hero{{height:176mm;overflow:hidden;background:#ddd;}} .cover .hero img{{width:100%;height:100%;object-fit:cover;display:block;}}
+.cover .logo{{position:absolute;top:187mm;right:14mm;height:11mm;}}
+.cover .kind{{position:absolute;top:13mm;right:14mm;font-size:7.5pt;letter-spacing:.3em;text-transform:uppercase;color:#fff;background:#232F66;padding:5px 10px;}}
+.cover .body{{padding:11mm 14mm 0;}}
 .eyebrow{{font-size:7.5pt;letter-spacing:.3em;text-transform:uppercase;color:#E8402A;font-weight:700;}}
-h1{{font-size:26pt;line-height:1.05;margin:4px 0 2px;}}
-.price{{font-family:'Fraunces',Georgia,serif;font-size:18pt;color:#E8402A;margin:4px 0 10px;}} .price small{{font-family:'Figtree',Arial;font-size:9pt;color:#5A6070;}}
-.specs{{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px;}} .s{{border:1px solid #E0D9CA;border-radius:6px;padding:6px 10px;min-width:70px;text-align:center;}} .s b{{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:14pt;color:#232F66;}} .s span{{font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:#5A6070;}}
-.cols{{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;}}
-h3{{font-size:13pt;margin:12px 0 5px;border-bottom:1px solid #E0D9CA;padding-bottom:3px;}}
-ul{{padding-left:14px;margin:0;}} li{{margin:2px 0;}}
-.p{{border-left:2px solid #F4C020;padding:4px 8px;margin:6px 0;font-size:9.5pt;color:#5A6070;}} .p b{{display:block;color:#232F66;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:11pt;}}
-.pb{{page-break-before:always;}}
-.plan{{width:100%;border:1px solid #E0D9CA;border-radius:6px;margin:6px 0 10px;page-break-inside:avoid;}}
-.gal{{display:grid;grid-template-columns:1fr 1fr;gap:6px;}} .gal img{{width:100%;height:62mm;object-fit:cover;border-radius:4px;}}
-.contact{{margin-top:14px;border-top:1px solid #E0D9CA;padding-top:10px;display:flex;justify-content:space-between;font-size:9pt;}}
-.fine{{font-size:7pt;color:#8a8f9c;margin-top:8px;}}
-.prov{{font-size:7.5pt;color:#8a8f9c;font-style:italic;}}
-.notes{{border-left:2px solid #F4C020;padding:4px 10px;margin:10px 0;}} .notes b{{font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:#232F66;}} .notes p{{font-family:'Fraunces',Georgia,serif;font-size:11pt;margin:3px 0;}} .notes span{{font-size:7.5pt;letter-spacing:.14em;color:#5A6070;}}
+.cover h1{{font-size:34pt;line-height:1;margin:5px 0 3px;letter-spacing:-.01em;}}
+.cover .where{{font-size:11pt;color:#5A6070;}}
+.cover .auth{{font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:#232F66;margin-top:4px;}}
+.cover .pr{{display:flex;align-items:baseline;gap:10px;margin:7mm 0 5mm;border-top:1px solid #232F66;padding-top:4mm;}}
+.cover .pr b{{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:26pt;color:#232F66;line-height:1;}}
+.cover .pr span{{font-size:9pt;color:#5A6070;}}
+.specs{{display:grid;grid-template-columns:repeat({min(len(l['specs']),7)},1fr);gap:0 12px;}}
+.s{{border-top:1px solid #232F66;padding:6px 0 0;}}
+.s b{{display:block;font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:16pt;color:#232F66;line-height:1.1;}}
+.s span{{display:block;font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;color:#5A6070;margin-top:3px;line-height:1.3;}}
+.bar{{position:absolute;left:0;right:0;bottom:0;height:5px;display:flex;}} .bar i{{flex:1;}} .bar i:nth-child(1){{background:#E8402A}} .bar i:nth-child(2){{background:#232F66}} .bar i:nth-child(3){{background:#F4C020}}
+.foot{{position:absolute;left:16mm;right:16mm;bottom:9mm;display:flex;justify-content:space-between;font-size:6.8pt;letter-spacing:.08em;color:#5A6070;text-transform:uppercase;}}
+.cover .foot{{left:14mm;right:14mm;}}
+h2{{font-size:22pt;line-height:1.05;margin:4px 0 6mm;}}
+h3{{font-size:8pt;letter-spacing:.24em;text-transform:uppercase;font-family:'Figtree',Arial,sans-serif;font-weight:700;color:#232F66;margin:7mm 0 2mm;}}
+h3:first-of-type{{margin-top:0;}}
+.cols{{display:grid;grid-template-columns:1.25fr 1fr;gap:12mm;}}
+.lead{{font-family:'Fraunces',Georgia,serif;font-size:11pt;line-height:1.42;color:#20242E;}}
+p{{margin:0 0 4px;color:#3a3f4a;}}
+ul{{list-style:none;}} li{{padding:4px 0 4px 14px;border-bottom:1px solid #E6E0D3;position:relative;font-size:9.5pt;}} li::before{{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:#F4C020;}}
+.p{{border-top:1px solid #E6E0D3;padding:6px 0;font-size:9.3pt;color:#5A6070;}} .p b{{display:block;color:#232F66;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:11.5pt;margin-bottom:2px;}}
+.notes{{border-left:3px solid #F4C020;padding:3px 10px;margin:6mm 0;}} .notes b{{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:#232F66;}} .notes p{{font-family:'Fraunces',Georgia,serif;font-size:11pt;font-style:italic;margin:3px 0;}} .notes span{{font-size:7.5pt;letter-spacing:.14em;color:#5A6070;}}
+.contact{{margin-top:5mm;border-top:1px solid #232F66;padding-top:4mm;display:grid;grid-template-columns:1fr 1fr;gap:8mm;font-size:9pt;color:#3a3f4a;}} .contact b{{display:block;color:#232F66;font-size:10.5pt;}}
+.fine{{font-size:6.5pt;color:#8a8f9c;margin-top:3mm;line-height:1.35;}}
+.plans{{display:grid;grid-template-columns:repeat({min(len(l.get("plans",[])) or 1,2)},1fr);gap:5mm;}} .plans img{{width:100%;height:232mm;object-fit:contain;background:#fff;border:1px solid #E6E0D3;}}
+.plancap{{display:grid;grid-template-columns:1fr 1fr;gap:5mm;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:#5A6070;margin:-4mm 0 2mm;}}
+.gal{{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm;}} .gal figure{{aspect-ratio:3/2;background:#fff;overflow:hidden;}} .gal figure img{{width:100%;height:100%;object-fit:cover;display:block;}}
 </style></head><body>
-<div class="top"><img src="img/rbc-logo.png"><div class="r">Technical sheet · {'For rent' if l.get('kind')=='rent' else 'For sale'}<br>{l['where']}</div></div>
-<div class="hero"><img src="{ph[0]}"></div>
-<div class="eyebrow">{l['status']}{(' · '+l['auth']) if l.get('auth') else ''}</div>
-<h1>{l['name']}</h1>
-<div class="price">{price_line(l, True)}</div>
-<div class="specs">{sp}</div>
-<div class="cols">
-  <div><h3>The {'space' if l.get('kind')=='rent' else 'house'}</h3><p>{l.get('intro') or l.get('blurb','')}</p>
-       {''.join(f"<h3>{k}</h3><p>{l.get(v)}</p>" for k,v in (("Architecture","arch"),("Site","site"),("Materials","materials"),("Condition","condition"),("Potential","potential")) if l.get(v) and l.get(v)!="—")}
-       {("<div class='notes'><b>Roberto's Notes</b><p><i>"+l['notes']+"</i></p><span>— R. Balderas Carrillo, Arquitecto</span></div>") if l.get('notes') else ''}
-       <h3>At a glance</h3><ul>{hl}</ul></div>
-  <div><h3>Program</h3>{prog}
-       <h3>Location</h3><p>{l.get('location') or l['where'] + '.'}</p></div>
-</div>
-<div class="contact"><div><b>Roberto Balderas Carrillo</b> · Arquitecto · RBC, in collaboration with Espacios y Formas<br>WhatsApp +52 461 101 2474 · @arqrobertobalderas · {site_url}</div><div style="text-align:right">{l.get('auth','')}<br>English &amp; Spanish</div></div>
-<div class="fine">Prices in MXN; USD figures approximate at prevailing exchange rates. Specifications, availability and delivery subject to change without notice. This sheet is not a binding offer.</div>
-<div class="pb"><h2>Plans &amp; gallery</h2>
-{plans if plans else '<p class="prov">Floor plans are being prepared for this sheet — request them on WhatsApp.</p>'}
-<div class="gal">{gal}</div>
-<p class="prov">Provisional images where noted; final photography in progress.</p>
-<div class="contact"><div><b>{l['name']}</b> · {l['where']}</div><div>WhatsApp +52 461 101 2474 · {site_url}</div></div>
-</div>
+<section class="pg cover">
+  <div class="hero"><img src="{ph[0]}"></div>
+  <img class="logo" src="img/rbc-logo.png"><div class="kind">{kind}</div>
+  <div class="body">
+    <div class="eyebrow">{l['status']}</div>
+    <h1>{l['name']}</h1>
+    <div class="where">{l['where']}</div>
+    {('<div class="auth">'+l['auth']+'</div>') if l.get('auth') else ''}
+    <div class="pr"><b>{pbig}</b><span>{psmall}</span></div>
+    <div class="specs">{sp}</div>
+  </div>
+  {foot}
+</section>
+<section class="pg">
+  <div class="eyebrow">{kind} · {l['where']}</div>
+  <h2>{l['name']}</h2>
+  <div class="cols">
+    <div><h3>The {'space' if l.get('kind')=='rent' else 'house'}</h3><p class="lead">{l.get('intro') or l.get('blurb','')}</p>{secs}{notes}</div>
+    <div><h3>At a glance</h3><ul>{hl}</ul>
+         {('<h3>Program</h3>'+prog) if prog else ''}
+         <h3>Location</h3><p>{l.get('location') or l['where'] + '.'}</p></div>
+  </div>
+  <div class="contact"><div><b>Roberto Balderas Carrillo</b>Arquitecto · RBC, in collaboration with Espacios y Formas<br>WhatsApp +52 461 101 2474<br>arq.robertbalderas@gmail.com · @arqrobertobalderas</div><div><b>{l['name']}</b>{l.get('auth','')}<br>{site_url}<br>English &amp; Spanish</div></div>
+  <div class="fine">Prices in MXN; USD figures approximate at prevailing exchange rates. Specifications, availability and delivery subject to change without notice. This sheet is not a binding offer.</div>
+  {foot}
+</section>
+{plans_pg}
+{gal_pgs}
 </body></html>"""
 
 def build_pdfs(ls, out_dir, site_dir, site_url):

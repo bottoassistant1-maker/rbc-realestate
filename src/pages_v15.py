@@ -70,7 +70,7 @@ def architecture(wa, SITE):
             body, "img/ph-casa-jalpa-02.jpg", ld, "0.9")
 
 # ───────────────────────────── REAL ESTATE ─────────────────────────────
-HOMES_ORDER = ["casa-travertino","casa-horizonte","casa-musa","casa-ether","casa-zafiro","casa-cima","magno-apartment","duplex","panoramic-suite","magno-home","nueva-escondida"]  # Roberto, 18-sep-2026
+HOMES_ORDER = ["casa-travertino","casa-horizonte","casa-musa","casa-ether","casa-zafiro","casa-puerta-azul","casa-cima","magno-apartment","duplex","panoramic-suite","magno-home","nueva-escondida"]  # Roberto, 18-sep-2026
 def _homes_order(ls):
     by = {l["slug"]: l for l in ls}
     first = [by[s] for s in HOMES_ORDER if s in by]
