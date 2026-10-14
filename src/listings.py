@@ -112,7 +112,7 @@ add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences"
 add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
     status="For rent · Historic center", price_mxn=None, price_note="Price on request",
-    specs=[("1","bedroom · king"),("1","full bath"),("Balcony","facing the Parroquia"),("Services","included")],
+    specs=[("74","m² · 799 sq ft"),("1","bedroom · king"),("1","full bath"),("Balcony","facing the Parroquia"),("Services","included")],
     blurb="An apartment above Casa Cuadrante: living-dining with fireplace and a view of the Parroquia, private balcony, art on every wall. Furnished; services included.",
     intro="Casa Musa is the apartment above Casa Cuadrante, the restaurant on the ground floor of a historic house that RBC restored, adapted and furnished. It was made for people who like living among art: a living-dining room with a fireplace and a direct view of the Parroquia, a bedroom with a king bed and full bath, a sound system, a private balcony over the street and a laundry room. Water, electricity and internet are included. Available for mid-term stays.",
     arch="An apartment organised around a living-dining room with a fireplace and a straight view of the Parroquia; private balcony over the street.",
@@ -122,14 +122,15 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     potential="Mid-term stays inside the center rather than next to it.",
     notes="It was designed to be lived in by someone who works surrounded by art. The balcony does the rest.",
     highlights=["Living-dining room with fireplace and a direct view of the Parroquia","Bedroom with king bed and full bathroom","Private balcony facing the Parroquia","Furnished and decorated; art throughout; sound system","Laundry room · water, electricity and internet included","Above Casa Cuadrante, in the historic center","Mid-term stays"],
-    program=[("The apartment","Living-dining with fireplace · kitchen · bedroom with full bath · laundry · private balcony")],
+    program=[("The apartment · 74.23 m²","Living room with a view of the Parroquia and the historic center · dining · kitchen · bedroom · full bath · patio and laundry area")],
+    plans=["img/ph-musa-plan.jpg"],
     location="Inside Casa Cuadrante, in the historic center of San Miguel de Allende — restaurants, galleries and the Jardín Principal on foot.",
     img="img/ph-musa-n07.jpg", gallery=['img/ph-musa-n35.jpg', 'img/ph-musa-n09.jpg', 'img/ph-musa-n05.jpg', 'img/ph-musa-n23.jpg', 'img/ph-musa-n13.jpg', 'img/ph-musa-n14.jpg', 'img/ph-musa-n17.jpg', 'img/ph-musa-n28.jpg', 'img/ph-musa-n29.jpg', 'img/ph-musa-n30.jpg', 'img/ph-musa-n31.jpg', 'img/ph-musa-n33.jpg', 'img/ph-musa-n27.jpg', 'img/ph-musa-n24.jpg', 'img/ph-musa-n01.jpg', 'img/ph-musa-n20.jpg', 'img/ph-cuad-n03.jpg', 'img/ph-cuad-n01.jpg'])
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="For rent · Historic center · San Miguel de Allende",
     auth="Casa Cuadrante — restored and designed by RBC",
     status="For rent · Historic center", price_mxn=None, price_note="Price on request",
-    specs=[("300°","terrace view"),("1","queen bed"),("1","full bath"),("Services","included")],
+    specs=[("68","m² · 733 sq ft"),("300°","terrace view"),("1","queen bed"),("1","full bath"),("Services","included")],
     blurb="A suite with a large private terrace directly in front of the Parroquia — a 300-degree view of the town. Queen bed, full bath, mini-fridge.",
     intro="The Panoramic Suite is defined by its terrace: large, private and directly in front of the Parroquia, with the whole of San Miguel around it. Queen bed, full bathroom and mini-fridge; an outdoor kitchenette can be fitted on the terrace if needed. Loungers and tables outside. Services included; also available for short stays.",
     arch="A suite whose main room is outdoors: a large private terrace facing the Parroquia.",
@@ -139,7 +140,8 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
     potential="Stays with an unobstructed view of the Parroquia, for a weekend or a season.",
     notes="Of the terraces I know in San Miguel, this is the one I would choose.",
     highlights=["Large private terrace with a 300° view of San Miguel, facing the Parroquia","Queen bed, full bathroom, mini-fridge","Outdoor kitchenette on the terrace on request","Loungers and tables on the terrace","Services included · mid-term stays","Short stays also available (Airbnb link pending)","Inside Casa Cuadrante, restored and designed by RBC"],
-    program=[("The suite","Bedroom with queen bed · full bath · mini-fridge · private panoramic terrace")],
+    program=[("The suite · 68.14 m²","Bedroom with queen bed · full bath · laundry area · private terrace with a view of the Parroquia and the historic center")],
+    plans=["img/ph-suite-plan.jpg"],
     location="Casa Cuadrante, historic center of San Miguel de Allende — the terrace faces the Parroquia directly.",
     img="img/ph-suite-n19.jpg", gallery=['img/ph-suite-n15.jpg', 'img/ph-suite-n16.jpg', 'img/ph-suite-n11.jpg', 'img/ph-suite-n17.jpg', 'img/ph-suite-n18.jpg', 'img/ph-suite-n08.jpg', 'img/ph-suite-n14.jpg', 'img/ph-suite-n10.jpg', 'img/ph-suite-n12.jpg', 'img/ph-suite-n01.jpg', 'img/ph-suite-n20.jpg', 'img/ph-cuad-n02.jpg'])
 
@@ -181,7 +183,7 @@ add(slug="casa-puerta-azul", page=True, city="sma", kind="sale", name="Casa Puer
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="El Campanario Residencial & Golf · Querétaro",
     auth="Designed and built by RBC",
-    status="Newly built", price_mxn=39_700_000,
+    status="Newly built", price_mxn=40_000_000,
     specs=[("737","m² built · 7,933 sq ft"),("1,102","m² lot · 11,858 sq ft"),("4","bedrooms"),("Staff","quarters"),("4+2","baths"),("3","cars"),("Pool","& sun deck")],
     blurb="Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.",
     intro="Casa Travertino occupies the last lot of its private street inside El Campanario Residencial & Golf, which is why every terrace looks at the mountains. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.",

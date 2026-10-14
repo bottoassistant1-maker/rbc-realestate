@@ -609,3 +609,11 @@ T.update({
  "4 bedrooms — master on the ground floor — and 5 baths": "4 recámaras — la principal en planta baja — y 5 baños",
  "Staff room · 2-car garage": "Cuarto de servicio · cochera para 2 autos",
 })
+# Musa / Suite planos (14-oct-2026)
+T.update({
+ "m² · 799 sq ft": "m² · 799 sq ft", "m² · 733 sq ft": "m² · 733 sq ft",
+ "The apartment · 74.23 m²": "El departamento · 74.23 m²",
+ "Living room with a view of the Parroquia and the historic center · dining · kitchen · bedroom · full bath · patio and laundry area": "Sala con vista a la Parroquia y al centro histórico · comedor · cocina · recámara · baño completo · patio y área de lavado",
+ "The suite · 68.14 m²": "La suite · 68.14 m²",
+ "Bedroom with queen bed · full bath · laundry area · private terrace with a view of the Parroquia and the historic center": "Recámara con cama queen · baño completo · área de lavado · terraza privada con vista a la Parroquia y al centro histórico",
+})
