@@ -10,7 +10,6 @@
 <meta content="index, follow, max-image-preview:large" name="robots"/>
 <link href="../img/favicon.png" rel="icon" type="image/png"/>
 <link href="https://rbc-realestate.vercel.app/terms.html" hreflang="en" rel="alternate"/>
-<link href="https://rbc-realestate.vercel.app/es/terms.html" hreflang="es" rel="alternate"/>
 <link href="https://rbc-realestate.vercel.app/terms.html" hreflang="x-default" rel="alternate"/>
 <meta content="website" property="og:type"/>
 <meta content="RBC · Roberto Balderas Carrillo, Arquitecto" property="og:site_name"/>
@@ -805,7 +804,8 @@ a.eyf-link:hover{color:var(--c-re);}
 .cityf{margin:-6px 0 22px;}
 .fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
-.fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
+.fs h3 .fs-brand{height:14px;width:auto;flex:0 0 auto;margin-left:4px;}
+.fs-auth-sm{font-size:.78rem;color:var(--ink-soft);margin-top:2px;line-height:1.6;} .fs-auth-sm .brand img{height:1.1em;} .fs-auth-sm .brand-pa img{height:1em;}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -936,6 +936,17 @@ body.fbig-open{overflow:hidden;}
 .ck .btn{padding:10px 14px;font-size:.62rem;white-space:nowrap;}
 @media(max-width:600px){.ck{left:12px;right:12px;bottom:12px;max-width:none;flex-direction:column;align-items:stretch;}}
 .tel-reveal{background:none;border:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer;}
+
+.brand{display:inline-block;line-height:0;vertical-align:baseline;text-decoration:none!important;border:0;}
+.brand img{height:.98em;width:auto;display:inline-block;vertical-align:-0.14em;}
+.brand-pa img{height:.9em;vertical-align:-0.1em;}
+.brand-magno img{height:1.15em;vertical-align:-0.28em;}
+a.brand:hover img{opacity:.75;}
+.pp-auth .brand img{height:1.15em;}
+.fs-auth .brand img{height:1.7em;vertical-align:-0.45em;} .fs-auth .brand-magno img{height:2.1em;vertical-align:-0.6em;} .fs-auth .brand-pa img{height:1.5em;vertical-align:-0.35em;}
+p .brand img,li .brand img{height:1.02em;}
+footer .brand img{height:1em;}
+.intro-contact .brand img,.facts .brand img{height:1.35em;}
 </style>
 <link href="https://rbc-realestate.vercel.app/es/terms.html" hreflang="es" rel="alternate"/></head>
 <body class="">
@@ -965,13 +976,13 @@ body.fbig-open{overflow:hidden;}
 <div class="legal-body" data-l="en">
 <h2>Terms of use and legal notice</h2>
 <h3>1. Nature of the information</h3>
-<p>This website presents the architectural work of Roberto Balderas Carrillo and a selection of properties and developments he represents or that are marketed by Espacios y Formas. The information is for reference only and does not constitute a binding offer, a promise of sale or lease, professional advice or a technical opinion.</p>
+<p>This website presents the architectural work of Roberto Balderas Carrillo and a selection of properties and developments he represents or that are marketed by <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a>. The information is for reference only and does not constitute a binding offer, a promise of sale or lease, professional advice or a technical opinion.</p>
 <h3>2. Prices, availability and specifications</h3>
 <p>Prices are stated in Mexican pesos unless otherwise indicated; amounts in US dollars are approximate references and depend on the exchange rate on the day of the transaction. Prices, availability, surfaces, specifications, finishes and delivery dates may change without notice and are confirmed only in a written agreement. Some images are renders or provisional photographs, as noted; built results may differ.</p>
 <h3>3. Developments and third parties</h3>
-<p>Developments such as Peñas Arriba, Magno Home &amp; Towers, La Escondida and La Nueva Escondida are developed and marketed by Espacios y Formas or the entities indicated; their own sales sites, terms and contracts govern any purchase. Links to external websites are provided for convenience.</p>
+<p>Developments such as Peñas Arriba, Magno Home &amp; Towers, La Escondida and La Nueva Escondida are developed and marketed by <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a> or the entities indicated; their own sales sites, terms and contracts govern any purchase. Links to external websites are provided for convenience.</p>
 <h3>4. Intellectual property</h3>
-<p>Architectural projects, drawings, renders, photographs, texts and the RBC marks on this site belong to Roberto Balderas Carrillo, Espacios y Formas or their respective authors and may not be reproduced without written permission.</p>
+<p>Architectural projects, drawings, renders, photographs, texts and the RBC marks on this site belong to Roberto Balderas Carrillo, <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a> or their respective authors and may not be reproduced without written permission.</p>
 <h3>5. Liability</h3>
 <p>We make reasonable efforts to keep the information accurate but do not guarantee that it is free of errors or up to date at all times. Decisions to buy, rent, design or build should be based on the documents delivered in each specific process.</p>
 <h3>6. Applicable law</h3>
@@ -980,13 +991,13 @@ body.fbig-open{overflow:hidden;}
 <div class="legal-body" data-l="es" hidden="">
 <h2>Términos de uso y aviso legal</h2>
 <h3>1. Naturaleza de la información</h3>
-<p>Este sitio presenta la obra arquitectónica de Roberto Balderas Carrillo y una selección de propiedades y desarrollos que él representa o que comercializa Espacios y Formas. La información es de referencia y no constituye una oferta vinculante, promesa de venta o arrendamiento, asesoría profesional ni dictamen técnico.</p>
+<p>Este sitio presenta la obra arquitectónica de Roberto Balderas Carrillo y una selección de propiedades y desarrollos que él representa o que comercializa <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a>. La información es de referencia y no constituye una oferta vinculante, promesa de venta o arrendamiento, asesoría profesional ni dictamen técnico.</p>
 <h3>2. Precios, disponibilidad y especificaciones</h3>
 <p>Los precios se expresan en pesos mexicanos salvo indicación en contrario; los montos en dólares son referencias aproximadas sujetas al tipo de cambio del día de la operación. Precios, disponibilidad, superficies, especificaciones, acabados y fechas de entrega pueden cambiar sin previo aviso y se confirman únicamente en un contrato escrito. Algunas imágenes son renders o fotografías provisionales, según se indica; el resultado construido puede variar.</p>
 <h3>3. Desarrollos y terceros</h3>
-<p>Desarrollos como Peñas Arriba, Magno Home &amp; Towers, La Escondida y La Nueva Escondida son desarrollados y comercializados por Espacios y Formas o por las entidades indicadas; sus propios sitios de venta, términos y contratos rigen cualquier compra. Los enlaces a sitios externos se ofrecen por conveniencia.</p>
+<p>Desarrollos como Peñas Arriba, Magno Home &amp; Towers, La Escondida y La Nueva Escondida son desarrollados y comercializados por <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a> o por las entidades indicadas; sus propios sitios de venta, términos y contratos rigen cualquier compra. Los enlaces a sitios externos se ofrecen por conveniencia.</p>
 <h3>4. Propiedad intelectual</h3>
-<p>Los proyectos, planos, renders, fotografías, textos y marcas RBC de este sitio pertenecen a Roberto Balderas Carrillo, a Espacios y Formas o a sus respectivos autores y no pueden reproducirse sin autorización escrita.</p>
+<p>Los proyectos, planos, renders, fotografías, textos y marcas RBC de este sitio pertenecen a Roberto Balderas Carrillo, a <a class="brand brand-eyf" href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank"><img alt="Espacios y Formas" src="../img/eyf-wordmark.png" title="Espacios y Formas"/></a> o a sus respectivos autores y no pueden reproducirse sin autorización escrita.</p>
 <h3>5. Responsabilidad</h3>
 <p>Hacemos esfuerzos razonables por mantener la información correcta, pero no garantizamos que esté libre de errores o actualizada en todo momento. Las decisiones de compra, renta, diseño o construcción deben basarse en los documentos entregados en cada proceso específico.</p>
 <h3>6. Ley aplicable</h3>
@@ -998,7 +1009,7 @@ body.fbig-open{overflow:hidden;}
 <footer>
 <div class="in">
 <div class="cols">
-<div><div class="seal"><img alt="RBC" src="../img/rbc-mono-white.png" style="height:46px;display:block;margin-bottom:12px;"/><span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Arquitectura, construcción y propiedades seleccionadas.<br/>San Miguel de Allende · Bajío · México.<br/>En colaboración con <a href="https://www.espaciosyformas.com.mx/" rel="noopener" style="display:inline;padding:0;" target="_blank">Espacios y Formas</a>.</p></div>
+<div><div class="seal"><img alt="RBC" src="../img/rbc-mono-white.png" style="height:46px;display:block;margin-bottom:12px;"/><span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Arquitectura, construcción y propiedades seleccionadas.<br/>San Miguel de Allende · Bajío · México.<br/>En colaboración con <a href="https://www.espaciosyformas.com.mx/" rel="noopener" style="display:inline;padding:0;" target="_blank"><span class="brand brand-eyf"><img alt="Espacios y Formas" src="../img/eyf-wordmark-white.png" title="Espacios y Formas"/></span></a>.</p></div>
 <div><small>Sitio</small><a href="architecture.html">Arquitectura y Diseño</a><a href="real-estate.html">Bienes Raíces</a><a href="real-estate.html#developments">Desarrollos</a><a href="construction.html">Construcción</a><a href="contact.html">Contacto</a></div>
 <div><small>Start</small><a href="contact.html#project">Iniciar un proyecto</a><a href="contact.html#buy">Comprar una propiedad</a><a href="contact.html#sell">Vender una propiedad</a><a href="contact.html#general">Consulta general</a></div>
 <div><small>Directo</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp con Roberto</a><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Mostrar teléfono</button><a href="https://www.instagram.com/arqrobertobalderas" rel="noopener" target="_blank">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank">espaciosyformas.com.mx</a><a href="privacy.html">Aviso de privacidad</a><a href="terms.html">Aviso legal</a></div>
@@ -1136,6 +1147,10 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   if(!box) return;
   let bigSl=null;
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  const PFX=location.pathname.indexOf('/es/')>=0?'../':'';
+  const BR={'Espacios y Formas':['img/eyf-wordmark.png','https://www.espaciosyformas.com.mx/','brand brand-eyf'],'Peñas Arriba':['img/penas-arriba-text.png','penas-arriba.html','brand brand-pa'],'Magno':['img/magno-logo-navy.png','magno.html','brand brand-magno']};
+  function brand(s){ s=esc(s); for(const n in BR){ const [img,href,cls]=BR[n]; const h=href.startsWith('http')?href:PFX+href; const t=href.startsWith('http')?' target="_blank" rel="noopener"':''; s=s.split(n).join('<a class="'+cls+'" href="'+h+'"'+t+'><img src="'+PFX+img+'" alt="'+n+'" title="'+n+'"></a>'); } return s; }
+  window.brandHTML=brand;
   window.openFicha=function(slug){
     const d=(window.FICHAS||{})[slug]; if(!d) return;
     const shots=d.photos, plans=d.plans||[];
@@ -1146,7 +1161,7 @@ document.querySelectorAll('.pfilters').forEach(f=>{
         (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Fotos</button><button data-set="plans">Plantas</button></div>':'')+
       '</div>'+
       '<div class="fb-in">'+
-        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+esc(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
+        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+brand(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
         '<div class="fb-specs">'+d.specs.map(s=>'<div><div class="n">'+esc(s[0])+'</div><div class="l">'+esc(s[1])+'</div></div>').join('')+'</div>'+
         ((d.units||[]).length?'<div class="fb-units"><h4>Unidades disponibles</h4>'+d.units.map(u=>'<div><b>'+esc(u[0])+'</b><span>'+esc(u[1])+'</span><i>'+esc(u[2])+'</i></div>').join('')+'</div>':'')+
         '<div class="fb-grid"><div>'+

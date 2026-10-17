@@ -10,7 +10,6 @@
 <meta content="index, follow, max-image-preview:large" name="robots"/>
 <link href="../img/favicon.png" rel="icon" type="image/png"/>
 <link href="https://rbc-realestate.vercel.app/architecture.html" hreflang="en" rel="alternate"/>
-<link href="https://rbc-realestate.vercel.app/es/architecture.html" hreflang="es" rel="alternate"/>
 <link href="https://rbc-realestate.vercel.app/architecture.html" hreflang="x-default" rel="alternate"/>
 <meta content="website" property="og:type"/>
 <meta content="RBC · Roberto Balderas Carrillo, Arquitecto" property="og:site_name"/>
@@ -807,7 +806,8 @@ a.eyf-link:hover{color:var(--c-re);}
 .cityf{margin:-6px 0 22px;}
 .fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
-.fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
+.fs h3 .fs-brand{height:14px;width:auto;flex:0 0 auto;margin-left:4px;}
+.fs-auth-sm{font-size:.78rem;color:var(--ink-soft);margin-top:2px;line-height:1.6;} .fs-auth-sm .brand img{height:1.1em;} .fs-auth-sm .brand-pa img{height:1em;}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -938,6 +938,17 @@ body.fbig-open{overflow:hidden;}
 .ck .btn{padding:10px 14px;font-size:.62rem;white-space:nowrap;}
 @media(max-width:600px){.ck{left:12px;right:12px;bottom:12px;max-width:none;flex-direction:column;align-items:stretch;}}
 .tel-reveal{background:none;border:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer;}
+
+.brand{display:inline-block;line-height:0;vertical-align:baseline;text-decoration:none!important;border:0;}
+.brand img{height:.98em;width:auto;display:inline-block;vertical-align:-0.14em;}
+.brand-pa img{height:.9em;vertical-align:-0.1em;}
+.brand-magno img{height:1.15em;vertical-align:-0.28em;}
+a.brand:hover img{opacity:.75;}
+.pp-auth .brand img{height:1.15em;}
+.fs-auth .brand img{height:1.7em;vertical-align:-0.45em;} .fs-auth .brand-magno img{height:2.1em;vertical-align:-0.6em;} .fs-auth .brand-pa img{height:1.5em;vertical-align:-0.35em;}
+p .brand img,li .brand img{height:1.02em;}
+footer .brand img{height:1em;}
+.intro-contact .brand img,.facts .brand img{height:1.35em;}
 </style>
 <link href="https://rbc-realestate.vercel.app/es/architecture.html" hreflang="es" rel="alternate"/></head>
 <body class="pg-arch">
@@ -1109,7 +1120,7 @@ body.fbig-open{overflow:hidden;}
 <footer>
 <div class="in">
 <div class="cols">
-<div><div class="seal"><img alt="RBC" src="../img/rbc-mono-white.png" style="height:46px;display:block;margin-bottom:12px;"/><span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Arquitectura, construcción y propiedades seleccionadas.<br/>San Miguel de Allende · Bajío · México.<br/>En colaboración con <a href="https://www.espaciosyformas.com.mx/" rel="noopener" style="display:inline;padding:0;" target="_blank">Espacios y Formas</a>.</p></div>
+<div><div class="seal"><img alt="RBC" src="../img/rbc-mono-white.png" style="height:46px;display:block;margin-bottom:12px;"/><span>Roberto Balderas Carrillo · Arquitecto</span></div><p style="margin-top:14px;">Arquitectura, construcción y propiedades seleccionadas.<br/>San Miguel de Allende · Bajío · México.<br/>En colaboración con <a href="https://www.espaciosyformas.com.mx/" rel="noopener" style="display:inline;padding:0;" target="_blank"><span class="brand brand-eyf"><img alt="Espacios y Formas" src="../img/eyf-wordmark-white.png" title="Espacios y Formas"/></span></a>.</p></div>
 <div><small>Sitio</small><a href="architecture.html">Arquitectura y Diseño</a><a href="real-estate.html">Bienes Raíces</a><a href="real-estate.html#developments">Desarrollos</a><a href="construction.html">Construcción</a><a href="contact.html">Contacto</a></div>
 <div><small>Start</small><a href="contact.html#project">Iniciar un proyecto</a><a href="contact.html#buy">Comprar una propiedad</a><a href="contact.html#sell">Vender una propiedad</a><a href="contact.html#general">Consulta general</a></div>
 <div><small>Directo</small><a href="https://wa.me/524611012474?text=Hi%20Roberto%2C%20I%20found%20your%20website%20and%20I%27d%20like%20to%20talk.">WhatsApp con Roberto</a><button class="tel-reveal" data-t="KzUyIDQ2MSAxMDEgMjQ3NA==">Mostrar teléfono</button><a href="https://www.instagram.com/arqrobertobalderas" rel="noopener" target="_blank">@arqrobertobalderas</a><a href="https://www.espaciosyformas.com.mx/" rel="noopener" target="_blank">espaciosyformas.com.mx</a><a href="privacy.html">Aviso de privacidad</a><a href="terms.html">Aviso legal</a></div>
@@ -1247,6 +1258,10 @@ document.querySelectorAll('.pfilters').forEach(f=>{
   if(!box) return;
   let bigSl=null;
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  const PFX=location.pathname.indexOf('/es/')>=0?'../':'';
+  const BR={'Espacios y Formas':['img/eyf-wordmark.png','https://www.espaciosyformas.com.mx/','brand brand-eyf'],'Peñas Arriba':['img/penas-arriba-text.png','penas-arriba.html','brand brand-pa'],'Magno':['img/magno-logo-navy.png','magno.html','brand brand-magno']};
+  function brand(s){ s=esc(s); for(const n in BR){ const [img,href,cls]=BR[n]; const h=href.startsWith('http')?href:PFX+href; const t=href.startsWith('http')?' target="_blank" rel="noopener"':''; s=s.split(n).join('<a class="'+cls+'" href="'+h+'"'+t+'><img src="'+PFX+img+'" alt="'+n+'" title="'+n+'"></a>'); } return s; }
+  window.brandHTML=brand;
   window.openFicha=function(slug){
     const d=(window.FICHAS||{})[slug]; if(!d) return;
     const shots=d.photos, plans=d.plans||[];
@@ -1257,7 +1272,7 @@ document.querySelectorAll('.pfilters').forEach(f=>{
         (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Fotos</button><button data-set="plans">Plantas</button></div>':'')+
       '</div>'+
       '<div class="fb-in">'+
-        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+esc(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
+        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+brand(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
         '<div class="fb-specs">'+d.specs.map(s=>'<div><div class="n">'+esc(s[0])+'</div><div class="l">'+esc(s[1])+'</div></div>').join('')+'</div>'+
         ((d.units||[]).length?'<div class="fb-units"><h4>Unidades disponibles</h4>'+d.units.map(u=>'<div><b>'+esc(u[0])+'</b><span>'+esc(u[1])+'</span><i>'+esc(u[2])+'</i></div>').join('')+'</div>':'')+
         '<div class="fb-grid"><div>'+
