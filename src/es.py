@@ -617,3 +617,11 @@ T.update({
  "The suite · 68.14 m²": "La suite · 68.14 m²",
  "Bedroom with queen bed · full bath · laundry area · private terrace with a view of the Parroquia and the historic center": "Recámara con cama queen · baño completo · área de lavado · terraza privada con vista a la Parroquia y al centro histórico",
 })
+# Autorías (17-oct-2026)
+T.update({
+ "Developed by Peñas Arriba": "Desarrollada por Peñas Arriba",
+ "Designed by RBC": "Diseñada por RBC",
+ "Built by Espacios y Formas": "Construida por Espacios y Formas",
+ "Designed by RBC · built by Espacios y Formas": "Diseñada por RBC · construida por Espacios y Formas",
+ "Magno · built by Espacios y Formas": "Magno · construida por Espacios y Formas",
+})

@@ -18,7 +18,7 @@ def add(**k): L.append(k); return k
 
 # ───────── SAN MIGUEL DE ALLENDE · sale ─────────
 add(slug="casa-horizonte", page=True, city="sma", kind="sale", name="Casa Horizonte · M4-L7", where="Peñas Arriba · San Miguel de Allende",
-    auth="Designed by RBC · built with Espacios y Formas",
+    auth="Developed by Peñas Arriba",
     status="Under construction · finishes open", feat=True, price_mxn=32_500_000,
     specs=[("622","m² built · 6,693 sq ft"),("827","m² lot · 8,905 sq ft"),("5","bedrooms"),("5½","baths"),("2","cars")],
     blurb="A house that follows its slope: entered from the top, stepping down the hill so the principal rooms face the historic center. Under construction; finishes still to be chosen.",
@@ -54,7 +54,7 @@ HIDDEN_MIRADOR = dict(slug="casa-mirador", page=True, city="sma", kind="sale", n
     img="img/view-historic-center.jpg", gallery=["img/san-miguel-de-allende-parroquia-view.jpg"])  # hidden for now (Roberto, sep 2026)
 
 add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro · M1-L14", where="Peñas Arriba · San Miguel de Allende",
-    auth="Peñas Arriba · built with Espacios y Formas",
+    auth="Developed by Peñas Arriba",
     status="Shell built · ~6 months to delivery", price_mxn=13_900_000,
     specs=[("343","m² built · 3,692 sq ft"),("418","m² lot · 4,500 sq ft"),("4+s","bedrooms"),("4½","baths"),("2","cars")],
     blurb="On the largest garden lot of the community, built to shell: plan and site are done, every finish is still open.",
@@ -71,7 +71,7 @@ add(slug="casa-zafiro", page=False, city="sma", kind="sale", name="Casa Zafiro �
     img="img/pa-zaf-r01.jpg", wa_msg="Hi Roberto, I'm interested in Casa Zafiro M1-L14.", gallery=['img/pa-zaf-r02.jpg'], plans=['img/pa-zaf-plan-pb-opt1.jpg', 'img/pa-zaf-plan-pb-opt2.jpg', 'img/pa-zaf-plan-pa-2.jpg', 'img/pa-zaf-lote-m1l14.jpg', 'img/pa-zaf-lote-m1l15.jpg', 'img/pa-zaf-plan-master.jpg'])
 
 add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-L1", where="Peñas Arriba · San Miguel de Allende",
-    auth="Peñas Arriba · built with Espacios y Formas",
+    auth="Developed by Peñas Arriba",
     status="Shell built · finishes open", price_mxn=None, price_note="Price on request",
     specs=[("592","m² built · 6,373 sq ft"),("764","m² lot · 8,219 sq ft"),("4+s","bedrooms"),("6+2","baths"),("2","cars")],
     blurb="First house of its block: the side façade rises from the street as one wall of natural stone. Double-height living and an unusually large garden with views of the historic center.",
@@ -88,7 +88,7 @@ add(slug="casa-cima", page=True, city="sma", kind="sale", name="Casa Cima · M6-
     img="img/pa-cima-r01.jpg", gallery=['img/pa-cima-r05.jpg', 'img/pa-cima-r03.jpg', 'img/pa-cima-r04.jpg'], plans=['img/pa-cima-plan-pb.jpg', 'img/pa-cima-plan-pa.jpg'])
 
 add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences", where="Peñas Arriba · San Miguel de Allende",
-    auth="Peñas Arriba · built with Espacios y Formas",
+    auth="Developed by Peñas Arriba",
     status="Built and under construction", price_mxn=None, price_note="From MX $6.6M",
     specs=[("4","units available"),("188–205","m²"),("3","bedrooms"),("3","full baths"),("2","cars")],
     blurb="Two-level duplex houses in Peñas Arriba: a garden residence on the ground floor and an upper residence with the view of the historic center. Three units available.",
@@ -110,7 +110,7 @@ add(slug="duplex", page=False, city="sma", kind="sale", name="Duplex residences"
 
 # ───────── SAN MIGUEL · rent ─────────
 add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", where="For rent · Historic center · San Miguel de Allende",
-    auth="Casa Cuadrante — restored and designed by RBC",
+    auth="Designed by RBC",
     status="For rent · Historic center", price_mxn=None, price_note="Price on request",
     specs=[("74","m² · 799 sq ft"),("1","bedroom · king"),("1","full bath"),("Balcony","facing the Parroquia"),("Services","included")],
     blurb="An apartment above Casa Cuadrante: living-dining with fireplace and a view of the Parroquia, private balcony, art on every wall. Furnished; services included.",
@@ -128,7 +128,7 @@ add(slug="casa-musa", page=True, city="sma", kind="rent", name="Casa Musa", wher
     img="img/ph-musa-n07.jpg", gallery=['img/ph-musa-n35.jpg', 'img/ph-musa-n09.jpg', 'img/ph-musa-n05.jpg', 'img/ph-musa-n23.jpg', 'img/ph-musa-n13.jpg', 'img/ph-musa-n14.jpg', 'img/ph-musa-n17.jpg', 'img/ph-musa-n28.jpg', 'img/ph-musa-n29.jpg', 'img/ph-musa-n30.jpg', 'img/ph-musa-n31.jpg', 'img/ph-musa-n33.jpg', 'img/ph-musa-n27.jpg', 'img/ph-musa-n24.jpg', 'img/ph-musa-n01.jpg', 'img/ph-musa-n20.jpg', 'img/ph-cuad-n03.jpg', 'img/ph-cuad-n01.jpg'])
 
 add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic Suite", where="For rent · Historic center · San Miguel de Allende",
-    auth="Casa Cuadrante — restored and designed by RBC",
+    auth="Designed by RBC",
     status="For rent · Historic center", price_mxn=None, price_note="Price on request",
     specs=[("68","m² · 733 sq ft"),("300°","terrace view"),("1","queen bed"),("1","full bath"),("Services","included")],
     blurb="A suite with a large private terrace directly in front of the Parroquia — a 300-degree view of the town. Queen bed, full bath, mini-fridge.",
@@ -147,7 +147,7 @@ add(slug="panoramic-suite", page=True, city="sma", kind="rent", name="Panoramic 
 
 # ───────── COUNTRYSIDE NEAR SMA ─────────
 add(slug="casa-ether", page=True, city="jalpa", kind="sale", name="Casa Ether", where="Piedras Azules · 20 minutes from San Miguel de Allende",
-    auth="Built by RBC · design developed from a prior scheme",
+    auth="Built by Espacios y Formas",
     status="Built · contemporary country estate", price_mxn=None, price_usd=2_200_000,
     specs=[("1,159","m² built · 12,475 sq ft"),("7,999","m² lot · 1.98 acres"),("4","bedrooms · all en suite"),("4+2","baths"),("2","levels"),("20 min","to San Miguel")],
     blurb="A contemporary country estate on a private hilltop: double-height ceilings, oak floors and walls of glass that open to mountain views in every direction. Lap pool, jacuzzi and fire pit.",
@@ -182,7 +182,7 @@ add(slug="casa-puerta-azul", page=True, city="sma", kind="sale", name="Casa Puer
 
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="El Campanario Residencial & Golf · Querétaro",
-    auth="Designed and built by RBC",
+    auth="Designed by RBC · built by Espacios y Formas",
     status="Newly built", price_mxn=40_000_000,
     specs=[("737","m² built · 7,933 sq ft"),("1,102","m² lot · 11,858 sq ft"),("4","bedrooms"),("Staff","quarters"),("4+2","baths"),("3","cars"),("Pool","& sun deck")],
     blurb="Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.",
@@ -193,14 +193,14 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
     condition="New. Never lived in.",
     potential="The ground-floor suite absorbs a gym, an office or a fourth bedroom without touching the rest of the plan.",
     notes="The double height was drawn for the mountains. Sit at the bar late in the afternoon and the reason is obvious.",
-    highlights=["737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot","Last lot of its private street — open mountain views","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Four en-suite bedrooms + staff quarters","Three bedrooms upstairs with family TV room and reading lobby; a fourth en-suite bedroom on the ground floor (also gym or study)","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed and built by RBC"],
+    highlights=["737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot","Last lot of its private street — open mountain views","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Four en-suite bedrooms + staff quarters","Three bedrooms upstairs with family TV room and reading lobby; a fourth en-suite bedroom on the ground floor (also gym or study)","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed by RBC · built by Espacios y Formas"],
     program=[("Ground level","Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · fourth en-suite bedroom (also gym / study) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage"),("Upper level","Three bedrooms with baths · family TV room · lobby for reading or linen")],
     location="El Campanario Residencial & Golf, Querétaro — the last lot of its private street, with open mountain views.",
     img="img/ph-travertino-r01.jpg", gallery=["img/ph-travertino-r02.jpg","img/ph-travertino-r03.jpg"])
 
 # ───────── CELAYA ─────────
 add(slug="magno-apartment", page=False, city="celaya", kind="sale", name="Magno Towers · Apartments", where="Celaya · Guanajuato",
-    auth="A development by Espacios y Formas",
+    auth="Magno · built by Espacios y Formas",
     status="Immediate delivery", price_mxn=None, price_note="From MX $4.65M · 26 apartments available",
     specs=[("2–3","bedrooms"),("171–229","m² living"),("18","floors"),("Immediate","delivery")],
     blurb="Apartments in the Magno tower in Celaya, developed and built by Espacios y Formas: 2 and 3 bedrooms, 171 to 229 m² of living space plus parking and storage, with spa, pool, gym and clubhouse. 26 apartments available for immediate delivery.",
@@ -244,7 +244,7 @@ add(slug="magno-apartment", page=False, city="celaya", kind="sale", name="Magno 
     wa_msg="Hi Roberto, I'm interested in an apartment in Magno Towers, Celaya.")
 
 add(slug="magno-home", page=False, city="celaya", kind="sale", name="Magno Homes · Houses & lots", where="Celaya · Guanajuato",
-    auth="A development by Espacios y Formas",
+    auth="Magno · built by Espacios y Formas",
     status="Houses and lots", price_mxn=None, price_note="Homes from MX $5.5M · Lots from MX $2.0M",
     specs=[("Single-family","homes"),("225–450","m² lots"),("Spa · pool","gym · club")],
     blurb="Single-family homes and residential lots inside Magno Home & Towers, Celaya, developed by Espacios y Formas. Lots of 225 to 450 m² in Cluster 1, with the spa, pool, gym and clubhouse already built.",
@@ -316,7 +316,7 @@ def property_page(l, wa, SITE):
 <div class="pp-bar"><div class="in">
   <div class="pp-price">{price_line(l, True)}</div>
   <div class="pp-auth"><small>Status</small>{l['status']}</div>
-  <div class="pp-auth"><small>Authorship</small>{l.get('auth','')}</div>
+  <div class="pp-auth"><small>Authorship</small>{__import__('brand').brand_html(l.get('auth',''))}</div>
   <a class="btn red" href="{wa(msg)}">{'Ask about availability' if rent else 'Request information'}</a>
 </div></div>
 <div class="stats"><div class="in">{sp}</div></div>

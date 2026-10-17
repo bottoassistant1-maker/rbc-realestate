@@ -6,6 +6,7 @@ import design
 import projects
 import projects_v13
 import fichas
+import brand
 
 SITE_URL = os.environ.get("SITE_URL", "https://rbc-realestate.vercel.app")
 OUT = os.path.join(os.path.dirname(__file__), "..")
@@ -268,7 +269,7 @@ def page(slug, title, desc, body, og_image, jsonld=None, active=None, extra_head
 {ld}<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}{devpages.CSS}{legal.CSS}</style>
+<style>{css}{EXTRA_CSS}{design.CSS}{projects.CSS}{projects_v13.CSS}{fichas.CSS}{devpages.CSS}{legal.CSS}{brand.CSS}</style>
 </head>
 <body class="{PGC.get(active,'')}">
 {nav(active)}
@@ -307,6 +308,10 @@ if __name__ == "__main__":
     # v23: Spanish version → /es/
     import glob
     slugs = [os.path.basename(p)[:-5] for p in glob.glob(os.path.join(OUT, "*.html")) if not os.path.basename(p).startswith("google")]
+    # v26: "Espacios y Formas" as its wordmark everywhere (Roberto, 17-oct-2026)
+    for s_ in slugs:
+        p_ = os.path.join(OUT, f"{s_}.html"); h_ = open(p_, encoding="utf-8").read(); h2_ = brand.eyfify(h_)
+        if h2_ != h_: open(p_, "w", encoding="utf-8").write(h2_)
     try:
         import es_build
         es_build.patch_en(OUT, SITE_URL, slugs)

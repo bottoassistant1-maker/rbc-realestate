@@ -20,7 +20,8 @@ def small_card(l, wa, i=0, md=False):
         </div>
         <div class="fs-bd">
           <div class="fs-where">{l['where']}</div>
-          <h3>{l['name']}{'<img class="fs-brand" src="img/penas-arriba-logo.png" alt="Peñas Arriba" title="Peñas Arriba">' if 'Peñas Arriba' in l['where'] else ''}</h3>
+          <h3>{l['name']}</h3>
+          {('<div class="fs-auth-sm">'+__import__('brand').brand_html(l['auth'])+'</div>') if l.get('auth') else ''}
           <div class="fs-pr">{price_line(l)}</div>
           <div class="fs-sp">{sp}</div>
           <span class="fs-open">Open sheet →</span>
@@ -67,7 +68,8 @@ CSS = r"""
 .cityf{margin:-6px 0 22px;}
 .fs.hide{display:none;}
 .fs-st.fs-rent{background:var(--red);color:#fff;font-weight:600;}
-.fs h3 .fs-brand{height:32px;width:auto;flex:0 0 auto;}
+.fs h3 .fs-brand{height:14px;width:auto;flex:0 0 auto;margin-left:4px;}
+.fs-auth-sm{font-size:.78rem;color:var(--ink-soft);margin-top:2px;line-height:1.6;} .fs-auth-sm .brand img{height:1.1em;} .fs-auth-sm .brand-pa img{height:1em;}
 
 /* ── ficha chica ── */
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;}
@@ -167,6 +169,10 @@ JS = r"""
   if(!box) return;
   let bigSl=null;
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+  const PFX=location.pathname.indexOf('/es/')>=0?'../':'';
+  const BR={'Espacios y Formas':['img/eyf-wordmark.png','https://www.espaciosyformas.com.mx/','brand brand-eyf'],'Peñas Arriba':['img/penas-arriba-text.png','penas-arriba.html','brand brand-pa'],'Magno':['img/magno-logo-navy.png','magno.html','brand brand-magno']};
+  function brand(s){ s=esc(s); for(const n in BR){ const [img,href,cls]=BR[n]; const h=href.startsWith('http')?href:PFX+href; const t=href.startsWith('http')?' target="_blank" rel="noopener"':''; s=s.split(n).join('<a class="'+cls+'" href="'+h+'"'+t+'><img src="'+PFX+img+'" alt="'+n+'" title="'+n+'"></a>'); } return s; }
+  window.brandHTML=brand;
   window.openFicha=function(slug){
     const d=(window.FICHAS||{})[slug]; if(!d) return;
     const shots=d.photos, plans=d.plans||[];
@@ -177,7 +183,7 @@ JS = r"""
         (plans.length?'<div class="fb-tabs"><button class="on" data-set="photos">Photos</button><button data-set="plans">Plans</button></div>':'')+
       '</div>'+
       '<div class="fb-in">'+
-        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+esc(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
+        '<div class="fb-head"><div><div class="fs-where">'+esc(d.where)+' · '+esc(d.status)+'</div><h2>'+esc(d.name)+'</h2>'+(d.auth?'<div class="fs-auth">'+brand(d.auth)+'</div>':'')+'</div><div class="fs-pr">'+d.price+'</div></div>'+
         '<div class="fb-specs">'+d.specs.map(s=>'<div><div class="n">'+esc(s[0])+'</div><div class="l">'+esc(s[1])+'</div></div>').join('')+'</div>'+
         ((d.units||[]).length?'<div class="fb-units"><h4>Available units</h4>'+d.units.map(u=>'<div><b>'+esc(u[0])+'</b><span>'+esc(u[1])+'</span><i>'+esc(u[2])+'</i></div>').join('')+'</div>':'')+
         '<div class="fb-grid"><div>'+
@@ -237,6 +243,11 @@ def font_faces():
 
 def pdf_html(l, site_url):
     from listings import price_line, mdp, usd
+    from brand import brand_html, eyfify, CSS as BRAND_CSS
+    return eyfify(_pdf_html(l, site_url, brand_html, BRAND_CSS))
+
+def _pdf_html(l, site_url, brand_html, BRAND_CSS):
+    from listings import price_line, mdp, usd
     ph = photos(l)
     sp = "".join(f'<div class="s"><b>{a}</b><span>{b}</span></div>' for a, b in l["specs"])
     hl = "".join(f"<li>{h}</li>" for h in l.get("highlights", []))
@@ -267,13 +278,16 @@ def pdf_html(l, site_url):
 <style>
 {font_faces()}
 @page{{size:A4;margin:0;}}
+{BRAND_CSS}
+.brand img{{height:1em;}} .auth .brand img{{height:1.3em;vertical-align:-0.3em;}} .contact .brand img{{height:1.1em;}}
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{background:#fff;}}
-body{{font-family:'Figtree','Helvetica Neue',Arial,sans-serif;color:#20242E;font-size:10pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+body{{font-family:'Figtree','Helvetica Neue',Arial,sans-serif;color:#20242E;font-size:9.5pt;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
 h1,h2,h3{{font-family:'Fraunces',Georgia,serif;font-weight:300;color:#232F66;}}
 .pg{{position:relative;width:210mm;height:297mm;overflow:hidden;padding:14mm 16mm 20mm;page-break-after:always;background:#FAF7F1;}}
 .pg:last-child{{page-break-after:auto;}}
 .cover{{padding:0;background:#fff;}}
+.pg.flow{{height:auto;min-height:297mm;overflow:visible;padding-bottom:22mm;}}
 .cover .hero{{height:176mm;overflow:hidden;background:#ddd;}} .cover .hero img{{width:100%;height:100%;object-fit:cover;display:block;}}
 .cover .logo{{position:absolute;top:187mm;right:14mm;height:11mm;}}
 .cover .kind{{position:absolute;top:13mm;right:14mm;font-size:7.5pt;letter-spacing:.3em;text-transform:uppercase;color:#fff;background:#232F66;padding:5px 10px;}}
@@ -293,14 +307,14 @@ h1,h2,h3{{font-family:'Fraunces',Georgia,serif;font-weight:300;color:#232F66;}}
 .foot{{position:absolute;left:16mm;right:16mm;bottom:9mm;display:flex;justify-content:space-between;font-size:6.8pt;letter-spacing:.08em;color:#5A6070;text-transform:uppercase;}}
 .cover .foot{{left:14mm;right:14mm;}}
 h2{{font-size:22pt;line-height:1.05;margin:4px 0 6mm;}}
-h3{{font-size:8pt;letter-spacing:.24em;text-transform:uppercase;font-family:'Figtree',Arial,sans-serif;font-weight:700;color:#232F66;margin:7mm 0 2mm;}}
+h3{{font-size:7.5pt;letter-spacing:.24em;text-transform:uppercase;font-family:'Figtree',Arial,sans-serif;font-weight:700;color:#232F66;margin:5mm 0 1.5mm;}}
 h3:first-of-type{{margin-top:0;}}
 .cols{{display:grid;grid-template-columns:1.25fr 1fr;gap:12mm;}}
-.lead{{font-family:'Fraunces',Georgia,serif;font-size:11pt;line-height:1.42;color:#20242E;}}
+.lead{{font-family:'Fraunces',Georgia,serif;font-size:10pt;line-height:1.38;color:#20242E;}}
 p{{margin:0 0 4px;color:#3a3f4a;}}
-ul{{list-style:none;}} li{{padding:4px 0 4px 14px;border-bottom:1px solid #E6E0D3;position:relative;font-size:9.5pt;}} li::before{{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:#F4C020;}}
+ul{{list-style:none;}} li{{padding:3px 0 3px 14px;border-bottom:1px solid #E6E0D3;position:relative;font-size:9pt;}} li::before{{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:#F4C020;}}
 .p{{border-top:1px solid #E6E0D3;padding:6px 0;font-size:9.3pt;color:#5A6070;}} .p b{{display:block;color:#232F66;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:11.5pt;margin-bottom:2px;}}
-.notes{{border-left:3px solid #F4C020;padding:3px 10px;margin:6mm 0;}} .notes b{{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:#232F66;}} .notes p{{font-family:'Fraunces',Georgia,serif;font-size:11pt;font-style:italic;margin:3px 0;}} .notes span{{font-size:7.5pt;letter-spacing:.14em;color:#5A6070;}}
+.notes{{border-left:3px solid #F4C020;padding:3px 10px;margin:4mm 0;}} .notes b{{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;color:#232F66;}} .notes p{{font-family:'Fraunces',Georgia,serif;font-size:11pt;font-style:italic;margin:3px 0;}} .notes span{{font-size:7.5pt;letter-spacing:.14em;color:#5A6070;}}
 .contact{{margin-top:5mm;border-top:1px solid #232F66;padding-top:4mm;display:grid;grid-template-columns:1fr 1fr;gap:8mm;font-size:9pt;color:#3a3f4a;}} .contact b{{display:block;color:#232F66;font-size:10.5pt;}}
 .fine{{font-size:6.5pt;color:#8a8f9c;margin-top:3mm;line-height:1.35;}}
 .plans{{display:grid;grid-template-columns:repeat({min(len(l.get("plans",[])) or 1,2)},1fr);gap:5mm;}} .plans img{{width:100%;height:232mm;object-fit:contain;background:#fff;border:1px solid #E6E0D3;}}
@@ -314,13 +328,13 @@ ul{{list-style:none;}} li{{padding:4px 0 4px 14px;border-bottom:1px solid #E6E0D
     <div class="eyebrow">{l['status']}</div>
     <h1>{l['name']}</h1>
     <div class="where">{l['where']}</div>
-    {('<div class="auth">'+l['auth']+'</div>') if l.get('auth') else ''}
+    {('<div class="auth">'+brand_html(l['auth'])+'</div>') if l.get('auth') else ''}
     <div class="pr"><b>{pbig}</b><span>{psmall}</span></div>
     <div class="specs">{sp}</div>
   </div>
   {foot}
 </section>
-<section class="pg">
+<section class="pg flow">
   <div class="eyebrow">{kind} · {l['where']}</div>
   <h2>{l['name']}</h2>
   <div class="cols">
