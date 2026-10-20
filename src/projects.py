@@ -63,7 +63,7 @@ PROJECTS = [
        txt="A single-level country house on a steel-roofed platform, open to the valley."),
   dict(slug="casa-pena", scale="art", name="Casa de la Peña", place="Peñas Arriba · San Miguel de Allende", year="2026", cat="res", built=False, img="img/pa-comm-01.jpg", photos=['img/pa-comm-01.jpg','img/ph-casa-pena-plan-pb.jpg','img/ph-casa-pena-plan-p1.jpg','img/ph-casa-pena-plan-p2.jpg'], ig="",
        txt="A large house on the rock at the top of Peñas Arriba: three levels stepping down the slope, terraces with plunge pools, a family wing and a guest wing, and parking for four cars."),
-  dict(slug="casa-ventanas", scale="art", name="Casa Ventanas", place="San Miguel de Allende", year="", cat="res", built=True, img="img/ob-casa-ventanas-09.jpg", photos=['img/ob-casa-ventanas-09.jpg', 'img/ob-casa-ventanas-10.jpg', 'img/ob-casa-ventanas-07.jpg', 'img/ob-casa-ventanas-02.jpg', 'img/ob-casa-ventanas-01.jpg'], ig="",
+  dict(slug="casa-ventanas", scale="art", name="Casa Ventanas", place="San Miguel de Allende", year="", cat="res", built=True, img="img/ph-ventanas-12.jpg", photos=['img/ph-ventanas-12.jpg', 'img/ph-ventanas-11.jpg', 'img/ph-ventanas-13.jpg', 'img/ph-ventanas-09.jpg', 'img/ph-ventanas-10.jpg', 'img/ph-ventanas-02.jpg', 'img/ph-ventanas-03.jpg', 'img/ph-ventanas-04.jpg', 'img/ph-ventanas-07.jpg', 'img/ph-ventanas-08.jpg', 'img/ph-ventanas-14.jpg', 'img/ph-ventanas-05.jpg', 'img/ph-ventanas-06.jpg', 'img/ph-ventanas-01.jpg'], ig="", note="Designed and built by Espacios y Formas", status_txt="Built",
        txt="House by a golf course; stone, wood ceilings and an inner patio with a pool."),
 ]
 

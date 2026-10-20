@@ -644,3 +644,4 @@ T.update({
  "El Campanario Residencial & Golf, Querétaro — the last lot of its private street.": "El Campanario Residencial & Golf, Querétaro — el último lote de su privada.",
  "Newly built on the last lot of its private street: double-height living and bar, pool and sun deck, four en-suite bedrooms plus staff quarters. Designed and built by RBC and Espacios y Formas; for sale.": "Recién construida en el último lote de su privada: sala y bar a doble altura, alberca y asoleadero, cuatro recámaras con baño más cuarto de servicio. Diseñada y construida por RBC y Espacios y Formas; en venta.",
 })
+T.update({"Built": "Construida"})

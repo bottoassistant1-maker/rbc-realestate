@@ -261,7 +261,7 @@ def proj_data():
         plans = [x for x in ph if x not in photos]
         out[p["slug"]] = dict(
             code=code(PROJECTS.index(p), p), name=p["name"], place=p["place"], year=p.get("year", ""),
-            status="Built by RBC" if p.get("built") else "Project",
+            status=p.get("status_txt") or ("Built by RBC" if p.get("built") else "Project"),
             txt=p.get("txt", "") if p["slug"] in DESC_OK else "", note=p.get("note", ""), m2=p.get("m2", ""), long=p.get("long", ""),
             photos=photos, plans=plans,
             ig=f"https://www.instagram.com/p/{p['ig']}/" if p.get("ig") else "",
