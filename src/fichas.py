@@ -267,7 +267,7 @@ def _pdf_html(l, site_url, brand_html, BRAND_CSS):
     # plans page
     plans_pg = ""
     if l.get("plans"):
-        plans_pg = f'<section class="pg"><div class="eyebrow">Plans</div><h2>{l["name"]} · floor plans</h2><div class="plancap"><span>Ground floor</span><span>Upper floor</span></div><div class="plans">' + "".join(f'<img src="{p}">' for p in l["plans"]) + f'</div>{foot}</section>'
+        plans_pg = f'<section class="pg"><div class="eyebrow">Plans</div><h2>{l["name"]} · floor plan{"s" if len(l["plans"])>1 else ""}</h2>{'<div class="plancap"><span>Ground floor</span><span>Upper floor</span></div>' if len(l["plans"])==2 else ''}<div class="plans">' + "".join(f'<img src="{p}">' for p in l["plans"]) + f'</div>{foot}</section>'
     # gallery pages, 6 photos per page, uncropped 3:2 cells
     gal = ph[1:]
     gal_pgs = ""

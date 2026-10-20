@@ -182,20 +182,19 @@ add(slug="casa-puerta-azul", page=True, city="sma", kind="sale", name="Casa Puer
 
 # ───────── QUERÉTARO ─────────
 add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Travertino", where="El Campanario Residencial & Golf · Querétaro",
-    auth="Designed by RBC · built by Espacios y Formas",
+    auth="Designed and built by RBC and Espacios y Formas",
     status="Newly built", price_mxn=40_000_000,
     specs=[("737","m² built · 7,933 sq ft"),("1,102","m² lot · 11,858 sq ft"),("4","bedrooms"),("Staff","quarters"),("4+2","baths"),("3","cars"),("Pool","& sun deck")],
-    blurb="Newly built on the last lot of its private street, facing the mountains: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.",
-    intro="Casa Travertino occupies the last lot of its private street inside El Campanario Residencial & Golf, which is why every terrace looks at the mountains. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.",
-    arch="Double-height living with bar and dining on the ground floor, terraces to the mountains; four en-suite bedrooms — three upstairs with a family room, one on the ground floor — plus staff quarters.",
-    site="Last lot of its private street in El Campanario Residencial & Golf, Querétaro — open mountain views with nothing to be built in front.",
-    materials="Newly built; stone, concrete and glass; pool with sun deck and covered terrace.",
+    blurb="Newly built on the last lot of its private street: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.",
+    intro="Casa Travertino occupies the last lot of its private street inside El Campanario Residencial & Golf. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.",
+    arch="Double-height living with bar and dining on the ground floor, covered terrace and sun deck; four en-suite bedrooms — three upstairs with a family room, one on the ground floor — plus staff quarters.",
+    site="Last lot of its private street in El Campanario Residencial & Golf, Querétaro.",
+    materials="Newly built; travertine, stone, concrete and glass; pool with sun deck and covered terrace.",
     condition="New. Never lived in.",
     potential="The ground-floor suite absorbs a gym, an office or a fourth bedroom without touching the rest of the plan.",
-    notes="The double height was drawn for the mountains. Sit at the bar late in the afternoon and the reason is obvious.",
-    highlights=["737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot","Last lot of its private street — open mountain views","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Four en-suite bedrooms + staff quarters","Three bedrooms upstairs with family TV room and reading lobby; a fourth en-suite bedroom on the ground floor (also gym or study)","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed by RBC · built by Espacios y Formas"],
+    highlights=["737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot","Last lot of its private street","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Four en-suite bedrooms + staff quarters","Three bedrooms upstairs with family TV room and reading lobby; a fourth en-suite bedroom on the ground floor (also gym or study)","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed and built by RBC and Espacios y Formas"],
     program=[("Ground level","Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · fourth en-suite bedroom (also gym / study) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage"),("Upper level","Three bedrooms with baths · family TV room · lobby for reading or linen")],
-    location="El Campanario Residencial & Golf, Querétaro — the last lot of its private street, with open mountain views.",
+    location="El Campanario Residencial & Golf, Querétaro — the last lot of its private street.",
     img="img/ph-travertino-r01.jpg", gallery=["img/ph-travertino-r02.jpg","img/ph-travertino-r03.jpg"])
 
 # ───────── CELAYA ─────────

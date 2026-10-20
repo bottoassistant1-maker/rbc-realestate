@@ -105,6 +105,6 @@ def patch_en(OUT, SITE_URL, pages):
         if not os.path.exists(p): continue
         h = open(p, encoding="utf-8").read()
         h = re.sub(r"<script>document\.querySelectorAll\('\[data-lang\]'\).*?</script>\n?", "", h, flags=re.S)
-        h = h.replace('<a class="lang" href="#" data-lang><b>EN</b> / ES</a>', f'<a class="lang" href="es/{slug}.html"><b>EN</b> / ES</a>')
+        h = re.sub(r'<a class="lang"[^>]*data-lang[^>]*>', f'<a class="lang" href="es/{slug}.html">', h)
         h = h.replace('<link rel="alternate" hreflang="x-default"', f'<link rel="alternate" hreflang="es" href="{SITE_URL}/es/{slug}.html">\n<link rel="alternate" hreflang="x-default"', 1)
         open(p, "w", encoding="utf-8").write(h)

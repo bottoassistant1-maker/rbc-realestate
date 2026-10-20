@@ -625,3 +625,22 @@ T.update({
  "Designed by RBC · built by Espacios y Formas": "Diseñada por RBC · construida por Espacios y Formas",
  "Magno · built by Espacios y Formas": "Magno · construida por Espacios y Formas",
 })
+T.update({"Designed and built by RBC and Espacios y Formas": "Diseñada y construida por RBC y Espacios y Formas"})
+# Autorías partidas por las marcas en línea (texto antes/entre logotipos)
+T.update({
+ "Designed and built by RBC and": "Diseñada y construida por RBC y",
+ "Developed by": "Desarrollada por", "Built by": "Construida por",
+ "Designed and built by": "Diseñada y construida por", "A development by": "Un desarrollo de",
+ "· built by": "· construida por", "Designed by RBC ·": "Diseñada por RBC ·",
+})
+# Casa Travertino sin montañas (20-oct-2026)
+T.update({
+ "Newly built on the last lot of its private street: double-height living and bar, pool with sun deck, four en-suite bedrooms (three upstairs, one on the ground floor) plus staff quarters.": "Recién construida en el último lote de su privada: sala y bar a doble altura, alberca con asoleadero, cuatro recámaras con baño (tres arriba, una en planta baja) más cuarto de servicio.",
+ "Casa Travertino occupies the last lot of its private street inside El Campanario Residencial & Golf. The ground floor is made for gathering: living room with bar and dining in double height, a kitchen with breakfast area, a covered terrace and a sun deck around the pool. Four en-suite bedrooms in all — three upstairs with a family TV room and a lobby that works as a reading room or linen closet, plus one on the ground floor — and full staff quarters. Newly built; never lived in.": "Casa Travertino ocupa el último lote de su privada dentro de El Campanario Residencial & Golf. La planta baja está hecha para reunirse: sala con bar y comedor a doble altura, cocina con desayunador, terraza techada y asoleadero alrededor de la alberca. Cuatro recámaras con baño en total — tres arriba con sala de TV familiar y un lobby que funciona como sala de lectura o clóset de blancos, más una en planta baja — y cuarto de servicio completo. Recién construida; nunca habitada.",
+ "Double-height living with bar and dining on the ground floor, covered terrace and sun deck; four en-suite bedrooms — three upstairs with a family room, one on the ground floor — plus staff quarters.": "Sala a doble altura con bar y comedor en planta baja, terraza techada y asoleadero; cuatro recámaras con baño — tres arriba con sala familiar, una en planta baja — más cuarto de servicio.",
+ "Last lot of its private street in El Campanario Residencial & Golf, Querétaro.": "Último lote de su privada en El Campanario Residencial & Golf, Querétaro.",
+ "Newly built; travertine, stone, concrete and glass; pool with sun deck and covered terrace.": "Recién construida; travertino, piedra, concreto y cristal; alberca con asoleadero y terraza techada.",
+ "Last lot of its private street": "Último lote de su privada",
+ "El Campanario Residencial & Golf, Querétaro — the last lot of its private street.": "El Campanario Residencial & Golf, Querétaro — el último lote de su privada.",
+ "Newly built on the last lot of its private street: double-height living and bar, pool and sun deck, four en-suite bedrooms plus staff quarters. Designed and built by RBC and Espacios y Formas; for sale.": "Recién construida en el último lote de su privada: sala y bar a doble altura, alberca y asoleadero, cuatro recámaras con baño más cuarto de servicio. Diseñada y construida por RBC y Espacios y Formas; en venta.",
+})
