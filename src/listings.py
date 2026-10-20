@@ -195,6 +195,7 @@ add(slug="casa-travertino", page=True, city="qro", kind="sale", name="Casa Trave
     highlights=["737 m² (7,933 sq ft) built on a 1,101.65 m² (11,858 sq ft) lot","Last lot of its private street","Double-height living room with bar, and dining room","Covered terrace, sun deck and pool with outdoor half-bath","Four en-suite bedrooms + staff quarters","Three bedrooms upstairs with family TV room and reading lobby; a fourth en-suite bedroom on the ground floor (also gym or study)","Kitchen with breakfast area, full staff quarters and service patio, storage","Three-car garage · guest half-bath","Designed and built by RBC and Espacios y Formas"],
     program=[("Ground level","Garage for 3 cars · staff room with bath and service patio · kitchen with breakfast area · fourth en-suite bedroom (also gym / study) · living-bar and dining in double height · covered terrace · sun deck and pool · outdoor half-bath · guest half-bath · storage"),("Upper level","Three bedrooms with baths · family TV room · lobby for reading or linen")],
     location="El Campanario Residencial & Golf, Querétaro — the last lot of its private street.",
+    plans=["img/ph-travertino-plan-pb.jpg","img/ph-travertino-plan-pa.jpg"],
     img="img/ph-travertino-r01.jpg", gallery=["img/ph-travertino-r02.jpg","img/ph-travertino-r03.jpg"])
 
 # ───────── CELAYA ─────────
