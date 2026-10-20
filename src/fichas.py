@@ -268,9 +268,16 @@ def _pdf_html(l, site_url, brand_html, BRAND_CSS):
     plans_pg = ""
     if l.get("plans"):
         plans_pg = f'<section class="pg"><div class="eyebrow">Plans</div><h2>{l["name"]} · floor plan{"s" if len(l["plans"])>1 else ""}</h2>{'<div class="plancap"><span>Ground floor</span><span>Upper floor</span></div>' if len(l["plans"])==2 else ''}<div class="plans">' + "".join(f'<img src="{p}">' for p in l["plans"]) + f'</div>{foot}</section>'
-    # gallery pages, 6 photos per page, uncropped 3:2 cells
+    # gallery pages, 8 photos per page, uncropped 3:2 cells
     gal = ph[1:]
     gal_pgs = ""
+    if l.get("plans") and 0 < len(gal) <= 2:
+        # compact sheet: plans and the few renders share one page
+        cap = '<div class="plancap"><span>Ground floor</span><span>Upper floor</span></div>' if len(l["plans"]) == 2 else ''
+        plans_pg = (f'<section class="pg"><div class="eyebrow">Plans &amp; renders</div><h2>{l["name"]} · floor plan{"s" if len(l["plans"])>1 else ""}</h2>{cap}'
+                    f'<div class="plans compact">' + "".join(f'<img src="{p}">' for p in l["plans"]) + '</div>'
+                    f'<div class="gal compact">' + "".join(f'<figure><img src="{p}"></figure>' for p in gal) + f'</div>{foot}</section>')
+        gal = []
     for i in range(0, len(gal), 8):
         chunk = gal[i:i+8]
         gal_pgs += f'<section class="pg"><div class="eyebrow">Gallery {i//8+1}</div><div class="gal">' + "".join(f'<figure><img src="{p}"></figure>' for p in chunk) + f'</div>{foot}</section>'
@@ -319,7 +326,8 @@ ul{{list-style:none;}} li{{padding:3px 0 3px 14px;border-bottom:1px solid #E6E0D
 .fine{{font-size:6.5pt;color:#8a8f9c;margin-top:3mm;line-height:1.35;}}
 .plans{{display:grid;grid-template-columns:repeat({min(len(l.get("plans",[])) or 1,2)},1fr);gap:5mm;}} .plans img{{width:100%;height:232mm;object-fit:contain;background:#fff;border:1px solid #E6E0D3;}}
 .plancap{{display:grid;grid-template-columns:1fr 1fr;gap:5mm;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:#5A6070;margin:-4mm 0 2mm;}}
-.gal{{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm;}} .gal figure{{aspect-ratio:3/2;background:#fff;overflow:hidden;}} .gal figure img{{width:100%;height:100%;object-fit:cover;display:block;}}
+.gal{{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm;}}
+.plans.compact img{{height:163mm;}} .gal.compact{{margin-top:6mm;}} .gal figure{{aspect-ratio:3/2;background:#fff;overflow:hidden;}} .gal figure img{{width:100%;height:100%;object-fit:cover;display:block;}}
 </style></head><body>
 <section class="pg cover">
   <div class="hero"><img src="{ph[0]}"></div>
